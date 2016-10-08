@@ -3,12 +3,12 @@
     <title>surface</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
     
-    <script src="http://cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="node_modules/core-js/client/shim.min.js"></script>
     <script src="node_modules/zone.js/dist/zone.js"></script>
     <script src="node_modules/reflect-metadata/Reflect.js"></script>
@@ -34,14 +34,14 @@
             <li><input type="text" placeholder="search" /></li>
             <li class="relative">
               <a href="#createRepo" data-toggle="collapse"><i class="fa fa-plus"></i>Create</a>
-              <ul class="panel-collapse collapse" id="createRepo" >
+              <ul class="panel-collapse collapse" id="createRepo">
                 <li><a href="###"><i class="fa fa-book"></i>Create Repository</a></li>
                 <li><a href="###"><i class="fa fa-users"></i>Create Organization</a></li>
               </ul>
             </li>
             <li class="relative">
               <a href="#userSetting" data-toggle="collapse"><i class="fa fa-user"></i>User</a>
-              <ul class="panel-collapse collapse in" id="userSetting" >
+              <ul class="panel-collapse collapse" id="userSetting">
                 <li><a href="###"><i class="fa fa-book"></i>Setting</a></li>
                 <li><a href="###"><i class="fa fa-users"></i>Login Out</a></li>
               </ul>
@@ -49,6 +49,22 @@
           </ul>
         </div>
       </nav>
+      <div id="repoList" style="display: none">
+        <p class="filter-repo">
+          <label class="relative">
+            <input type="text" />
+            <i class="fa fa-search"></i>
+          </label>
+          <span>
+            <i class="fa fa-book"></i>
+            Create repo
+          </span>
+        </p>
+        <div>
+          <div></div>
+          <p></p>
+        </div>
+      </div>
     </div>
     
   </body>

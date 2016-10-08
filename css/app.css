@@ -138,4 +138,15 @@ body {
   margin: 0 5px 0 10px;
 }
 /* nav end*/
+/* repo list start*/
+#repoList .filter-repo {
+  text-align: center;
+}
+#repoList .filter-repo input {
+  width: 80px;
+}
+#repoList .filter-repo label > i {
+  position: absolute;
+}
+/* repo list end*/
 /*# sourceMappingURL=app.css.map */
