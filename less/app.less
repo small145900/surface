@@ -5,6 +5,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	word-break:break-all;
 }
 
 a {
@@ -19,14 +20,14 @@ ul {
 	list-style: none;
 }
 
-input, textarea, input:focus, textarea:focus {
+input, textarea, select, button, input:focus, textarea:focus, select:focus, button:hover, button:focus {
 	outline: none;
 	border: none;
 }
 
 body {
 	font-size: @baseFontSize;
-	font-family: Microsoft YaHei;
+	// font-family: Microsoft YaHei;
 }
 
 .relative {
@@ -55,6 +56,10 @@ body {
 
 .over-hidden {
 	overflow: hidden;
+}
+
+.cursor-point {
+	cursor: pointer;
 }
 
  /* nav start */
@@ -148,6 +153,7 @@ body {
 	position: absolute;
 	top: 44px;
 	left: -66px;
+	z-index: 10000;
 }
 
 #userSetting {
@@ -205,6 +211,7 @@ body {
 	right: 30px;
 	top: -3px;
 	padding: 5px;
+	cursor: pointer;
 }
 
 #repoList .content {
@@ -276,4 +283,100 @@ body {
 	opacity: 0.5;
 }
 /* repo list end*/
+
+/* repo create start*/
+#newRepo {
+	margin-top: 60px;
+}
+
+#newRepo .guide {
+	position: relative;
+}
+
+#newRepo li {
+	height: auto;
+	width: 100%;
+	padding-top: 50px;
+	border-left: 1px dashed #b3b3b3;
+}
+
+#newRepo li:first-child {
+	padding: 0;
+}
+
+#newRepo li span {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border-radius: 50%;
+	font-size: 16px;
+	background: gainsboro;
+	color: #fff;
+	vertical-align: top;
+	position: relative;
+	left: -20px;
+}
+
+#newRepo li:last-child span {
+	top: 5px;
+}
+
+#newRepo li b {
+	font-size: 16px;
+	font-weight: normal;
+	display: inline-block;
+	width: calc(100% - 52px);
+	width: -webkit-calc(100% - 52px);
+}
+
+#newRepo .base-info {
+	background: rosybrown;
+	padding: 24px 20px;
+}
+
+#newRepo input, #newRepo textarea {
+	width: 95%;
+	padding: 12px;
+	font-size: 16px;
+	background: none;
+	color: #fff;
+	border-bottom: 1px solid #fff;
+}
+
+#newRepo input::-webkit-input-placeholder, #newRepo textarea::-webkit-input-placeholder {
+	color: #ddd;
+}
+
+#newRepo textarea {
+	height: 200px;
+	border: 1px solid #fff;
+}
+
+#newRepo .visible-type {
+	margin: 10px auto;
+	font-size: 16px;
+}
+
+#newRepo span {
+	display: inline-block;
+	width: 60px;
+}
+
+#newRepo select {
+	width: calc(95% - 60px);
+	width: -webkit-calc(95% - 60px);
+}
+
+#newRepo button {
+	font-size: 16px;
+	width: 60px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	border: 2px;
+}
+
+/* repo create end*/
 
