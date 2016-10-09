@@ -46,6 +46,9 @@ body {
 	color: @skyblue;
 }
 
+.bg-brownness {
+	color: @brownness;
+}
 .mar-tp-no {
 	margin-top: 0;
 }
@@ -113,7 +116,7 @@ body {
 	height: 28px;
 	line-height: 28px;
 	margin-top: 9px;
-	margin-left: 12px;
+	margin-left: @baseMargin+2px;
 }
 
 #nav .user > ul > li > a {
@@ -144,7 +147,7 @@ body {
 }
 
 #nav .user > ul > li input:focus {
-	background: #fff;
+	background: @white;
 }
 
 #createRepo, #userSetting {
@@ -192,8 +195,8 @@ body {
 	height: 40px;
 	line-height: 40px;
 	font-size: 20px;
-	margin-top: 65px;
-	margin-bottom: 80px;
+	margin-top: @baseMargin+55px;
+	margin-bottom: @baseMargin+70px;
 }
 
 #repoList .filter-repo input {
@@ -216,11 +219,11 @@ body {
 
 #repoList .content {
 	width: 100%;
-	margin-left: 12px;
+	margin-left: @baseMargin+2px;
 }
 
 #repoList .media-repo {
-	margin-top: 40px;
+	margin-top: @baseMargin+30px;
 }
 
 #repoList .repo-left {
@@ -246,7 +249,7 @@ body {
 	display: inline-block;
 	width: 42%;
 	padding: 12px;
-	margin-bottom: 20px;
+	margin-bottom: @baseMargin+10px;
 	background: #eaeaea;
 	vertical-align: top;
 }
@@ -266,7 +269,7 @@ body {
 
 #repoList .star-fork {
 	font-size: 20px;
-	margin-top: 50px;
+	margin-top: @baseMargin+50px;
 	margin-bottom: 0;
 	position: relative;
 }
@@ -286,7 +289,7 @@ body {
 
 /* repo create start*/
 #newRepo {
-	margin-top: 60px;
+	margin-top: @baseMargin+50px;
 }
 
 #newRepo .guide {
@@ -313,10 +316,14 @@ body {
 	border-radius: 50%;
 	font-size: 16px;
 	background: gainsboro;
-	color: #fff;
+	color: @white;
 	vertical-align: top;
 	position: relative;
 	left: -20px;
+}
+
+#newRepo li:first-child span {
+	background: @brownness;
 }
 
 #newRepo li:last-child span {
@@ -327,8 +334,8 @@ body {
 	font-size: 16px;
 	font-weight: normal;
 	display: inline-block;
-	width: calc(100% - 52px);
-	width: -webkit-calc(100% - 52px);
+	width: e("calc(100% - 52px)");
+	width: e("-webkit-calc(100% - 52px)");
 }
 
 #newRepo .base-info {
@@ -341,8 +348,8 @@ body {
 	padding: 12px;
 	font-size: 16px;
 	background: none;
-	color: #fff;
-	border-bottom: 1px solid #fff;
+	color: @white;
+	border-bottom: 1px solid @white;
 }
 
 #newRepo input::-webkit-input-placeholder, #newRepo textarea::-webkit-input-placeholder {
@@ -351,32 +358,65 @@ body {
 
 #newRepo textarea {
 	height: 200px;
-	border: 1px solid #fff;
+	border: 1px solid @white;
 }
 
 #newRepo .visible-type {
-	margin: 10px auto;
+	margin: @baseMargin+5px auto @baseMargin+15px;
 	font-size: 16px;
 }
 
-#newRepo span {
+#newRepo .visible-type > span {
 	display: inline-block;
-	width: 60px;
+	width: 65px;
+	color: @white;
+}
+
+#newRepo .visible-type label {
+	color: @white;
+	width: e("calc(95% - 65px)");
+	width: e("-webkit-calc(95% - 65px)");
+}
+
+#newRepo .visible-type input {
+	width: 18px;
+	height: 18px;
+	position: relative;
+	top: 5px;
+}
+
+#newRepo .visible-type input:active, #newRepo .visible-type input:focus {
+	outline: none;
+	border: none;
+}
+
+#newRepo .visible-type input:last-child {
+	margin-left: @baseMargin;
 }
 
 #newRepo select {
-	width: calc(95% - 60px);
-	width: -webkit-calc(95% - 60px);
+	width: e("calc(95% - 60px)");
+	width: e("-webkit-calc(95% - 60px)");
+	padding: 12px;
+	color: @gray;
 }
 
-#newRepo button {
+#newRepo option {
+	padding: 12px;
+}
+
+#newRepo .btn-create {
 	font-size: 16px;
-	width: 60px;
+	width: 70px;
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
-	border: 2px;
+	border-radius: @baseRadius;
+	color: @white;
 }
 
+#newRepo .btn-create:hover {
+	background: #ff5400;
+}
 /* repo create end*/
 

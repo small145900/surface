@@ -73,13 +73,17 @@
           <p><input type="text" placeholder="short descript" /></p>
           <textarea placeholder="full descript"></textarea>
           <div class="visible-type">
-            <span>visibility</span>
-            <select>
+            <span>visibility:</span>
+            <label>
+              <input type="radio" name="visibility" value="0"/>public
+              <input type="radio" name="visibility" value="1"/>private
+            </label>
+            <!-- <select>
               <option value="0">public</option>
               <option value="1">private</option>
-            </select>
+            </select> -->
           </div>
-          <button>create</button>
+          <button class="btn-create">create</button>
         </div>
       </div>
     </div>
