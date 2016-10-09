@@ -1,8 +1,434 @@
 * {
   margin: 0;
   padding: 0;
+  word-break: break-all;
+}
+a {
+  color: #000;
+}
+a,
+a:hover,
+a:active {
+  text-decoration: none !important;
+}
+ul {
+  list-style: none;
+}
+input,
+textarea,
+select,
+button,
+input:focus,
+textarea:focus,
+select:focus,
+button:hover,
+button:focus {
+  outline: none;
+  border: none;
 }
 body {
   font-size: 12px;
 }
+.relative {
+  position: relative;
+}
+.col-orange {
+  color: #ff5400;
+}
+.col-gray {
+  color: #b3b3b3;
+}
+.col-skyblue {
+  color: skyblue;
+}
+.bg-brownness {
+  color: #c9caaa;
+}
+.mar-tp-no {
+  margin-top: 0;
+}
+.mar-lt {
+  margin-left: 10px;
+}
+.over-hidden {
+  overflow: hidden;
+}
+.cursor-point {
+  cursor: pointer;
+}
+/* nav start */
+.container-fluid {
+  padding: 0;
+}
+.row {
+  margin: 0;
+}
+#nav {
+  width: 100%;
+  height: 44px;
+  margin-bottom: 10px;
+  background: #000;
+}
+#nav .menu,
+#nav .user {
+  height: 100%;
+}
+#nav .menu a,
+#nav .user a {
+  font-size: 14px;
+  color: #b3b3b3;
+}
+#nav a:hover,
+#nav a:active,
+#createRepo a:hover,
+#createRepo:active {
+  color: #fff;
+  background: #b3b3b3;
+  border-radius: 2px;
+}
+#createRepo a:hover,
+#createRepo a:active,
+#userSetting a:hover,
+#userSetting a:active {
+  border-radius: 0;
+}
+#nav .menu img {
+  width: 50px;
+  height: 100%;
+}
+#nav .menu ul {
+  width: 70%;
+  float: left;
+  overflow: hidden;
+}
+#nav .menu ul li a,
+#nav .user > ul > li > a {
+  padding: 0 12px;
+  height: 28px;
+  line-height: 28px;
+  margin-top: 9px;
+  margin-left: 12px;
+}
+#nav .user > ul > li > a {
+  padding: 0;
+}
+#nav .menu ul li a,
+#nav .user > ul > li {
+  float: left;
+}
+#nav .user > ul > li > a {
+  display: inline-block;
+  width: 120px;
+}
+#nav .user > ul > li {
+  height: 44px;
+}
+#nav .user > ul > li input {
+  width: 100%;
+  height: 28px;
+  margin-top: 8px;
+  padding: 0 5px;
+  border-radius: 2px;
+  background: #e7e7e7;
+  font-size: 14px;
+}
+#nav .user > ul > li input:focus {
+  background: #fff;
+}
+#createRepo,
+#userSetting {
+  width: 200px;
+  background: #000;
+  position: absolute;
+  top: 44px;
+  left: -66px;
+  z-index: 10000;
+}
+#userSetting {
+  width: 120px;
+  left: 12px;
+}
+#createRepo ul li,
+#createRepo ul li a,
+#userSetting ul li,
+#userSetting ul li a {
+  width: 100%;
+}
+#createRepo ul li,
+#userSetting ul li {
+  height: 44px;
+}
+#createRepo a,
+#userSetting a {
+  display: inline-block;
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  font-size: 14px;
+}
+#nav i {
+  margin: 0 5px 0 10px;
+}
+/* nav end*/
+/* repo list start*/
+#repoList .filter-repo {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  margin-top: 65px;
+  margin-bottom: 80px;
+}
+#repoList .filter-repo input {
+  width: 500px;
+  margin-right: 10px;
+  border: 1px solid #eaeaea;
+  border-radius: 24px 24px 24px 24px;
+  padding: 0 12px;
+  font-size: 14px;
+}
+#repoList .filter-repo .search {
+  position: absolute;
+  right: 30px;
+  top: -3px;
+  padding: 5px;
+  cursor: pointer;
+}
+#repoList .content {
+  width: 100%;
+  margin-left: 12px;
+}
+#repoList .media-repo {
+  margin-top: 40px;
+}
+#repoList .repo-left {
+  border-top: 1px solid #000;
+}
+#repoList .repo-left span {
+  display: inline-block;
+  width: 90%;
+  height: 40px;
+  line-height: 40px;
+  text-overflow: ellipsis;
+}
+#repoList .repo-left span:first-child {
+  border-bottom: 1px solid #b3b3b3;
+  height: 40px;
+  font-size: 16px;
+  color: #000;
+}
+#repoList .repo-body a {
+  display: inline-block;
+  width: 42%;
+  padding: 12px;
+  margin-bottom: 20px;
+  background: #eaeaea;
+  vertical-align: top;
+}
+#repoList .repo-body a:nth-child(2n) {
+  margin-left: 8%;
+}
+#repoList .repo-body h3 {
+  margin-top: 8px;
+  font-size: 20px;
+}
+#repoList .repo-body h5 {
+  font-size: 16px;
+}
+#repoList .star-fork {
+  font-size: 20px;
+  margin-top: 60px;
+  margin-bottom: 0;
+  position: relative;
+}
+#repoList .star-fork i {
+  font-size: 24px;
+}
+#repoList .star-fork i.fa-info-circle {
+  font-size: 18px;
+  position: absolute;
+  top: 8px;
+  right: -4px;
+  opacity: 0.5;
+}
+/* repo list end*/
+/* repo create start*/
+#newRepo {
+  margin-top: 60px;
+}
+#newRepo .guide {
+  position: relative;
+}
+#newRepo li {
+  height: auto;
+  width: 100%;
+  padding-top: 50px;
+  border-left: 1px dashed #b3b3b3;
+}
+#newRepo li:first-child {
+  padding: 0;
+}
+#newRepo li span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 16px;
+  background: gainsboro;
+  color: #fff;
+  vertical-align: top;
+  position: relative;
+  left: -20px;
+}
+#newRepo li:first-child span {
+  background: #c9caaa;
+}
+#newRepo li:last-child span {
+  top: 5px;
+}
+#newRepo li b {
+  font-size: 16px;
+  font-weight: normal;
+  display: inline-block;
+  width: calc(100% - 52px);
+  width: -webkit-calc(100% - 52px);
+}
+#newRepo .base-info {
+  background: rosybrown;
+  padding: 24px 20px;
+}
+#newRepo input,
+#newRepo textarea {
+  width: 95%;
+  padding: 12px;
+  font-size: 16px;
+  background: none;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+#newRepo input::-webkit-input-placeholder,
+#newRepo textarea::-webkit-input-placeholder {
+  color: #ddd;
+}
+#newRepo textarea {
+  height: 200px;
+  border: 1px solid #fff;
+}
+#newRepo .visible-type {
+  margin: 15px auto 25px;
+  font-size: 16px;
+}
+#newRepo .visible-type > span {
+  display: inline-block;
+  width: 65px;
+  color: #fff;
+}
+#newRepo .visible-type label {
+  color: #fff;
+  width: calc(95% - 65px);
+  width: -webkit-calc(95% - 65px);
+}
+#newRepo .visible-type input {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  top: 5px;
+}
+#newRepo .visible-type input:active,
+#newRepo .visible-type input:focus {
+  outline: none;
+  border: none;
+}
+#newRepo .visible-type input:last-child {
+  margin-left: 10px;
+}
+#newRepo select {
+  width: calc(95% - 60px);
+  width: -webkit-calc(95% - 60px);
+  padding: 12px;
+  color: #b3b3b3;
+}
+#newRepo option {
+  padding: 12px;
+}
+#newRepo .btn-create {
+  font-size: 16px;
+  width: 70px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 2px;
+  color: #fff;
+}
+#newRepo .btn-create:hover {
+  background: #ff5400;
+}
+/* repo create end*/
+/* org list start*/
+#orgList {
+  margin-top: 50px;
+}
+#orgList .title {
+  font-size: 16px;
+}
+#orgList .title button {
+  background: #fff;
+  color: #b3b3b3;
+  padding: 10px 20px;
+  border: 1px solid skyblue;
+  border-radius: 24px;
+}
+#orgList .title button:hover,
+#orgList .title button:focus,
+#orgList .title button:active {
+  color: #fff;
+  background: skyblue;
+}
+#orgList .media-org {
+  overflow: hidden;
+  border: 1px solid #d7d7d7;
+  border-radius: 16px;
+  margin-top: 40px;
+  width: 90%;
+  margin-left: 5%;
+}
+#orgList .org-left,
+#orgList .org-body {
+  float: left;
+  padding: 24px 12px;
+}
+#orgList .org-left {
+  width: 30%;
+  border: 1px solid #eaeaea;
+  text-align: center;
+}
+#orgList .org-body {
+  width: 70%;
+  margin-top: 20px;
+  text-align: center;
+  color: skyblue;
+}
+#orgList .org-body span {
+  font-size: 30px;
+}
+#orgList .org-body small {
+  color: #b3b3b3;
+}
+#orgList img {
+  width: 60px;
+  height: 60px;
+  max-width: 100%;
+  border: 1px solid #b3b3b3;
+  border-radius: 50%;
+  padding: 10px;
+}
+#orgList .org-left span {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 16px;
+}
+/* org list end*/
 /*# sourceMappingURL=app.css.map */
