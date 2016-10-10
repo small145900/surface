@@ -21,60 +21,73 @@
   <body>
     <my-app>Loading...</my-app>
     <div class="container-fluid">
-      <nav class="row" id="nav">
-        <div class="col-xs-12 col-md-6 menu">
-          <ul>
-            <li><a href="###"><img src="img/logo.png" alt="dockyard" /></a></li>
-            <li><a href="###">Repositories</a></li>
-            <li><a href="###">Organizations</a></li>
-          </ul>
-        </div>
-        <div class="col-xs-12 col-md-6 user">
-          <ul class="pull-right">
-            <li><input type="text" placeholder="search" /></li>
-            <li class="relative">
-              <a id="#createRepo" data-toggle="dropdown"><i class="fa fa-plus"></i>Create</a>
-              <ul class="dropdown-menu" id="createRepo">
-                <li><a href="###"><i class="fa fa-book"></i>Create Repository</a></li>
-                <li><a href="###"><i class="fa fa-users"></i>Create Organization</a></li>
-              </ul>
-            </li>
-            <li class="relative">
-              <a id="#userSetting" data-toggle="dropdown"><i class="fa fa-user"></i>User</a>
-              <ul class="dropdown-menu" id="userSetting">
-                <li><a href="###"><i class="fa fa-book"></i>Setting</a></li>
-                <li><a href="###"><i class="fa fa-users"></i>Login Out</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div id="createOrg">
-        <div class="steps">
-          <p class="guide">
-            Organizations can have multiple Teams. Teams can have differing permissions. Namespace is unique and this is where repositories for this organization will be created. 
+      <header id="header">
+        <div class="over-hidden">
+          <p class="pull-left"><img src="img/logo.png"/></p>
+          <p class="pull-right nav-rt">
+            <a href="javascript:void(0)" class="space">Brower</a >
+            <a href="javascript:void(0)" class="space">Tutorial</a >
+            <a href="javascript:void(0)" class="space">Docs</a >
+            <a href="javascript:void(0)" class="space">Login</a >
+            <a href="javascript:void(0)" class="space">Sign up</a >
           </p>
-          <ul class="step-nav">
-            <li><span>1</span></li>
-            <li><span>2</span></li>
-            <li><span>3</span></li>
-            <li><span>4</span></li>
-          </ul>
         </div>
-        <div class="create">
-          <div class="first-step">
-            <input type="text" placeholder="Namespace" />
-            <input type="text" placeholder="Organization Name" />
-            <input type="text" placeholder="Company" />
-            <input type="text" placeholder="Location" />
-            <input type="text" placeholder="Gravatar Email" />
-            <input type="text" placeholder="Website URL" />
-            <input type="text" placeholder="Location" />
-            <button class="save">Create</button>
-          </div>
+        <ul class="text-center search">
+          <li><h3>Search The Container Repository</h3></li>
+          <li><h4 class="mar-tb-twenty">Find Trusted Containers And DevOps Component</h4></li>
+          <li><input type="text"/></li>
+        </ul>
+      </header>
+      <div class="content-one">
+        <p class="pull-left features">
+          <span class="space character">Spotlight</span>
+          <span class="space title">Feature Component</span>
+          <span class="space detail">Working out of box, integration in the ContainerOps</span>
+        </p>
+        <div class="pull-left surface-carousel">轮播图</div>
+      </div>
+      <div class="row content-two">
+        <div class="col-xs-6 col-md-3">
+          <p class="space font-big">
+            On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter 
+          </p>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <p class="space">
+            On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter
+          </p>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <p class="space">
+            On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter
+          </p>
+        </div>
+        <div class="col-xs-6 col-md-3">
+          <p class="space">
+            On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter
+          </p>
         </div>
       </div>
+      <div class="content-three">
+        <p class="space">
+          <img src="###"/>
+          <img src="###"/>
+          <img src="###"/>
+          <img src="###"/>
+        </p>
+      </div>
+      <footer id="footer">
+        <p class="pull-left">
+          Build,Ship,Run,An open plattorm tor distributed applications for developers and sysadmins <br/>
+          Copyright@2016 Docker Inc.All rights reserved
+        </p>
+        <p class="pull-right">
+          <span class="space">Privacy</span>
+          <span class="space">Terms</span>
+          <span class="space">About</span>
+          <span class="space">Contact</span>
+        </p>
+      </footer>
     </div>
-    
   </body>
 </html>

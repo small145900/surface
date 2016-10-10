@@ -25,12 +25,6 @@ input, textarea, select, button, input:focus, textarea:focus, select:focus, butt
 	border: none;
 }
 
-body {
-	font-size: @baseFontSize;
-	background: #F0EFF5;
-	// font-family: Microsoft YaHei;
-}
-
 .relative {
 	position: relative;
 }
@@ -50,12 +44,18 @@ body {
 .bg-brownness {
 	color: @brownness;
 }
+
 .mar-tp-no {
 	margin-top: 0;
 }
 
 .mar-lt {
 	margin-left: 10px;
+}
+
+.mar-tb-twenty {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .over-hidden {
@@ -66,7 +66,10 @@ body {
 	cursor: pointer;
 }
 
- /* nav start */
+.disp-no {
+	display: none;
+}
+
 .container-fluid {
 	padding: 0;
 }
@@ -75,6 +78,133 @@ body {
 	margin: 0;
 }
 
+
+body {
+	font-size: @baseFontSize;
+	background: #F0EFF5;
+	// font-family: Microsoft YaHei;
+}
+
+/* index start */
+#header {
+	overflow: hidden;
+	font-size: 14px;
+	padding: 15px 12px;
+	background: lightblue;
+}
+
+#header, #header .space {
+	color: @white;
+}
+
+#header img {
+	width: 40px;
+	height: 40px;
+}
+
+.nav-rt .space {
+	margin-left: 10px;
+}
+
+.search {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.search input {
+	width: 40%;
+	color: #000;
+	padding: 6px 12px;
+	font-size: 12px;
+}
+
+.content-one {
+	overflow: hidden;
+	background: @white;
+	padding: 40px;
+}
+
+.content-one .space {
+	display: block;
+	width: 100%;
+}
+
+.content-one .features {
+	width: 150px;
+	margin-right: 50px;
+}
+
+.content-one .character {
+	padding: 5px 12px;
+	background: lightblue;
+	color: @white;
+}
+
+.content-one .title {
+	padding: 10px 0;
+}
+
+.content-two {
+	background: lightblue;
+	padding: 40px 0;
+	font-size: 0;
+	color: @white;
+}
+
+.content-two .space {
+	display: inline-block;
+	font-size: 14px;
+	vertical-align: bottom;
+	width: 80%;
+	margin-left: 10%;
+}
+
+.content-two .font-big { 
+	font-size: 16px;
+}
+
+.surface-carousel {
+	width: e("calc(100% - 200px)");
+	width: e("-webkit-calc(100% - 200px)");
+	height: 250px;
+	border: 1px solid @gray;
+}
+
+.content-three {
+	background: @white;
+	padding: 40px 0;
+}
+
+.content-three .space {
+	width: 75%;
+	margin: 0 auto;
+}
+
+.content-three img {
+	width: e("calc((75% - 120px) / 3 )");
+	width: e("-webkit-calc((75% - 120px) / 3 )");
+	height: 200px;
+	margin-left: 30px;
+	border: 1px solid #b3b3b3;
+}
+
+#footer {
+	padding: 20px 12px;
+	background: lightblue;
+	color: @white;
+	overflow: hidden;
+}
+
+#footer .space {
+	padding: 4px 14px;
+	border-radius: 24px;
+	background: #d7d7d7;
+	margin-left: 10px;
+	font-size: 14px;
+}
+/* index end */
+
+/* nav start */
 #nav {
 	width: 100%;
 	height: 44px;
@@ -183,7 +313,6 @@ body {
 #nav i {
 	margin: 0 5px 0 10px;
 }
-
 /* nav end */
 
 /* repo list start */
@@ -611,9 +740,8 @@ body {
 
 #createOrg .step-nav {
 	height: 44px;
-	line-height: 44px;
 	width: 100%;
-	margin-top: 40px;
+	margin-top: 20px;
 	text-align: center;
 }
 
