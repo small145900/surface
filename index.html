@@ -33,15 +33,15 @@
           <ul class="pull-right">
             <li><input type="text" placeholder="search" /></li>
             <li class="relative">
-              <a href="#createRepo" data-toggle="collapse"><i class="fa fa-plus"></i>Create</a>
-              <ul class="panel-collapse collapse" id="createRepo">
+              <a id="#createRepo" data-toggle="dropdown"><i class="fa fa-plus"></i>Create</a>
+              <ul class="dropdown-menu" id="createRepo">
                 <li><a href="###"><i class="fa fa-book"></i>Create Repository</a></li>
                 <li><a href="###"><i class="fa fa-users"></i>Create Organization</a></li>
               </ul>
             </li>
             <li class="relative">
-              <a href="#userSetting" data-toggle="collapse"><i class="fa fa-user"></i>User</a>
-              <ul class="panel-collapse collapse" id="userSetting">
+              <a id="#userSetting" data-toggle="dropdown"><i class="fa fa-user"></i>User</a>
+              <ul class="dropdown-menu" id="userSetting">
                 <li><a href="###"><i class="fa fa-book"></i>Setting</a></li>
                 <li><a href="###"><i class="fa fa-users"></i>Login Out</a></li>
               </ul>
@@ -49,74 +49,93 @@
           </ul>
         </div>
       </nav>
-      <div id="orgList">
-        <p class="col-xs-10 col-xs-offset-1 title">
-          <span class="pull-left">Organizations & Teams</span>
-          <button class="pull-right cursor-point">
-            <i class="fa fa-plus"></i>
-            Create Organization
-          </button>
+      <div id="repoDetail">
+        <p class="praise">
+          org/repo name
+          <i class="fa fa-star"></i>
         </p>
         <div class="row">
-         <!--  <div class="col-xs-10 col-md-10 col-xs-offset-1 col-md-offset-1">
-            <div class="media-org">
-              <a href="javascript:void(0)" class="org-left">
-                <img src="img/logo.png"/>
-                <span>org name</span>
+          <div class="col-xs-12 col-md-6">
+            <div class="space info"> 
+              <a href="#info" data-toggle="collapse">
+                Base Info
+                <i class="fa fa-sort-desc expend"></i>
               </a>
-              <a href="javascript:void(0)" class="org-body">
-                <span>3575</span><br/>
-                <small>repo num</small>
-              </a>          
-            </div>      
-          </div> -->
-          <div class="col-xs-10 col-md-4">
-            <div class="media-org">
-              <a href="javascript:void(0)" class="org-left">
-                <img src="img/logo.png"/>
-                <span>org name</span>
-              </a>
-              <a href="javascript:void(0)" class="org-body">
-                <span>3575</span><br/>
-                <small>repo num</small>
-              </a>          
-            </div>      
+              <div class="panel-collapse collapse in" id="info">
+                <div class="command">
+                  <h4>
+                    Docker Pull Command
+                    <i class="fa fa-files-o copy"></i>
+                  </h4>
+                  <span>docker pull command</span>
+                </div>
+                <ul class="desc">
+                  <li>
+                    Short Description<br/>
+                    <span>this is short desc</span>
+                  </li>
+                  <li>
+                    Full Description<br/>
+                    <span>this is full desc</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="col-xs-10 col-md-4">
-            <div class="media-org">
-              <a href="javascript:void(0)" class="org-left">
-                <img src="img/logo.png"/>
-                <span>org name</span>
+          <div class="col-xs-12 col-md-6">
+            <div class="space setting"> 
+              <a href="#setting" data-toggle="collapse">
+                Setting
+                <i class="fa fa-sort-desc expend"></i>
               </a>
-              <a href="javascript:void(0)" class="org-body">
-                <span>3575</span><br/>
-                <small>repo num</small>
-              </a>          
-            </div>      
+              <div class="panel-collapse collapse" id="setting">
+                65567676
+              </div>
+            </div>
           </div>
-          <div class="col-xs-10 col-md-4">
-            <div class="media-org">
-              <a href="javascript:void(0)" class="org-left">
-                <img src="img/logo.png"/>
-                <span>org name</span>
+          <div class="col-xs-12 col-md-6">
+            <div class="space collaborators"> 
+              <a href="#collaborators" data-toggle="collapse">
+                Collaborators
+                <i class="fa fa-sort-desc expend"></i>
               </a>
-              <a href="javascript:void(0)" class="org-body">
-                <span>3575</span><br/>
-                <small>repo num</small>
-              </a>          
-            </div>      
+              <div class="panel-collapse collapse" id="collaborators">
+                65567676
+              </div>
+            </div>
           </div>
-          <div class="col-xs-10 col-md-4">
-            <div class="media-org">
-              <a href="javascript:void(0)" class="org-left">
-                <img src="img/logo.png"/>
-                <span>org name</span>
+          <div class="col-xs-12 col-md-6">
+            <div class="space tags"> 
+              <a href="#tags" data-toggle="collapse">
+                Tags
+                <i class="fa fa-sort-desc expend"></i>
               </a>
-              <a href="javascript:void(0)" class="org-body">
-                <span>3575</span><br/>
-                <small>repo num</small>
-              </a>          
-            </div>      
+              <div class="panel-collapse collapse" id="tags">
+                65567676
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="space history"> 
+              <a href="#history" data-toggle="collapse">
+                Build History
+                <i class="fa fa-sort-desc expend"></i>
+              </a>
+              <div class="panel-collapse collapse" id="history">
+                65567676
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <div class="space triggers"> 
+              <a href="#triggers" data-toggle="collapse">
+                Build Triggers
+                <i class="fa fa-sort-desc expend"></i>
+              </a>
+              <div class="panel-collapse collapse" id="triggers">
+                65567676
+              </div>
+            </div>
           </div>
         </div>
       </div>

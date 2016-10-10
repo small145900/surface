@@ -28,6 +28,7 @@ button:focus {
 }
 body {
   font-size: 12px;
+  background: #F0EFF5;
 }
 .relative {
   position: relative;
@@ -39,7 +40,7 @@ body {
   color: #b3b3b3;
 }
 .col-skyblue {
-  color: skyblue;
+  color: lightblue;
 }
 .bg-brownness {
   color: #c9caaa;
@@ -295,7 +296,7 @@ body {
   width: calc(100% - 52px);
   width: -webkit-calc(100% - 52px);
 }
-#newRepo .base-info {
+#newRepo .info {
   background: rosybrown;
   padding: 24px 20px;
 }
@@ -366,8 +367,73 @@ body {
   background: #ff5400;
 }
 /* repo create end*/
-/* org list start*/
-#orgList {
+/* repo detail start */
+#repoDetail .praise {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 50px;
+}
+#repoDetail .praise i {
+  font-size: 24px;
+  margin-left: 10px;
+}
+#repoDetail .space {
+  width: 94%;
+  margin-left: 3%;
+  margin-bottom: 50px;
+  font-size: 16px;
+  background: #fff;
+}
+#repoDetail .expend {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10000;
+  font-size: 20px;
+  color: #fff;
+  height: 100%;
+  width: 30px;
+  line-height: 40px;
+  text-align: center;
+}
+#repoDetail .space > a {
+  display: block;
+  background: #000;
+  color: #fff;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 12px;
+  position: relative;
+}
+#info {
+  padding: 12px;
+}
+#info .command {
+  background: #eaeaea;
+  color: #b3b3b3;
+  padding: 5px 10px;
+}
+#info h4 {
+  position: relative;
+}
+#info .copy {
+  position: absolute;
+  right: -4px;
+  top: -7px;
+  z-index: 10000;
+  background: #d7d7d7;
+  padding: 5px;
+}
+#info .desc {
+  background: #eaeaea;
+  padding: 5px 10px;
+  margin-top: 10px;
+}
+#info li {
+  margin-top: 10px;
+}
+#info .desc #orgList,
+#repoDetail {
   margin-top: 50px;
 }
 #orgList .title {
@@ -377,14 +443,14 @@ body {
   background: #fff;
   color: #b3b3b3;
   padding: 10px 20px;
-  border: 1px solid skyblue;
+  border: 1px solid lightblue;
   border-radius: 24px;
 }
 #orgList .title button:hover,
 #orgList .title button:focus,
 #orgList .title button:active {
   color: #fff;
-  background: skyblue;
+  background: lightblue;
 }
 #orgList .media-org {
   overflow: hidden;
@@ -408,7 +474,7 @@ body {
   width: 70%;
   margin-top: 20px;
   text-align: center;
-  color: skyblue;
+  color: lightblue;
 }
 #orgList .org-body span {
   font-size: 30px;

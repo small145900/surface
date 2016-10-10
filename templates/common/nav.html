@@ -1,25 +1,25 @@
 <div class="container-fluid">
   <nav class="row" id="nav">
-    <div class="col-xs-12 col-md-5 menu">
+    <div class="col-xs-12 col-md-6 menu">
       <ul>
         <li><a href="###"><img src="img/logo.png" alt="dockyard" /></a></li>
         <li><a href="###">Repositories</a></li>
         <li><a href="###">Organizations</a></li>
       </ul>
     </div>
-    <div class="col-xs-12 col-md-5 col-md-offset-2 user">
+    <div class="col-xs-12 col-md-6 user">
       <ul class="pull-right">
         <li><input type="text" placeholder="search" /></li>
         <li class="relative">
-          <a href="#createRepo" data-toggle="collapse"><i class="fa fa-plus"></i>Create</a>
-          <ul class="panel-collapse collapse" id="createRepo">
+          <a id="#createRepo" data-toggle="dropdown"><i class="fa fa-plus"></i>Create</a>
+          <ul class="dropdown-menu" id="createRepo">
             <li><a href="###"><i class="fa fa-book"></i>Create Repository</a></li>
             <li><a href="###"><i class="fa fa-users"></i>Create Organization</a></li>
           </ul>
         </li>
         <li class="relative">
-          <a href="#userSetting" data-toggle="collapse"><i class="fa fa-user"></i>User</a>
-          <ul class="panel-collapse collapse" id="userSetting">
+          <a id="#userSetting" data-toggle="dropdown"><i class="fa fa-user"></i>User</a>
+          <ul class="dropdown-menu" id="userSetting">
             <li><a href="###"><i class="fa fa-book"></i>Setting</a></li>
             <li><a href="###"><i class="fa fa-users"></i>Login Out</a></li>
           </ul>
@@ -27,4 +27,34 @@
       </ul>
     </div>
   </nav>
+  <div id="repoDetail">
+    <p class="praise">
+      org/repo name
+      <i class="fa fa-star"></i>
+    </p>
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="space base-info"> 
+          <h4 id="baseInfo" data-toggle="dropdown" aria-expanded="true">
+            base info
+            <i class="fa fa-sort-desc expend"></i>
+          </h4>
+          <div class="dropdown-menu" aria-labelledby="baseInfo">
+            65567676
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <div class="space setting"> 
+          <h4 id="setting" data-toggle="dropdown" aria-expanded="false">
+            base info
+            <i class="fa fa-sort-desc expend"></i>
+          </h4>
+          <div class="dropdown-menu" aria-labelledby="setting">
+            65567676
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

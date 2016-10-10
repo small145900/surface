@@ -27,6 +27,7 @@ input, textarea, select, button, input:focus, textarea:focus, select:focus, butt
 
 body {
 	font-size: @baseFontSize;
+	background: #F0EFF5;
 	// font-family: Microsoft YaHei;
 }
 
@@ -43,7 +44,7 @@ body {
 }
 
 .col-skyblue {
-	color: @skyblue;
+	color: @blue;
 }
 
 .bg-brownness {
@@ -338,7 +339,7 @@ body {
 	width: e("-webkit-calc(100% - 52px)");
 }
 
-#newRepo .base-info {
+#newRepo .info {
 	background: rosybrown;
 	padding: 24px 20px;
 }
@@ -420,8 +421,95 @@ body {
 }
 /* repo create end*/
 
+/* repo detail start */ 
+#repoDetail {
+
+}
+
+#repoDetail .praise {
+	text-align: center;
+	font-size: 22px;
+	margin-bottom: @baseMargin+40px;
+}
+
+#repoDetail .praise i {
+	font-size: 24px;
+	margin-left: @baseMargin;
+}
+
+#repoDetail .space {
+	width: 94%;
+	margin-left: 3%;
+	margin-bottom: @baseMargin+40px;
+	font-size: 16px;
+	background: @white;
+}
+
+#repoDetail .expend {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 10000;
+	font-size: 20px;
+	color: #fff;
+	height: 100%;
+	width: 30px;
+	line-height: 40px;
+	text-align: center;
+}
+
+#repoDetail .space > a {
+	display: block;
+	background: #000;
+	color: @white;
+	height: 44px;
+	line-height: 44px;
+	padding: 0 12px;
+	position: relative;
+}
+
+// #repoDetail h4:hover, #repoDetail h4:active {
+// 	background: #b3b3b3;
+// }
+
+#info {
+	padding: 12px;
+}
+
+#info .command {
+	background: #eaeaea;
+	color: @gray;
+	padding: 5px 10px;
+}
+
+#info h4 {
+	position: relative;
+}
+
+#info .copy {
+	position: absolute;
+	right: -4px;
+	top: -7px;
+	z-index: 10000;
+	background: #d7d7d7;
+	padding: 5px;
+}
+
+#info .desc {
+	background: #eaeaea;
+	padding: 5px 10px;
+	margin-top: @baseMargin;
+}
+
+#info li {
+	margin-top: @baseMargin;
+}
+
+#info .desc
+/* repo detail end */ 
+
 /* org list start*/
-#orgList {
+#orgList, #repoDetail {
 	margin-top: @baseMargin+40px;
 }
 
@@ -433,13 +521,13 @@ body {
 	background: @white;
 	color: @gray;
 	padding: 10px 20px;
-	border: 1px solid @skyblue;
+	border: 1px solid @blue;
 	border-radius: 24px;
 }
 
 #orgList .title button:hover, #orgList .title button:focus, #orgList .title button:active {
 	color: @white;
-	background: @skyblue;
+	background: @blue;
 }
 
 #orgList .media-org {
@@ -466,7 +554,7 @@ body {
 	width: 70%;
 	margin-top: @baseMargin+10px;
 	text-align: center;
-	color: @skyblue;
+	color: @blue;
 }
 
 #orgList .org-body span{
@@ -493,5 +581,4 @@ body {
 	font-size: 16px;
 }
 
-// #orgList .org-body
 /* org list end*/
