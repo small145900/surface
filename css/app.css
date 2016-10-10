@@ -67,7 +67,6 @@ body {
 #nav {
   width: 100%;
   height: 44px;
-  margin-bottom: 10px;
   background: #000;
 }
 #nav .menu,
@@ -170,8 +169,8 @@ body {
 #nav i {
   margin: 0 5px 0 10px;
 }
-/* nav end*/
-/* repo list start*/
+/* nav end */
+/* repo list start */
 #repoList .filter-repo {
   text-align: center;
   height: 40px;
@@ -252,8 +251,8 @@ body {
   right: -4px;
   opacity: 0.5;
 }
-/* repo list end*/
-/* repo create start*/
+/* repo list end */
+/* repo create start */
 #newRepo {
   margin-top: 60px;
 }
@@ -263,11 +262,11 @@ body {
 #newRepo li {
   height: auto;
   width: 100%;
-  padding-top: 50px;
+  padding-bottom: 50px;
   border-left: 1px dashed #b3b3b3;
 }
-#newRepo li:first-child {
-  padding: 0;
+#newRepo li:last-child {
+  border: none;
 }
 #newRepo li span {
   display: inline-block;
@@ -297,7 +296,7 @@ body {
   width: -webkit-calc(100% - 52px);
 }
 #newRepo .info {
-  background: rosybrown;
+  background: gainsboro;
   padding: 24px 20px;
 }
 #newRepo input,
@@ -362,11 +361,12 @@ body {
   text-align: center;
   border-radius: 2px;
   color: #fff;
+  background: #b3b3b3;
 }
 #newRepo .btn-create:hover {
-  background: #ff5400;
+  background: #c9caaa;
 }
-/* repo create end*/
+/* repo create end */
 /* repo detail start */
 #repoDetail .praise {
   text-align: center;
@@ -436,6 +436,9 @@ body {
 #repoDetail {
   margin-top: 50px;
 }
+#orgList {
+  margin-top: 40px;
+}
 #orgList .title {
   font-size: 16px;
 }
@@ -453,26 +456,27 @@ body {
   background: lightblue;
 }
 #orgList .media-org {
-  overflow: hidden;
   border: 1px solid #d7d7d7;
   border-radius: 16px;
   margin-top: 40px;
   width: 90%;
   margin-left: 5%;
+  padding: 24px 0;
 }
 #orgList .org-left,
 #orgList .org-body {
-  float: left;
-  padding: 24px 12px;
+  display: inline-block;
 }
 #orgList .org-left {
-  width: 30%;
-  border: 1px solid #eaeaea;
+  width: 35%;
+  padding: 20px 10px;
+  border-right: 1px solid #d7d7d7;
   text-align: center;
+  vertical-align: super;
 }
 #orgList .org-body {
-  width: 70%;
-  margin-top: 20px;
+  width: calc(65% - 16px);
+  width: -webkit-calc(65% - 16px);
   text-align: center;
   color: lightblue;
 }
@@ -496,5 +500,71 @@ body {
   margin-top: 15px;
   font-size: 16px;
 }
-/* org list end*/
+/* org list end */
+/* org create start */
+#createOrg {
+  padding-top: 60px;
+  height: 100%;
+  width: 100%;
+}
+#createOrg .guide {
+  width: 37%;
+  font-size: 16px;
+}
+#createOrg .steps {
+  width: 80%;
+  margin: 0 auto;
+}
+#createOrg .step-nav {
+  height: 44px;
+  line-height: 44px;
+  width: 100%;
+  margin-top: 40px;
+  text-align: center;
+}
+#createOrg li {
+  width: 25%;
+  border-bottom: 1px solid #b3b3b3;
+  float: left;
+}
+#createOrg li span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  background: #b3b3b3;
+  position: relative;
+  top: 20px;
+}
+#createOrg li:first-child span {
+  background: #c9caaa;
+}
+#createOrg .create {
+  width: 80%;
+  margin: 60px auto 0;
+  padding: 12px 24px;
+  background: #fff;
+}
+#createOrg .first-step input {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  margin: 12px 0;
+  padding: 0 12px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #d7d7d7;
+}
+#createOrg .first-step .save {
+  font-size: 16px;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 5px;
+  background: #eaeaea;
+}
+/* org create end */
 /*# sourceMappingURL=app.css.map */
