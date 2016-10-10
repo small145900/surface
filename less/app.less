@@ -25,11 +25,6 @@ input, textarea, select, button, input:focus, textarea:focus, select:focus, butt
 	border: none;
 }
 
-body {
-	font-size: @baseFontSize;
-	// font-family: Microsoft YaHei;
-}
-
 .relative {
 	position: relative;
 }
@@ -43,18 +38,24 @@ body {
 }
 
 .col-skyblue {
-	color: @skyblue;
+	color: @blue;
 }
 
 .bg-brownness {
 	color: @brownness;
 }
+
 .mar-tp-no {
 	margin-top: 0;
 }
 
 .mar-lt {
 	margin-left: 10px;
+}
+
+.mar-tb-twenty {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .over-hidden {
@@ -65,7 +66,10 @@ body {
 	cursor: pointer;
 }
 
- /* nav start */
+.disp-no {
+	display: none;
+}
+
 .container-fluid {
 	padding: 0;
 }
@@ -74,10 +78,137 @@ body {
 	margin: 0;
 }
 
+
+body {
+	font-size: @baseFontSize;
+	background: #F0EFF5;
+	// font-family: Microsoft YaHei;
+}
+
+/* index start */
+#header {
+	overflow: hidden;
+	font-size: 14px;
+	padding: 15px 12px;
+	background: lightblue;
+}
+
+#header, #header .space {
+	color: @white;
+}
+
+#header img {
+	width: 40px;
+	height: 40px;
+}
+
+.nav-rt .space {
+	margin-left: 10px;
+}
+
+.search {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+.search input {
+	width: 40%;
+	color: #000;
+	padding: 6px 12px;
+	font-size: 12px;
+}
+
+.content-one {
+	overflow: hidden;
+	background: @white;
+	padding: 40px;
+}
+
+.content-one .space {
+	display: block;
+	width: 100%;
+}
+
+.content-one .features {
+	width: 150px;
+	margin-right: 50px;
+}
+
+.content-one .character {
+	padding: 5px 12px;
+	background: lightblue;
+	color: @white;
+}
+
+.content-one .title {
+	padding: 10px 0;
+}
+
+.content-two {
+	background: lightblue;
+	padding: 40px 0;
+	font-size: 0;
+	color: @white;
+}
+
+.content-two .space {
+	display: inline-block;
+	font-size: 14px;
+	vertical-align: bottom;
+	width: 80%;
+	margin-left: 10%;
+}
+
+.content-two .font-big { 
+	font-size: 16px;
+}
+
+.surface-carousel {
+	width: e("calc(100% - 200px)");
+	width: e("-webkit-calc(100% - 200px)");
+	height: 250px;
+	border: 1px solid @gray;
+}
+
+.content-three {
+	background: @white;
+	padding: 40px 0;
+}
+
+.content-three .space {
+	width: 75%;
+	margin: 0 auto;
+}
+
+.content-three img {
+	width: e("calc((75% - 120px) / 3 )");
+	width: e("-webkit-calc((75% - 120px) / 3 )");
+	height: 200px;
+	margin-left: 30px;
+	border: 1px solid #b3b3b3;
+}
+
+#footer {
+	padding: 20px 12px;
+	background: lightblue;
+	color: @white;
+	overflow: hidden;
+}
+
+#footer .space {
+	padding: 4px 14px;
+	border-radius: 24px;
+	background: #d7d7d7;
+	margin-left: 10px;
+	font-size: 14px;
+}
+/* index end */
+
+/* nav start */
 #nav {
 	width: 100%;
 	height: 44px;
-	margin-bottom: @baseMargin;
+	// margin-bottom: @baseMargin;
 	background: @black;
 }
 
@@ -182,10 +313,9 @@ body {
 #nav i {
 	margin: 0 5px 0 10px;
 }
+/* nav end */
 
-/* nav end*/
-
-/* repo list start*/
+/* repo list start */
 #repoList {
 	// margin-top: @baseMargin+50px;
 }
@@ -285,9 +415,9 @@ body {
 	right: -4px;
 	opacity: 0.5;
 }
-/* repo list end*/
+/* repo list end */
 
-/* repo create start*/
+/* repo create start */
 #newRepo {
 	margin-top: @baseMargin+50px;
 }
@@ -299,12 +429,13 @@ body {
 #newRepo li {
 	height: auto;
 	width: 100%;
-	padding-top: 50px;
+	padding-bottom: 50px;
 	border-left: 1px dashed #b3b3b3;
 }
 
-#newRepo li:first-child {
-	padding: 0;
+
+#newRepo li:last-child {
+	border: none;
 }
 
 #newRepo li span {
@@ -338,8 +469,8 @@ body {
 	width: e("-webkit-calc(100% - 52px)");
 }
 
-#newRepo .base-info {
-	background: rosybrown;
+#newRepo .info {
+	background: gainsboro;
 	padding: 24px 20px;
 }
 
@@ -413,16 +544,108 @@ body {
 	text-align: center;
 	border-radius: @baseRadius;
 	color: @white;
+	background: @gray;
 }
 
 #newRepo .btn-create:hover {
-	background: #ff5400;
+	background: #c9caaa;
 }
-/* repo create end*/
+/* repo create end */
 
-/* org list start*/
-#orgList {
+/* repo detail start */ 
+#repoDetail {
+
+}
+
+#repoDetail .praise {
+	text-align: center;
+	font-size: 22px;
+	margin-bottom: @baseMargin+40px;
+}
+
+#repoDetail .praise i {
+	font-size: 24px;
+	margin-left: @baseMargin;
+}
+
+#repoDetail .space {
+	width: 94%;
+	margin-left: 3%;
+	margin-bottom: @baseMargin+40px;
+	font-size: 16px;
+	background: @white;
+}
+
+#repoDetail .expend {
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 10000;
+	font-size: 20px;
+	color: #fff;
+	height: 100%;
+	width: 30px;
+	line-height: 40px;
+	text-align: center;
+}
+
+#repoDetail .space > a {
+	display: block;
+	background: #000;
+	color: @white;
+	height: 44px;
+	line-height: 44px;
+	padding: 0 12px;
+	position: relative;
+}
+
+// #repoDetail h4:hover, #repoDetail h4:active {
+// 	background: #b3b3b3;
+// }
+
+#info {
+	padding: 12px;
+}
+
+#info .command {
+	background: #eaeaea;
+	color: @gray;
+	padding: 5px 10px;
+}
+
+#info h4 {
+	position: relative;
+}
+
+#info .copy {
+	position: absolute;
+	right: -4px;
+	top: -7px;
+	z-index: 10000;
+	background: #d7d7d7;
+	padding: 5px;
+}
+
+#info .desc {
+	background: #eaeaea;
+	padding: 5px 10px;
+	margin-top: @baseMargin;
+}
+
+#info li {
+	margin-top: @baseMargin;
+}
+
+#info .desc
+/* repo detail end */ 
+
+/* org list start */
+#orgList, #repoDetail {
 	margin-top: @baseMargin+40px;
+}
+
+#orgList {
+	margin-top: @baseMargin+30px;
 }
 
 #orgList .title {
@@ -433,40 +656,42 @@ body {
 	background: @white;
 	color: @gray;
 	padding: 10px 20px;
-	border: 1px solid @skyblue;
+	border: 1px solid @blue;
 	border-radius: 24px;
 }
 
 #orgList .title button:hover, #orgList .title button:focus, #orgList .title button:active {
 	color: @white;
-	background: @skyblue;
+	background: @blue;
 }
 
 #orgList .media-org {
-	overflow: hidden;
 	border: 1px solid #d7d7d7;
 	border-radius: 16px;
 	margin-top: @baseMargin+30px;
 	width: 90%;
 	margin-left: 5%;
+	padding: 24px 0;
 }
 
 #orgList .org-left, #orgList .org-body {
-	float: left;
-	padding: 24px 12px;
+	display: inline-block;
+	// padding: 24px 12px;
 }
 
 #orgList .org-left {
-	width: 30%;
-	border: 1px solid #eaeaea;
+	width: 35%;
+	padding: 20px 10px;
+	border-right: 1px solid #d7d7d7;
 	text-align: center;
+	vertical-align: super;
 }
 
 #orgList .org-body {
-	width: 70%;
-	margin-top: @baseMargin+10px;
+	width: e("calc(65% - 16px)");
+	width: e("-webkit-calc(65% - 16px)");
 	text-align: center;
-	color: @skyblue;
+	color: @blue;
 }
 
 #orgList .org-body span{
@@ -493,5 +718,80 @@ body {
 	font-size: 16px;
 }
 
-// #orgList .org-body
-/* org list end*/
+/* org list end */
+
+/* org create start */
+#createOrg {
+	padding-top: 60px;
+	// background: @white;
+	height: 100%;
+	width: 100%;
+}
+
+#createOrg .guide {
+	width: 37%;
+	font-size: 16px;
+}
+
+#createOrg .steps {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#createOrg .step-nav {
+	height: 44px;
+	width: 100%;
+	margin-top: 20px;
+	text-align: center;
+}
+
+#createOrg li {
+	width: 25%;
+	border-bottom: 1px solid @gray;
+	float: left;
+}
+
+#createOrg li span {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 50%;
+	font-size: 16px;
+	text-align: center;
+	color: @white;
+	background: @gray;
+	position: relative;
+	top: 20px;
+}
+
+#createOrg li:first-child span {
+	background: #c9caaa;
+}
+
+#createOrg .create {
+	width: 80%;
+	margin: 60px auto 0;
+	padding: 12px 24px;
+	background: @white;
+}
+
+#createOrg .first-step input {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	margin: 12px 0;
+	padding: 0 12px;
+	font-size: 14px;
+	border-radius: 5px;
+	border: 1px solid #d7d7d7;
+}
+
+#createOrg .first-step .save {
+	font-size: 16px;
+	color: @white;
+	padding: 12px 20px;
+	border-radius: 5px;
+	background: #eaeaea;
+}
+/* org create end */
