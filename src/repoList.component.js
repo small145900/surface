@@ -9,16 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var RepoListComponent = (function () {
+    function RepoListComponent() {
     }
-    AppComponent = __decorate([
+    RepoListComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "<div class=\"container-fluid\">\n              <nav-bar></nav-bar>\n              <router-outlet></router-outlet>\n            </div>"
+            selector: 'repo-list',
+            templateUrl: '../templates/repository/repoList.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], RepoListComponent);
+    return RepoListComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.RepoListComponent = RepoListComponent;

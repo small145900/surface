@@ -9,16 +9,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var OrgCreateComponent = (function () {
+    function OrgCreateComponent() {
     }
-    AppComponent = __decorate([
+    OrgCreateComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "<div class=\"container-fluid\">\n              <nav-bar></nav-bar>\n              <router-outlet></router-outlet>\n            </div>"
+            selector: 'org-create',
+            templateUrl: '../templates/organization/orgCreate.html'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], OrgCreateComponent);
+    return OrgCreateComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.OrgCreateComponent = OrgCreateComponent;
