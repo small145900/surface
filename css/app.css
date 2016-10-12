@@ -417,7 +417,7 @@ body {
 }
 #newRepo input::-webkit-input-placeholder,
 #newRepo textarea::-webkit-input-placeholder {
-  color: #ddd;
+  color: #fff;
 }
 #newRepo textarea {
   height: 200px;

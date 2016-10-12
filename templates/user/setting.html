@@ -1,137 +1,84 @@
-<html>
-  <head>
-    <title>surface</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/app.css" rel="stylesheet">
-    
-    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="systemjs.config.js"></script>
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <nav class="row" id="nav">
-        <div class="col-xs-12 col-md-6 menu">
-          <ul>
-            <li><a href="###"><img src="img/logo.png" alt="dockyard" /></a></li>
-            <li><a href="###">Repositories</a></li>
-            <li><a href="###">Organizations</a></li>
-          </ul>
-        </div>
-        <div class="col-xs-12 col-md-6 user">
-          <ul class="pull-right">
-            <li><input type="text" placeholder="search" /></li>
-            <li class="relative">
-              <a id="#createRepo" data-toggle="dropdown"><i class="fa fa-plus"></i>Create</a>
-              <ul class="dropdown-menu" id="createRepo">
-                <li><a href="###"><i class="fa fa-book"></i>Create Repository</a></li>
-                <li><a href="###"><i class="fa fa-users"></i>Create Organization</a></li>
+<div id="userSet">
+  <p class="title">User Setting</p>
+  <div class="content">
+    <ul class="nav nav-tabs user-nav">
+      <li class="active">
+        <a href="#userInfo" data-toggle="tab">Base Info</a>
+      </li>             
+      <li>
+        <a href="#notify" data-toggle="tab">Notifications</a>
+      </li>
+      <li>
+        <a href="#linkAccount" data-toggle="tab">Linked Accounts</a>
+      </li>
+    </ul>
+    <div class="tab-content user-content">
+      <div id="userInfo" class="tab-pane active">
+        <p class="tips">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe a rerum eligendi, iste deserunt fugit id dicta modi nam quidem sed velit soluta earum natus, vel eveniet quo suscipit animi.
+        </p>
+        <div class="edit-info">
+          <div class="over-hidden">
+            <p class="pull-left visib">
+              <input type="radio" name="visib" value="0"/>public
+              <input type="radio" name="visib" value="1"/>private
+            </p>
+            <div class="pull-left email">
+              <input type="email"/> 
+              <button class="add-email">add email</button>
+              <ul class="emails">
+                <li>
+                  <span class="addr">dockyard@163.com</span>
+                  <span class="verified">verified</span>
+                  <span class="relation">primary</span>
+                </li>
+                <li>
+                  <span class="addr">dockyard@163.com</span>
+                  <span class="verified">Send Email</span>
+                  <span class="relation">Sub</span>
+                  <span class="delet"><i class="fa fa-trash-o"></i></span>
+                </li>
+                <li>
+                  <span class="addr">dockyard@163.com</span>
+                  <span class="verified">Send Email</span>
+                  <span class="relation">Sub</span>
+                  <span class="delet"><i class="fa fa-trash-o"></i></span>
+                </li>
+                <li>
+                  <span class="addr">dockyard@163.com</span>
+                  <span class="verified">Send Email</span>
+                  <span class="relation">Sub</span>
+                  <span class="delet"><i class="fa fa-trash-o"></i></span>
+                </li>
               </ul>
-            </li>
-            <li class="relative">
-              <a id="#userSetting" data-toggle="dropdown"><i class="fa fa-user"></i>User</a>
-              <ul class="dropdown-menu" id="userSetting">
-                <li><a href="###"><i class="fa fa-book"></i>Setting</a></li>
-                <li><a href="###"><i class="fa fa-users"></i>Login Out</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <div id="userSet">
-        <p class="title">User Setting</p>
-        <div class="content">
-          <ul class="nav nav-tabs user-nav">
-            <li class="active">
-              <a href="#userInfo" data-toggle="tab">Base Info</a>
-            </li>             
-            <li>
-              <a href="#notify" data-toggle="tab">Notifications</a>
-            </li>
-            <li>
-              <a href="#linkAccount" data-toggle="tab">Linked Accounts</a>
-            </li>
-          </ul>
-          <div class="tab-content user-content">
-            <div id="userInfo" class="tab-pane active">
-              <p class="tips">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe a rerum eligendi, iste deserunt fugit id dicta modi nam quidem sed velit soluta earum natus, vel eveniet quo suscipit animi.
-              </p>
-              <div class="edit-info">
-                <div class="over-hidden">
-                  <p class="pull-left visib">
-                    <input type="radio" name="visib" value="0"/>public
-                    <input type="radio" name="visib" value="1"/>private
-                  </p>
-                  <div class="pull-left email">
-                    <input type="email"/> 
-                    <button class="add-email">add email</button>
-                    <ul class="emails">
-                      <li>
-                        <span class="addr">dockyard@163.com</span>
-                        <span class="verified">verified</span>
-                        <span class="relation">primary</span>
-                      </li>
-                      <li>
-                        <span class="addr">dockyard@163.com</span>
-                        <span class="verified">Send Email</span>
-                        <span class="relation">Sub</span>
-                        <span class="delet"><i class="fa fa-trash-o"></i></span>
-                      </li>
-                      <li>
-                        <span class="addr">dockyard@163.com</span>
-                        <span class="verified">Send Email</span>
-                        <span class="relation">Sub</span>
-                        <span class="delet"><i class="fa fa-trash-o"></i></span>
-                      </li>
-                      <li>
-                        <span class="addr">dockyard@163.com</span>
-                        <span class="verified">Send Email</span>
-                        <span class="relation">Sub</span>
-                        <span class="delet"><i class="fa fa-trash-o"></i></span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <ul class="password">
-                  <li>
-                    <span class="space-text">Old Password</span>
-                    <input type="password"/>
-                  </li>
-                  <li>
-                    <span class="space-text">New Password</span>
-                    <input type="password"/>
-                  </li>
-                  <li>
-                    <span class="space-text">Confirm Password</span>
-                    <input type="password"/>
-                  </li>
-                  <li>
-                    <button>Save</button>
-                  </li>
-                </ul>
-                <form class="infor"></form>
-              </div>
-            </div>
-            <div id="notify" class="tab-pane">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vitae architecto ratione molestiae. Qui nemo delectus voluptate velit asperiores, quia quam esse, consectetur. Voluptatum est quae, vero ipsa nulla incidunt.
-            </div>
-            <div id="linkAccount" class="tab-pane">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laborum recusandae, fugiat reprehenderit, laboriosam ipsam autem ea quo, repudiandae odio at. Ut maiores reprehenderit architecto. Dolor dignissimos placeat perspiciatis recusandae.
             </div>
           </div>
+          <ul class="password">
+            <li>
+              <span class="space-text">Old Password</span>
+              <input type="password"/>
+            </li>
+            <li>
+              <span class="space-text">New Password</span>
+              <input type="password"/>
+            </li>
+            <li>
+              <span class="space-text">Confirm Password</span>
+              <input type="password"/>
+            </li>
+            <li>
+              <button>Save</button>
+            </li>
+          </ul>
+          <form class="infor"></form>
         </div>
       </div>
+      <div id="notify" class="tab-pane">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vitae architecto ratione molestiae. Qui nemo delectus voluptate velit asperiores, quia quam esse, consectetur. Voluptatum est quae, vero ipsa nulla incidunt.
+      </div>
+      <div id="linkAccount" class="tab-pane">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laborum recusandae, fugiat reprehenderit, laboriosam ipsam autem ea quo, repudiandae odio at. Ut maiores reprehenderit architecto. Dolor dignissimos placeat perspiciatis recusandae.
+      </div>
     </div>
-  </body>
-</html>
+  </div>
+</div>

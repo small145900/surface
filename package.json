@@ -1,5 +1,5 @@
 {
-  "name": "surface",
+  "name": "surface-pros",
   "version": "0.0.1",
   "scripts": {
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",

@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>surface</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/app.css" rel="stylesheet">
+    
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="node_modules/core-js/client/shim.min.js"></script>
+    <script src="node_modules/zone.js/dist/zone.js"></script>
+    <script src="node_modules/reflect-metadata/Reflect.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+    <script>
+      System.import('app').catch(function(err){ console.error(err); });
+    </script>
+  </head>
+  <body>
+    <div id="createOrg">
+      <div class="steps">
+        <p class="guide">
+          Organizations can have multiple Teams. Teams can have differing permissions. Namespace is unique and this is where repositories for this organization will be created. 
+        </p>
+        <ul class="step-nav">
+          <li><span>1</span></li>
+          <li><span>2</span></li>
+          <li><span>3</span></li>
+          <li><span>4</span></li>
+        </ul>
+      </div>
+      <div class="create">
+        <div class="first-step">
+          <input type="text" placeholder="Namespace" />
+          <input type="text" placeholder="Organization Name" />
+          <input type="text" placeholder="Company" />
+          <input type="text" placeholder="Location" />
+          <input type="text" placeholder="Gravatar Email" />
+          <input type="text" placeholder="Website URL" />
+          <input type="text" placeholder="Location" />
+          <button class="save">Create</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

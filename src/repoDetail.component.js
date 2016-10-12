@@ -9,16 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var router_1 = require('@angular/router');
+var common_1 = require('@angular/common');
+var RepoDetailComponent = (function () {
+    function RepoDetailComponent(route, location) {
+        this.route = route;
+        this.location = location;
     }
-    AppComponent = __decorate([
+    RepoDetailComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "<div class=\"container-fluid\">\n              <nav-bar></nav-bar>\n              <router-outlet></router-outlet>\n            </div>"
+            selector: 'repo-detail',
+            templateUrl: '../templates/repository/repoDetail.html'
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [router_1.ActivatedRoute, common_1.Location])
+    ], RepoDetailComponent);
+    return RepoDetailComponent;
 }());
-exports.AppComponent = AppComponent;
+exports.RepoDetailComponent = RepoDetailComponent;

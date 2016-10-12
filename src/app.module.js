@@ -11,13 +11,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var app_component_1 = require('./app.component');
+var nav_component_1 = require('./nav.component');
+var repoList_component_1 = require('./repoList.component');
+var repoCreate_component_1 = require('./repoCreate.component');
+var repoDetail_component_1 = require('./repoDetail.component');
+var orgList_component_1 = require('./orgList.component');
+var orgCreate_component_1 = require('./orgCreate.component');
+var userSetting_component_1 = require('./userSetting.component');
+var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent],
+            imports: [
+                platform_browser_1.BrowserModule,
+                app_routing_1.routing
+            ],
+            declarations: [
+                app_component_1.AppComponent,
+                nav_component_1.NavComponent,
+                repoList_component_1.RepoListComponent,
+                repoCreate_component_1.RepoCreateComponent,
+                repoDetail_component_1.RepoDetailComponent,
+                orgList_component_1.OrgListComponent,
+                orgCreate_component_1.OrgCreateComponent,
+                userSetting_component_1.UserSettingComponent
+            ],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
