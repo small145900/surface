@@ -9,15 +9,35 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var org_service_1 = require('./org.service');
+var repo_service_1 = require('./repo.service');
 var RepoListComponent = (function () {
-    function RepoListComponent() {
+    function RepoListComponent(router, orgService, repoService) {
+        this.router = router;
+        this.orgService = orgService;
+        this.repoService = repoService;
+        this.orgList = [];
+        this.repoList = [];
     }
+    RepoListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.orgService.getOrgList()
+            .then(function (orgList) { return _this.orgList = orgList; })
+            .then(function () {
+            _this.orgList.map(function (org) {
+                _this.repoService.getRepoList(org)
+                    .then(function (repoList) { org.children = repoList.slice(0, 4); _this.repoList.push(org); });
+            });
+        });
+    };
     RepoListComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'repo-list',
             templateUrl: '../templates/repository/repoList.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router, org_service_1.OrgService, repo_service_1.RepoService])
     ], RepoListComponent);
     return RepoListComponent;
 }());

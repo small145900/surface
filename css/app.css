@@ -297,7 +297,7 @@ body {
 #repoList .filter-repo .search {
   position: absolute;
   right: 30px;
-  top: -3px;
+  top: -41px;
   padding: 5px;
   cursor: pointer;
 }
@@ -389,8 +389,8 @@ body {
   position: relative;
   left: -20px;
 }
-#newRepo li:first-child span {
-  background: #c9caaa;
+.step-brown {
+  background: #c9caaa !important;
 }
 #newRepo li:last-child span {
   top: 5px;
@@ -645,9 +645,6 @@ body {
   background: #b3b3b3;
   position: relative;
   top: 20px;
-}
-#createOrg li:first-child span {
-  background: #c9caaa;
 }
 #createOrg .create {
   width: 80%;

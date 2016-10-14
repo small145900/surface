@@ -11,7 +11,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var OrgCreateComponent = (function () {
     function OrgCreateComponent() {
+        this.step = 1;
+        this.org = {};
     }
+    OrgCreateComponent.prototype.changeStep = function (step) {
+        this.step = step;
+    };
+    OrgCreateComponent.prototype.saveOrgInfo = function (step) {
+        console.log(this.org);
+        this.changeStep(step);
+    };
     OrgCreateComponent = __decorate([
         core_1.Component({
             selector: 'org-create',

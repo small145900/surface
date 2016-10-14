@@ -11,22 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
-var RepoCreateComponent = (function () {
-    function RepoCreateComponent(http) {
+var RepoService = (function () {
+    function RepoService(http) {
         this.http = http;
-        this.step = 0;
     }
-    RepoCreateComponent.prototype.changeStep = function (step) {
-        this.step = step;
+    RepoService.prototype.getRepoList = function () {
+        return this.http.get('json/repoList.json')
+            .toPromise()
+            .then(function (response) { return response.json(); })
+            .catch(function (error) { console.log(error); Observable.of([]); });
     };
-    RepoCreateComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'repo-create',
-            templateUrl: '../templates/repository/repoCreate.html'
-        }), 
+    RepoService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])
-    ], RepoCreateComponent);
-    return RepoCreateComponent;
+    ], RepoService);
+    return RepoService;
 }());
-exports.RepoCreateComponent = RepoCreateComponent;
+exports.RepoService = RepoService;

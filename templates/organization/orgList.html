@@ -40,58 +40,16 @@
             </a>          
           </div>      
         </div> -->
-        <div class="col-xs-10 col-md-4">
+        <div class="col-xs-10 col-md-4" *ngFor="let org of orgList">
           <div class="media-org">
             <a href="javascript:void(0)" class="org-left">
-              <img src="img/logo.png"/>
-              <span>org name</span>
+              <img src={{org.gravatar}}/>
+              <span>{{org.name}}</span>
             </a>
             <a href="javascript:void(0)" class="org-body">
-              <p><span>575</span><br/>
+              <p><span>{{org.teams}}</span><br/>
               <small>team num</small></p>
-              <p><span>3575</span><br/>
-              <small>repo num</small></p>
-            </a>          
-          </div>      
-        </div>
-        <div class="col-xs-10 col-md-4">
-          <div class="media-org">
-            <a href="javascript:void(0)" class="org-left">
-              <img src="img/logo.png"/>
-              <span>org name</span>
-            </a>
-            <a href="javascript:void(0)" class="org-body">
-              <p><span>575</span><br/>
-              <small>team num</small></p>
-              <p><span>3575</span><br/>
-              <small>repo num</small></p>
-            </a>          
-          </div>      
-        </div>
-        <div class="col-xs-10 col-md-4">
-          <div class="media-org">
-            <a href="javascript:void(0)" class="org-left">
-              <img src="img/logo.png"/>
-              <span>org name</span>
-            </a>
-            <a href="javascript:void(0)" class="org-body">
-              <p><span>575</span><br/>
-              <small>team num</small></p>
-              <p><span>3575</span><br/>
-              <small>repo num</small></p>
-            </a>          
-          </div>      
-        </div>
-        <div class="col-xs-10 col-md-4">
-          <div class="media-org">
-            <a href="javascript:void(0)" class="org-left">
-              <img src="img/logo.png"/>
-              <span>org name</span>
-            </a>
-            <a href="javascript:void(0)" class="org-body">
-              <p><span>575</span><br/>
-              <small>team num</small></p>
-              <p><span>3575</span><br/>
+              <p><span>{{org.repositories}}</span><br/>
               <small>repo num</small></p>
             </a>          
           </div>      
