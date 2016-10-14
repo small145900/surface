@@ -9,8 +9,9 @@ import 'rxjs/add/operator/toPromise';
   templateUrl: '../templates/repository/repoCreate.html'
 })
 export class RepoCreateComponent { 
+	step = 0;
+
 	constructor(private http: Http){
-		this.step = 0;
 	}
 
 	changeStep(step) {

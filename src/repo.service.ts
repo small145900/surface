@@ -8,7 +8,7 @@ import { Repo } from './repo';
 export class RepoService {
   constructor(private http: Http){}
   
-  getRepoList(): Promise<Repo[]> {
+  getRepoList(orgInfo): Promise<Repo[]> {
     return this.http.get('json/repoList.json')
                .toPromise()
                .then(response => response.json() as Repo[])

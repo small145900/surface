@@ -15,7 +15,7 @@ var RepoService = (function () {
     function RepoService(http) {
         this.http = http;
     }
-    RepoService.prototype.getRepoList = function () {
+    RepoService.prototype.getRepoList = function (orgInfo) {
         return this.http.get('json/repoList.json')
             .toPromise()
             .then(function (response) { return response.json(); })

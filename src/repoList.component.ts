@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { Org } from './org';
 import { Repo } from './repo';
+import { OrgRepo } from './orgRepo';
 import { OrgService } from './org.service';
 import { RepoService } from './repo.service';
 
@@ -11,9 +12,11 @@ import { RepoService } from './repo.service';
   templateUrl: '../templates/repository/repoList.html'
 })
 
-export class RepoListComponent {
+export class RepoListComponent implements OnInit {
 	orgList: Org[] = [];
-	repoList: Repo[] = [];
+  // repoList: Repo[] = [];
+	orgRepo: OrgRepo[] = [];
+
 
 	constructor(
 		private router: Router,
@@ -25,9 +28,12 @@ export class RepoListComponent {
   	this.orgService.getOrgList()
       .then(orgList => this.orgList = orgList)
       .then(() => {
-      	this.orgList.map((org) => {
-      		this.repoService.getRepoList(org)
-      			.then(repoList => {org.children = repoList.slice(0,4); this.repoList.push(org)})
+      	this.orgList.map((dom) => {
+      		this.repoService.getRepoList(dom)
+      			.then(repoList => {
+              // dom.children = repoList.slice(0,4); 
+              this.orgRepo.push(dom)
+            })
       	})
       })        
   }

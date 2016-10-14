@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
 })
 
 export class OrgCreateComponent {
-	constructor(){
-		this.step = 1;
-		this.org = {};
-	}
+	step = 1;
+	org = {};
+
+	constructor(){ }
 
 	changeStep(step) {
 		this.step = step

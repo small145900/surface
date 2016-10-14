@@ -18,16 +18,20 @@ var RepoListComponent = (function () {
         this.orgService = orgService;
         this.repoService = repoService;
         this.orgList = [];
-        this.repoList = [];
+        // repoList: Repo[] = [];
+        this.orgRepo = [];
     }
     RepoListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.orgService.getOrgList()
             .then(function (orgList) { return _this.orgList = orgList; })
             .then(function () {
-            _this.orgList.map(function (org) {
-                _this.repoService.getRepoList(org)
-                    .then(function (repoList) { org.children = repoList.slice(0, 4); _this.repoList.push(org); });
+            _this.orgList.map(function (dom) {
+                _this.repoService.getRepoList(dom)
+                    .then(function (repoList) {
+                    // dom.children = repoList.slice(0,4); 
+                    _this.orgRepo.push(dom);
+                });
             });
         });
     };
