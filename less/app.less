@@ -342,7 +342,7 @@ body {
 #repoList .filter-repo .search {
 	position: absolute;
 	right: 30px;
-	top: -3px;
+	top: -41px;
 	padding: 5px;
 	cursor: pointer;
 }
@@ -453,8 +453,8 @@ body {
 	left: -20px;
 }
 
-#newRepo li:first-child span {
-	background: @brownness;
+.step-brown {
+	background: @brownness !important;
 }
 
 #newRepo li:last-child span {
@@ -765,10 +765,6 @@ body {
 	top: 20px;
 }
 
-#createOrg li:first-child span {
-	background: #c9caaa;
-}
-
 #createOrg .create {
 	width: 80%;
 	margin: 60px auto 0;
@@ -983,3 +979,255 @@ body {
 	border-radius: 3px;
 }
 /* user end */
+
+/* sign in & sign up start */
+#access {
+	width: 100%;
+	height: 100%;
+	background: @white;
+}
+
+#access .header {
+	text-align: center;
+}
+
+#access .header img {
+	width: 100%;
+	height: auto;
+}
+
+#access .header .text {
+	display: block;
+	position: relative;
+	bottom: 80px;
+	font-size: 24px;
+	word-spacing: 12px;
+	color: @white;
+}
+
+#access .footer {
+	width: 100%;
+	background: #000;
+	position: fixed;
+	bottom: 0;
+}
+
+#access .footer .intro, #access .footer .team {
+	display: inline-block;
+	margin-bottom: 0;
+	padding: 12px 0;
+	text-align: center;
+}
+
+#access .footer .intro {
+	color: @gray;
+}
+
+#access .footer .team {
+	color: @white;
+}
+
+#access .footer .team .space {
+	padding: 5px;
+	cursor: pointer;
+}
+
+#access .footer .team .space:hover {
+	color: #ff5400;
+}
+
+#access .nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	background: #b3b3b3;
+	opacity: 0.6;
+	height: 40px;
+	line-height: 40px;
+}
+#access .nav img {
+	width: 40px;
+	height: auto;
+	max-height: 40px;
+}
+
+#access .nav .space {
+	display: inline-block;
+	padding: 0 20px;
+	height: 100%;
+	font-size: 16px;
+}
+
+#access .nav .space:hover {
+	color: #fff;
+	background: blue;
+}
+
+#access .content {
+	width: 300px;
+	margin: 80px auto;
+}
+
+#access .login .space {
+	display: block;
+	width: 100%;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding: 10px 0;	
+	font-size: 14px;
+}
+
+#access .login input {
+	width: 100%;
+	padding: 0 12px;
+	background: #eaeaea;
+	color: #b3b3b3;
+	font-size: 14px;
+}
+
+#access .login .user, #access .login .pwd {
+	background: #eaeaea; 
+}
+
+#access .login .sign-in {
+	background: lightblue;
+	color: #fff;
+}
+
+#access .login .google {
+	background: #ff5400;
+	color: #fff;
+	width: 48%;
+	text-align: center;
+	border-radius: 5px 0 0 5px;
+	padding: 5px 0;
+}
+
+#access .login .github {
+	background: lightblue;
+	color: #fff;
+	width: 48%;
+	text-align: center;
+	border-radius: 0 5px 5px 0;
+	padding: 5px 0;
+}
+
+#access .login .forget-pwd {
+	display: block;
+	text-align: center;
+	color: #b3b3b3;
+	margin-bottom: 15px;
+}
+
+#access .navbar {
+	width: 100%;
+	margin: 0 auto;
+	position: fixed;
+	top: 0;
+	height: 40px;
+	line-height: 40px;
+}
+
+#access .logo {
+	width: 50%;
+	float: left;
+	text-align: center;
+	background: #fff;
+	opacity: 0.75;
+}
+
+#access .menu {
+	width: 50%;
+	float: left;
+}
+
+#access .logo img {
+	width: 40px;
+	height: auto;
+	max-height: 40px;
+}
+
+#access .menu .space {
+	width: 15%;
+	background: #fff;
+	opacity: 0.75;
+	font-size: 16px;
+	float: left;
+	text-align: center;
+}
+
+#access .menu .space:hover, #access .menu .space:active {
+	background: none;
+	color: #fff;
+}
+
+#access .menu .space-remain {
+	width: 40%;
+	float: left;
+	background: #fff;
+	opacity: 0.75;
+	color: #fff;
+}
+
+@media screen and (max-width: 640px) { 
+	#access .logo {
+		width: 30%;
+	}
+	#access .menu {
+		width: 70%;
+	}
+	#access .menu .space {
+		width: 25%;
+	}
+	#access .menu .space-remain {
+		width: 0;
+	}
+	#access .header .text {
+		bottom: 10px;
+	}
+}
+
+@media screen and (max-width: 980px) { 
+	#access .logo {
+		width: 20%;
+	}
+	#access .menu {
+		width: 80%;
+	}
+	#access .header .text {
+		bottom: 30px;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* sign in & sign up end */

@@ -18,6 +18,10 @@ var repoDetail_component_1 = require('./repoDetail.component');
 var orgList_component_1 = require('./orgList.component');
 var orgCreate_component_1 = require('./orgCreate.component');
 var userSetting_component_1 = require('./userSetting.component');
+var org_service_1 = require('./org.service');
+var repo_service_1 = require('./repo.service');
+var forms_1 = require('@angular/forms');
+var http_1 = require('@angular/http');
 var app_routing_1 = require('./app.routing');
 var AppModule = (function () {
     function AppModule() {
@@ -26,6 +30,8 @@ var AppModule = (function () {
         core_1.NgModule({
             imports: [
                 platform_browser_1.BrowserModule,
+                forms_1.FormsModule,
+                http_1.HttpModule,
                 app_routing_1.routing
             ],
             declarations: [
@@ -37,6 +43,10 @@ var AppModule = (function () {
                 orgList_component_1.OrgListComponent,
                 orgCreate_component_1.OrgCreateComponent,
                 userSetting_component_1.UserSettingComponent
+            ],
+            providers: [
+                org_service_1.OrgService,
+                repo_service_1.RepoService
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 

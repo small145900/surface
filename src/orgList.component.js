@@ -9,15 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var org_service_1 = require('./org.service');
 var OrgListComponent = (function () {
-    function OrgListComponent() {
+    function OrgListComponent(router, orgService) {
+        this.router = router;
+        this.orgService = orgService;
+        this.orgList = [];
     }
+    OrgListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.orgService.getOrgList()
+            .then(function (orgList) { return _this.orgList = orgList; });
+    };
     OrgListComponent = __decorate([
         core_1.Component({
             selector: 'org-list',
             templateUrl: '../templates/organization/orgList.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [router_1.Router, org_service_1.OrgService])
     ], OrgListComponent);
     return OrgListComponent;
 }());
