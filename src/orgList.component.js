@@ -24,7 +24,6 @@ var OrgListComponent = (function () {
     };
     OrgListComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
             selector: 'org-list',
             templateUrl: '../templates/organization/orgList.html'
         }), 

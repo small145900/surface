@@ -1,60 +1,39 @@
-<html>
-  <head>
-    <title>surface</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/app.css" rel="stylesheet">
-    
-    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="systemjs.config.js"></script>
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
-  </head>
-  <body>
-    <div id="createOrg">
-      <div class="steps">
-        <p class="guide">
-          Organizations can have multiple Teams. Teams can have differing permissions. Namespace is unique and this is where repositories for this organization will be created. 
-        </p>
-        <ul class="step-nav">
-          <li><span [ngClass]=" step=== 1? 'step-brown' : '' ">1</span></li>
-          <li><span [ngClass]=" step=== 2? 'step-brown' : '' ">2</span></li>
-          <li><span [ngClass]=" step=== 3? 'step-brown' : '' ">3</span></li>
-          <li><span [ngClass]=" step=== 4? 'step-brown' : '' ">4</span></li>
-        </ul>
-      </div>
-      <div class="create">
-        <div class="first-step" *ngIf="step===1">
-          <input type="text" placeholder="Namespace"  [(ngModel)]="org.namespace" name="namespace"/>
-          <input type="text" placeholder="Organization Name" [(ngModel)]="org['full-name']" name="orgname"/>
-          <input type="text" placeholder="description" [(ngModel)]="org.description" name="description"/>
-          <input type="text" placeholder="Location" [(ngModel)]="org.location" name="location"/>
-          <input type="text" placeholder="Gravatar Email" [(ngModel)]="org.gravatar" name="gravatar"/>
-          <input type="text" placeholder="Email" [(ngModel)]="org.email" name="email"/>
-          <input type="text" placeholder="Website URL" [(ngModel)]="org.url" name="url"/>
-          <button class="save" (click)="saveOrgInfo(2)">Create</button>
-        </div>
-        <div class="second-step" *ngIf="step===2">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, est ex quod ipsum perferendis, adipisci fugiat, a qui modi voluptate laborum eius aliquid nam similique. Dolorem numquam nobis, velit! Molestiae.
-          <button class="save" (click)="saveOrgInfo(3)">Create</button>
-        </div>
-        <div class="third-step" *ngIf="step===3">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis cupiditate obcaecati, non animi laborum soluta incidunt recusandae maxime dolorem quia est illo, quas ut nesciunt quasi unde neque laudantium pariatur!
-          <button class="save" (click)="saveOrgInfo(4)">Create</button>
-        </div>
-        <div class="forty-step" *ngIf="step===4">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis cupiditate obcaecati, non animi laborum soluta incidunt recusandae maxime dolorem quia est illo, quas ut nesciunt quasi unde neque laudantium pariatur!
-          <button class="save" (click)="saveOrgInfo()">Create</button>
-        </div>
-      </div>
+<div id="createOrg">
+  <div class="steps">
+    <p class="guide">
+      Organizations can have multiple Teams. Teams can have differing permissions. Namespace is unique and this is where repositories for this organization will be created. 
+    </p>
+    <ul class="step-nav">
+      <li><span [ngClass]=" step=== 1? 'step-brown' : '' ">1</span></li>
+      <li><span [ngClass]=" step=== 2? 'step-brown' : '' ">2</span></li>
+      <li><span [ngClass]=" step=== 3? 'step-brown' : '' ">3</span></li>
+      <li><span [ngClass]=" step=== 4? 'step-brown' : '' ">4</span></li>
+    </ul>
+  </div>
+  <div class="create">
+    <div class="first-step" *ngIf="step===1">
+      <input type="text" placeholder="Namespace"  [(ngModel)]="org.namespace" name="namespace"/>
+      <input type="text" placeholder="Organization Name" [(ngModel)]="org['full-name']" name="orgname"/>
+      <input type="text" placeholder="description" [(ngModel)]="org.description" name="description"/>
+      <input type="text" placeholder="Location" [(ngModel)]="org.location" name="location"/>
+      <input type="text" placeholder="Gravatar Email" [(ngModel)]="org.gravatar" name="gravatar"/>
+      <input type="text" placeholder="Email" [(ngModel)]="org.email" name="email"/>
+      <input type="text" placeholder="Website URL" [(ngModel)]="org.url" name="url"/>
+      <button class="save" (click)="saveOrgInfo(2)">Create</button>
     </div>
-  </body>
-</html>
+    <div class="second-step" *ngIf="step===2">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, est ex quod ipsum perferendis, adipisci fugiat, a qui modi voluptate laborum eius aliquid nam similique. Dolorem numquam nobis, velit! Molestiae.
+      <button class="save" (click)="saveOrgInfo(3)">Create</button>
+    </div>
+    <div class="third-step" *ngIf="step===3">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis cupiditate obcaecati, non animi laborum soluta incidunt recusandae maxime dolorem quia est illo, quas ut nesciunt quasi unde neque laudantium pariatur!
+      <button class="save" (click)="saveOrgInfo(4)">Create</button>
+    </div>
+    <div class="forty-step" *ngIf="step===4">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis cupiditate obcaecati, non animi laborum soluta incidunt recusandae maxime dolorem quia est illo, quas ut nesciunt quasi unde neque laudantium pariatur!
+      <button class="save" (click)="saveOrgInfo()">Create</button>
+    </div>
+  </div>
+</div>
+
+

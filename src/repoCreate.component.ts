@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
   selector: 'repo-create',
   templateUrl: '../templates/repository/repoCreate.html'
 })
-export class RepoCreateComponent implements OnInit { 
+export class RepoCreateComponent { 
 	constructor(private http: Http){
 		this.step = 0;
 	}
@@ -16,5 +16,4 @@ export class RepoCreateComponent implements OnInit {
 	changeStep(step) {
 		this.step = step
 	}
-
 }

@@ -1,61 +1,38 @@
-<html>
-  <head>
-    <title>surface</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/app.css" rel="stylesheet">
-    
-    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="systemjs.config.js"></script>
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
-  </head>
-  <body>
-    <div class="row" id="newRepo">
-      <ul class="col-xs-12 col-md-3 col-md-offset-1">
-        <li>
-          <span [ngClass]=" step=== 1? 'step-brown' : '' ">1</span>
-          <b>this is guide of create repo </b>
-        </li>
-        <li>
-          <span [ngClass]=" step=== 2? 'step-brown' : '' ">2</span>
-          <b>this is guide of create repo </b>
-        </li>
-        <li>
-          <span [ngClass]=" step=== 3? 'step-brown' : '' ">3</span>
-          <b>this is guide of create repo </b>
-        </li>
-        <li>
-          <span [ngClass]=" step=== 4? 'step-brown' : '' ">4</span>
-          <b>this is guide of create repo </b>
-        </li>
-      </ul>
-      <div class="col-xs-12 col-md-5 col-md-offset-2 info">
-        <p><input type="text" placeholder="name"  (focus)="changeStep(1)"/></p>
-        <p><input type="text" placeholder="short descript"  (focus)="changeStep(2)"/></p>
-        <textarea placeholder="full descript" (focus)="changeStep(3)"></textarea>
-        <div class="visible-type">
-          <span>visibility:</span>
-          <label>
-            <input type="radio" name="visibility" value="0" (focus)="changeStep(4)"/>public
-            <input type="radio" name="visibility" value="1" (focus)="changeStep(4)"/>private
-          </label>
-          <!-- <select>
-            <option value="0">public</option>
-            <option value="1">private</option>
-          </select> -->
-        </div>
-        <button class="btn-create">create</button>
-      </div>
+<div class="row" id="newRepo">
+  <ul class="col-xs-12 col-md-3 col-md-offset-1">
+    <li>
+      <span [ngClass]=" step=== 1? 'step-brown' : '' ">1</span>
+      <b>this is guide of create repo </b>
+    </li>
+    <li>
+      <span [ngClass]=" step=== 2? 'step-brown' : '' ">2</span>
+      <b>this is guide of create repo </b>
+    </li>
+    <li>
+      <span [ngClass]=" step=== 3? 'step-brown' : '' ">3</span>
+      <b>this is guide of create repo </b>
+    </li>
+    <li>
+      <span [ngClass]=" step=== 4? 'step-brown' : '' ">4</span>
+      <b>this is guide of create repo </b>
+    </li>
+  </ul>
+  <div class="col-xs-12 col-md-5 col-md-offset-2 info">
+    <p><input type="text" placeholder="name"  (focus)="changeStep(1)"/></p>
+    <p><input type="text" placeholder="short descript"  (focus)="changeStep(2)"/></p>
+    <textarea placeholder="full descript" (focus)="changeStep(3)"></textarea>
+    <div class="visible-type">
+      <span>visibility:</span>
+      <label>
+        <input type="radio" name="visibility" value="0" (focus)="changeStep(4)"/>public
+        <input type="radio" name="visibility" value="1" (focus)="changeStep(4)"/>private
+      </label>
+      <!-- <select>
+        <option value="0">public</option>
+        <option value="1">private</option>
+      </select> -->
     </div>
-    
-  </body>
-</html>
+    <button class="btn-create">create</button>
+  </div>
+</div>
+

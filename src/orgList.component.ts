@@ -6,7 +6,6 @@ import { OrgService } from './org.service';
 
 
 @Component({
-	moduleId: module.id,
   selector: 'org-list',
   templateUrl: '../templates/organization/orgList.html'
 })
@@ -23,12 +22,6 @@ export class OrgListComponent implements OnInit {
     this.orgService.getOrgList()
       .then(orgList => this.orgList = orgList);
   }
-
-  // ngOnInit(): void {
-  //   this.orgService.getOrgList()
-  //     .then(repoList => this.repoList = repoList.slice(1, 5));
-  //   console.log(this.repoList)
-  // }
 
   // gotoDetail(repo: Repo): void {
   //   let link = ['repoDetail', repo.namespace,repo.repository];

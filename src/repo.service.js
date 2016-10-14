@@ -19,7 +19,7 @@ var RepoService = (function () {
         return this.http.get('json/repoList.json')
             .toPromise()
             .then(function (response) { return response.json(); })
-            .catch(function (error) { console.log(error); Observable.of([]); });
+            .catch(function (error) { console.log(error); });
     };
     RepoService = __decorate([
         core_1.Injectable(), 

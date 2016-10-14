@@ -11,7 +11,7 @@ import { RepoService } from './repo.service';
   templateUrl: '../templates/repository/repoList.html'
 })
 
-export class RepoListComponent implements OnInit {
+export class RepoListComponent {
 	orgList: Org[] = [];
 	repoList: Repo[] = [];
 
@@ -29,10 +29,6 @@ export class RepoListComponent implements OnInit {
       		this.repoService.getRepoList(org)
       			.then(repoList => {org.children = repoList.slice(0,4); this.repoList.push(org)})
       	})
-      })
-      
-      	
-      
-    
+      })        
   }
 }

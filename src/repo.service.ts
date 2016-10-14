@@ -12,6 +12,6 @@ export class RepoService {
     return this.http.get('json/repoList.json')
                .toPromise()
                .then(response => response.json() as Repo[])
-               .catch(error => {console.log(error); Observable.of<Repo[]>([])})
+               .catch(error => {console.log(error)})
   }
 }
