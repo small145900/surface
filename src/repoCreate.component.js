@@ -9,15 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
+var repo_service_1 = require('./repo.service');
+require('rxjs/add/operator/toPromise');
 var RepoCreateComponent = (function () {
-    function RepoCreateComponent() {
+    function RepoCreateComponent(http, repoService) {
+        this.http = http;
+        this.repoService = repoService;
+        this.step = 0;
+        this.repo = {};
     }
+    RepoCreateComponent.prototype.changeStep = function (step) {
+        this.step = step;
+    };
+    RepoCreateComponent.prototype.saveRepoInfo = function (step) {
+        var _this = this;
+        console.log(this.repo);
+        this.repoService.repoCreate(this.repo)
+            .then(function (res) { }, function (error) { return _this.errorMsg = error; });
+    };
     RepoCreateComponent = __decorate([
         core_1.Component({
+            moduleId: module.id,
             selector: 'repo-create',
             templateUrl: '../templates/repository/repoCreate.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http, repo_service_1.RepoService])
     ], RepoCreateComponent);
     return RepoCreateComponent;
 }());

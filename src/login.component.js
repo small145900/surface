@@ -11,33 +11,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_service_1 = require('./user.service');
-var NavComponent = (function () {
-    function NavComponent(router, userService) {
+var LoginComponent = (function () {
+    function LoginComponent(router, userService) {
         this.router = router;
         this.userService = userService;
-        this.user = {
-            username: 'test'
-        };
-        this.active = 'repo';
+        this.user = {};
     }
-    NavComponent.prototype.linkComp = function (path, nav) {
-        this.active = nav;
-        this.router.navigate([path]);
-        // this.router.navigate(["repoDetail",5]);
+    LoginComponent.prototype.login = function () {
+        console.log(this.user);
+        // this.userService.doLogin(this.user)
+        //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
+        //           error => this.errorMsg = <any>error);
+        this.router.navigate(['repositories']);
     };
-    NavComponent.prototype.loginOut = function () {
-        // this.userService.loginOut(this.user)
-        //    .then(res => { if(res.code === 200){this.router.navigate([''])}},
-        //          error => this.errorMsg = <any>error);
-        this.router.navigate(['']);
-    };
-    NavComponent = __decorate([
+    LoginComponent = __decorate([
         core_1.Component({
-            selector: 'nav-bar',
-            templateUrl: '../templates/common/nav.html'
+            selector: 'login',
+            templateUrl: '../templates/common/login.html'
         }), 
         __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService])
-    ], NavComponent);
-    return NavComponent;
+    ], LoginComponent);
+    return LoginComponent;
 }());
-exports.NavComponent = NavComponent;
+exports.LoginComponent = LoginComponent;

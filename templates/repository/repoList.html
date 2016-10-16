@@ -1,126 +1,32 @@
-<html>
-  <head>
-    <title>surface</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/app.css" rel="stylesheet">
-    
-    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="systemjs.config.js"></script>
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
-  </head>
-  <body>
-    <div id="repoList">
-      <p class="filter-repo">
-        <span class="relative">
-          <input type="text" />
-          <i class="fa fa-search search"></i>
-        </span>
-        <span class="col-skyblue cursor-point">
-          <i class="fa fa-plus"></i>
-          Create Repository
-        </span>
+<div id="repoList">
+  <p class="filter-repo">
+    <span class="relative">
+      <input type="text" />
+      <i class="fa fa-search search"></i>
+    </span>
+    <span class="col-skyblue cursor-point">
+      <i class="fa fa-plus"></i>
+      Create Repository
+    </span>
+  </p>
+  <div class="content">
+    <div class="row media-repo" *ngFor="let item of orgRepo">
+      <p class="col-xs-4 col-md-2 col-md-offset-1 repo-left text-center">
+        <span>{{item.name}}</span><br/>
+        <span>{{item.bio}}</span>
       </p>
-      <div class="content">
-        <div class="row media-repo">
-          <p class="col-xs-4 col-md-2 col-md-offset-1 repo-left text-center">
-            <span>org name</span><br/>
-            <span>this is company</span>
+      <div class="col-xs-12 col-md-7 col-md-offset-2 repo-body">
+        <a href="###" *ngFor="let repo of item.children">
+          <h3>{{repo.namespace}}/{{repo.repository}}</h3>
+          <h5 class="col-gray">{{repo.description}}</h5>
+          <p class="star-fork">
+            <i class="fa fa-star col-orange"></i> {{repo.star}} 
+            <span class="disp-no"><i class="fa fa-code-fork mar-lt"></i> 100 </span>
+            <i class="fa fa-info-circle"></i>
           </p>
-          <div class="col-xs-12 col-md-7 col-md-offset-2 repo-body">
-            <a href="###">
-              <h3>docker</h3>
-              <h5 class="col-gray">this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker</h5>
-              <p class="star-fork">
-                <i class="fa fa-star col-orange"></i> 100 
-                <i class="fa fa-code-fork mar-lt"></i> 100 
-                <i class="fa fa-info-circle"></i>
-              </p>
-            </a>
-            <a href="###">
-              <h3>docker</h3>
-              <h5 class="col-gray">this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker</h5>
-              <p class="star-fork">
-                <i class="fa fa-star col-orange"></i> 100 
-                <i class="fa fa-code-fork mar-lt"></i> 100 
-                <i class="fa fa-info-circle"></i>
-              </p>
-            </a>
-            <a href="###">
-              <h3>docker</h3>
-              <h5 class="col-gray">this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker</h5>
-              <p class="star-fork">
-                <i class="fa fa-star col-orange"></i> 100 
-                <i class="fa fa-code-fork mar-lt"></i> 100 
-                <i class="fa fa-info-circle"></i>
-              </p>
-            </a>
-            <a href="###">
-              <h3>docker</h3>
-              <h5 class="col-gray">this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker</h5>
-              <p class="star-fork">
-                <i class="fa fa-star col-orange"></i> 100 
-                <i class="fa fa-code-fork mar-lt"></i> 100 
-                <i class="fa fa-info-circle"></i>
-              </p>
-            </a>
-          </div>
-        </div>
-        <div class="row media-repo">
-          <p class="col-xs-4 col-md-2 col-md-offset-1 repo-left text-center">
-            <span>org name</span><br/>
-            <span>this is company</span>
-          </p>
-          <div class="col-xs-12 col-md-7 col-md-offset-2 repo-body">
-            <a href="###">
-              <h3>docker</h3>
-              <h5 class="col-gray">this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker</h5>
-              <p class="star-fork">
-                <i class="fa fa-star col-orange"></i> 100 
-                <i class="fa fa-code-fork mar-lt"></i> 100 
-                <i class="fa fa-info-circle"></i>
-              </p>
-            </a>
-            <a href="###">
-              <h3>docker</h3>
-              <h5 class="col-gray">this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker</h5>
-              <p class="star-fork">
-                <i class="fa fa-star col-orange"></i> 100 
-                <i class="fa fa-code-fork mar-lt"></i> 100 
-                <i class="fa fa-info-circle"></i>
-              </p>
-            </a>
-            <a href="###">
-              <h3>docker</h3>
-              <h5 class="col-gray">this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker</h5>
-              <p class="star-fork">
-                <i class="fa fa-star col-orange"></i> 100 
-                <i class="fa fa-code-fork mar-lt"></i> 100 
-                <i class="fa fa-info-circle"></i>
-              </p>
-            </a>
-            <a href="###">
-              <h3>docker</h3>
-              <h5 class="col-gray">this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker this is docker</h5>
-              <p class="star-fork">
-                <i class="fa fa-star col-orange"></i> 100 
-                <i class="fa fa-code-fork mar-lt"></i> 100 
-                <i class="fa fa-info-circle"></i>
-              </p>
-            </a>
-          </div>
-        </div>
-        <p>next</p>
+        </a>
       </div>
-    </div> 
-  </body>
-</html>
+    </div>
+  </div>
+</div> 
+ 

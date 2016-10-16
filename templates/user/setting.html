@@ -24,21 +24,16 @@
               <input type="radio" name="visib" value="1"/>private
             </p>
             <div class="pull-left email">
-              <input type="email"/> 
-              <button class="add-email">add email</button>
+              <input type="email" [(ngModel)]="user.email" name="email"/> 
+              <button class="add-email" (click)="addEmail()">add email</button>
               <ul class="emails">
-                <li>
-                  <span class="addr">dockyard@163.com</span>
-                  <span class="verified">verified</span>
-                  <span class="relation">primary</span>
+                <li *ngFor="let item of emailList; let i = index">
+                  <span class="addr">{{item.email}}</span>
+                  <span class="verified" (click)="sendEmail(item)">{{item.verify? 'verified' : 'Send Email'}}</span>
+                  <span class="relation">{{item.primary? 'primary' : 'Sub'}}</span>
+                  <span class="delet" *ngIf="i!==0" (click)="delEmail(item)"><i class="fa fa-trash-o"></i></span>
                 </li>
-                <li>
-                  <span class="addr">dockyard@163.com</span>
-                  <span class="verified">Send Email</span>
-                  <span class="relation">Sub</span>
-                  <span class="delet"><i class="fa fa-trash-o"></i></span>
-                </li>
-                <li>
+            <!--     <li>
                   <span class="addr">dockyard@163.com</span>
                   <span class="verified">Send Email</span>
                   <span class="relation">Sub</span>
@@ -50,6 +45,12 @@
                   <span class="relation">Sub</span>
                   <span class="delet"><i class="fa fa-trash-o"></i></span>
                 </li>
+                <li>
+                  <span class="addr">dockyard@163.com</span>
+                  <span class="verified">Send Email</span>
+                  <span class="relation">Sub</span>
+                  <span class="delet"><i class="fa fa-trash-o"></i></span>
+                </li> -->
               </ul>
             </div>
           </div>
