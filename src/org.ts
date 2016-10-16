@@ -7,4 +7,5 @@ export class Org {
 	teams: number;
 	repositories: number;
 	role: string;
+	children: any;
 }

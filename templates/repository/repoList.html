@@ -16,7 +16,7 @@
         <span>{{item.bio}}</span>
       </p>
       <div class="col-xs-12 col-md-7 col-md-offset-2 repo-body">
-       <!--  <a href="###" *ngIf="item.children&&item.children.length>0" *ngFor="let repo of item.children">
+        <a href="###" *ngFor="let repo of item.children">
           <h3>{{repo.namespace}}/{{repo.repository}}</h3>
           <h5 class="col-gray">{{repo.description}}</h5>
           <p class="star-fork">
@@ -24,7 +24,7 @@
             <span class="disp-no"><i class="fa fa-code-fork mar-lt"></i> 100 </span>
             <i class="fa fa-info-circle"></i>
           </p>
-        </a> -->
+        </a>
       </div>
     </div>
   </div>

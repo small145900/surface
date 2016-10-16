@@ -9,8 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var org_service_1 = require('./org.service');
 var OrgCreateComponent = (function () {
-    function OrgCreateComponent() {
+    function OrgCreateComponent(orgService) {
+        this.orgService = orgService;
         this.step = 1;
         this.org = {};
     }
@@ -19,14 +21,16 @@ var OrgCreateComponent = (function () {
     };
     OrgCreateComponent.prototype.saveOrgInfo = function (step) {
         console.log(this.org);
-        this.changeStep(step);
+        // this.orgService.orgCreate(this.org)
+        //     .then(res => {if(res.code === 201){this.changeStep(step)}},
+        //           error => this.errorMsg = <any>error);
     };
     OrgCreateComponent = __decorate([
         core_1.Component({
             selector: 'org-create',
             templateUrl: '../templates/organization/orgCreate.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [org_service_1.OrgService])
     ], OrgCreateComponent);
     return OrgCreateComponent;
 }());

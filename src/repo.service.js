@@ -11,15 +11,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
+require('rxjs/add/operator/catch');
 var RepoService = (function () {
     function RepoService(http) {
         this.http = http;
+        this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     RepoService.prototype.getRepoList = function (orgInfo) {
         return this.http.get('json/repoList.json')
             .toPromise()
-            .then(function (response) { return response.json(); })
-            .catch(function (error) { console.log(error); });
+            .then(this.dealData)
+            .catch(this.handleError);
+    };
+    RepoService.prototype.repoCreate = function (info) {
+        var params = JSON.stringify(info);
+        return this.http.post('/web/v1/repository', params, { headers: this.headers })
+            .toPromise()
+            .then(this.dealData)
+            .catch(this.handleError);
+    };
+    RepoService.prototype.dealData = function (res) {
+        return res.json() || {};
+    };
+    RepoService.prototype.handleError = function (error) {
+        var errMsg = (error.message) ? error.message :
+            error.status ? error.status + " - " + error.statusText : 'Server error';
+        console.error(errMsg);
+        return Promise.reject(errMsg);
     };
     RepoService = __decorate([
         core_1.Injectable(), 

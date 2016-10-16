@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
+import { UserService } from './user.service';
+
 
 @Component({
   selector: 'nav-bar',
@@ -7,10 +9,27 @@ import { Router, RouterModule } from '@angular/router';
 })
 
 export class NavComponent {
-	constructor(private router: Router) {}
+	errorMsg: string;
+	user = {
+		username: 'test'
+	}
+	private active = 'repo'
 
-  linkComp(path){
+	constructor(
+		private router: Router,
+		private userService: UserService){
+	}
+
+  linkComp(path,nav){
+  	this.active = nav
     this.router.navigate([path]);
     // this.router.navigate(["repoDetail",5]);
+  }
+
+  loginOut(){
+  	// this.userService.loginOut(this.user)
+   //    .then(res => { if(res.code === 200){this.router.navigate([''])}},
+   //          error => this.errorMsg = <any>error);
+   this.router.navigate([''])
   }
 }

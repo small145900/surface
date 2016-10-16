@@ -9,15 +9,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var user_service_1 = require('./user.service');
 var UserSettingComponent = (function () {
-    function UserSettingComponent() {
+    function UserSettingComponent(userService) {
+        this.userService = userService;
+        this.user = {
+            username: 'test'
+        };
+        this.emailList = [];
     }
+    UserSettingComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.getEmailList(this.user)
+            .then(function (res) { _this.emailList = res; console.log(res); }, function (error) { return _this.errorMsg = error; });
+    };
+    UserSettingComponent.prototype.addEmail = function () {
+        var _this = this;
+        console.log(this.user);
+        this.userService.addEmail(this.user)
+            .then(function (res) { if (res.code === 200) { } }, function (error) { return _this.errorMsg = error; });
+    };
+    UserSettingComponent.prototype.sendEmail = function (info) {
+        var _this = this;
+        this.userService.sendEmail(info, this.user)
+            .then(function (res) { if (res.code === 200) { } }, function (error) { return _this.errorMsg = error; });
+    };
+    UserSettingComponent.prototype.delEmail = function (info) {
+        var _this = this;
+        this.userService.delEmail(info, this.user)
+            .then(function (res) { if (res.code === 200) { } }, function (error) { return _this.errorMsg = error; });
+    };
     UserSettingComponent = __decorate([
         core_1.Component({
             selector: 'user-setting',
             templateUrl: '../templates/user/setting.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [user_service_1.UserService])
     ], UserSettingComponent);
     return UserSettingComponent;
 }());
