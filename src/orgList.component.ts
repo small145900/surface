@@ -11,6 +11,7 @@ import { OrgService } from './org.service';
 })
 
 export class OrgListComponent implements OnInit {
+  errorMsg: string;
 	orgList: Org[] = [];
 
 	constructor(
@@ -20,7 +21,8 @@ export class OrgListComponent implements OnInit {
 
   ngOnInit(): void {
     this.orgService.getOrgList()
-      .then(orgList => this.orgList = orgList);
+      .then(orgList => this.orgList = orgList,
+            error => this.errorMsg = <any>error);
   }
 
   // gotoDetail(repo: Repo): void {

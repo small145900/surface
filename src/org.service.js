@@ -11,45 +11,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
+require('rxjs/add/operator/catch');
 var OrgService = (function () {
     function OrgService(http) {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     // getOrgList(): Promise<Org[]> {
-    //   var arr = [
-    //               { name: "small",
+    //   var arr = [{ name: "small",
     //                 title: "small",
     //                 bio: "desc",
     //                 id: 50,
     //                 gravatar: "img/logo.png",
     //                 teams: 30,
     //                 repositories: 100
-    //               },    
-    //               { name: "small",
-    //                 title: "small",
-    //                 bio: "desc",
-    //                 id: 60,
-    //                 gravatar: "img/logo.png",
-    //                 teams: 30,
-    //                 repositories: 100
-    //               },
-    //               { name: "small",
-    //                 title: "small",
-    //                 bio: "desc",
-    //                 id: 70,
-    //                 gravatar: "img/logo.png",
-    //                 teams: 30,
-    //                 repositories: 100
-    //               }
-    //             ]
+    //               }]
     //   return Promise.resolve(arr);
     // }
     OrgService.prototype.getOrgList = function () {
         return this.http.get('json/orgList.json')
             .toPromise()
-            .then(function (response) { return response.json(); })
-            .catch(function (error) { console.log(error); });
+            .then(this.dealData)
+            .catch(this.handleError);
+    };
+    OrgService.prototype.orgCreate = function (info) {
+        var params = JSON.stringify(info);
+        return this.http.post('/web/v1/orgs', params, { headers: this.headers })
+            .toPromise()
+            .then(this.dealData)
+            .catch(this.handleError);
+    };
+    OrgService.prototype.dealData = function (res) {
+        return res.json() || {};
+    };
+    OrgService.prototype.handleError = function (error) {
+        var errMsg = (error.message) ? error.message :
+            error.status ? error.status + " - " + error.statusText : 'Server error';
+        console.error(errMsg);
+        return Promise.reject(errMsg);
     };
     OrgService = __decorate([
         core_1.Injectable(), 

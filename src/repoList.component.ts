@@ -13,6 +13,7 @@ import { RepoService } from './repo.service';
 })
 
 export class RepoListComponent implements OnInit {
+  errorMsg: string;
 	orgList: Org[] = [];
   // repoList: Repo[] = [];
 	orgRepo: OrgRepo[] = [];
@@ -31,9 +32,9 @@ export class RepoListComponent implements OnInit {
       	this.orgList.map((dom) => {
       		this.repoService.getRepoList(dom)
       			.then(repoList => {
-              // dom.children = repoList.slice(0,4); 
+              dom.children = repoList.slice(0,4); 
               this.orgRepo.push(dom)
-            })
+            },error => this.errorMsg = <any>error)
       	})
       })        
   }

@@ -1,44 +1,26 @@
 "use strict";
 var router_1 = require('@angular/router');
-var repoList_component_1 = require('./repoList.component');
-var repoCreate_component_1 = require('./repoCreate.component');
-var repoDetail_component_1 = require('./repoDetail.component');
-var orgList_component_1 = require('./orgList.component');
-var orgCreate_component_1 = require('./orgCreate.component');
-var userSetting_component_1 = require('./userSetting.component');
+var login_component_1 = require('./login.component');
+var content_component_1 = require('./content.component');
+// import { RepoListComponent }  from './repoList.component';
+// import { RepoCreateComponent }  from './repoCreate.component';
+// import { RepoDetailComponent } from './repoDetail.component';
+// import { OrgListComponent }      from './orgList.component';
+// import { OrgCreateComponent }      from './orgCreate.component';
+// import { UserSettingComponent }      from './userSetting.component';
 var appRoutes = [
     {
         path: '',
-        redirectTo: '/repositories',
+        redirectTo: '/login',
         pathMatch: 'full'
     },
     {
-        path: 'repositories',
-        component: repoList_component_1.RepoListComponent
+        path: 'login',
+        component: login_component_1.LoginComponent
     },
     {
-        path: 'repoCreate',
-        component: repoCreate_component_1.RepoCreateComponent
-    },
-    {
-        path: 'repoDetail',
-        component: repoDetail_component_1.RepoDetailComponent
-    },
-    // {
-    //   path: 'repoDetail/:repoId',
-    //   component: RepoDetailComponent
-    // },
-    {
-        path: 'organizations',
-        component: orgList_component_1.OrgListComponent
-    },
-    {
-        path: 'orgCreate',
-        component: orgCreate_component_1.OrgCreateComponent
-    },
-    {
-        path: 'userSetting',
-        component: userSetting_component_1.UserSettingComponent
+        path: 'content',
+        component: content_component_1.ContentComponent
     }
 ];
 exports.routing = router_1.RouterModule.forRoot(appRoutes);

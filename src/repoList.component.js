@@ -29,9 +29,9 @@ var RepoListComponent = (function () {
             _this.orgList.map(function (dom) {
                 _this.repoService.getRepoList(dom)
                     .then(function (repoList) {
-                    // dom.children = repoList.slice(0,4); 
+                    dom.children = repoList.slice(0, 4);
                     _this.orgRepo.push(dom);
-                });
+                }, function (error) { return _this.errorMsg = error; });
             });
         });
     };

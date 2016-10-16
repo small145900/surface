@@ -20,7 +20,7 @@ var OrgListComponent = (function () {
     OrgListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.orgService.getOrgList()
-            .then(function (orgList) { return _this.orgList = orgList; });
+            .then(function (orgList) { return _this.orgList = orgList; }, function (error) { return _this.errorMsg = error; });
     };
     OrgListComponent = __decorate([
         core_1.Component({

@@ -18,21 +18,27 @@
     </li>
   </ul>
   <div class="col-xs-12 col-md-5 col-md-offset-2 info">
-    <p><input type="text" placeholder="name"  (focus)="changeStep(1)"/></p>
-    <p><input type="text" placeholder="short descript"  (focus)="changeStep(2)"/></p>
-    <textarea placeholder="full descript" (focus)="changeStep(3)"></textarea>
+    <p>
+      <select [(ngModel)]="repo.username" name="username">
+        <option value="1">dockyard</option>
+        <option value="2">surface</option>
+      </select>
+    </p>
+    <p><input type="text" placeholder="name"  (focus)="changeStep(1)" [(ngModel)]="repo.repository" name="repository"/></p>
+    <p><input type="text" placeholder="short descript"  (focus)="changeStep(2)" [(ngModel)]="repo.short" name="short"/></p>
+    <textarea placeholder="full descript" (focus)="changeStep(3)" [(ngModel)]="repo.description" name="description"></textarea>
     <div class="visible-type">
       <span>visibility:</span>
       <label>
-        <input type="radio" name="visibility" value="0" (focus)="changeStep(4)"/>public
-        <input type="radio" name="visibility" value="1" (focus)="changeStep(4)"/>private
+        <input type="radio" name="visibility" value="public" (focus)="changeStep(4)" [(ngModel)]="repo.privilege" name="privilege"/>public
+        <input type="radio" name="visibility" value="private" (focus)="changeStep(4)" [(ngModel)]="repo.privilege" name="privilege"/>private
       </label>
       <!-- <select>
         <option value="0">public</option>
         <option value="1">private</option>
       </select> -->
     </div>
-    <button class="btn-create">create</button>
+    <button class="btn-create" (click)="saveRepoInfo()">create</button>
   </div>
 </div>
 

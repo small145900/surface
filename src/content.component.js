@@ -15,7 +15,7 @@ var ContentComponent = (function () {
     ContentComponent = __decorate([
         core_1.Component({
             selector: 'app-content',
-            templateUrl: '../templates/user/setting.html'
+            template: "<div class=\"container-fluid\">\n              <nav-bar></nav-bar>\n              <router-outlet></router-outlet>\n            </div>"
         }), 
         __metadata('design:paramtypes', [])
     ], ContentComponent);

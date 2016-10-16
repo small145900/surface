@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import {NgClass} from '@angular/common';
+import { RepoService } from './repo.service';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -9,12 +10,22 @@ import 'rxjs/add/operator/toPromise';
   templateUrl: '../templates/repository/repoCreate.html'
 })
 export class RepoCreateComponent { 
+  errorMsg: string;
 	step = 0;
-
-	constructor(private http: Http){
+	repo = {}
+	constructor(
+		private http: Http,
+		private repoService: RepoService){
 	}
 
 	changeStep(step) {
 		this.step = step
+	}
+
+	saveRepoInfo(step){
+		console.log(this.repo)
+		this.repoService.repoCreate(this.repo)
+      .then(res => {},
+            error => this.errorMsg = <any>error);
 	}
 }
