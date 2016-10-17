@@ -30,6 +30,6 @@ export class OrgListComponent implements OnInit {
   //   this.router.navigate(link);
   // }
   orgCreate(path){
-    // this.router.navigate([path]);
+    this.router.navigate([path]);
   }
 }

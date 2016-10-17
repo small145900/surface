@@ -27,7 +27,7 @@ var OrgListComponent = (function () {
     //   this.router.navigate(link);
     // }
     OrgListComponent.prototype.orgCreate = function (path) {
-        // this.router.navigate([path]);
+        this.router.navigate([path]);
     };
     OrgListComponent = __decorate([
         core_1.Component({

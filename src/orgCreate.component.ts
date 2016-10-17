@@ -11,6 +11,7 @@ export class OrgCreateComponent {
 	errorMsg: string;
 	step = 1;
 	org = {};
+	repo = {};
 
 	constructor(private orgService: OrgService){ }
 

@@ -52,6 +52,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 	margin-top: 0;
 }
 
+.mar-rt-no {
+	margin-right: 0;
+}
+
 .mar-lt {
 	margin-left: 10px;
 }
@@ -67,6 +71,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 .mar-t-twenty {
 	margin-top: 20px;
+}
+
+.mar-bt-twenty-five {
+	margin-bottom: 25px;
 }
 
 .pad-no {
@@ -93,6 +101,9 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 	margin: 0;
 }
 
+html {
+	font-size: 62.5%;
+}
 
 body {
 	font-size: @baseFontSize;
@@ -233,12 +244,11 @@ body {
 
 #nav .menu a, #nav .user a {
 	font-size: 14px;
-	color: @gray;
 }
 
 #nav a:hover, #nav a:active, #createRepo a:hover, #createRepo:active{
 	color: @white;
-	background: #b3b3b3;
+	background: @blue;
 	border-radius: @baseRadius;
 }
 
@@ -251,44 +261,53 @@ body {
 	height: 100%;
 }
 
-#nav .menu ul {
-	width: 70%;
-	float: left;
-	overflow: hidden;
+#nav .user {
+	float: right;
 }
 
-#nav .menu ul li a, #nav .user > ul > li > a {
+#nav .menu li a, #nav .user > li > a {
 	padding: 0 12px;
 	height: 28px;
 	line-height: 28px;
 	margin-top: 9px;
-	margin-left: @baseMargin+2px;
+	margin-right: @baseMargin+2px;
+	color: @white;
 }
 
-#nav .user > ul > li > a {
+#nav .menu .logo, #nav .menu .logo:hover, #nav .menu .logo:active {
+	background: none;
+}
+
+#nav .menu .logo a, #nav .menu .logo a:hover, #nav .menu .logo a:active {
+	padding: 0;
+	background: none;
+	margin-right: 30px;
+}
+
+#nav .user > li > a {
 	padding: 0;
 }
 
-#nav .menu ul li a, #nav .user > ul > li {
+#nav .menu li a, #nav .user > li {
 	float: left;
 }
 
-#nav .user > ul > li > a {
+#nav .user > li > a {
 	display: inline-block;
-	width: 120px;
+	padding: 0 12px;
 }
 
-#nav .user > ul > li {
+#nav .user > li {
 	height: 44px;
 }
 
-#nav .menu ul li .active {
+#nav .menu li .active {
 	color: @white;
-	background: #b3b3b3;
+	background: @blue;
 	border-radius: @baseRadius; 
 }
 
-#nav .user > ul > li input {
+#nav .user > li input {
 	width: 100%;
 	height: 28px;
 	margin-top: 8px;
@@ -298,15 +317,19 @@ body {
 	font-size: 14px;
 }
 
-#nav .user > ul > li input:focus {
+#nav .user > li input:focus {
 	background: @white;
+}
+
+#nav .user li:first-child {
+	margin-right: 12px;
 }
 
 #createRepo, #userSetting {
 	width: 200px;
-	background: @black;
+	background: #eaeaea;
 	position: absolute;
-	top: 44px;
+	top: 42px;
 	left: -66px;
 	z-index: 10000;
 }
@@ -316,11 +339,11 @@ body {
 	left: 12px;
 }
 
-#createRepo ul li, #createRepo ul li a, #userSetting ul li, #userSetting ul li a {
+#createRepo li, #createRepo li a, #userSetting li, #userSetting li a {
 	width: 100%;
 }
 
-#createRepo ul li, #userSetting ul li {
+#createRepo li, #userSetting li {
 	height: 44px;
 }
 
@@ -484,7 +507,7 @@ body {
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
-	border-radius: 50%;
+	border-radius: 5px;
 	font-size: 16px;
 	background: gainsboro;
 	color: @white;
@@ -494,7 +517,7 @@ body {
 }
 
 .step-brown {
-	background: @brownness !important;
+	background: @blue !important;
 }
 
 #newRepo li:last-child span {
@@ -503,6 +526,7 @@ body {
 
 #newRepo li b {
 	font-size: 16px;
+	margin-top: 10px;
 	font-weight: normal;
 	display: inline-block;
 	width: e("calc(100% - 52px)");
@@ -510,43 +534,42 @@ body {
 }
 
 #newRepo .info {
-	background: gainsboro;
-	padding: 24px 20px;
+	padding: 0;
 }
 
 #newRepo input, #newRepo textarea {
-	width: 95%;
-	padding: 12px;
+	width: 100%;
+	padding: 10px;
 	font-size: 16px;
-	background: none;
-	color: @white;
-	border-bottom: 1px solid @white;
+	background: #d7d7d7;
+	border-radius: 5px;
 }
 
 #newRepo input::-webkit-input-placeholder, #newRepo textarea::-webkit-input-placeholder {
-	color: #fff;
+	color: #b3b3b3;
 }
 
 #newRepo textarea {
-	height: 200px;
-	border: 1px solid @white;
+	height: 250px;
+	over-x: hidden;
+	resize: vertical
 }
 
 #newRepo .visible-type {
 	margin: @baseMargin+5px auto @baseMargin+15px;
 	font-size: 16px;
+	padding-left: 10px;
 }
 
 #newRepo .visible-type > span {
 	display: inline-block;
 	width: 65px;
-	color: @white;
 }
 
 #newRepo .visible-type label {
-	color: @white;
 	width: e("calc(95% - 65px)");
 	width: e("-webkit-calc(95% - 65px)");
+	font-weight: normal;
 }
 
 #newRepo .visible-type input {
@@ -562,33 +585,43 @@ body {
 }
 
 #newRepo .visible-type input:last-child {
-	margin-left: @baseMargin;
+	margin-left: @baseMargin + 2px;
+}
+
+#newRepo .clear-gap {
+	font-size: 0;
 }
 
 #newRepo select {
-	width: e("calc(95% - 60px)");
-	width: e("-webkit-calc(95% - 60px)");
+	width: 42%;
 	padding: 12px;
+	background: #d7d7d7;
 	color: @gray;
+	margin-right: 3%;
+	border-radius: 5px;
+	font-size: 12px;
 }
 
+#newRepo select + input {
+	width: 55%;
+}
 #newRepo option {
 	padding: 12px;
 }
 
 #newRepo .btn-create {
 	font-size: 16px;
-	width: 70px;
+	width: 100%;
 	height: 40px;
 	line-height: 40px;
 	text-align: center;
 	border-radius: @baseRadius;
 	color: @white;
-	background: @gray;
+	background: #d7d7d7;
 }
 
 #newRepo .btn-create:hover {
-	background: #c9caaa;
+	background: @blue;
 }
 /* repo create end */
 
@@ -767,6 +800,7 @@ body {
 /* org list end */
 
 /* org create start */
+
 #createOrg {
 	padding-top: 60px;
 	// background: @white;
@@ -775,12 +809,10 @@ body {
 }
 
 #createOrg .guide {
-	width: 37%;
 	font-size: 16px;
 }
 
 #createOrg .steps {
-	width: 80%;
 	margin: 0 auto;
 }
 
@@ -791,8 +823,15 @@ body {
 	text-align: center;
 }
 
+#createOrg .create .space, #createOrg .guide {
+	margin-left: e("calc(33.3% / 2 - 20px)");
+	margin-left: e("-webkit-calc(33.3% / 2 - 20px)");
+	margin-right: e("calc(33.3% / 2 - 20px)");
+	margin-right: e("-webkit-calc(33.3% / 2 - 20px)");
+}
+
 #createOrg li {
-	width: 25%;
+	width: 33.3%;
 	border-bottom: 1px solid @gray;
 	float: left;
 }
@@ -802,7 +841,7 @@ body {
 	width: 40px;
 	height: 40px;
 	line-height: 40px;
-	border-radius: 50%;
+	border-radius: 5px;
 	font-size: 16px;
 	text-align: center;
 	color: @white;
@@ -811,14 +850,16 @@ body {
 	top: 20px;
 }
 
-#createOrg .create {
-	width: 80%;
-	margin: 60px auto 0;
-	padding: 12px 24px;
-	background: @white;
+#createOrg li i {
+	margin-top: 12px;
 }
 
-#createOrg .first-step input {
+#createOrg .create {
+	margin: 60px auto 0;
+	// padding: 12px 24px;
+}
+
+#createOrg .first-step input, #createOrg .first-step .save {
 	width: 100%;
 	height: 40px;
 	line-height: 40px;
@@ -826,15 +867,13 @@ body {
 	padding: 0 12px;
 	font-size: 14px;
 	border-radius: 5px;
-	border: 1px solid #d7d7d7;
+	background: #d7d7d7;
 }
 
 #createOrg .first-step .save {
+	color: #fff;
+	background: #b3b3b3;
 	font-size: 16px;
-	color: @white;
-	padding: 12px 20px;
-	border-radius: 5px;
-	background: #eaeaea;
 }
 /* org create end */
 

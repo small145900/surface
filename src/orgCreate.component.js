@@ -15,6 +15,7 @@ var OrgCreateComponent = (function () {
         this.orgService = orgService;
         this.step = 1;
         this.org = {};
+        this.repo = {};
     }
     OrgCreateComponent.prototype.changeStep = function (step) {
         this.step = step;
