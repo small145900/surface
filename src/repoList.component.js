@@ -35,6 +35,9 @@ var RepoListComponent = (function () {
             });
         });
     };
+    RepoListComponent.prototype.repoCreate = function (path) {
+        this.router.navigate([path]);
+    };
     RepoListComponent = __decorate([
         core_1.Component({
             moduleId: module.id,

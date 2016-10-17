@@ -29,4 +29,7 @@ export class OrgListComponent implements OnInit {
   //   let link = ['repoDetail', repo.namespace,repo.repository];
   //   this.router.navigate(link);
   // }
+  orgCreate(path){
+    this.router.navigate([path]);
+  }
 }

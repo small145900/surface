@@ -22,6 +22,13 @@ var OrgListComponent = (function () {
         this.orgService.getOrgList()
             .then(function (orgList) { return _this.orgList = orgList; }, function (error) { return _this.errorMsg = error; });
     };
+    // gotoDetail(repo: Repo): void {
+    //   let link = ['repoDetail', repo.namespace,repo.repository];
+    //   this.router.navigate(link);
+    // }
+    OrgListComponent.prototype.orgCreate = function (path) {
+        this.router.navigate([path]);
+    };
     OrgListComponent = __decorate([
         core_1.Component({
             selector: 'org-list',

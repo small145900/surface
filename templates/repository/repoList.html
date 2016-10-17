@@ -1,5 +1,5 @@
 <div id="repoList">
-  <p class="filter-repo">
+  <p class="filter-repo disp-no">
     <span class="relative">
       <input type="text" />
       <i class="fa fa-search search"></i>
@@ -9,22 +9,35 @@
       Create Repository
     </span>
   </p>
-  <div class="content">
-    <div class="row media-repo" *ngFor="let item of orgRepo">
-      <p class="col-xs-4 col-md-2 col-md-offset-1 repo-left text-center">
-        <span>{{item.name}}</span><br/>
-        <span>{{item.bio}}</span>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 col-xs-12 title">
+      <p class="col-xs-12 col-md-4 pad-no">
+        <button class="cursor-point" (click)="repoCreate('repoCreate')">
+          <i class="fa fa-plus"></i>
+          Create Repository
+        </button>
       </p>
-      <div class="col-xs-12 col-md-7 col-md-offset-2 repo-body">
-        <a href="###" *ngFor="let repo of item.children">
-          <h3>{{repo.namespace}}/{{repo.repository}}</h3>
-          <h5 class="col-gray">{{repo.description}}</h5>
-          <p class="star-fork">
-            <i class="fa fa-star col-orange"></i> {{repo.star}} 
-            <span class="disp-no"><i class="fa fa-code-fork mar-lt"></i> 100 </span>
-            <i class="fa fa-info-circle"></i>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1 col-xs-12">
+      <div class="row">
+        <div class="media-repo" *ngFor="let item of orgRepo; let i = index">
+          <p class="col-xs-2 col-md-3 repo-left">
+            <span [ngClass]="(i+1)%2==0? 'bg-orange' : 'bg-blue'">{{item.name}}</span><br/>
+            <span>{{item.bio}}</span>
           </p>
-        </a>
+          <div class="col-xs-10 col-md-9 repo-body">
+            <a href="javascript:void(0)" *ngFor="let repo of item.children">
+              <h3>{{repo.namespace}}/{{repo.repository}}</h3>
+              <h5 class="col-gray">{{repo.description}}</h5>
+              <p class="star-fork">
+                <i class="fa fa-star col-orange"></i> {{repo.star}} 
+                <span class="disp-no"><i class="fa fa-code-fork mar-lt"></i> 100 </span>
+              </p>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -28,8 +28,8 @@ export class UserSettingComponent implements OnInit {
             error => this.errorMsg = <any>error);
 	}
 
-	sendEmail(info){
-		this.userService.sendEmail(info,this.user)
+	verifyEmail(info){
+		this.userService.verifyEmail(info,this.user)
       .then(res => { if(res.code === 200){}},
             error => this.errorMsg = <any>error);
 	}

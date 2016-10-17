@@ -29,9 +29,9 @@ var UserSettingComponent = (function () {
         this.userService.addEmail(this.user)
             .then(function (res) { if (res.code === 200) { } }, function (error) { return _this.errorMsg = error; });
     };
-    UserSettingComponent.prototype.sendEmail = function (info) {
+    UserSettingComponent.prototype.verifyEmail = function (info) {
         var _this = this;
-        this.userService.sendEmail(info, this.user)
+        this.userService.verifyEmail(info, this.user)
             .then(function (res) { if (res.code === 200) { } }, function (error) { return _this.errorMsg = error; });
     };
     UserSettingComponent.prototype.delEmail = function (info) {
