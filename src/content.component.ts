@@ -8,4 +8,6 @@ import { NavComponent } from './nav.component';
               <router-outlet></router-outlet>
             </div>`
 })
-export class ContentComponent { }
+export class ContentComponent { 
+	
+}

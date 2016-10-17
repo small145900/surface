@@ -23,5 +23,6 @@ export class OrgCreateComponent {
 		// this.orgService.orgCreate(this.org)
   //     .then(res => {if(res.code === 201){this.changeStep(step)}},
   //           error => this.errorMsg = <any>error);
+  	this.changeStep(step)
 	}
 }

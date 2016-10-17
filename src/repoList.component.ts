@@ -38,4 +38,8 @@ export class RepoListComponent implements OnInit {
       	})
       })        
   }
+
+  repoCreate(path){
+    this.router.navigate([path]);
+  }
 }

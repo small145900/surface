@@ -24,6 +24,27 @@ var UserService = (function () {
             .then(this.dealData)
             .catch(this.handleError);
     };
+    UserService.prototype.signUp = function (info) {
+        var params = JSON.stringify(info);
+        return this.http.post('/web/v1/user', params, { headers: this.headers })
+            .toPromise()
+            .then(this.dealData)
+            .catch(this.handleError);
+    };
+    UserService.prototype.sendEmail = function (info) {
+        var params = JSON.stringify(info);
+        return this.http.post('/web/v1/user/forget', params, { headers: this.headers })
+            .toPromise()
+            .then(this.dealData)
+            .catch(this.handleError);
+    };
+    UserService.prototype.resetPwd = function (info) {
+        var params = JSON.stringify(info);
+        return this.http.post('/web/v1/user/forget/reset', params, { headers: this.headers })
+            .toPromise()
+            .then(this.dealData)
+            .catch(this.handleError);
+    };
     UserService.prototype.getEmailList = function (info) {
         var params = JSON.stringify(info);
         return this.http.get('json/emailList.json')
@@ -38,7 +59,7 @@ var UserService = (function () {
             .then(this.dealData)
             .catch(this.handleError);
     };
-    UserService.prototype.sendEmail = function (info, user) {
+    UserService.prototype.verifyEmail = function (info, user) {
         var params = JSON.stringify(info);
         return this.http.put('/web/v1/user/' + user.username + '/email/' + info.email + '/send', params, { headers: this.headers })
             .toPromise()

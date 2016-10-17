@@ -26,6 +26,11 @@ button:focus {
   outline: none;
   border: none;
 }
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background: none !important;
+}
 .relative {
   position: relative;
 }
@@ -47,9 +52,18 @@ button:focus {
 .mar-lt {
   margin-left: 10px;
 }
+.mar-lt-five {
+  margin-left: 5px;
+}
 .mar-tb-twenty {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.mar-t-twenty {
+  margin-top: 20px;
+}
+.pad-no {
+  padding: 0;
 }
 .over-hidden {
   overflow: hidden;
@@ -312,33 +326,47 @@ body {
 }
 #repoList .media-repo {
   margin-top: 40px;
+  overflow: hidden;
+  height: 390px;
 }
 #repoList .repo-left {
-  border-top: 1px solid #000;
+  height: 100%;
+  background: #eaeaea;
+  padding: 0;
+  border-radius: 3px;
 }
 #repoList .repo-left span {
   display: inline-block;
-  width: 90%;
-  height: 40px;
-  line-height: 40px;
+  width: 100%;
+  padding: 12px 20px;
   text-overflow: ellipsis;
+  color: #fff;
 }
 #repoList .repo-left span:first-child {
-  border-bottom: 1px solid #b3b3b3;
-  height: 40px;
   font-size: 16px;
-  color: #000;
+  border-radius: 3px 3px 0 0;
+}
+#repoList .repo-left .bg-orange {
+  background: #ff5400;
+}
+#repoList .repo-left .bg-blue {
+  background: lightblue;
+}
+#repoList .repo-body {
+  padding-left: 5px;
 }
 #repoList .repo-body a {
   display: inline-block;
-  width: 42%;
+  width: calc( (100% - 5px) /2);
+  width: -webkit-calc( (100% - 5px) /2);
   padding: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   background: #eaeaea;
   vertical-align: top;
+  border-radius: 3px;
 }
 #repoList .repo-body a:nth-child(2n) {
-  margin-left: 8%;
+  margin-left: 5px;
 }
 #repoList .repo-body h3 {
   margin-top: 8px;
@@ -346,6 +374,8 @@ body {
 }
 #repoList .repo-body h5 {
   font-size: 16px;
+  height: 40px;
+  overflow: hidden;
 }
 #repoList .star-fork {
   font-size: 20px;
@@ -548,43 +578,48 @@ body {
 #repoDetail {
   margin-top: 50px;
 }
-#orgList {
+#orgList,
+#repoList {
   margin-top: 40px;
 }
-#orgList .title {
+#orgList .title,
+#repoList .title {
   font-size: 16px;
 }
-#orgList .title button {
-  background: #fff;
-  color: #b3b3b3;
+#orgList .title button,
+#repoList .title button {
+  background: lightblue;
+  color: #fff;
   padding: 10px 20px;
-  border: 1px solid lightblue;
-  border-radius: 24px;
+  border-radius: 3px;
 }
 #orgList .title button:hover,
 #orgList .title button:focus,
-#orgList .title button:active {
+#orgList .title button:active,
+#repoList .title button:hover,
+#repoList .title button:focus,
+#repoList .title button:active {
   color: #fff;
   background: lightblue;
 }
 #orgList .media-org {
-  border: 1px solid #d7d7d7;
-  border-radius: 16px;
+  background: #fff;
   margin-top: 40px;
-  width: 90%;
-  margin-left: 5%;
-  padding: 24px 0;
+  width: 100%;
+  padding: 10px 0;
+  height: 200px;
 }
 #orgList .org-left,
 #orgList .org-body {
-  display: inline-block;
+  float: left;
 }
 #orgList .org-left {
   width: 35%;
-  padding: 20px 10px;
-  border-right: 1px solid #d7d7d7;
+  height: 100%;
+  padding: 50px 10px;
+  border-right: 1px solid #eaeaea;
   text-align: center;
-  vertical-align: super;
+  overflow: hidden;
 }
 #orgList .org-body {
   width: calc(65% - 16px);
@@ -602,14 +637,16 @@ body {
   width: 60px;
   height: 60px;
   max-width: 100%;
-  border: 1px solid #b3b3b3;
-  border-radius: 50%;
+  background: #eaeaea;
+  border-radius: 5px;
   padding: 10px;
 }
 #orgList .org-left span {
   display: block;
   width: 100%;
-  margin-top: 15px;
+  max-height: 50px;
+  overflow: hidden;
+  margin-top: 5px;
   font-size: 16px;
 }
 /* org list end */
@@ -908,30 +945,51 @@ body {
 }
 #access .content {
   width: 300px;
-  margin: 80px auto;
+  margin: 100px auto;
 }
-#access .login .space {
+#access .login .space,
+#access .sign-up .space {
   display: block;
   width: 100%;
   margin-bottom: 20px;
   border-radius: 5px;
   padding: 10px 0;
   font-size: 14px;
+  position: relative;
 }
-#access .login input {
+#access .login input,
+#access .sign-up input {
   width: 100%;
-  padding: 0 12px;
+  padding: 0 32px 0 12px;
   background: #eaeaea;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+#access .login .space > i,
+#access .sign-up .space > i {
+  position: absolute;
+  right: 9px;
+  top: 12px;
   color: #b3b3b3;
   font-size: 14px;
 }
 #access .login .user,
 #access .login .pwd,
 #access .login .user input:focus,
-#access .login .pwd input:focus {
+#access .login .pwd input:focus,
+#access .sign-up .user,
+#access .sign-up .pwd,
+#access .sign-up .user input:focus,
+#access .sign-up .pwd input:focus {
   background: #eaeaea;
 }
-#access .login .sign-in {
+#access .ng-untouched,
+#access .ng-valid,
+#access .ng-dirty {
+  background: #eaeaea;
+}
+#access .login .sign-in,
+#access .sign-up .sign-in {
   background: lightblue;
   color: #fff;
 }
@@ -994,8 +1052,12 @@ body {
   background: none;
   color: #fff;
 }
+#access .menu .space.active {
+  background: none;
+  color: #fff;
+}
 #access .menu .space-remain {
-  width: 40%;
+  width: 25%;
   float: left;
   background: #fff;
   opacity: 0.75;
@@ -1009,7 +1071,7 @@ body {
     width: 70%;
   }
   #access .menu .space {
-    width: 25%;
+    width: 20%;
   }
   #access .menu .space-remain {
     width: 0;

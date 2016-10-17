@@ -29,7 +29,7 @@
               <ul class="emails">
                 <li *ngFor="let item of emailList; let i = index">
                   <span class="addr">{{item.email}}</span>
-                  <span class="verified" (click)="sendEmail(item)">{{item.verify? 'verified' : 'Send Email'}}</span>
+                  <span class="verified" (click)="verifyEmail(item)">{{item.verify? 'verified' : 'Send Email'}}</span>
                   <span class="relation">{{item.primary? 'primary' : 'Sub'}}</span>
                   <span class="delet" *ngIf="i!==0" (click)="delEmail(item)"><i class="fa fa-trash-o"></i></span>
                 </li>
