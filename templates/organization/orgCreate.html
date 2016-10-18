@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-12 create" id="newRepo">
+        <div class="col-xs-12 create">
           <div class="row">
             <div class="space">
               <div class="first-step" *ngIf="step===1">
@@ -30,10 +30,37 @@
                 <button class="save" (click)="saveOrgInfo(2)">Create</button>
               </div>
               <div class="second-step" *ngIf="step===2">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, est ex quod ipsum perferendis, adipisci fugiat, a qui modi voluptate laborum eius aliquid nam similique. Dolorem numquam nobis, velit! Molestiae.
-                <button class="save" (click)="saveOrgInfo(3)">Create</button>
+                <input type="text" placeholder="Name" [(ngModel)]="team.name" name="name"/>
+                <input type="text" placeholder="Title" [(ngModel)]="team.title" name="title"/>
+                <input type="text" placeholder="Description" [(ngModel)]="team.description" name="url"/>
+                <button class="save" (click)="saveTeamInfo()">Create</button>
+                <div class="team-list">
+                  <div class="teams">
+                    <p class="title">Choose Team</p>
+                    <ul>
+                      <li>owners  <i class="fa fa-chevron-right"></i></li>
+                      <li>owners  <i class="fa fa-chevron-right"></i></li>
+                    </ul>
+                  </div>
+                  <div class="members">
+                    <p class="title">
+                      <input type="text" placeholder="Add member" />
+                      <span class="add"><i class="fa fa-plus"></i></span>
+                    </p>
+                    <ul>
+                      <li>surface  <i class="fa fa-trash-o"></i></li>
+                      <li>small  <i class="fa fa-trash-o"></i></li>
+                    </ul>
+                  </div>
+                </div>
+                <p class="text-right">
+                  <span class="to-repo" (click)="changeStep(3)">
+                    Create Repository &nbsp;&nbsp;
+                    <i class="fa fa-arrow-right"></i>
+                  </span>
+                </p>
               </div>
-              <div class="third-step" *ngIf="step===3">
+              <div class="third-step" id="newRepo"  *ngIf="step===3">
                 <div class="info">
                   <p class="mar-bt-twenty-five clear-gap">
                     <select [(ngModel)]="repo.username" name="username">
@@ -52,14 +79,9 @@
                       <input type="radio" name="visibility" value="public" (focus)="changeStep(5)" [(ngModel)]="repo.privilege" name="privilege"/>public
                       <input type="radio" name="visibility" value="private" (focus)="changeStep(5)" [(ngModel)]="repo.privilege" name="privilege"/>private
                     </label>
-                    <!-- <select>
-                      <option value="0">public</option>
-                      <option value="1">private</option>
-                    </select> -->
                   </div>
                   <button class="btn-create" (click)="saveRepoInfo()">Create</button>
                 </div>
-                <!-- <button class="save" (click)="saveOrgInfo()">Create</button> -->
               </div>
             </div>
           </div>

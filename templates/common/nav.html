@@ -1,15 +1,15 @@
 <nav class="row" id="nav">
   <div class="col-xs-12 col-md-10 col-md-offset-1">
     <div class="row">
-      <ul class="col-xs-12 col-md-6 pad-no menu">
+      <ul class="col-xs-6 pad-no menu">
         <li class="logo"><a href="javascript:void(0)" (click)="linkComp('repositories','repo')"><img src="img/opshub_03.png" alt="dockyard"/></a></li>
         <li><a href="javascript:void(0)" (click)="linkComp('repositories','repo')" [ngClass]=" active=== 'repo'? 'active' : '' ">Repositories</a></li>
-        <li><a href="javascript:void(0)" (click)="linkComp('organizations','org')" [ngClass]=" active=== 'org'? 'active' : '' ">Organizations</a></li>
+        <li class="org"><a href="javascript:void(0)" (click)="linkComp('organizations','org')" [ngClass]=" active=== 'org'? 'active' : '' ">Organizations</a></li>
       </ul>
-      <div class="col-xs-12 col-md-6 pad-no">
+      <div class="col-xs-6 pad-no menu-rt">
         <ul class="user">
           <li><input type="text" placeholder="search" /></li>
-          <li class="relative">
+          <li class="relative" class="create">
             <a id="#createRepo" data-toggle="dropdown"><i class="fa fa-plus"></i>Create</a>
             <ul class="dropdown-menu" id="createRepo">
               <li><a href="javascript:void(0)" (click)="linkComp('repoCreate')"><i class="fa fa-book"></i>Create Repository</a></li>

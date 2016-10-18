@@ -1,19 +1,92 @@
 <div id="userSet">
-  <p class="title">User Setting</p>
+  <div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <p class="title">User Setting</p>
+    </div>
+  </div>
   <div class="content">
-    <ul class="nav nav-tabs user-nav">
-      <li class="active">
-        <a href="#userInfo" data-toggle="tab">Base Info</a>
-      </li>             
-      <li>
-        <a href="#notify" data-toggle="tab">Notifications</a>
-      </li>
-      <li>
-        <a href="#linkAccount" data-toggle="tab">Linked Accounts</a>
-      </li>
-    </ul>
+    <div class="row bg-darkgray">
+      <div class="col-md-10 col-md-offset-1 col-xs-12">
+        <div class="row">
+          <ul class="nav nav-tabs user-nav">
+            <li class="col-xs-4 active">
+              <a href="#userInfo" data-toggle="tab">Base Info</a>
+            </li>             
+            <li class="col-xs-4">
+              <a href="#notify" data-toggle="tab">Notifications</a>
+            </li>
+            <li class="col-xs-4">
+              <a href="#linkAccount" data-toggle="tab">Linked Accounts</a>
+            </li>
+          </ul>
+        </div>       
+      </div>
+    </div> 
     <div class="tab-content user-content">
-      <div id="userInfo" class="tab-pane active">
+      <div class="tab-pane active" id="userInfo">
+        <div class="row add-email">
+          <div class="col-md-10 col-md-offset-1 col-xs-12">
+            <div class="row">
+              <div class="col-xs-6 text">
+                <h4>Email addresses</h4>
+                <p>
+                  This email address will be used for all notifications and correspondence from Docker.<br/>
+                  If you wish to designate a different email address as primary, first add a new address to your account and then click "make primary".
+                </p>
+              </div>
+              <div class="col-xs-6 email">
+                <input type="email" [(ngModel)]="user.email" name="email"/> 
+                <button class="add" (click)="addEmail()">add email</button>
+                <ul class="emails">
+                  <li *ngFor="let item of emailList; let i = index">
+                    <span class="addr">{{item.email}}</span>
+                    <span class="verified" (click)="verifyEmail(item)">{{item.verify? 'verified' : 'Send Email'}}</span>
+                    <span class="relation">{{item.primary? 'primary' : 'sub'}}</span>
+                    <span class="delet" *ngIf="i!==0" (click)="delEmail(item)"><i class="fa fa-trash-o"></i></span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row new-pwd">
+          <div class="col-md-10 col-md-offset-1 col-xs-12">
+            <div class="row">
+              <div class="col-xs-6 text">
+                <h4>Change Password</h4>
+                <p>
+                  Please choose a password which is longer than 6 characters
+                </p>
+              </div>
+              <div class="col-xs-6 text">
+                <input type="text" placeholder="Old Password" [(ngModel)]="user['old-password']" name="location"/>
+                <input type="text" placeholder="New Password" [(ngModel)]="user['new-password']" name="password"/>
+                <input type="text" placeholder="Comfirm Password" [(ngModel)]="user['comfirm-password']" name="comfirm"/>
+                <button class="save" (click)="changePassword()">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row new-pwd account">
+          <div class="col-md-10 col-md-offset-1 col-xs-12">
+            <div class="row">
+              <div class="col-xs-6 text">
+                <h4>Account Information</h4>
+                <p>
+                  This information will be visible to all users of Docker Hub.
+                </p>
+              </div>
+              <div class="col-xs-6 text">
+                <input type="text" placeholder="Name" [(ngModel)]="account.name" name="name"/>
+                <input type="text" placeholder="Company" [(ngModel)]="account.company" name="company"/>
+                <input type="text" placeholder="Gravatar Email" [(ngModel)]="account.email" name="comfirm"/>
+                <button class="save" (click)="saveAccountInfo()">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div  class="tab-pane active">
         <p class="tips">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe a rerum eligendi, iste deserunt fugit id dicta modi nam quidem sed velit soluta earum natus, vel eveniet quo suscipit animi.
         </p>
@@ -33,12 +106,6 @@
                   <span class="relation">{{item.primary? 'primary' : 'Sub'}}</span>
                   <span class="delet" *ngIf="i!==0" (click)="delEmail(item)"><i class="fa fa-trash-o"></i></span>
                 </li>
-            <!--     <li>
-                  <span class="addr">dockyard@163.com</span>
-                  <span class="verified">Send Email</span>
-                  <span class="relation">Sub</span>
-                  <span class="delet"><i class="fa fa-trash-o"></i></span>
-                </li>
                 <li>
                   <span class="addr">dockyard@163.com</span>
                   <span class="verified">Send Email</span>
@@ -50,7 +117,13 @@
                   <span class="verified">Send Email</span>
                   <span class="relation">Sub</span>
                   <span class="delet"><i class="fa fa-trash-o"></i></span>
-                </li> -->
+                </li>
+                <li>
+                  <span class="addr">dockyard@163.com</span>
+                  <span class="verified">Send Email</span>
+                  <span class="relation">Sub</span>
+                  <span class="delet"><i class="fa fa-trash-o"></i></span>
+                </li>
               </ul>
             </div>
           </div>
@@ -73,7 +146,7 @@
           </ul>
           <form class="infor"></form>
         </div>
-      </div>
+      </div> -->
       <div id="notify" class="tab-pane">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam vitae architecto ratione molestiae. Qui nemo delectus voluptate velit asperiores, quia quam esse, consectetur. Voluptatum est quae, vero ipsa nulla incidunt.
       </div>

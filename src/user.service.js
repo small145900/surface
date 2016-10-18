@@ -17,6 +17,12 @@ var UserService = (function () {
         this.http = http;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
+    UserService.prototype.getBrowseList = function () {
+        return this.http.get('json/browseList.json')
+            .toPromise()
+            .then(this.dealData)
+            .catch(this.handleError);
+    };
     UserService.prototype.doLogin = function (info) {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/user/signin', params, { headers: this.headers })

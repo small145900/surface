@@ -16,6 +16,7 @@ var UserSettingComponent = (function () {
         this.user = {
             username: 'test'
         };
+        this.account = {};
         this.emailList = [];
     }
     UserSettingComponent.prototype.ngOnInit = function () {
@@ -38,6 +39,12 @@ var UserSettingComponent = (function () {
         var _this = this;
         this.userService.delEmail(info, this.user)
             .then(function (res) { if (res.code === 200) { } }, function (error) { return _this.errorMsg = error; });
+    };
+    UserSettingComponent.prototype.changePassword = function () {
+        console.log(this.user);
+    };
+    UserSettingComponent.prototype.saveAccountInfo = function () {
+        console.log(this.account);
     };
     UserSettingComponent = __decorate([
         core_1.Component({

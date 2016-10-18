@@ -23,11 +23,11 @@
     <div class="col-md-10 col-md-offset-1 col-xs-12">
       <div class="row">
         <div class="media-repo" *ngFor="let item of orgRepo; let i = index">
-          <p class="col-xs-2 col-md-3 repo-left">
+          <p class="col-xs-3 repo-left">
             <span [ngClass]="(i+1)%2==0? 'bg-orange' : 'bg-blue'">{{item.name}}</span><br/>
             <span>{{item.bio}}</span>
           </p>
-          <div class="col-xs-10 col-md-9 repo-body">
+          <div class="col-xs-9 repo-body">
             <a href="javascript:void(0)" *ngFor="let repo of item.children">
               <h3>{{repo.namespace}}/{{repo.repository}}</h3>
               <h5 class="col-gray">{{repo.description}}</h5>

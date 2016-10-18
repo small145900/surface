@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from './user.service';
 
@@ -8,7 +8,7 @@ import { UserService } from './user.service';
   templateUrl: '../templates/common/login.html'
 })
 
-export class LoginComponent { 
+export class LoginComponent implements OnInit { 
 	errorMsg: string;
 	user = {
 		username: '',
@@ -16,12 +16,25 @@ export class LoginComponent {
 		password: '',
 		're-password': ''
 	}
-	active = ''
+	active = '';
+	browseList = [];
+	hover = '';
 
 	constructor(
 		private router: Router,
 	 	private userService: UserService){
 	}
+
+	ngOnInit(): void {
+    this.userService.getBrowseList()
+      .then(browseList => this.browseList = browseList,
+            error => this.errorMsg = <any>error);
+  }
+
+  activeHover(index){
+  	this.hover = index;
+  	console.log(index)
+  }
 
 	changeNav(val){
 		this.user = {
