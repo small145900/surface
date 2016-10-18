@@ -22,7 +22,18 @@ var LoginComponent = (function () {
             're-password': ''
         };
         this.active = '';
+        this.browseList = [];
+        this.hover = '';
     }
+    LoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.getBrowseList()
+            .then(function (browseList) { return _this.browseList = browseList; }, function (error) { return _this.errorMsg = error; });
+    };
+    LoginComponent.prototype.activeHover = function (index) {
+        this.hover = index;
+        console.log(index);
+    };
     LoginComponent.prototype.changeNav = function (val) {
         this.user = {
             username: '',

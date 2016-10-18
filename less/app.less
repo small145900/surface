@@ -44,6 +44,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 	color: @blue;
 }
 
+.bg-darkgray {
+	background: #b3b3b3;
+}
+
 .bg-brownness {
 	color: @brownness;
 }
@@ -62,6 +66,27 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 .mar-lt-five {
 	margin-left: 5px;
+}
+
+.mar-tp-five {
+	margin-top: 5px;
+}
+
+.mar-bt-five {
+	margin-bottom: 5px;
+}
+
+.mar-tp-eight {
+	margin-top: 8px;
+}
+
+.mar-bt-eight {
+	margin-bottom: 8px;
+}
+
+.mar-tb-eight {
+	margin-top: 8px;
+	margin-bottom: 8px;
 }
 
 .mar-tb-twenty {
@@ -876,7 +901,6 @@ body {
 
 #createOrg {
 	padding-top: 60px;
-	// background: @white;
 	height: 100%;
 	width: 100%;
 }
@@ -929,13 +953,14 @@ body {
 
 #createOrg .create {
 	margin: 60px auto 0;
-	// padding: 12px 24px;
 }
 
 #createOrg .first-step input, 
 #createOrg .first-step .save,
 #createOrg .second-step > input, 
-#createOrg .second-step .save, {
+#createOrg .second-step .save,
+#userSet .new-pwd input,
+#userSet .new-pwd .save {
 	width: 100%;
 	height: 40px;
 	line-height: 40px;
@@ -947,7 +972,8 @@ body {
 }
 
 #createOrg .first-step .save,
-#createOrg .second-step .save {
+#createOrg .second-step .save,
+#userSet .new-pwd .save {
 	color: #fff;
 	background: #b3b3b3;
 	font-size: 16px;
@@ -1011,7 +1037,7 @@ body {
 }
 
 #createOrg .members .title input,
-#createOrg .members .title .add, {
+#createOrg .members .title .add {
 	float: left;
 }
 
@@ -1040,6 +1066,7 @@ body {
 	color: #fff;
 	cursor: pointer;
 }
+
 /* org create end */
 
 /* user setting */
@@ -1048,7 +1075,6 @@ body {
 }
 
 #userSet .content, #userSet .title {
-	width: 80%;
 	margin: 0 auto;
 }
 
@@ -1060,15 +1086,8 @@ body {
 }
 
 #userSet .user-nav {
-	background: @white;
-	color: @white;
 	text-align: center;
 	border: none;
-}
-
-#userSet .user-nav li {
-	width: 33.3%;
-	border-left: 1px solid #eaeaea;
 }
 
 #userSet .user-nav li:first-child {
@@ -1087,28 +1106,21 @@ body {
 	font-size: 16px;
 }
 
-#userSet .user-nav>li.active, .user-nav>li.active:focus, .user-nav>li.active:hover {
-	background: @blue;
+#userSet .user-nav>li.active, 
+.user-nav>li.active:focus, 
+.user-nav>li.active:hover {
+	background: #555;
 }
 
-#userSet .user-nav>li.active>a, .user-nav>li.active>a:focus, .user-nav>li.active>a:hover {
+#userSet .user-nav>li.active>a,
+.user-nav>li.active>a:focus, 
+.user-nav>li.active>a:hover {
 	color: @white;
-}
-
-#userSet .user-content {
-	margin-top: 20px;
-	padding: 20px 12px;
-	background: @white;
-	border-radius: @baseRadius;
 }
 
 #userSet .tips {
 	width: 40%;
 	padding: 20px 0;
-}
-
-#userSet .edit-info {
-	// overflow: hidden;
 }
 
 #userSet .visib {
@@ -1126,39 +1138,34 @@ body {
 }
 
 #userSet .email {
-	width: 65%;
-	padding: 20px 24px;
-	border: 1px solid #b3b3b3;
+	font-size: 0;
 }
 
 #userSet .email input {
-	width: 70%;
+	width: 72%;
 	padding: 6px 12px;
 	font-size: 16px;
-	border: 1px solid #d7d7d7;
-	border-radius: 3px;
-	margin-right: 10px;
+	background: #eaeaea;
+	border-radius: 5px;
+	margin-right: 3%;
 }
 
 #userSet .add-email {
-	padding: 6px 12px;
-	border-radius: 3px;
-	background: @blue;
-	color: @white;
-	border-radius: 3px;
-	font-size: 16px;
+	padding: 30px 0;
+	background: #d7d7d7;
 }
 
 #userSet .emails {
-	margin-top: 20px;
+	margin-top: 15px;
 	border: 1px solid #d7d7d7;
 	border-radius: 3px;
 }
 
 #userSet .emails li {
 	width: 100%;
-	padding: 15px 8px;
+	padding: 8px 12px;
 	font-size: 0;
+	background: #fff;
 }
 
 #userSet .emails li:nth-child(2n) {
@@ -1196,7 +1203,6 @@ body {
 	cursor: pointer;
 }
 
-
 #userSet .password {
 	margin: 40px 0;
 	padding: 40px 0 20px;
@@ -1230,6 +1236,24 @@ body {
 	color: #fff;
 	font-size: 16px;
 	border-radius: 3px;
+}
+
+#userInfo .add {
+	background: #ff5400;
+	width: 25%;
+	padding: 5px 0;
+	color: #fff;
+	font-size: 16px;
+	border-radius: 5px;
+}
+
+#userSet .new-pwd {
+	background: #eaeaea;
+	padding: 30px 0;
+}
+
+#userSet .account {
+	background: #d7d7d7;
 }
 /* user end */
 
@@ -1470,35 +1494,59 @@ body {
 	}
 }
 
+#access .browse .space {
+	margin-bottom: 20px;
+	overflow: hidden;
+	width: 100%;
+	font-size: 14px;
+	border-left: 5px solid transparent;
+}
 
+#access .browse .info li {
+	float: left;
+	background: #eaeaea;
+	padding: 24px 0;
+	text-align: center;
+}
 
+#access .browse .space:hover {
+	border-left: 5px solid @blue;
+}
 
+#access .browse .info .name,
+#access .browse .info .star {
+	margin-right: 2px;
+}
 
+#access .browse .info .name {
+	width: e("calc(43% - 4px)");
+	width: e("-webkit-calc(43% - 4px)");
+}
 
+#access .browse .info .star, 
+#access .browse .info .download {
+	width: 20%;
+	padding: 33px 0;
+}
 
+#access .browse .info .detail {
+	width: 17%;
+	padding: 33px 0;
+	background: #b3b3b3;
+	color: #fff;
+}
 
+#access .browse .info .active {
+	background: @blue;
+}
 
+#access .browse .name img {
+	width: 60px;
+	height: 60px;
+	margin: 0 12px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#access .browse .name .text {
+	display: block;
+}
 /* sign in & sign up end */
