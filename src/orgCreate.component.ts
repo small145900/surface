@@ -11,6 +11,8 @@ export class OrgCreateComponent {
 	errorMsg: string;
 	step = 1;
 	org = {};
+	repo = {};
+	team = {};
 
 	constructor(private orgService: OrgService){ }
 
@@ -23,5 +25,10 @@ export class OrgCreateComponent {
 		// this.orgService.orgCreate(this.org)
   //     .then(res => {if(res.code === 201){this.changeStep(step)}},
   //           error => this.errorMsg = <any>error);
+  	this.changeStep(step)
+	}
+
+	saveTeamInfo(){
+		console.log(this.team)
 	}
 }

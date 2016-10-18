@@ -15,6 +15,8 @@ var OrgCreateComponent = (function () {
         this.orgService = orgService;
         this.step = 1;
         this.org = {};
+        this.repo = {};
+        this.team = {};
     }
     OrgCreateComponent.prototype.changeStep = function (step) {
         this.step = step;
@@ -24,6 +26,10 @@ var OrgCreateComponent = (function () {
         // this.orgService.orgCreate(this.org)
         //     .then(res => {if(res.code === 201){this.changeStep(step)}},
         //           error => this.errorMsg = <any>error);
+        this.changeStep(step);
+    };
+    OrgCreateComponent.prototype.saveTeamInfo = function () {
+        console.log(this.team);
     };
     OrgCreateComponent = __decorate([
         core_1.Component({

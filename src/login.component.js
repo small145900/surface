@@ -15,11 +15,58 @@ var LoginComponent = (function () {
     function LoginComponent(router, userService) {
         this.router = router;
         this.userService = userService;
-        this.user = {};
+        this.user = {
+            username: '',
+            email: '',
+            password: '',
+            're-password': ''
+        };
+        this.active = '';
+        this.browseList = [];
+        this.hover = '';
     }
+    LoginComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.getBrowseList()
+            .then(function (browseList) { return _this.browseList = browseList; }, function (error) { return _this.errorMsg = error; });
+    };
+    LoginComponent.prototype.activeHover = function (index) {
+        this.hover = index;
+        console.log(index);
+    };
+    LoginComponent.prototype.changeNav = function (val) {
+        this.user = {
+            username: '',
+            email: '',
+            password: '',
+            're-password': ''
+        };
+        this.active = val;
+    };
     LoginComponent.prototype.login = function () {
         console.log(this.user);
         // this.userService.doLogin(this.user)
+        //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
+        //           error => this.errorMsg = <any>error);
+        this.router.navigate(['repositories']);
+    };
+    LoginComponent.prototype.signUp = function () {
+        console.log(this.user);
+        // this.userService.signUp(this.user)
+        //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
+        //           error => this.errorMsg = <any>error);
+        this.router.navigate(['repositories']);
+    };
+    LoginComponent.prototype.sendEmail = function () {
+        console.log(this.user);
+        // this.userService.sendEmail(this.user)
+        //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
+        //           error => this.errorMsg = <any>error);
+        this.router.navigate(['repositories']);
+    };
+    LoginComponent.prototype.resetPwd = function () {
+        console.log(this.user);
+        // this.userService.resetPwd(this.user)
         //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
         //           error => this.errorMsg = <any>error);
         this.router.navigate(['repositories']);

@@ -11,7 +11,8 @@ export class UserSettingComponent implements OnInit {
 	user = {
 		username: 'test'
 	}
-	emailList = []
+	account = {};
+	emailList = [];
 
 	constructor(private userService: UserService){ }
 
@@ -28,8 +29,8 @@ export class UserSettingComponent implements OnInit {
             error => this.errorMsg = <any>error);
 	}
 
-	sendEmail(info){
-		this.userService.sendEmail(info,this.user)
+	verifyEmail(info){
+		this.userService.verifyEmail(info,this.user)
       .then(res => { if(res.code === 200){}},
             error => this.errorMsg = <any>error);
 	}
@@ -38,5 +39,13 @@ export class UserSettingComponent implements OnInit {
 		this.userService.delEmail(info,this.user)
       .then(res => { if(res.code === 200){}},
             error => this.errorMsg = <any>error);
+	}
+
+	changePassword(){
+		console.log(this.user)
+	}
+
+	saveAccountInfo(){
+		console.log(this.account)
 	}
 }

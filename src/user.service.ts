@@ -9,9 +9,40 @@ export class UserService {
   private headers = new Headers({'Content-Type': 'application/json'});
   constructor(private http: Http){}
   
+  getBrowseList(): Promise<any> {
+    return this.http.get('json/browseList.json')
+               .toPromise()
+               .then(this.dealData)
+               .catch(this.handleError)
+  }
+
   doLogin(info): Promise<any> {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/user/signin', params, {headers: this.headers})
+               .toPromise()
+               .then(this.dealData)
+               .catch(this.handleError)
+  }
+
+  signUp(info): Promise<any> {
+    let params=JSON.stringify(info)
+    return this.http.post('/web/v1/user', params, {headers: this.headers})
+               .toPromise()
+               .then(this.dealData)
+               .catch(this.handleError)
+  }
+
+  sendEmail(info): Promise<any> {
+    let params=JSON.stringify(info)
+    return this.http.post('/web/v1/user/forget', params, {headers: this.headers})
+               .toPromise()
+               .then(this.dealData)
+               .catch(this.handleError)
+  }
+
+  resetPwd(info): Promise<any> {
+    let params=JSON.stringify(info)
+    return this.http.post('/web/v1/user/forget/reset', params, {headers: this.headers})
                .toPromise()
                .then(this.dealData)
                .catch(this.handleError)
@@ -33,7 +64,7 @@ export class UserService {
                .catch(this.handleError)
   }
 
-  sendEmail(info,user): Promise<any> {
+  verifyEmail(info,user): Promise<any> {
     let params=JSON.stringify(info)
     return this.http.put('/web/v1/user/'+user.username+'/email/'+info.email+'/send', params, {headers: this.headers})
                .toPromise()

@@ -26,6 +26,11 @@ button:focus {
   outline: none;
   border: none;
 }
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background: none !important;
+}
 .relative {
   position: relative;
 }
@@ -38,18 +43,52 @@ button:focus {
 .col-skyblue {
   color: lightblue;
 }
+.bg-darkgray {
+  background: #b3b3b3;
+}
 .bg-brownness {
   color: #c9caaa;
 }
 .mar-tp-no {
   margin-top: 0;
 }
+.mar-rt-no {
+  margin-right: 0;
+}
 .mar-lt {
   margin-left: 10px;
+}
+.mar-lt-five {
+  margin-left: 5px;
+}
+.mar-tp-five {
+  margin-top: 5px;
+}
+.mar-bt-five {
+  margin-bottom: 5px;
+}
+.mar-tp-eight {
+  margin-top: 8px;
+}
+.mar-bt-eight {
+  margin-bottom: 8px;
+}
+.mar-tb-eight {
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 .mar-tb-twenty {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+.mar-t-twenty {
+  margin-top: 20px;
+}
+.mar-bt-twenty-five {
+  margin-bottom: 25px;
+}
+.pad-no {
+  padding: 0;
 }
 .over-hidden {
   overflow: hidden;
@@ -65,6 +104,9 @@ button:focus {
 }
 .row {
   margin: 0;
+}
+html {
+  font-size: 62.5%;
 }
 body {
   font-size: 12px;
@@ -179,18 +221,18 @@ body {
 #nav .menu,
 #nav .user {
   height: 100%;
+  margin: 0;
 }
 #nav .menu a,
 #nav .user a {
   font-size: 14px;
-  color: #b3b3b3;
 }
 #nav a:hover,
 #nav a:active,
 #createRepo a:hover,
 #createRepo:active {
   color: #fff;
-  background: #b3b3b3;
+  background: lightblue;
   border-radius: 2px;
 }
 #createRepo a:hover,
@@ -203,39 +245,51 @@ body {
   width: 50px;
   height: 100%;
 }
-#nav .menu ul {
-  width: 70%;
-  float: left;
-  overflow: hidden;
+#nav .user {
+  float: right;
 }
-#nav .menu ul li a,
-#nav .user > ul > li > a {
+#nav .menu li a,
+#nav .user > li > a {
   padding: 0 12px;
   height: 28px;
   line-height: 28px;
   margin-top: 9px;
-  margin-left: 12px;
+  margin-right: 12px;
+  color: #fff;
 }
-#nav .user > ul > li > a {
+#nav .menu .logo,
+#nav .menu .logo:hover,
+#nav .menu .logo:active {
+  background: none;
+}
+#nav .menu .logo a,
+#nav .menu .logo a:hover,
+#nav .menu .logo a:active {
+  padding: 0;
+  background: none;
+  margin-right: 30px;
+}
+#nav .user > li > a {
   padding: 0;
 }
-#nav .menu ul li a,
-#nav .user > ul > li {
+#nav .menu li a,
+#nav .user > li {
   float: left;
 }
-#nav .user > ul > li > a {
+#nav .user > li > a {
   display: inline-block;
-  width: 120px;
+  padding: 0 12px;
 }
-#nav .user > ul > li {
+#nav .user > li {
   height: 44px;
+  position: relative;
 }
-#nav .menu ul li .active {
+#nav .menu li .active {
   color: #fff;
-  background: #b3b3b3;
+  background: lightblue;
   border-radius: 2px;
 }
-#nav .user > ul > li input {
+#nav .user > li input {
   width: 100%;
   height: 28px;
   margin-top: 8px;
@@ -244,30 +298,82 @@ body {
   background: #e7e7e7;
   font-size: 14px;
 }
-#nav .user > ul > li input:focus {
+#nav .user > li input:focus {
   background: #fff;
+}
+#nav .user li:first-child {
+  margin-right: 12px;
 }
 #createRepo,
 #userSetting {
   width: 200px;
-  background: #000;
+  background: #eaeaea;
   position: absolute;
-  top: 44px;
-  left: -66px;
+  top: 42px;
+  left: 0px;
   z-index: 10000;
+}
+@media screen and (max-width: 840px) {
+  #nav .user li:first-child {
+    display: none;
+  }
+  #nav .user {
+    float: right;
+  }
+}
+@media screen and (max-width: 642px) {
+  #nav .user .create {
+    display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  #nav .menu-rt {
+    width: 40%;
+  }
+  #nav .menu {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 600px) {
+  #nav .menu-rt {
+    width: 20%;
+  }
+  #nav .menu {
+    width: 80%;
+  }
+  #nav .user > li > a {
+    padding: 0 3px;
+  }
+  #nav .menu .logo a {
+    margin-right: 15px;
+  }
+}
+@media screen and (max-width: 425px) {
+  #nav .menu {
+    width: 70%;
+  }
+  #nav .menu-rt {
+    width: 30%;
+  }
+  #nav .menu li a {
+    padding: 0 12px;
+  }
+  #nav .menu .org {
+    display: none;
+  }
 }
 #userSetting {
   width: 120px;
   left: 12px;
 }
-#createRepo ul li,
-#createRepo ul li a,
-#userSetting ul li,
-#userSetting ul li a {
+#createRepo li,
+#createRepo li a,
+#userSetting li,
+#userSetting li a {
   width: 100%;
 }
-#createRepo ul li,
-#userSetting ul li {
+#createRepo li,
+#userSetting li {
   height: 44px;
 }
 #createRepo a,
@@ -312,33 +418,51 @@ body {
 }
 #repoList .media-repo {
   margin-top: 40px;
+  overflow: hidden;
 }
 #repoList .repo-left {
-  border-top: 1px solid #000;
+  height: 405px;
+  background: #eaeaea;
+  padding: 0;
+  border-radius: 3px;
 }
 #repoList .repo-left span {
   display: inline-block;
-  width: 90%;
-  height: 40px;
-  line-height: 40px;
+  width: 100%;
+  padding: 12px 20px;
   text-overflow: ellipsis;
+  color: #fff;
 }
 #repoList .repo-left span:first-child {
-  border-bottom: 1px solid #b3b3b3;
-  height: 40px;
   font-size: 16px;
-  color: #000;
+  border-radius: 3px 3px 0 0;
+  cursor: pointer;
+}
+#repoList .repo-left .bg-orange {
+  background: #ff5400;
+}
+#repoList .repo-left .bg-blue {
+  background: lightblue;
+}
+#repoList .repo-body {
+  padding-left: 5px;
 }
 #repoList .repo-body a {
   display: inline-block;
-  width: 42%;
+  width: calc( (100% - 5px) /2);
+  width: -webkit-calc( (100% - 5px) /2);
   padding: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   background: #eaeaea;
   vertical-align: top;
+  border-radius: 3px;
+  height: 200px;
+}
+#repoList .repo-body a:hover {
+  border: 1px solid #ff5400;
 }
 #repoList .repo-body a:nth-child(2n) {
-  margin-left: 8%;
+  margin-left: 5px;
 }
 #repoList .repo-body h3 {
   margin-top: 8px;
@@ -346,6 +470,8 @@ body {
 }
 #repoList .repo-body h5 {
   font-size: 16px;
+  height: 40px;
+  overflow: hidden;
 }
 #repoList .star-fork {
   font-size: 20px;
@@ -386,7 +512,7 @@ body {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  border-radius: 50%;
+  border-radius: 5px;
   font-size: 16px;
   background: gainsboro;
   color: #fff;
@@ -395,52 +521,52 @@ body {
   left: -20px;
 }
 .step-brown {
-  background: #c9caaa !important;
+  background: lightblue !important;
 }
 #newRepo li:last-child span {
   top: 5px;
 }
 #newRepo li b {
   font-size: 16px;
+  margin-top: 10px;
   font-weight: normal;
   display: inline-block;
   width: calc(100% - 52px);
   width: -webkit-calc(100% - 52px);
 }
 #newRepo .info {
-  background: gainsboro;
-  padding: 24px 20px;
+  padding: 0;
 }
 #newRepo input,
 #newRepo textarea {
-  width: 95%;
-  padding: 12px;
+  width: 100%;
+  padding: 10px;
   font-size: 16px;
-  background: none;
-  color: #fff;
-  border-bottom: 1px solid #fff;
+  background: #d7d7d7;
+  border-radius: 5px;
 }
 #newRepo input::-webkit-input-placeholder,
 #newRepo textarea::-webkit-input-placeholder {
-  color: #fff;
+  color: #b3b3b3;
 }
 #newRepo textarea {
-  height: 200px;
-  border: 1px solid #fff;
+  height: 250px;
+  over-x: hidden;
+  resize: vertical;
 }
 #newRepo .visible-type {
   margin: 15px auto 25px;
   font-size: 16px;
+  padding-left: 10px;
 }
 #newRepo .visible-type > span {
   display: inline-block;
   width: 65px;
-  color: #fff;
 }
 #newRepo .visible-type label {
-  color: #fff;
   width: calc(95% - 65px);
   width: -webkit-calc(95% - 65px);
+  font-weight: normal;
 }
 #newRepo .visible-type input {
   width: 18px;
@@ -454,29 +580,38 @@ body {
   border: none;
 }
 #newRepo .visible-type input:last-child {
-  margin-left: 10px;
+  margin-left: 12px;
+}
+#newRepo .clear-gap {
+  font-size: 0;
 }
 #newRepo select {
-  width: calc(95% - 60px);
-  width: -webkit-calc(95% - 60px);
+  width: 42%;
   padding: 12px;
+  background: #d7d7d7;
   color: #b3b3b3;
+  margin-right: 3%;
+  border-radius: 5px;
+  font-size: 12px;
+}
+#newRepo select + input {
+  width: 55%;
 }
 #newRepo option {
   padding: 12px;
 }
 #newRepo .btn-create {
   font-size: 16px;
-  width: 70px;
+  width: 100%;
   height: 40px;
   line-height: 40px;
   text-align: center;
   border-radius: 2px;
   color: #fff;
-  background: #b3b3b3;
+  background: #d7d7d7;
 }
 #newRepo .btn-create:hover {
-  background: #c9caaa;
+  background: lightblue;
 }
 /* repo create end */
 /* repo detail start */
@@ -548,43 +683,48 @@ body {
 #repoDetail {
   margin-top: 50px;
 }
-#orgList {
+#orgList,
+#repoList {
   margin-top: 40px;
 }
-#orgList .title {
+#orgList .title,
+#repoList .title {
   font-size: 16px;
 }
-#orgList .title button {
-  background: #fff;
-  color: #b3b3b3;
+#orgList .title button,
+#repoList .title button {
+  background: lightblue;
+  color: #fff;
   padding: 10px 20px;
-  border: 1px solid lightblue;
-  border-radius: 24px;
+  border-radius: 3px;
 }
 #orgList .title button:hover,
 #orgList .title button:focus,
-#orgList .title button:active {
+#orgList .title button:active,
+#repoList .title button:hover,
+#repoList .title button:focus,
+#repoList .title button:active {
   color: #fff;
   background: lightblue;
 }
 #orgList .media-org {
-  border: 1px solid #d7d7d7;
-  border-radius: 16px;
+  background: #fff;
   margin-top: 40px;
-  width: 90%;
-  margin-left: 5%;
-  padding: 24px 0;
+  width: 100%;
+  padding: 10px 0;
+  height: 200px;
 }
 #orgList .org-left,
 #orgList .org-body {
-  display: inline-block;
+  float: left;
 }
 #orgList .org-left {
   width: 35%;
-  padding: 20px 10px;
-  border-right: 1px solid #d7d7d7;
+  height: 100%;
+  padding: 50px 10px;
+  border-right: 1px solid #eaeaea;
   text-align: center;
-  vertical-align: super;
+  overflow: hidden;
 }
 #orgList .org-body {
   width: calc(65% - 16px);
@@ -602,14 +742,16 @@ body {
   width: 60px;
   height: 60px;
   max-width: 100%;
-  border: 1px solid #b3b3b3;
-  border-radius: 50%;
+  background: #eaeaea;
+  border-radius: 5px;
   padding: 10px;
 }
 #orgList .org-left span {
   display: block;
   width: 100%;
-  margin-top: 15px;
+  max-height: 50px;
+  overflow: hidden;
+  margin-top: 5px;
   font-size: 16px;
 }
 /* org list end */
@@ -620,11 +762,9 @@ body {
   width: 100%;
 }
 #createOrg .guide {
-  width: 37%;
   font-size: 16px;
 }
 #createOrg .steps {
-  width: 80%;
   margin: 0 auto;
 }
 #createOrg .step-nav {
@@ -633,8 +773,15 @@ body {
   margin-top: 20px;
   text-align: center;
 }
+#createOrg .create .space,
+#createOrg .guide {
+  margin-left: calc(33.3% / 2 - 20px);
+  margin-left: -webkit-calc(33.3% / 2 - 20px);
+  margin-right: calc(33.3% / 2 - 20px);
+  margin-right: -webkit-calc(33.3% / 2 - 20px);
+}
 #createOrg li {
-  width: 25%;
+  width: 33.3%;
   border-bottom: 1px solid #b3b3b3;
   float: left;
 }
@@ -643,7 +790,7 @@ body {
   width: 40px;
   height: 40px;
   line-height: 40px;
-  border-radius: 50%;
+  border-radius: 5px;
   font-size: 16px;
   text-align: center;
   color: #fff;
@@ -651,13 +798,18 @@ body {
   position: relative;
   top: 20px;
 }
-#createOrg .create {
-  width: 80%;
-  margin: 60px auto 0;
-  padding: 12px 24px;
-  background: #fff;
+#createOrg li i {
+  margin-top: 12px;
 }
-#createOrg .first-step input {
+#createOrg .create {
+  margin: 60px auto 0;
+}
+#createOrg .first-step input,
+#createOrg .first-step .save,
+#createOrg .second-step > input,
+#createOrg .second-step .save,
+#userSet .new-pwd input,
+#userSet .new-pwd .save {
   width: 100%;
   height: 40px;
   line-height: 40px;
@@ -665,14 +817,89 @@ body {
   padding: 0 12px;
   font-size: 14px;
   border-radius: 5px;
-  border: 1px solid #d7d7d7;
+  background: #d7d7d7;
 }
-#createOrg .first-step .save {
-  font-size: 16px;
+#createOrg .first-step .save,
+#createOrg .second-step .save,
+#userSet .new-pwd .save {
   color: #fff;
-  padding: 12px 20px;
-  border-radius: 5px;
+  background: #b3b3b3;
+  font-size: 16px;
+}
+#createOrg .team-list {
+  overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 45px;
+}
+#createOrg .teams,
+#createOrg .members {
+  width: 48.5%;
+  float: left;
+  background: #d7d7d7;
+  border-radius: 5px 5px 0 0;
+  padding-top: 10px;
+}
+#createOrg .teams {
+  margin-right: 3%;
+}
+#createOrg .teams .title,
+#createOrg .members .title {
+  height: 40px;
+  padding: 0 12px;
+}
+#createOrg .teams .title {
+  line-height: 40px;
+}
+#createOrg .teams li,
+#createOrg .members li {
+  width: 100%;
+  padding: 10px 20px 10px 12px;
+  position: relative;
+}
+#createOrg .members li {
+  padding: 10px 20px 10px 20px;
+}
+#createOrg .teams li:last-child,
+#createOrg .members li:last-child {
+  border: none;
+}
+#createOrg .teams li:hover,
+#createOrg .members li:hover {
+  background: #b3b3b3;
+  color: #fff;
+}
+#createOrg .teams li i,
+#createOrg .members li i {
+  position: absolute;
+  right: 8px;
+  top: 2px;
+}
+#createOrg .members .title input,
+#createOrg .members .title .add {
+  float: left;
+}
+#createOrg .members .title input {
+  width: 80%;
+  padding: 8px;
+  border-radius: 5px 0 0 5px;
   background: #eaeaea;
+}
+#createOrg .members .title .add {
+  width: 20%;
+  float: left;
+  padding: 9px 0 8px;
+  text-align: center;
+  background: #ff5400;
+  border-radius: 0 5px 5px 0;
+  color: #fff;
+  font-size: 16px;
+}
+#createOrg .to-repo {
+  padding: 6px 12px;
+  border-radius: 5px;
+  background: lightblue;
+  color: #fff;
+  cursor: pointer;
 }
 /* org create end */
 /* user setting */
@@ -681,7 +908,6 @@ body {
 }
 #userSet .content,
 #userSet .title {
-  width: 80%;
   margin: 0 auto;
 }
 #userSet .title {
@@ -691,14 +917,8 @@ body {
   font-size: 16px;
 }
 #userSet .user-nav {
-  background: #fff;
-  color: #fff;
   text-align: center;
   border: none;
-}
-#userSet .user-nav li {
-  width: 33.3%;
-  border-left: 1px solid #eaeaea;
 }
 #userSet .user-nav li:first-child {
   border: none;
@@ -717,18 +937,12 @@ body {
 #userSet .user-nav > li.active,
 .user-nav > li.active:focus,
 .user-nav > li.active:hover {
-  background: lightblue;
+  background: #555;
 }
 #userSet .user-nav > li.active > a,
 .user-nav > li.active > a:focus,
 .user-nav > li.active > a:hover {
   color: #fff;
-}
-#userSet .user-content {
-  margin-top: 20px;
-  padding: 20px 12px;
-  background: #fff;
-  border-radius: 2px;
 }
 #userSet .tips {
   width: 40%;
@@ -747,34 +961,30 @@ body {
   margin-right: 5px;
 }
 #userSet .email {
-  width: 65%;
-  padding: 20px 24px;
-  border: 1px solid #b3b3b3;
+  font-size: 0;
 }
 #userSet .email input {
-  width: 70%;
+  width: 72%;
   padding: 6px 12px;
   font-size: 16px;
-  border: 1px solid #d7d7d7;
-  border-radius: 3px;
-  margin-right: 10px;
+  background: #eaeaea;
+  border-radius: 5px;
+  margin-right: 3%;
 }
 #userSet .add-email {
-  padding: 6px 12px;
-  background: lightblue;
-  color: #fff;
-  border-radius: 3px;
-  font-size: 16px;
+  padding: 30px 0;
+  background: #d7d7d7;
 }
 #userSet .emails {
-  margin-top: 20px;
+  margin-top: 15px;
   border: 1px solid #d7d7d7;
   border-radius: 3px;
 }
 #userSet .emails li {
   width: 100%;
-  padding: 15px 8px;
+  padding: 8px 12px;
   font-size: 0;
+  background: #fff;
 }
 #userSet .emails li:nth-child(2n) {
   background: #eaeaea;
@@ -833,6 +1043,21 @@ body {
   color: #fff;
   font-size: 16px;
   border-radius: 3px;
+}
+#userInfo .add {
+  background: #ff5400;
+  width: 25%;
+  padding: 5px 0;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+}
+#userSet .new-pwd {
+  background: #eaeaea;
+  padding: 30px 0;
+}
+#userSet .account {
+  background: #d7d7d7;
 }
 /* user end */
 /* sign in & sign up start */
@@ -908,30 +1133,51 @@ body {
 }
 #access .content {
   width: 300px;
-  margin: 80px auto;
+  margin: 100px auto;
 }
-#access .login .space {
+#access .login .space,
+#access .sign-up .space {
   display: block;
   width: 100%;
   margin-bottom: 20px;
   border-radius: 5px;
   padding: 10px 0;
   font-size: 14px;
+  position: relative;
 }
-#access .login input {
+#access .login input,
+#access .sign-up input {
   width: 100%;
-  padding: 0 12px;
+  padding: 0 32px 0 12px;
   background: #eaeaea;
+  color: #b3b3b3;
+  font-size: 14px;
+}
+#access .login .space > i,
+#access .sign-up .space > i {
+  position: absolute;
+  right: 9px;
+  top: 12px;
   color: #b3b3b3;
   font-size: 14px;
 }
 #access .login .user,
 #access .login .pwd,
 #access .login .user input:focus,
-#access .login .pwd input:focus {
+#access .login .pwd input:focus,
+#access .sign-up .user,
+#access .sign-up .pwd,
+#access .sign-up .user input:focus,
+#access .sign-up .pwd input:focus {
   background: #eaeaea;
 }
-#access .login .sign-in {
+#access .ng-untouched,
+#access .ng-valid,
+#access .ng-dirty {
+  background: #eaeaea;
+}
+#access .login .sign-in,
+#access .sign-up .sign-in {
   background: lightblue;
   color: #fff;
 }
@@ -994,8 +1240,12 @@ body {
   background: none;
   color: #fff;
 }
+#access .menu .space.active {
+  background: none;
+  color: #fff;
+}
 #access .menu .space-remain {
-  width: 40%;
+  width: 25%;
   float: left;
   background: #fff;
   opacity: 0.75;
@@ -1009,7 +1259,7 @@ body {
     width: 70%;
   }
   #access .menu .space {
-    width: 25%;
+    width: 20%;
   }
   #access .menu .space-remain {
     width: 0;
@@ -1028,6 +1278,52 @@ body {
   #access .header .text {
     bottom: 30px;
   }
+}
+#access .browse .space {
+  margin-bottom: 20px;
+  overflow: hidden;
+  width: 100%;
+  font-size: 14px;
+  border-left: 5px solid transparent;
+}
+#access .browse .info li {
+  float: left;
+  background: #eaeaea;
+  padding: 24px 0;
+  text-align: center;
+}
+#access .browse .space:hover {
+  border-left: 5px solid lightblue;
+}
+#access .browse .info .name,
+#access .browse .info .star {
+  margin-right: 2px;
+}
+#access .browse .info .name {
+  width: calc(43% - 4px);
+  width: -webkit-calc(43% - 4px);
+}
+#access .browse .info .star,
+#access .browse .info .download {
+  width: 20%;
+  padding: 33px 0;
+}
+#access .browse .info .detail {
+  width: 17%;
+  padding: 33px 0;
+  background: #b3b3b3;
+  color: #fff;
+}
+#access .browse .info .active {
+  background: lightblue;
+}
+#access .browse .name img {
+  width: 60px;
+  height: 60px;
+  margin: 0 12px;
+}
+#access .browse .name .text {
+  display: block;
 }
 /* sign in & sign up end */
 /*# sourceMappingURL=app.css.map */
