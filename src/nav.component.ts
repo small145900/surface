@@ -20,8 +20,12 @@ export class NavComponent {
 		private userService: UserService){
 	}
 
+  changeNav(nav){
+    this.active = nav
+  }
+
   linkComp(path,nav){
-  	this.active = nav
+    this.changeNav(nav)
     this.router.navigate([path]);
     // this.router.navigate(["repoDetail",5]);
   }
