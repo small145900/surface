@@ -19,4 +19,9 @@ export class RepoDetailComponent {
   // goBack(): void {
   //   this.location.back();
   // }
+
+    edit():void{
+      console.log(this);
+    }
+
 }
