@@ -102,8 +102,16 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 	margin-bottom: 25px;
 }
 
+.mar-bt-thirty {
+	margin-bottom: 30px;
+}
+
 .pad-no {
 	padding: 0;
+}
+
+.pad-rt-no {
+	padding-right: 0;
 }
 
 .over-hidden {
@@ -397,7 +405,7 @@ body {
 }
 
 @media screen and (max-width: 642px) {
-	#nav .user .create {
+	#nav .user .create, #nav .user .add {
 		display: none;
 	}
 }
@@ -409,6 +417,10 @@ body {
 
 	#nav .menu {
 		width: 60%;
+	}
+
+	#nav .menu .logo a {
+		margin-right: 15px;
 	}
 }
 
@@ -428,9 +440,13 @@ body {
 	#nav .menu .logo a {
 		margin-right: 15px;
 	}
+
+	#nav .menu li a, #nav .user > li > a {
+		padding: 0 6px;
+	}
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 480px) {
 	#nav .menu {
 		width: 70%;
 	}
@@ -480,32 +496,32 @@ body {
 	// margin-top: @baseMargin+50px;
 }
 
-#repoList .filter-repo {
-	text-align: center;
-	height: 40px;
-	line-height: 40px;
-	font-size: 20px;
-	margin-top: @baseMargin+55px;
-	margin-bottom: @baseMargin+70px;
-}
+// #repoList .filter-repo {
+// 	text-align: center;
+// 	height: 40px;
+// 	line-height: 40px;
+// 	font-size: 20px;
+// 	margin-top: @baseMargin+55px;
+// 	margin-bottom: @baseMargin+70px;
+// }
 
-#repoList .filter-repo input {
-	width: 500px;
-	margin-right: @baseMargin;
-	// background: #eaeaea;
-	border: 1px solid #eaeaea;
-	border-radius: 24px 24px 24px 24px;
-	padding: 0 12px;
-	font-size: @baseSize;
-}
+// #repoList .filter-repo input {
+// 	width: 500px;
+// 	margin-right: @baseMargin;
+// 	// background: #eaeaea;
+// 	border: 1px solid #eaeaea;
+// 	border-radius: 24px 24px 24px 24px;
+// 	padding: 0 12px;
+// 	font-size: @baseSize;
+// }
 
-#repoList .filter-repo .search {
-	position: absolute;
-	right: 30px;
-	top: -41px;
-	padding: 5px;
-	cursor: pointer;
-}
+// #repoList .filter-repo .search {
+// 	position: absolute;
+// 	right: 30px;
+// 	top: -41px;
+// 	padding: 5px;
+// 	cursor: pointer;
+// }
 
 #repoList .content {
 	width: 100%;
@@ -548,6 +564,7 @@ body {
 
 #repoList .repo-body {
 	padding-left: 5px;
+	padding-right: 5px;
 }
 
 #repoList .repo-body a {
@@ -583,20 +600,6 @@ body {
 	color: @repoFontGray;
 }
 
-@media screen and (max-width: 640px) {
-	#repoList .repo-body a {
-		width: 100%;
-	}
-
-	#repoList .repo-body a:nth-child(2n) {
-		margin-left: 0;
-	}
-
-	#repoList .repo-left {
-		height: 815px;
-	}
-}
-
 #repoList .star-fork {
 	font-size: 20px;
 	margin-top: @baseMargin+50px;
@@ -614,6 +617,119 @@ body {
 	top: 8px;
 	right: -4px;
 	opacity: 0.5;
+}
+
+#allRepo {
+	padding-top: 40px;
+}
+
+#allRepo .repo-body {
+	width: 100%;
+	font-size: 0;
+	padding: 0;
+}
+
+#allRepo .repo-body a:nth-child(3n) {
+	margin-right: 0;
+}
+
+#allRepo .repo-body a {
+	display: inline-block;
+	width: e("calc((100% - 10px) / 3)");
+	width: e("-webkit-calc((100% - 10px) / 3)");
+	padding: 12px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+	background: @browseWhite;
+	height: 200px;
+	border-bottom: 5px solid transparent;
+}
+
+#allRepo .repo-body a:hover {
+	border-bottom: 5px solid @baseBlue;
+}
+
+#allRepo .repo-body h3 {
+	margin-top: 8px;
+	font-size: @smallSize;
+	color: @black;
+}
+
+#allRepo .repo-body h5 {
+	font-size: 16px;
+	height: 36px;
+	overflow: hidden;
+	color: @repoFontGray;
+}
+
+#allRepo .star-fork {
+	font-size: 20px;
+	margin-top: @baseMargin+50px;
+	margin-bottom: 0;
+	position: relative;
+}
+
+#allRepo .star-fork i {
+	font-size: 24px;
+}
+
+#allRepo .org-name {
+	height: 40px;
+	line-height: 40px;
+	color: @orgNumBlue;
+	font-size: @smallSize;
+}
+
+#allRepo .star-fork i.fa-info-circle {
+	font-size: 18px;
+	position: absolute;
+	top: 8px;
+	right: -4px;
+	opacity: 0.5;
+}
+
+#allRepo .filter-repo {
+	text-align: center;
+	font-size: 20px;
+	margin-bottom: 40px;
+}
+
+#allRepo .filter-repo input {
+	width: 100%;
+	background: @browseWhite;
+	padding: 8px 35px 8px 10px;
+	font-size: @baseSize;
+	border-radius: 5px;
+}
+
+#allRepo .filter-repo .filter {
+	position: absolute;
+	right: 3px;
+	top: 4px;
+	padding: 5px;
+	cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+	#repoList .repo-body a {
+		width: 100%;
+	}
+	
+	#repoList .repo-body a:nth-child(2n) {
+		margin-left: 0;
+	}
+
+	#allRepo .repo-body a {
+		width: 100%;
+	}
+	
+	#allRepo .repo-body a {
+		margin-right: 0;
+	}
+
+	#repoList .repo-left {
+		height: 815px;
+	}
 }
 /* repo list end */
 
@@ -1506,7 +1622,11 @@ body {
 }
 
 #access .footer .team .space:hover {
-	color: #ff5400;
+	color: @yellow;
+}
+
+#access .footer .team .active {
+	color: @yellow;
 }
 
 #access .nav {
@@ -1536,7 +1656,7 @@ body {
 	background: blue;
 }
 
-#access .content {
+#access .login-content {
 	width: 300px;
 	margin: 100px auto;
 }
@@ -1621,7 +1741,7 @@ body {
 }
 
 #access .logo {
-	width: 50%;
+	width: 35%;
 	float: left;
 	text-align: center;
 	background: @headerWhite;
@@ -1629,7 +1749,7 @@ body {
 }
 
 #access .menu {
-	width: 50%;
+	width: 65%;
 	float: left;
 }
 
@@ -1686,13 +1806,25 @@ body {
 
 @media screen and (max-width: 980px) { 
 	#access .logo {
+		width: 30%;
+	}
+	#access .menu {
+		width: 70%;
+	}
+	#access .header .text {
+		bottom: 30px;
+	}
+}
+
+@media screen and (max-width: 625px){
+	#access .logo {
 		width: 20%;
 	}
 	#access .menu {
 		width: 80%;
 	}
 	#access .header .text {
-		bottom: 30px;
+		bottom: 5px;
 	}
 }
 
@@ -1707,7 +1839,7 @@ body {
 #access .browse .info li {
 	float: left;
 	background: @browseWhite;
-	padding: 24px 0;
+	padding: 26px 0;
 	text-align: center;
 }
 
@@ -1755,5 +1887,27 @@ body {
 
 #access .browse .name .text:first-child {
 	color: @browseFontBlue;
+}
+
+#access .contact img {
+	margin-bottom: 20px;
+	width: 50%;
+	max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+	#access .contact img {
+		width: 40%;
+	}
+}
+
+@media screen and (max-width: 625px) {
+	#access .contact img {
+		width: 60%;
+	}
+
+	#access .login-content {
+		margin-top: 200px;
+	}
 }
 /* sign in & sign up end */

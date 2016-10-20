@@ -13,8 +13,9 @@ var router_1 = require('@angular/router');
 var org_service_1 = require('./org.service');
 var repo_service_1 = require('./repo.service');
 var RepoListComponent = (function () {
-    function RepoListComponent(router, orgService, repoService) {
+    function RepoListComponent(router, route, orgService, repoService) {
         this.router = router;
+        this.route = route;
         this.orgService = orgService;
         this.repoService = repoService;
         this.orgList = [];
@@ -38,13 +39,19 @@ var RepoListComponent = (function () {
     RepoListComponent.prototype.repoCreate = function (path) {
         this.router.navigate([path]);
     };
+    RepoListComponent.prototype.seeAllRepo = function (orgInfo) {
+        this.router.navigate(['organizations', orgInfo.name]);
+    };
+    RepoListComponent.prototype.repoDetail = function (repoInfo) {
+        this.router.navigate(['repositories', repoInfo.name]);
+    };
     RepoListComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'repo-list',
             templateUrl: '../templates/repository/repoList.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, org_service_1.OrgService, repo_service_1.RepoService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, org_service_1.OrgService, repo_service_1.RepoService])
     ], RepoListComponent);
     return RepoListComponent;
 }());

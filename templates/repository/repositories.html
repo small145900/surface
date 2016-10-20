@@ -1,0 +1,28 @@
+<div id="repoContent">
+  <div id="allRepo">
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div class="row pad-no">
+          <div class="col-xs-5 col-md-3 org-name">Org name</div>
+          <div class="col-xs-6 col-xs-offset-1 col-md-5 col-md-offset-4 pad-rt-no">
+            <p class="filter-repo">
+              <input type="text" placeHolder="search repository"/>
+              <i class="fa fa-search filter"></i>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 repo-body">
+            <a href="javascript:void(0)" *ngFor="let repo of repoList" (click)="repoDetail(repo)">
+              <h3>{{repo.namespace}}/{{repo.repository}}</h3>
+              <h5 class="col-gray">{{repo.description}}</h5>
+              <p class="star-fork">
+                <i class="fa fa-star col-orange"></i> {{repo.star}} 
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

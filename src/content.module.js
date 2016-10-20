@@ -13,6 +13,7 @@ var platform_browser_1 = require('@angular/platform-browser');
 var content_component_1 = require('./content.component');
 var nav_component_1 = require('./nav.component');
 var repoList_component_1 = require('./repoList.component');
+var repositories_component_1 = require('./repositories.component');
 var repoCreate_component_1 = require('./repoCreate.component');
 var repoDetail_component_1 = require('./repoDetail.component');
 var orgList_component_1 = require('./orgList.component');
@@ -38,6 +39,7 @@ var ContentModule = (function () {
                 content_component_1.ContentComponent,
                 nav_component_1.NavComponent,
                 repoList_component_1.RepoListComponent,
+                repositories_component_1.RepositoriesComponent,
                 repoCreate_component_1.RepoCreateComponent,
                 repoDetail_component_1.RepoDetailComponent,
                 orgList_component_1.OrgListComponent,

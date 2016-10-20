@@ -9,7 +9,7 @@
       <div class="col-xs-6 pad-no menu-rt">
         <ul class="user">
           <li class="filter"><input type="text" placeholder="search" /></li>
-          <li class="relative"  (mouseover)="changeNav('create')" (mouseout)="changeNav('')">
+          <li class="relative add"  (mouseover)="changeNav('create')" (mouseout)="changeNav('')">
             <a href="javascript:void(0)" [ngClass]=" active=== 'create'? 'active' : '' "><i class="fa fa-plus"></i>Create</a>
             <ul id="createRepo" [ngClass]=" active=== 'create'? 'show' : '' ">
               <li><a href="javascript:void(0)" (click)="linkComp('repoCreate')"><i class="fa fa-book"></i>Create Repository</a></li>
