@@ -16,6 +16,18 @@ var RepoDetailComponent = (function () {
         this.route = route;
         this.location = location;
     }
+    // ngOnInit(): void {
+    //   this.route.params.forEach((params: Params) => {
+    //     let id = +params['repoId'];
+    //     console.log(id)
+    //   });
+    // }
+    // goBack(): void {
+    //   this.location.back();
+    // }
+    RepoDetailComponent.prototype.edit = function () {
+        console.log(this);
+    };
     RepoDetailComponent = __decorate([
         core_1.Component({
             selector: 'repo-detail',
