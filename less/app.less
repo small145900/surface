@@ -102,6 +102,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 	margin-bottom: 25px;
 }
 
+.mar-bt-thirty {
+	margin-bottom: 30px;
+}
+
 .pad-no {
 	padding: 0;
 }
@@ -560,6 +564,7 @@ body {
 
 #repoList .repo-body {
 	padding-left: 5px;
+	padding-right: 5px;
 }
 
 #repoList .repo-body a {
@@ -1512,7 +1517,11 @@ body {
 }
 
 #access .footer .team .space:hover {
-	color: #ff5400;
+	color: @yellow;
+}
+
+#access .footer .team .active {
+	color: @yellow;
 }
 
 #access .nav {
@@ -1542,7 +1551,7 @@ body {
 	background: blue;
 }
 
-#access .content {
+#access .login-content {
 	width: 300px;
 	margin: 100px auto;
 }
@@ -1627,7 +1636,7 @@ body {
 }
 
 #access .logo {
-	width: 50%;
+	width: 35%;
 	float: left;
 	text-align: center;
 	background: @headerWhite;
@@ -1635,7 +1644,7 @@ body {
 }
 
 #access .menu {
-	width: 50%;
+	width: 65%;
 	float: left;
 }
 
@@ -1692,13 +1701,25 @@ body {
 
 @media screen and (max-width: 980px) { 
 	#access .logo {
+		width: 30%;
+	}
+	#access .menu {
+		width: 70%;
+	}
+	#access .header .text {
+		bottom: 30px;
+	}
+}
+
+@media screen and (max-width: 625px){
+	#access .logo {
 		width: 20%;
 	}
 	#access .menu {
 		width: 80%;
 	}
 	#access .header .text {
-		bottom: 30px;
+		bottom: 5px;
 	}
 }
 
@@ -1713,7 +1734,7 @@ body {
 #access .browse .info li {
 	float: left;
 	background: @browseWhite;
-	padding: 24px 0;
+	padding: 26px 0;
 	text-align: center;
 }
 
@@ -1761,5 +1782,27 @@ body {
 
 #access .browse .name .text:first-child {
 	color: @browseFontBlue;
+}
+
+#access .contact img {
+	margin-bottom: 20px;
+	width: 50%;
+	max-width: 100%;
+}
+
+@media screen and (max-width: 1000px) {
+	#access .contact img {
+		width: 40%;
+	}
+}
+
+@media screen and (max-width: 625px) {
+	#access .contact img {
+		width: 60%;
+	}
+
+	#access .login-content {
+		margin-top: 200px;
+	}
 }
 /* sign in & sign up end */

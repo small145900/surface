@@ -44,6 +44,12 @@ export class LoginComponent implements OnInit {
 			're-password': ''
 		}
 		this.active = val
+		if(val=="contact"){
+      // $('.group-content').height()
+      // $('.content').height()
+      // console.log(document.getElementsByClassName('.content'))
+      // angular.element(document).ready(function(){})
+    }
 	}
 
 	login() {

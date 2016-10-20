@@ -87,6 +87,9 @@ select:-webkit-autofill {
 .mar-bt-twenty-five {
   margin-bottom: 25px;
 }
+.mar-bt-thirty {
+  margin-bottom: 30px;
+}
 .pad-no {
   padding: 0;
 }
@@ -452,6 +455,7 @@ body {
 }
 #repoList .repo-body {
   padding-left: 5px;
+  padding-right: 5px;
 }
 #repoList .repo-body a {
   display: inline-block;
@@ -1253,7 +1257,10 @@ body {
   cursor: pointer;
 }
 #access .footer .team .space:hover {
-  color: #ff5400;
+  color: #F1B90D;
+}
+#access .footer .team .active {
+  color: #F1B90D;
 }
 #access .nav {
   position: fixed;
@@ -1279,7 +1286,7 @@ body {
   color: #fff;
   background: blue;
 }
-#access .content {
+#access .login-content {
   width: 300px;
   margin: 100px auto;
 }
@@ -1366,14 +1373,14 @@ body {
   line-height: 40px;
 }
 #access .logo {
-  width: 50%;
+  width: 35%;
   float: left;
   text-align: center;
   background: #fff;
   opacity: 0.75;
 }
 #access .menu {
-  width: 50%;
+  width: 65%;
   float: left;
 }
 #access .logo img {
@@ -1424,13 +1431,24 @@ body {
 }
 @media screen and (max-width: 980px) {
   #access .logo {
+    width: 30%;
+  }
+  #access .menu {
+    width: 70%;
+  }
+  #access .header .text {
+    bottom: 30px;
+  }
+}
+@media screen and (max-width: 625px) {
+  #access .logo {
     width: 20%;
   }
   #access .menu {
     width: 80%;
   }
   #access .header .text {
-    bottom: 30px;
+    bottom: 5px;
   }
 }
 #access .browse .space {
@@ -1443,7 +1461,7 @@ body {
 #access .browse .info li {
   float: left;
   background: #F3F3F3;
-  padding: 24px 0;
+  padding: 26px 0;
   text-align: center;
 }
 #access .browse .space:hover {
@@ -1482,6 +1500,24 @@ body {
 }
 #access .browse .name .text:first-child {
   color: #0e5585;
+}
+#access .contact img {
+  margin-bottom: 20px;
+  width: 50%;
+  max-width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  #access .contact img {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 625px) {
+  #access .contact img {
+    width: 60%;
+  }
+  #access .login-content {
+    margin-top: 200px;
+  }
 }
 /* sign in & sign up end */
 /*# sourceMappingURL=app.css.map */

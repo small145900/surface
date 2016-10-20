@@ -42,6 +42,8 @@ var LoginComponent = (function () {
             're-password': ''
         };
         this.active = val;
+        if (val == "contact") {
+        }
     };
     LoginComponent.prototype.login = function () {
         console.log(this.user);

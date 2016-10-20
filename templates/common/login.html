@@ -1,64 +1,95 @@
 <div class="container-fluid" id="access">
   <div class="header">
-    <img src="img/banner.png" />
-    <span class="text">Sign in the container repository</span>
+    <img src="img/banner1.jpg" *ngIf="active===''"/>
+    <img src="img/banner1.jpg" *ngIf="active==='login'"/>
+    <img src="img/banner2.jpg" *ngIf="active==='sign-up'"/>
+    <img src="img/banner3.jpg" *ngIf="active==='forget-pwd'"/>
+    <img src="img/banner4.jpg" *ngIf="active==='reset-pwd'"/>
+    <img src="img/browse.jpg" *ngIf="active==='browse'"/>
+    <img src="img/contact.jpg" *ngIf="active==='contact'"/>
   </div>
   <div class="content">
-    <div class="login" *ngIf="active === 'login'">
-      <span class="space user">
-        <input type="text" placeholder="Username or Email" [(ngModel)]="user.username" name="username" autocomplete="off">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="space pwd">
-        <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
-        <i class="fa fa-lock"></i>
-      </span>
-      <button class="space sign-in" (click)="login()">Sign in</button>
-      <a href="javascript:void(0)" class="forget-pwd" (click)="changeNav('forget-pwd')">Forgot your password ?</a>
-      <div class="space">
-        <span class="pull-left google">
-          Sign in with <i class="fa fa-glide-g mar-lt-five"></i>
+    <div class="login-content">
+      <div class="login" *ngIf="active === 'login'">
+        <span class="space user">
+          <input type="text" placeholder="Username or Email" [(ngModel)]="user.username" name="username" autocomplete="off">
+          <i class="fa fa-user"></i>
         </span>
-        <span class="pull-right github">
-          Sign in with <i class="fa fa-github mar-lt-five"></i>
+        <span class="space pwd">
+          <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
+          <i class="fa fa-lock"></i>
         </span>
+        <button class="space sign-in" (click)="login()">Sign in</button>
+        <a href="javascript:void(0)" class="forget-pwd" (click)="changeNav('forget-pwd')">Forgot your password ?</a>
+        <div class="space">
+          <span class="pull-left google">
+            Sign in with <i class="fa fa-glide-g mar-lt-five"></i>
+          </span>
+          <span class="pull-right github">
+            Sign in with <i class="fa fa-github mar-lt-five"></i>
+          </span>
+        </div>
+      </div>
+      <div class="sign-up" *ngIf="active==='sign-up'">
+        <span class="space user">
+          <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" autocomplete="off">
+          <i class="fa fa-user"></i>
+        </span>
+        <span class="space user">
+          <input type="text" placeholder="email" [(ngModel)]="user.email" name="email" autocomplete="off">
+          <i class="fa fa-envelope"></i>
+        </span>
+        <span class="space pwd">
+          <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
+          <i class="fa fa-lock"></i>
+        </span>
+        <button class="space sign-in" (click)="signUp()">Sign Up</button>
+      </div>
+      <div class="login forget-pwd" *ngIf="active==='forget-pwd'">
+        <span class="space">
+          Enter your email address and we will send you a link to reset your password
+        </span>
+        <span class="space user">
+          <input type="text" placeholder="email" [(ngModel)]="user.email" name="email" autocomplete="off">
+          <i class="fa fa-envelope"></i>
+        </span>
+        <button class="space sign-in" (click)="sendEmail()">Send</button>
+      </div>
+      <div class="login reset-pwd" *ngIf="active==='reset-pwd'">
+        <span class="space pwd">
+          <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
+          <i class="fa fa-lock"></i>
+        </span>
+        <span class="space pwd">
+          <input type="password" placeholder="Comfirm Password" [(ngModel)]="user['re-password']" name="re-password" autocomplete="off">
+          <i class="fa fa-lock"></i>
+        </span>
+        <button class="space sign-in" (click)="resetPwd()">Save</button>
       </div>
     </div>
-    <div class="sign-up" *ngIf="active==='sign-up'">
-      <span class="space user">
-        <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" autocomplete="off">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="space user">
-        <input type="text" placeholder="email" [(ngModel)]="user.email" name="email" autocomplete="off">
-        <i class="fa fa-envelope"></i>
-      </span>
-      <span class="space pwd">
-        <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
-        <i class="fa fa-lock"></i>
-      </span>
-      <button class="space sign-in" (click)="signUp()">Sign Up</button>
-    </div>
-    <div class="login forget-pwd" *ngIf="active==='forget-pwd'">
-      <span class="space">
-        Enter your email address and we will send you a link to reset your password
-      </span>
-      <span class="space user">
-        <input type="text" placeholder="email" [(ngModel)]="user.email" name="email" autocomplete="off">
-        <i class="fa fa-envelope"></i>
-      </span>
-      <button class="space sign-in" (click)="sendEmail()">Send</button>
-    </div>
-    <div class="login reset-pwd" *ngIf="active==='reset-pwd'">
-      <span class="space pwd">
-        <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
-        <i class="fa fa-lock"></i>
-      </span>
-      <span class="space pwd">
-        <input type="password" placeholder="Comfirm Password" [(ngModel)]="user['re-password']" name="re-password" autocomplete="off">
-        <i class="fa fa-lock"></i>
-      </span>
-      <button class="space sign-in" (click)="resetPwd()">Save</button>
+    <div class="group-content">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+          <div class="row contact" *ngIf="active === 'contact' ? 'active' : '' ">
+            <div class="col-xs-6 col-md-3 text-center mar-bt-thirty">
+              <img src="img/email.png" /><br/>
+              <span>123@456.com</span>
+            </div>
+            <div class="col-xs-6 col-md-3 text-center mar-bt-thirty">
+              <img src="img/tel.png" /><br/>
+              <span>123@456.com</span>
+            </div>
+            <div class="col-xs-6 col-md-3 text-center mar-bt-thirty">
+              <img src="img/twitter.png" /><br/>
+              <span>123@456.com</span>
+            </div>
+            <div class="col-xs-6 col-md-3 text-center mar-bt-thirty">
+              <img src="img/weixin.png" /><br/>
+              <span>123@456.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row" class="browse" *ngIf="active==='browse'">
@@ -98,16 +129,15 @@
       </div>
     </div>
   </div>
-  
   <div class="row footer">
     <p class="col-md-7 col-md-offset-1 col-xs-12 intro" >
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A rerum vel est quae accusamus adipisci odio im. Ipsam.
+      Lorem ipsum dolor sit amet A rerum vel est quae accusamus adipisci odio im. Ipsam.
     </p>
     <p class="col-md-3 col-xs-12 team">
       <span class="space">Privacy</span>
       <span class="space">About</span>
       <span class="space">Teams</span>
-      <span class="space">Contact</span>
+      <span class="space" [ngClass]="active==='contact' ? 'active' : '' " (click)="changeNav('contact',$event)">Contact</span>
     </p>
   </div>
   <div class="navbar">
