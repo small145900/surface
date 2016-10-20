@@ -1,91 +1,194 @@
 <div id="repoDetail">
-  <p class="praise">
-    org/repo name
-    <i class="fa fa-star"></i>
-  </p>
-  <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <div class="space info"> 
-        <a href="#info" data-toggle="collapse">
-          Base Info
-          <i class="fa fa-sort-desc expend"></i>
-        </a>
-        <div class="panel-collapse collapse in" id="info">
-          <div class="command">
-            <h4>
-              Docker Pull Command
-              <i class="fa fa-files-o copy"></i>
-            </h4>
-            <span>docker pull command</span>
-          </div>
-          <ul class="desc">
-            <li>
-              Short Description<br/>
-              <span>this is short desc</span>
-            </li>
-            <li>
-              Full Description<br/>
-              <span>this is full desc</span>
-            </li>
+  <div class="header container">
+      <div class="repo-name">Private Repository</div>
+      <div class="repo-user">Lyy/123456 <span class="fa fa-star"></span></div>
+      <div class="repo-status">Last pushed: Never</div>
+  </div>
+  <div class="repo-nav">
+      <div class="container">
+          <ul class="nav nav-tabs nav-justified" role="tablist">
+            <li role="presentation" class="active"><a href="#bastInfo" id="bastInfo-tab" role="tab" data-toggle="tab" aria-controls="bastInfo" aria-expanded="true">Bast Info</a></li>
+            <li role="presentation" class=""><a href="#tags" role="tab" id="tags-tab" data-toggle="tab" aria-controls="tags" aria-expanded="false">Tags</a></li>
+
+            <li role="presentation"><a href="#collaborators" role="tab" id="collaborators-tab" aria-controls="collaborators" data-toggle="tab" aria-expanded="false" >Collaborators</a></li>
+
+            <li role="presentation"><a href="#buildHistory" role="tab" aria-controls="buildHistory" aria-expanded="false" id="buildHistory-tag" data-toggle="tab">Build History</a></li>
+            <li role="presentation"><a href="#buildTriggers" role="tab" aria-controls="buildTriggers" aria-expanded="false" id="buildTriggers-tag" data-toggle="tab">Build Triggers</a></li>
+
+            
           </ul>
+      </div>
+  </div>
+
+  <div class="repo-content">
+    <div class="container tab-content">
+      
+      <!-- BastInfo start-->
+      <div role="tabpanel" id="bastInfo" aria-labelledby="bastInfo-tag" class="bast-info row tab-pane fade active in">
+  
+        <div class="col-md-8 clear-padding-left">
+          <div class="form-group">
+            <h5>OpsHub Pull Command</h5>
+            <textarea class="pull-command-text" rows="3" readonly="readonly">OpsHub Pull Lyy/123456789456488</textarea>
+            
+          </div>
+
+          <div class="form-group">
+            <h5>Short Description <span class="fa fa-pencil" (click)="edit()"></span></h5>
+            <textarea rows="3" readonly="readonly">Short Description Short Description  Short Description Short De</textarea>
+            <input type="button" value="OK" class="ok-btn" />
+          </div>
+
+          <div class="form-group">
+            <h5>Full Description <span class="fa fa-pencil"></span></h5>
+            <textarea rows="3" readonly="readonly">Full Description</textarea>
+            <input type="button" value="OK" class="ok-btn" />
+          </div>
+        </div>
+        
+        <div class="" >
+         
+          <div class="make-public">
+            <h5 class="make-public-h5">Make this Repository Public</h5>
+            <input type="button" class="make-public-btn" value="Make public" />
+          </div>  
+         
+          <input type="button" class="delete-repo-btn" value="Delete Repository" />
+
+        </div>
+
+      </div>
+      <!-- BastInfo end-->
+  
+      
+      <!-- Tags start-->
+      <div role="tabpanel" class="tab-pane fade" id="tags" aria-labelledby="tags-tab">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Text</th>
+              <th>Image</th>
+              <th>Size</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="javascript:;">4ads13216d</a></td>
+              <td>lyy132646</td>
+              <td>15691</td>
+              <td>2015.5.5</td>
+            </tr>
+            <tr>
+              <td><a href="javascript:;">4ads13216d</a></td>
+              <td>lyy132646</td>
+              <td>15691</td>
+              <td>2015.5.5</td>
+            </tr>
+            <tr>
+              <td><a href="javascript:;">4ads13216d</a></td>
+              <td>lyy132646</td>
+              <td>15691</td>
+              <td>2015.5.5</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+      <!-- Tags end-->
+
+
+      <!-- Collaborators start-->
+      <div role="tabpanel" class="tab-pane fade" id="collaborators" aria-labelledby="collaborators-tab">
+        <div class="row">
+          <div class="left-block">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>UserName</th>
+                  <th>Access</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="javascript:;">lyy132646</a></td>
+                  <td>Collaborator</td>
+                  <td><span class="remove">Remove</span></td>
+                </tr>
+                <tr>
+                  <td><a href="javascript:;">lyy132646</a></td>
+                  <td>Collaborator</td>
+                  <td><span class="remove">Remove</span></td>
+                </tr>
+                <tr>
+                  <td><a href="javascript:;">lyy132646</a></td>
+                  <td>Collaborator</td>
+                  <td><span class="remove">Remove</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="right-block">
+              <h5>Add User</h5>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Username">
+                <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <div class="space setting"> 
-        <a href="#setting" data-toggle="collapse">
-          Setting
-          <i class="fa fa-sort-desc expend"></i>
-        </a>
-        <div class="panel-collapse collapse" id="setting">
-          65567676
-        </div>
+      <!-- Collaborators end-->
+    
+    
+      <!-- BuildHistory start-->
+      <div role="tabpanel" class="tab-pane fade" id="buildHistory" aria-labelledby="buildHistory-tab">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Build ID</th>
+              <th>Triggered by</th>
+              <th>Date Started</th>
+              <th>Tags</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="javascript:;">4ads13216d</a></td>
+              <td>lyy132646</td>
+              <td>Today at 4:30 PM</td>
+              <td>master</td>
+              <td><span class="fa fa-trash-o"></span></td>
+            </tr>
+            <tr>
+              <td><a href="javascript:;">4ads13216d</a></td>
+              <td>lyy132646</td>
+              <td>Today at 4:30 PM</td>
+              <td>master</td>
+              <td><span class="fa fa-trash-o"></span></td>
+            </tr>
+            <tr>
+              <td><a href="javascript:;">4ads13216d</a></td>
+              <td>lyy132646</td>
+              <td>Today at 4:30 PM</td>
+              <td>master</td>
+              <td><span class="fa fa-trash-o"></span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <div class="space collaborators"> 
-        <a href="#collaborators" data-toggle="collapse">
-          Collaborators
-          <i class="fa fa-sort-desc expend"></i>
-        </a>
-        <div class="panel-collapse collapse" id="collaborators">
-          65567676
-        </div>
+      <!-- BuildHistory end-->
+      
+      <!-- BuildTriggers start-->
+      <div role="tabpanel" class="tab-pane fade" id="buildTriggers" aria-labelledby="buildTriggers-tab">
+        Build Triggers
       </div>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <div class="space tags"> 
-        <a href="#tags" data-toggle="collapse">
-          Tags
-          <i class="fa fa-sort-desc expend"></i>
-        </a>
-        <div class="panel-collapse collapse" id="tags">
-          65567676
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <div class="space history"> 
-        <a href="#history" data-toggle="collapse">
-          Build History
-          <i class="fa fa-sort-desc expend"></i>
-        </a>
-        <div class="panel-collapse collapse" id="history">
-          65567676
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <div class="space triggers"> 
-        <a href="#triggers" data-toggle="collapse">
-          Build Triggers
-          <i class="fa fa-sort-desc expend"></i>
-        </a>
-        <div class="panel-collapse collapse" id="triggers">
-          65567676
-        </div>
-      </div>
+      <!-- BuildTriggers end-->
     </div>
   </div>
+
 </div>
+
+
 

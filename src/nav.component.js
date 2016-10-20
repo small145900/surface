@@ -20,8 +20,11 @@ var NavComponent = (function () {
         };
         this.active = 'repo';
     }
-    NavComponent.prototype.linkComp = function (path, nav) {
+    NavComponent.prototype.changeNav = function (nav) {
         this.active = nav;
+    };
+    NavComponent.prototype.linkComp = function (path, nav) {
+        this.changeNav(nav);
         this.router.navigate([path]);
         // this.router.navigate(["repoDetail",5]);
     };

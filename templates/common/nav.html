@@ -8,17 +8,17 @@
       </ul>
       <div class="col-xs-6 pad-no menu-rt">
         <ul class="user">
-          <li><input type="text" placeholder="search" /></li>
-          <li class="relative" class="create">
-            <a id="#createRepo" data-toggle="dropdown"><i class="fa fa-plus"></i>Create</a>
-            <ul class="dropdown-menu" id="createRepo">
+          <li class="filter"><input type="text" placeholder="search" /></li>
+          <li class="relative"  (mouseover)="changeNav('create')" (mouseout)="changeNav('')">
+            <a href="javascript:void(0)" [ngClass]=" active=== 'create'? 'active' : '' "><i class="fa fa-plus"></i>Create</a>
+            <ul id="createRepo" [ngClass]=" active=== 'create'? 'show' : '' ">
               <li><a href="javascript:void(0)" (click)="linkComp('repoCreate')"><i class="fa fa-book"></i>Create Repository</a></li>
               <li><a href="javascript:void(0)" (click)="linkComp('orgCreate')"><i class="fa fa-users"></i>Create Organization</a></li>
             </ul>
           </li>
-          <li class="relative">
-            <a id="#userSetting" class="mar-rt-no" data-toggle="dropdown"><i class="fa fa-user"></i>User</a>
-            <ul class="dropdown-menu" id="userSetting">
+          <li class="relative" (mouseover)="changeNav('user')" (mouseout)="changeNav('')">
+            <a href="javascript:void(0)" class="mar-rt-no" [ngClass]=" active=== 'user'? 'active' : '' "><i class="fa fa-user"></i>User</a>
+            <ul id="userSetting" [ngClass]=" active=== 'user'? 'show' : '' ">
               <li><a href="javascript:void(0)" (click)="linkComp('userSetting')"><i class="fa fa-book"></i>Setting</a></li>
               <li><a href="javascript:void(0)" (click)="loginOut()"><i class="fa fa-users"></i>Login Out</a></li>
             </ul>
