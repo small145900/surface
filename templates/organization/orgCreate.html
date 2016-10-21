@@ -63,14 +63,14 @@
                 </div>
                 <div class="third-step" id="newRepo"  *ngIf="step===3">
                   <div class="info">
-                    <p class="mar-bt-twenty-five clear-gap">
+                    <p class="mar-bt-twenty clear-gap">
                       <select [(ngModel)]="repo.username" name="username">
                         <option value="1">dockyard</option>
                         <option value="2">surface</option>
                       </select>
                       <input type="text" placeholder="name" [(ngModel)]="repo.repository" name="repository"/>
                     </p>
-                    <p class="mar-bt-twenty-five">
+                    <p class="mar-bt-twenty">
                       <input type="text" placeholder="short descript" (focus)="changeStep(3)" [(ngModel)]="repo.short" name="short"/>
                     </p>
                     <textarea placeholder="full descript" (focus)="changeStep(4)" [(ngModel)]="repo.description" name="description"></textarea>

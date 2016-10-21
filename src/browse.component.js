@@ -11,43 +11,37 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_service_1 = require('./user.service');
-var LoginComponent = (function () {
-    function LoginComponent(router, userService) {
+var BrowseComponent = (function () {
+    function BrowseComponent(router, userService) {
         this.router = router;
         this.userService = userService;
         this.user = {
-            username: '',
-            email: '',
-            password: '',
-            're-password': ''
+            username: ''
         };
         this.active = '';
         this.browseList = [];
         this.hover = '';
     }
-    LoginComponent.prototype.ngOnInit = function () { };
-    LoginComponent.prototype.activeHover = function (index) {
+    BrowseComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.userService.getBrowseList()
+            .then(function (browseList) { return _this.browseList = browseList; }, function (error) { return _this.errorMsg = error; });
+    };
+    BrowseComponent.prototype.activeHover = function (index) {
         this.hover = index;
         console.log(index);
     };
-    LoginComponent.prototype.changeNav = function (val) {
+    BrowseComponent.prototype.changeNav = function (val) {
         // this.active = val
         this.router.navigate([val]);
     };
-    LoginComponent.prototype.login = function () {
-        console.log(this.user);
-        // this.userService.doLogin(this.user)
-        //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
-        //           error => this.errorMsg = <any>error);
-        this.router.navigate(['repositories']);
-    };
-    LoginComponent = __decorate([
+    BrowseComponent = __decorate([
         core_1.Component({
             selector: 'login',
-            templateUrl: '../templates/common/login.html'
+            templateUrl: '../templates/common/browse.html'
         }), 
         __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService])
-    ], LoginComponent);
-    return LoginComponent;
+    ], BrowseComponent);
+    return BrowseComponent;
 }());
-exports.LoginComponent = LoginComponent;
+exports.BrowseComponent = BrowseComponent;

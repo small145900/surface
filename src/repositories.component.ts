@@ -12,7 +12,9 @@ import { RepoService } from './repo.service';
 export class RepositoriesComponent implements OnInit {
   errorMsg: string;
   repoList: Repo[] = [];
-  orgInfo = ''
+  orgInfo = {
+    orgName: ''
+  }
 
 
 	constructor(
@@ -23,7 +25,7 @@ export class RepositoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
-      this.orgInfo = params['orgName'];
+      this.orgInfo.orgName = params['orgName'];
       console.log(this.orgInfo)
     });
   	this.repoService.getRepoList(this.orgInfo)
@@ -36,6 +38,6 @@ export class RepositoriesComponent implements OnInit {
   }
 
   repoDetail(repoInfo){
-    this.router.navigate(['repositories',repoInfo.name])
+    this.router.navigate(['repositories',repoInfo.repository])
   }
 }

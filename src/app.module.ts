@@ -4,17 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ContentModule }  from './content.module';
 
 import { AppComponent }  from './app.component';
-// import { NavComponent }  from './nav.component';
+// import { HeaderComponent }  from './header.component';
+// import { FooterComponent }  from './footer.component';
+import { IndexComponent }  from './index.component';
 import { LoginComponent }  from './login.component';
-// import { RepoListComponent }  from './repoList.component';
-// import { RepoCreateComponent }  from './repoCreate.component';
-// import { RepoDetailComponent } from './repoDetail.component';
-// import { OrgListComponent }      from './orgList.component';
-// import { OrgCreateComponent }      from './orgCreate.component';
-// import { UserSettingComponent }      from './userSetting.component';
-
-// import { OrgService }      from './org.service';
-// import { RepoService }      from './repo.service';
+import { RegisterComponent }  from './register.component';
+import { ForgetPwdComponent }  from './forgetPassword.component';
+import { ResetPwdComponent }  from './resetPassword.component';
+import { BrowseComponent }  from './browse.component';
+import { ContactComponent }  from './contact.component';
 import { UserService }      from './user.service';
 
 import { FormsModule }   from '@angular/forms';
@@ -32,18 +30,17 @@ import { routing } from './app.routing';
   ],
   declarations: [ 
   	AppComponent,
-    LoginComponent
-  	// NavComponent, 
-  	// RepoListComponent, 
-  	// RepoCreateComponent,
-   //  RepoDetailComponent,
-  	// OrgListComponent,
-  	// OrgCreateComponent,
-   //  UserSettingComponent
+    IndexComponent,
+    // HeaderComponent,
+    // FooterComponent,
+    LoginComponent,
+  	RegisterComponent, 
+  	ForgetPwdComponent, 
+  	ResetPwdComponent,
+    BrowseComponent,
+  	ContactComponent
   ],
   providers: [
-    // OrgService,
-    // RepoService
     UserService
   ],
   bootstrap: [ AppComponent ]

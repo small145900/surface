@@ -43,7 +43,7 @@ var RepoListComponent = (function () {
         this.router.navigate(['organizations', orgInfo.name]);
     };
     RepoListComponent.prototype.repoDetail = function (repoInfo) {
-        this.router.navigate(['repositories', repoInfo.name]);
+        this.router.navigate(['repositories', repoInfo.repository]);
     };
     RepoListComponent = __decorate([
         core_1.Component({

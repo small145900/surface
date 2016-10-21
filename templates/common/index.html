@@ -1,92 +1,83 @@
-<html>
-  <head>
-    <title>surface</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/css/app.css" rel="stylesheet">
-    
-    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="systemjs.config.js"></script>
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
-  </head>
-  <body>
-    <div class="container-fluid">
-      <header id="header">
-        <div class="over-hidden">
-          <p class="pull-left"><img src="img/logo.png"/></p>
-          <p class="pull-right nav-rt">
-            <a href="javascript:void(0)" class="space">Brower</a >
-            <a href="javascript:void(0)" class="space">Tutorial</a >
-            <a href="javascript:void(0)" class="space">Docs</a >
-            <a href="javascript:void(0)" class="space">Login</a >
-            <a href="javascript:void(0)" class="space">Sign up</a >
-          </p>
-        </div>
-        <ul class="text-center search">
-          <li><h3>Search The Container Repository</h3></li>
-          <li><h4 class="mar-tb-twenty">Find Trusted Containers And DevOps Component</h4></li>
-          <li><input type="text"/></li>
-        </ul>
-      </header>
-      <div class="content-one">
-        <p class="pull-left features">
-          <span class="space character">Spotlight</span>
-          <span class="space title">Feature Component</span>
-          <span class="space detail">Working out of box, integration in the ContainerOps</span>
-        </p>
-        <div class="pull-left surface-carousel">轮播图</div>
-      </div>
-      <div class="row content-two">
-        <div class="col-xs-6 col-md-3">
-          <p class="space font-big">
-            On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter 
-          </p>
-        </div>
-        <div class="col-xs-6 col-md-3">
-          <p class="space">
-            On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter
-          </p>
-        </div>
-        <div class="col-xs-6 col-md-3">
-          <p class="space">
-            On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter
-          </p>
-        </div>
-        <div class="col-xs-6 col-md-3">
-          <p class="space">
-            On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter On-premises Containers as a Service with Docker Datacenter
-          </p>
-        </div>
-      </div>
-      <div class="content-three">
-        <p class="space">
-          <img src="###"/>
-          <img src="###"/>
-          <img src="###"/>
-          <img src="###"/>
-        </p>
-      </div>
-      <footer id="footer">
-        <p class="pull-left">
-          Build,Ship,Run,An open plattorm tor distributed applications for developers and sysadmins <br/>
-          Copyright@2016 Docker Inc.All rights reserved
-        </p>
-        <p class="pull-right">
-          <span class="space">Privacy</span>
-          <span class="space">Terms</span>
-          <span class="space">About</span>
-          <span class="space">Contact</span>
-        </p>
-      </footer>
+<div class="container-fluid" id="app">
+  <div class="header">
+    <img src="img/app_banner.jpg"/>
+  </div>
+  <div class="navbar">
+    <div class="logo"><img src="img/opshub_03.png" /></div>
+    <div class="menu">
+      <a href="javascript:void(0)" class="space" (click)="changeNav('browse')">Browse</a>
+      <a href="javascript:void(0)" class="space tutorial">Tutorial</a>
+      <a href="javascript:void(0)" class="space docs">Docs</a>
+      <a href="javascript:void(0)" class="space" (click)="changeNav('login')">Login</a>
+      <a href="javascript:void(0)" class="space" (click)="changeNav('register')">Sign Up</a>
+      <a href="javascript:void(0)" class="space-remain">.</a>
     </div>
-  </body>
-</html>
+  </div>
+  <div class="content">
+    <div class="content-one">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+          <div class="surface-carousel">carousel</div>
+        </div>
+      </div>
+    </div>
+    <div class="row content-two">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div class="row">
+          <p class="col-xs-12 col-md-10 col-md-offset-1 title">
+            On-premises containers as a service with docker datacenter
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-4 pad-lt-twenty">
+            <p class="space font-big">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus nam, voluptatum adipisci, consequatur facilis asperiores iusto. Eligendi ad aspernatur ea, atque, odio quis laboriosam amet. Ipsum, molestias delectus labore velit. 
+            </p>
+          </div>
+          <div class="col-xs-12 col-md-4 pad-lt-twenty">
+            <p class="space">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla delectus natus ullam, tempora tempore vero quos ad explicabo animi, adipisci ratione consectetur quaerat sint repellendus culpa veritatis qui error modi.
+            </p>
+          </div>
+          <div class="col-xs-12 col-md-4 pad-lt-twenty">
+            <p class="space">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi hic architecto veniam ipsum debitis quo deleniti delectus qui ut eius minima enim non atque expedita, quisquam voluptas possimus, iusto aut.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row content-three">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div class="row">
+          <p class="col-xs-12 col-md-4 space">
+            <img src="###" />
+          </p>
+          <p class="col-xs-12 col-md-4 space">
+            <img src="###" />
+          </p>
+          <p class="col-xs-12 col-md-4 space">
+            <img src="###" />
+          </p>
+        </div>     
+      </div>
+    </div>
+  </div>
+  <div class="row footer">
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div class="row">
+          <p class="col-md-5 col-xs-12 intro" >
+            Lorem ipsum dolor sit amet A rerum vel est quae accusamus adipisci odio im. Ipsam.
+          </p>
+          <p class="col-md-7 col-xs-12 team">
+            <span class="space">Privacy</span>
+            <span class="space">About</span>
+            <span class="space">Teams</span>
+            <span class="space" (click)="changeNav('contact')">Contact</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,16 +5,13 @@ import { UserService } from './user.service';
 
 @Component({
   selector: 'login',
-  templateUrl: '../templates/common/login.html'
+  templateUrl: '../templates/common/browse.html'
 })
 
-export class LoginComponent implements OnInit { 
+export class BrowseComponent implements OnInit { 
 	errorMsg: string;
 	user = {
-		username: '',
-		email: '',
-		password: '',
-		're-password': ''
+		username: ''
 	}
 	active = '';
 	browseList = [];
@@ -25,8 +22,12 @@ export class LoginComponent implements OnInit {
 	 	private userService: UserService){
 	}
 
-	ngOnInit(): void {}
-	
+	ngOnInit(): void {
+    this.userService.getBrowseList()
+      .then(browseList => this.browseList = browseList,
+            error => this.errorMsg = <any>error);
+  }
+
   activeHover(index){
   	this.hover = index;
   	console.log(index)
@@ -35,13 +36,5 @@ export class LoginComponent implements OnInit {
 	changeNav(val){
 		// this.active = val
     this.router.navigate([val]);
-	}
-
-	login() {
-		console.log(this.user)
-		// this.userService.doLogin(this.user)
-  //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
-  //           error => this.errorMsg = <any>error);
-    this.router.navigate(['repositories']);
 	}
 }
