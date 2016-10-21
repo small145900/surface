@@ -51,6 +51,6 @@ export class RepoListComponent implements OnInit {
   }
 
   repoDetail(repoInfo){
-    this.router.navigate(['repositories',repoInfo.name])
+    this.router.navigate(['repositories',repoInfo.repository])
   }
 }

@@ -4,11 +4,11 @@ import { UserService } from './user.service';
 
 
 @Component({
-  selector: 'login',
-  templateUrl: '../templates/common/login.html'
+  selector: 'register',
+  templateUrl: '../templates/common/register.html'
 })
 
-export class LoginComponent implements OnInit { 
+export class RegisterComponent implements OnInit { 
 	errorMsg: string;
 	user = {
 		username: '',
@@ -29,17 +29,16 @@ export class LoginComponent implements OnInit {
 	
   activeHover(index){
   	this.hover = index;
-  	console.log(index)
   }
 
-	changeNav(val){
+  changeNav(val){
 		// this.active = val
     this.router.navigate([val]);
 	}
 
-	login() {
+	signUp() {
 		console.log(this.user)
-		// this.userService.doLogin(this.user)
+		// this.userService.signUp(this.user)
   //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
   //           error => this.errorMsg = <any>error);
     this.router.navigate(['repositories']);

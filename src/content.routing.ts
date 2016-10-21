@@ -20,7 +20,7 @@ const contentRouting: Routes = [
       { path: 'repositories', component: RepoListComponent },
       { path: 'organizations/:orgName', component: RepositoriesComponent },
       { path: 'repoCreate', component: RepoCreateComponent },
-      { path: 'repositories/: repoName', component: RepoDetailComponent },
+      { path: 'repositories/:repoName', component: RepoDetailComponent },
       { path: 'organizations', component: OrgListComponent },
       { path: 'orgCreate', component: OrgCreateComponent },
       { path: 'userSetting', component: UserSettingComponent }

@@ -4,11 +4,11 @@ import { UserService } from './user.service';
 
 
 @Component({
-  selector: 'login',
-  templateUrl: '../templates/common/login.html'
+  selector: 'reset-password',
+  templateUrl: '../templates/common/resetPassword.html'
 })
 
-export class LoginComponent implements OnInit { 
+export class ResetPwdComponent implements OnInit { 
 	errorMsg: string;
 	user = {
 		username: '',
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
 		private router: Router,
 	 	private userService: UserService){
 	}
-
+	
 	ngOnInit(): void {}
 	
   activeHover(index){
@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit {
     this.router.navigate([val]);
 	}
 
-	login() {
+	resetPwd() {
 		console.log(this.user)
-		// this.userService.doLogin(this.user)
+		// this.userService.resetPwd(this.user)
   //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
   //           error => this.errorMsg = <any>error);
     this.router.navigate(['repositories']);

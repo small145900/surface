@@ -1,28 +1,31 @@
 <div class="container-fluid" id="access">
   <div class="header">
     <img src="img/banner.jpg"/>
-    <span class="title">Sign in the container repository</span>
+    <span class="title contact">
+      Contact us<br/>
+      <b class="help">we are here to help</b>
+    </span>
   </div>
   <div class="content">
-    <div class="login-content">
-      <div class="login">
-        <span class="space user">
-          <input type="text" placeholder="Username or Email" [(ngModel)]="user.username" name="username" autocomplete="off">
-          <i class="fa fa-user"></i>
-        </span>
-        <span class="space pwd">
-          <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
-          <i class="fa fa-lock"></i>
-        </span>
-        <button class="space sign-in" (click)="login()">Sign in</button>
-        <a href="javascript:void(0)" class="forget-pwd" (click)="changeNav('forgetPassword')">Forgot your password ?</a>
-        <div class="space">
-          <span class="pull-left google">
-            Sign in with <i class="fa fa-glide-g mar-lt-five"></i>
-          </span>
-          <span class="pull-right github">
-            Sign in with <i class="fa fa-github mar-lt-five"></i>
-          </span>
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1 group-content">
+        <div class="row contact">
+          <div class="col-xs-6 col-md-3 text-center mar-bt-thirty">
+            <img src="img/email.png" /><br/>
+            <span>123@456.com</span>
+          </div>
+          <div class="col-xs-6 col-md-3 text-center mar-bt-thirty">
+            <img src="img/tel.png" /><br/>
+            <span>123@456.com</span>
+          </div>
+          <div class="col-xs-6 col-md-3 text-center mar-bt-thirty">
+            <img src="img/twitter.png" /><br/>
+            <span>123@456.com</span>
+          </div>
+          <div class="col-xs-6 col-md-3 text-center mar-bt-thirty">
+            <img src="img/weixin.png" /><br/>
+            <span>123@456.com</span>
+          </div>
         </div>
       </div>
     </div>
@@ -50,7 +53,7 @@
       <a href="javascript:void(0)" class="space" (click)="changeNav('browse')">Browse</a>
       <a href="javascript:void(0)" class="space tutorial">Tutorial</a>
       <a href="javascript:void(0)" class="space docs">Docs</a>
-      <a href="javascript:void(0)" class="space active" (click)="changeNav('login')">Login</a>
+      <a href="javascript:void(0)" class="space" (click)="changeNav('login')">Login</a>
       <a href="javascript:void(0)" class="space" (click)="changeNav('register')">Sign Up</a>
       <a href="javascript:void(0)" class="space-remain">.</a>
     </div>

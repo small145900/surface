@@ -17,12 +17,14 @@ var RepositoriesComponent = (function () {
         this.route = route;
         this.repoService = repoService;
         this.repoList = [];
-        this.orgInfo = '';
+        this.orgInfo = {
+            orgName: ''
+        };
     }
     RepositoriesComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
-            _this.orgInfo = params['orgName'];
+            _this.orgInfo.orgName = params['orgName'];
             console.log(_this.orgInfo);
         });
         this.repoService.getRepoList(this.orgInfo)
@@ -32,7 +34,7 @@ var RepositoriesComponent = (function () {
         this.router.navigate([path]);
     };
     RepositoriesComponent.prototype.repoDetail = function (repoInfo) {
-        this.router.navigate(['repositories', repoInfo.name]);
+        this.router.navigate(['repositories', repoInfo.repository]);
     };
     RepositoriesComponent = __decorate([
         core_1.Component({

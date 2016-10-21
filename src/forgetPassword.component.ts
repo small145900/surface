@@ -4,11 +4,11 @@ import { UserService } from './user.service';
 
 
 @Component({
-  selector: 'login',
-  templateUrl: '../templates/common/login.html'
+  selector: 'forget-password',
+  templateUrl: '../templates/common/forgetPassword.html'
 })
 
-export class LoginComponent implements OnInit { 
+export class ForgetPwdComponent implements OnInit { 
 	errorMsg: string;
 	user = {
 		username: '',
@@ -36,10 +36,10 @@ export class LoginComponent implements OnInit {
 		// this.active = val
     this.router.navigate([val]);
 	}
-
-	login() {
+	
+	sendEmail() {
 		console.log(this.user)
-		// this.userService.doLogin(this.user)
+		// this.userService.sendEmail(this.user)
   //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
   //           error => this.errorMsg = <any>error);
     this.router.navigate(['repositories']);
