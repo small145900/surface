@@ -49,6 +49,9 @@ select:-webkit-autofill {
 .bg-brownness {
   color: #c9caaa;
 }
+.bg-outLetGray {
+  background: #DEDEDE;
+}
 .mar-tp-no {
   margin-top: 0;
 }
@@ -84,11 +87,33 @@ select:-webkit-autofill {
 .mar-t-twenty {
   margin-top: 20px;
 }
+.mar-bt-twenty {
+  margin-bottom: 20px;
+}
+.mar-lt-twenty {
+  margin-left: 20px;
+}
 .mar-bt-twenty-five {
   margin-bottom: 25px;
 }
+.mar-bt-thirty {
+  margin-bottom: 30px;
+}
 .pad-no {
   padding: 0;
+}
+.pad-rt-no {
+  padding-right: 0;
+}
+.pad-lr-twelve {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.pad-lt-twenty {
+  padding-left: 20px;
+}
+.pad-bt-twenty {
+  padding-bottom: 20px;
 }
 .over-hidden {
   overflow: hidden;
@@ -109,19 +134,19 @@ html {
   font-size: 10px;
 }
 body {
-  font-size: 1.6rem;
-  background: #EEEEEE;
+  font-size: 1.4rem;
   color: #191919;
 }
 #repoContent {
   background: #DEDEDE;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 44px);
+  height: -webkit-calc(100% - 44px);
 }
 /* index start */
 #header {
   overflow: hidden;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   padding: 15px 12px;
   background: lightblue;
 }
@@ -148,7 +173,7 @@ body {
 }
 .content-one {
   overflow: hidden;
-  background: #fff;
+  background: #EEEEEE;
   padding: 40px;
 }
 .content-one .space {
@@ -168,41 +193,39 @@ body {
   padding: 10px 0;
 }
 .content-two {
-  background: lightblue;
-  padding: 40px 0;
-  font-size: 0;
+  padding: 40px 0 40px;
+  font-size: 1.4rem;
   color: #fff;
+  background: linear-gradient(0, #28529d, #127bd3);
+  background: -webkit-linear-gradient(0, #28529d, #127bd3);
+}
+.content-two .title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 20px;
 }
 .content-two .space {
-  display: inline-block;
-  font-size: 1.6rem;
-  vertical-align: bottom;
-  width: 80%;
-  margin-left: 10%;
+  text-align: justify;
 }
 .content-two .font-big {
   font-size: 16px;
 }
 .surface-carousel {
-  width: calc(100% - 200px);
-  width: -webkit-calc(100% - 200px);
+  width: 100%;
   height: 250px;
   border: 1px solid #DFDFDF;
 }
 .content-three {
-  background: #fff;
-  padding: 40px 0;
+  padding: 80px 0 110px;
+  background: #EEEEEE;
 }
 .content-three .space {
-  width: 75%;
-  margin: 0 auto;
+  height: 220px;
 }
-.content-three img {
-  width: calc((75% - 120px) / 3 );
-  width: -webkit-calc((75% - 120px) / 3 );
-  height: 200px;
-  margin-left: 30px;
-  border: 1px solid #b3b3b3;
+.content-three .space img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
 }
 #footer {
   padding: 20px 12px;
@@ -215,7 +238,7 @@ body {
   border-radius: 24px;
   background: #d7d7d7;
   margin-left: 10px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 /* index end */
 /* nav start */
@@ -231,13 +254,13 @@ body {
 }
 #nav .menu a,
 #nav .user a {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 #createRepo a:hover,
 #createRepo a:active {
   color: #fff;
   background: lightblue;
-  border-radius: 2px;
+  border-radius: 3px;
 }
 #createRepo a:hover,
 #createRepo a:active,
@@ -246,8 +269,10 @@ body {
   border-radius: 0;
 }
 #nav .menu img {
-  width: 50px;
-  height: 100%;
+  width: 33px;
+  height: auto;
+  margin-top: 5px;
+  max-height: 35px;
 }
 #nav .user {
   float: right;
@@ -296,9 +321,9 @@ body {
   height: 28px;
   margin-top: 8px;
   padding: 0 5px;
-  border-radius: 2px;
+  border-radius: 3px;
   background: #e7e7e7;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 #nav .user li .active {
   color: #3DA1E5;
@@ -312,7 +337,7 @@ body {
 #createRepo,
 #userSetting {
   width: 200px;
-  background: #A9A9A9;
+  background: #C0C0C0;
   position: absolute;
   top: 44px;
   right: 0px;
@@ -341,7 +366,8 @@ body {
   }
 }
 @media screen and (max-width: 642px) {
-  #nav .user .create {
+  #nav .user .create,
+  #nav .user .add {
     display: none;
   }
 }
@@ -351,6 +377,9 @@ body {
   }
   #nav .menu {
     width: 60%;
+  }
+  #nav .menu .logo a {
+    margin-right: 15px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -366,8 +395,12 @@ body {
   #nav .menu .logo a {
     margin-right: 15px;
   }
+  #nav .menu li a,
+  #nav .user > li > a {
+    padding: 0 6px;
+  }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 480px) {
   #nav .menu {
     width: 70%;
   }
@@ -400,36 +433,14 @@ body {
   width: 100%;
   height: 44px;
   line-height: 44px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
+  padding-left: 12px;
 }
 #nav i {
   margin: 0 5px 0 10px;
 }
 /* nav end */
 /* repo list start */
-#repoList .filter-repo {
-  text-align: center;
-  height: 40px;
-  line-height: 40px;
-  font-size: 20px;
-  margin-top: 65px;
-  margin-bottom: 80px;
-}
-#repoList .filter-repo input {
-  width: 500px;
-  margin-right: 10px;
-  border: 1px solid #eaeaea;
-  border-radius: 24px 24px 24px 24px;
-  padding: 0 12px;
-  font-size: 1.6rem;
-}
-#repoList .filter-repo .search {
-  position: absolute;
-  right: 30px;
-  top: -41px;
-  padding: 5px;
-  cursor: pointer;
-}
 #repoList .content {
   width: 100%;
   margin-left: 12px;
@@ -446,13 +457,13 @@ body {
 #repoList .repo-left span {
   display: inline-block;
   width: 100%;
-  padding: 12px 20px;
+  padding: 16px 20px;
   text-overflow: ellipsis;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #191919;
 }
 #repoList .repo-left span:first-child {
-  font-size: 2rem;
+  font-size: 1.8rem;
   cursor: pointer;
   color: #fff;
 }
@@ -464,6 +475,7 @@ body {
 }
 #repoList .repo-body {
   padding-left: 5px;
+  padding-right: 5px;
 }
 #repoList .repo-body a {
   display: inline-block;
@@ -484,28 +496,17 @@ body {
 }
 #repoList .repo-body h3 {
   margin-top: 8px;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #191919;
 }
 #repoList .repo-body h5 {
-  font-size: 16px;
+  font-size: 1.4rem;
   height: 36px;
   overflow: hidden;
-  color: #474646;
-}
-@media screen and (max-width: 640px) {
-  #repoList .repo-body a {
-    width: 100%;
-  }
-  #repoList .repo-body a:nth-child(2n) {
-    margin-left: 0;
-  }
-  #repoList .repo-left {
-    height: 815px;
-  }
+  color: #666;
 }
 #repoList .star-fork {
-  font-size: 20px;
+  font-size: 2rem;
   margin-top: 60px;
   margin-bottom: 0;
   position: relative;
@@ -520,11 +521,110 @@ body {
   right: -4px;
   opacity: 0.5;
 }
+#allRepo {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  background: #DEDEDE;
+}
+#allRepo .repo-body {
+  width: 100%;
+  font-size: 0;
+  padding: 0;
+}
+#allRepo .repo-body a:nth-child(3n) {
+  margin-right: 0;
+}
+#allRepo .repo-body a {
+  display: inline-block;
+  width: calc((100% - 10px) / 3);
+  width: -webkit-calc((100% - 10px) / 3);
+  padding: 12px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  background: #F3F3F3;
+  height: 200px;
+  border-bottom: 5px solid transparent;
+}
+#allRepo .repo-body a:hover {
+  border-bottom: 5px solid #3DA1E5;
+}
+#allRepo .repo-body h3 {
+  margin-top: 8px;
+  font-size: 1.6rem;
+  color: #191919;
+}
+#allRepo .repo-body h5 {
+  font-size: 16px;
+  height: 36px;
+  overflow: hidden;
+  color: #666;
+}
+#allRepo .star-fork {
+  font-size: 20px;
+  margin-top: 60px;
+  margin-bottom: 0;
+  position: relative;
+}
+#allRepo .star-fork i {
+  font-size: 24px;
+}
+#allRepo .org-name {
+  height: 40px;
+  line-height: 40px;
+  color: #1F4B9C;
+  font-size: 1.8rem;
+  padding-left: 12px;
+}
+#allRepo .star-fork i.fa-info-circle {
+  font-size: 18px;
+  position: absolute;
+  top: 8px;
+  right: -4px;
+  opacity: 0.5;
+}
+#allRepo .filter-repo {
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+#allRepo .filter-repo input {
+  width: 100%;
+  background: #F3F3F3;
+  padding: 8px 35px 8px 10px;
+  font-size: 1.4rem;
+  border-radius: 5px;
+}
+#allRepo .filter-repo .filter {
+  position: absolute;
+  right: 3px;
+  top: 4px;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+@media screen and (max-width: 640px) {
+  #repoList .repo-body a {
+    width: 100%;
+  }
+  #repoList .repo-body a:nth-child(2n) {
+    margin-left: 0;
+  }
+  #allRepo .repo-body a {
+    width: 100%;
+  }
+  #allRepo .repo-body a {
+    margin-right: 0;
+  }
+  #repoList .repo-left {
+    height: 815px;
+  }
+}
 /* repo list end */
 /* repo create start */
 #newRepoContent {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 44px);
+  height: -webkit-calc(100% - 44px);
   background: #EEEEEE;
 }
 #newRepo {
@@ -536,8 +636,8 @@ body {
 #newRepo li {
   height: auto;
   width: 100%;
-  padding-bottom: 50px;
-  border-left: 2px dashed #919191;
+  padding-bottom: 65px;
+  border-left: 1px dashed #919191;
 }
 #newRepo li:last-child {
   border: none;
@@ -549,7 +649,7 @@ body {
   line-height: 40px;
   text-align: center;
   border-radius: 5px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   background: #919191;
   color: #fff;
   vertical-align: top;
@@ -563,7 +663,7 @@ body {
   top: 5px;
 }
 #newRepo li b {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   margin-top: 10px;
   font-weight: normal;
   display: inline-block;
@@ -578,9 +678,10 @@ body {
 #newRepo textarea {
   width: 100%;
   padding: 10px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   background: #DFDFDF;
   border-radius: 5px;
+  box-shadow: 1px 1px 1px #b4b3b3 inset;
 }
 #newRepo input::-webkit-input-placeholder,
 #newRepo textarea::-webkit-input-placeholder {
@@ -592,7 +693,7 @@ body {
   resize: vertical;
 }
 #newRepo .visible-type {
-  margin: 15px auto 25px;
+  margin: 13px auto;
   font-size: 16px;
   padding-left: 10px;
 }
@@ -610,6 +711,8 @@ body {
   height: 18px;
   position: relative;
   top: 5px;
+  margin-top: 5px;
+  box-shadow: none;
 }
 #newRepo .visible-type input:active,
 #newRepo .visible-type input:focus {
@@ -643,212 +746,193 @@ body {
   height: 40px;
   line-height: 40px;
   text-align: center;
-  border-radius: 2px;
+  border-radius: 3px;
   color: #fff;
   background: #3DA1E5;
-}
-#newRepo .btn-create:hover {
-  background: lightblue;
 }
 /* repo create end */
 /* repo detail start */
 #repoDetail .form-control:focus {
   border-color: inherit;
   outline: 0;
-  -webkit-box-shadow:none;
-          box-shadow:none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
-
-
-#repoDetail .header{
-  padding-top:8px;
-  padding-bottom:8px;
+#repoDetail .header {
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
-#repoDetail .fa-star{
-  cursor:pointer;
+#repoDetail .fa-star {
+  cursor: pointer;
 }
-#repoDetail .header .repo-name{
-  font-size:15px;
-  color:#191919;
+#repoDetail .header .repo-name {
+  font-size: 15px;
+  color: #191919;
 }
-
-#repoDetail .header .repo-user{
-  color:#667a9c;
-  font-size:20px;
-  padding:6px 0;
+#repoDetail .header .repo-user {
+  color: #667a9c;
+  font-size: 20px;
+  padding: 6px 0;
 }
-
-#repoDetail .header .repo-status{
-  color:#878787;
-  font-size:14px;
+#repoDetail .header .repo-status {
+  color: #878787;
+  font-size: 14px;
 }
-
 #repoDetail .repo-nav {
   background-color: #CCCCCC;
 }
-
-
-#repoDetail .clear-padding-left{
-  padding-left:0;
+#repoDetail .clear-padding-left {
+  padding-left: 0;
 }
 .repo-nav .nav-tabs > li > a:hover,
-.repo-nav .nav-tabs > li > a:focus{
-  background-color:#ddd;
-  border:0;
+.repo-nav .nav-tabs > li > a:focus {
+  background-color: #ddd;
+  border: 0;
 }
-
-.repo-nav .nav-tabs.nav-justified>li>a,.repo-nav .nav-tabs.nav-justified>.active>a:hover{
-  border-radius:0;
-  border:0;
+.repo-nav .nav-tabs.nav-justified > li > a,
+.repo-nav .nav-tabs.nav-justified > .active > a:hover {
+  border-radius: 0;
+  border: 0;
 }
-.repo-nav .nav-tabs.nav-justified>.active>a,
+.repo-nav .nav-tabs.nav-justified > .active > a,
 .repo-nav .nav-tabs.nav-justified > .active > a:hover,
-.repo-nav .nav-tabs.nav-justified > .active > a:focus{
-  background-color:#2c374b;
-  color:#fff;
-  border:0;
+.repo-nav .nav-tabs.nav-justified > .active > a:focus {
+  background-color: #2c374b;
+  color: #fff;
+  border: 0;
 }
-
-.repo-content{
-  background-color:#dedede;
-  height:100%;
+.repo-content {
+  background-color: #dedede;
+  height: 100%;
 }
-.bast-info{
-  position:relative;
-  padding-top:20px;
+.bast-info {
+  position: relative;
+  padding-top: 20px;
 }
-.bast-info h5{
-  padding:2px 10px;
-  position:relative;
+.bast-info h5 {
+  padding: 2px 10px;
+  position: relative;
 }
-.bast-info h5 .fa-pencil{
-  position:absolute;
-  right:10px;
-  top:5px;
-  font-size:20px;
-  cursor:pointer;
+.bast-info h5 .fa-pencil {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  font-size: 20px;
+  cursor: pointer;
 }
-.bast-info .ok-btn{
-  display:none;
-  background-color:#3da1e5;
-  padding:8px 30px;
-  border-radius:4px;
-  color:#fff;
-  font-size:14px;
-  margin-top:10px;
+.bast-info .ok-btn {
+  display: none;
+  background-color: #3da1e5;
+  padding: 8px 30px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  margin-top: 10px;
 }
 .bast-info textarea {
   resize: none;
-  border:1px solid #ccc;
-  border-radius:4px;
-  width:100%;
-  padding:5px 10px;
-  font-size:14px;
-  box-shadow:inset 0 1px 2px rgba(0,0,0,0.075);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 14px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
 }
-.bast-info textarea.pull-command-text{
-  border-bottom-color:#d46354;
-  border-bottom-width:2px;
+.bast-info textarea.pull-command-text {
+  border-bottom-color: #d46354;
+  border-bottom-width: 2px;
 }
-
-
-.bast-info .make-public{
-  float:right;
-  display:inline-block;
-  width:182px;
+.bast-info .make-public {
+  float: right;
+  display: inline-block;
+  width: 182px;
 }
-
-.bast-info .make-public-btn{
-  background-color:#3da1e5;
-  width:100%;
-  display:inline-block;
-  text-align:center;
-  color:#fff;
-  padding-top:10px;
-  padding-bottom:10px;
-  border-radius:4px;
+.bast-info .make-public-btn {
+  background-color: #3da1e5;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
 }
-
-.bast-info .make-public-h5{
-  padding-left:0;
-  padding-right:0;
+.bast-info .make-public-h5 {
+  padding-left: 0;
+  padding-right: 0;
 }
-
-.bast-info .delete-repo-btn{
-  background-color:#c39287;
-  width:182px;
-  display:inline-block;
-  text-align:center;
-  color:#f7f7f7;
-  padding-top:10px;
-  padding-bottom:10px;
-  border-radius:4px;
+.bast-info .delete-repo-btn {
+  background-color: #c39287;
+  width: 182px;
+  display: inline-block;
+  text-align: center;
+  color: #f7f7f7;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
   position: absolute;
-  right:0;
-  bottom:15px;
+  right: 0;
+  bottom: 15px;
 }
-
-#tags{
-  padding-top:30px;
+#tags {
+  padding-top: 30px;
 }
-
-#collaborators{
-  padding-top:30px;
+#collaborators {
+  padding-top: 30px;
 }
-#collaborators .remove{
-  color:#a9200d;
+#collaborators .remove {
+  color: #a9200d;
 }
-#collaborators .left-block{
-  padding:0;
-  width:60%;
-  float:left;
-  display:inline-block;
+#collaborators .left-block {
+  padding: 0;
+  width: 60%;
+  float: left;
+  display: inline-block;
 }
-
-#collaborators .right-block{
-  padding:0;
-  width:35%;
-  float:right;
-  display:inline-block;
+#collaborators .right-block {
+  padding: 0;
+  width: 35%;
+  float: right;
+  display: inline-block;
 }
-#collaborators .right-block h5{
-  padding-left:8px;
+#collaborators .right-block h5 {
+  padding-left: 8px;
 }
-
-#collaborators .form-control{
-  border:0;
+#collaborators .form-control {
+  border: 0;
 }
-
-#collaborators .input-group-addon{
-  background-color:#f77462;
-  padding:0 12px;
-  color:#fff;
-  border:0;
+#collaborators .input-group-addon {
+  background-color: #f77462;
+  padding: 0 12px;
+  color: #fff;
+  border: 0;
 }
-
-#collaborators .fa-plus{
-  padding:0 12px;
+#collaborators .fa-plus {
+  padding: 0 12px;
 }
-
 #buildHistory {
-  padding-top:30px;
+  padding-top: 30px;
 }
-#buildHistory .fa-trash-o{
-  color:#f77462;
-  cursor:pointer;
+#buildHistory .fa-trash-o {
+  color: #f77462;
+  cursor: pointer;
 }
-#buildHistory a{
-  color:#3d76cc;
+#buildHistory a {
+  color: #3d76cc;
 }
-
 /* repo detail end */
 /* org list start */
-#orgList {
-  margin-top: 50px;
-}
 #orgList,
 #repoList {
   padding-top: 40px;
+  padding-bottom: 40px;
+  width: 100%;
+  height: calc(100% - 44px);
+  height: -webkit-calc(100% - 44px);
+  background: #DEDEDE;
+}
+#repoList {
+  height: auto;
 }
 #orgList .title,
 #repoList .title {
@@ -859,21 +943,12 @@ body {
   background: #3DA1E5;
   color: #fff;
   padding: 10px 20px;
-  border-radius: 3px;
-  font-size: 2rem;
-}
-#orgList .title button:hover,
-#orgList .title button:focus,
-#orgList .title button:active,
-#repoList .title button:hover,
-#repoList .title button:focus,
-#repoList .title button:active {
-  color: #fff;
-  background: lightblue;
+  border-radius: 6px;
+  font-size: 1.6rem;
 }
 #orgList .media-org {
   background: #F3F3F3;
-  margin-top: 40px;
+  margin-top: 24px;
   width: 100%;
   padding: 10px 0;
   height: 200px;
@@ -901,19 +976,16 @@ body {
   color: #1F4B9C;
 }
 #orgList .org-body span {
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 #orgList .org-body small {
   color: #666;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 #orgList img {
   width: 60px;
   height: 60px;
   max-width: 100%;
-  background: #eaeaea;
-  border-radius: 5px;
-  padding: 10px;
 }
 #orgList .org-left span {
   display: block;
@@ -921,14 +993,15 @@ body {
   max-height: 50px;
   overflow: hidden;
   margin-top: 5px;
-  font-size: 2rem;
+  font-size: 1.6rem;
   color: #0E5585;
 }
 /* org list end */
 /* org create start */
 #newOrgContent {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 44px);
+  height: -webkit-calc(100% - 44px);
   background: #EEEEEE;
 }
 #createOrg {
@@ -937,7 +1010,7 @@ body {
   width: 100%;
 }
 #createOrg .guide {
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #545454;
 }
 #createOrg .steps {
@@ -967,7 +1040,7 @@ body {
   height: 40px;
   line-height: 40px;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 1.6rem;
   text-align: center;
   color: #fff;
   background: #919191;
@@ -989,25 +1062,27 @@ body {
   width: 100%;
   height: 40px;
   line-height: 40px;
-  margin: 12px 0;
+  margin-top: 20px;
   padding: 0 12px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   border-radius: 5px;
   background: #DFDFDF;
+  box-shadow: 1px 1px 1px #b4b3b3 inset;
 }
 #createOrg .first-step .save,
 #createOrg .second-step .save,
 #userSet .new-pwd .save {
   color: #fff;
   background: #919191;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  box-shadow: none;
 }
 #createOrg .first-step .create,
 #createOrg .second-step .create,
 #userSet .new-pwd .save .create,
 #userSet .new-pwd .submit {
   background: #3DA1E5;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 #createOrg .first-step input::-webkit-input-placeholder {
   color: #8B8B8B;
@@ -1051,9 +1126,16 @@ body {
 #createOrg .members li {
   border: none;
 }
+#createOrg .members li i {
+  color: #F77462;
+}
 #createOrg .teams li:hover,
 #createOrg .members li:hover {
   background: #687C8A;
+  color: #fff;
+}
+#createOrg .teams li:hover i,
+#createOrg .members li:hover i {
   color: #fff;
 }
 #createOrg .teams li i,
@@ -1075,7 +1157,7 @@ body {
 #createOrg .members .title .add {
   width: 20%;
   float: left;
-  padding: 9px 0 8px;
+  padding: 10px 0;
   text-align: center;
   background: #F77462;
   border-radius: 0 5px 5px 0;
@@ -1083,7 +1165,7 @@ body {
   font-size: 16px;
 }
 #createOrg .to-repo {
-  padding: 6px 12px;
+  padding: 9px 15px;
   border-radius: 5px;
   background: #3DA1E5;
   color: #fff;
@@ -1093,14 +1175,12 @@ body {
 /* user setting */
 #userEdit {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 44px);
+  height: -webkit-calc(100% - 44px);
   background: #DEDEDE;
 }
-#userSet {
-  padding-top: 40px;
-}
 #userSet h4 {
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 #userSet .new-pwd input {
   background: #F7F7F7;
@@ -1110,9 +1190,8 @@ body {
   margin: 0 auto;
 }
 #userSet .title {
-  height: 44px;
-  line-height: 44px;
-  margin-bottom: 20px;
+  height: 80px;
+  line-height: 80px;
   font-size: 16px;
 }
 #userSet .user-edit {
@@ -1222,7 +1301,7 @@ body {
   padding: 40px 0 20px;
   background: #eaeaea;
   text-align: center;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 #userSet .password li {
   margin-bottom: 10px;
@@ -1252,8 +1331,12 @@ body {
   width: 25%;
   padding: 5px 0;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   border-radius: 5px;
+}
+#userInfo .text {
+  padding-left: 0;
+  padding-right: 37px;
 }
 #userSet .new-pwd {
   background: #DEDEDE;
@@ -1264,51 +1347,132 @@ body {
 }
 /* user end */
 /* sign in & sign up start */
-#access {
+#access,
+#app {
   width: 100%;
   height: 100%;
-  background: #fff;
+}
+#access {
+  overflow-y: hidden;
+}
+#access .content {
+  background: #EEEEEE;
+  width: 100%;
+  height: calc(100% - 190px);
+  height: -webkit-calc(100% - 190px);
 }
 #access .header {
   text-align: center;
+  position: relative;
 }
 #access .header img {
+  width: 100%;
+  height: 180px;
+}
+#access .header .title {
+  position: absolute;
+  bottom: 38px;
+  font-size: 4rem;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+#access .group-content {
+  position: relative;
+  height: 100%;
+}
+#access .group-content .contact {
+  position: absolute;
+  width: 100%;
+  top: calc((100% - 300px) / 2);
+  top: -webkit-calc((100% - 300px) / 2);
+}
+@media screen and (max-width: 992px) {
+  #access .group-content .contact {
+    top: calc((100% - 450px) / 2);
+    top: -webkit-calc((100% - 450px) / 2);
+  }
+}
+#access .header .title.contact {
+  bottom: 28px;
+}
+#access .header .title .help {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+#app .header img {
   width: 100%;
   height: auto;
 }
 #access .header .text {
-  display: block;
   position: relative;
   bottom: 80px;
-  font-size: 4.4rem;
+  font-size: 4rem;
   word-spacing: 12px;
   color: #fff;
 }
-#access .footer {
+#access .footer,
+#app .footer {
   width: 100%;
   background: #242424;
   position: fixed;
   bottom: 0;
 }
 #access .footer .intro,
-#access .footer .team {
+#access .footer .team,
+#app .footer .intro,
+#app .footer .team {
   display: inline-block;
   margin-bottom: 0;
   padding: 12px 0;
   text-align: center;
 }
-#access .footer .intro {
+#access .footer .intro,
+#app .footer .intro {
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+#access .footer .team,
+#app .footer .team {
+  text-align: right;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media screen and (max-width: 1024px) {
+  #access .footer .intro,
+  #access .footer .team,
+  #app .footer .intro,
+  #app .footer .team {
+    text-align: left;
+  }
+}
+#access .footer .intro,
+#app .footer .intro {
   color: #DFDFDF;
 }
-#access .footer .team {
+#access .footer .team,
+#app .footer .team {
   color: #fff;
+  padding-left: 10px;
 }
-#access .footer .team .space {
+#access .footer .team .space,
+#app .footer .team .space {
   padding: 5px;
   cursor: pointer;
 }
-#access .footer .team .space:hover {
-  color: #ff5400;
+#access .footer .team .space:hover,
+#app .footer .team .space:hover {
+  color: #F1B90D;
+}
+#access .footer .team .active,
+#app .footer .team .active {
+  color: #F1B90D;
+}
+#access .browse {
+  padding-top: 40px;
+  height: 100%;
 }
 #access .nav {
   position: fixed;
@@ -1334,18 +1498,19 @@ body {
   color: #fff;
   background: blue;
 }
-#access .content {
+#access .login-content {
   width: 300px;
-  margin: 100px auto;
+  margin: 0 auto;
+  padding-top: 150px;
 }
 #access .login .space,
 #access .sign-up .space {
   display: block;
   width: 100%;
-  height: 44px;
+  height: 40px;
   margin-bottom: 20px;
   border-radius: 5px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   position: relative;
 }
 #access .login input,
@@ -1355,8 +1520,9 @@ body {
   padding: 0 32px 0 12px;
   border-radius: 5px;
   background: #DFDFDF;
-  color: #b3b3b3;
-  font-size: 1.6rem;
+  color: #191919;
+  font-size: 1.4rem;
+  box-shadow: 1px 1px 1px #b4b3b3 inset;
 }
 #access .login .space > i,
 #access .sign-up .space > i {
@@ -1385,7 +1551,7 @@ body {
 #access .sign-up .sign-in {
   background: #2C58A7;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.6rem;
 }
 #access .login .google {
   background: #F77462;
@@ -1394,7 +1560,7 @@ body {
   text-align: center;
   border-radius: 5px 0 0 5px;
   padding: 5px 0;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 #access .login .github {
   background: #56ABE4;
@@ -1403,103 +1569,184 @@ body {
   text-align: center;
   border-radius: 0 5px 5px 0;
   padding: 5px 0;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 #access .login .forget-pwd {
   display: block;
   text-align: center;
   color: #8B8B8B;
   margin-bottom: 15px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
-#access .navbar {
+#access .navbar,
+#app .navbar {
   width: 100%;
   margin: 0 auto;
   position: fixed;
   top: 0;
-  height: 40px;
-  line-height: 40px;
+  height: 44px;
+  line-height: 44px;
 }
-#access .logo {
-  width: 50%;
+#access .logo,
+#app .logo {
+  width: 35%;
   float: left;
   text-align: center;
   background: #fff;
   opacity: 0.75;
+  height: 44px;
 }
-#access .menu {
-  width: 50%;
+#access .menu,
+#app .menu {
+  width: 65%;
   float: left;
 }
-#access .logo img {
-  width: 40px;
+#access .logo img,
+#app .logo img {
+  width: 100px;
   height: auto;
-  max-height: 40px;
+  max-height: 36px;
+  margin-top: 5px;
 }
-#access .menu .space {
+#access .menu .space,
+#app .menu .space {
   width: 15%;
   background: #fff;
   opacity: 0.75;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   float: left;
   text-align: center;
 }
 #access .menu .space:hover,
-#access .menu .space:active {
+#access .menu .space:active,
+#app .menu .space:hover,
+#app .menu .space:active {
   background: none;
   color: #fff;
 }
-#access .menu .space.active {
+#access .menu .space.active,
+#app .menu .space.active {
   background: none;
   color: #fff;
 }
-#access .menu .space-remain {
+#access .menu .space-remain,
+#app .menu .space-remain {
   width: 25%;
   float: left;
   background: #fff;
   opacity: 0.75;
   color: #fff;
 }
-@media screen and (max-width: 640px) {
-  #access .logo {
+@media screen and (max-width: 980px) {
+  #access .logo,
+  #app .logo {
     width: 30%;
   }
-  #access .menu {
+  #access .menu,
+  #app .menu {
     width: 70%;
   }
-  #access .menu .space {
+  #access .header .text,
+  #app .header .text {
+    bottom: 30px;
+  }
+  #access .menu .space-remain,
+  #app .menu .space-remain {
+    display: none;
+  }
+  #access .menu .space,
+  #app .menu .space {
     width: 20%;
   }
-  #access .menu .space-remain {
+}
+@media screen and (max-width: 640px) {
+  #access .logo,
+  #app .logo {
+    width: 30%;
+  }
+  #access .menu,
+  #app .menu {
+    width: 70%;
+  }
+  #access .menu .space,
+  #app .menu .space {
+    width: 20%;
+  }
+  #access .menu .space-remain,
+  #app .menu .space-remain {
     width: 0;
   }
-  #access .header .text {
+  #access .header .text,
+  #app .header .text {
     bottom: 10px;
   }
 }
-@media screen and (max-width: 980px) {
-  #access .logo {
-    width: 20%;
+@media screen and (max-width: 625px) {
+  #access .logo,
+  #app .logo {
+    width: 40%;
   }
-  #access .menu {
-    width: 80%;
+  #access .menu,
+  #app .menu {
+    width: 60%;
   }
-  #access .header .text {
-    bottom: 30px;
+  #access .header,
+  #access .menu .tutorial,
+  #access .menu .docs,
+  #app .header,
+  #app .menu .tutorial,
+  #app .menu .docs {
+    display: none;
+  }
+  #access .header .text,
+  #app .header .text {
+    bottom: 5px;
+  }
+  #access .menu .space,
+  #app .menu .space {
+    opacity: 1;
+  }
+  #access .logo,
+  #app .logo {
+    opacity: 1;
+  }
+  #access .menu .space.active,
+  #app .menu .space.active {
+    color: #56ABE4;
+  }
+  #access .menu .space:hover,
+  #app .menu .space:hover {
+    color: #56ABE4;
+  }
+  #access .menu .space,
+  #app .menu .space {
+    width: 33.3%;
+  }
+  #access .login-content {
+    padding-top: 250px;
+  }
+  #access .content {
+    height: 100%;
+  }
+  #access .browse {
+    padding-top: 80px;
   }
 }
 #access .browse .space {
   margin-bottom: 20px;
   overflow: hidden;
   width: 100%;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   border-left: 5px solid transparent;
 }
 #access .browse .info li {
   float: left;
   background: #F3F3F3;
-  padding: 24px 0;
+  padding: 26px 0;
   text-align: center;
+}
+#access .browse .info li i {
+  font-size: 2rem;
 }
 #access .browse .space:hover {
   border-left: 5px solid #3DA1E5;
@@ -1515,12 +1762,12 @@ body {
 #access .browse .info .star,
 #access .browse .info .download {
   width: 20%;
-  padding: 33px 0;
+  padding: 32px 0;
   color: #999999;
 }
 #access .browse .info .detail {
   width: 17%;
-  padding: 33px 0;
+  padding: 32px 0;
   background: #999999;
   color: #fff;
 }
@@ -1538,4 +1785,19 @@ body {
 #access .browse .name .text:first-child {
   color: #0e5585;
 }
+#access .contact img {
+  margin-bottom: 20px;
+  width: 120px;
+}
+#access.explore {
+  overflow-y: auto;
+  background: #DEDEDE;
+  padding-bottom: 88px;
+}
+@media screen and (max-width: 425px) {
+  #access .contact img {
+    width: 80px;
+  }
+}
 /* sign in & sign up end */
+/*# sourceMappingURL=app.css.map */

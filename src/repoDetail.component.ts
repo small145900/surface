@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 
 @Component({
@@ -7,21 +7,33 @@ import { Location }               from '@angular/common';
   templateUrl: '../templates/repository/repoDetail.html'
 })
 export class RepoDetailComponent {
-	constructor(private route: ActivatedRoute, private location: Location) {}
+	constructor(
+    private location: Location,
+    private route: ActivatedRoute,
+    private router: Router){
+  }
 
-  // ngOnInit(): void {
-  //   this.route.params.forEach((params: Params) => {
-  //     let id = +params['repoId'];
-  //     console.log(id)
-  //   });
-  // }
+  repoInfo = {
+    repoName: ''
+  }
+
+  ngOnInit(): void {
+    this.route.params.forEach((params: Params) => {
+      this.repoInfo.repoName = params['repoName']
+      console.log(params['repoName'])
+    });
+  }
 
   // goBack(): void {
   //   this.location.back();
   // }
 
-    edit():void{
-      console.log(this);
-    }
+  edit():void{
+    console.log(this);
+  }
+
+  repoDetail(repoInfo){
+    this.router.navigate(['repositories',repoInfo.repository])
+  }
 
 }

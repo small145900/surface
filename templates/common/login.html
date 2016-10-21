@@ -1,123 +1,57 @@
 <div class="container-fluid" id="access">
   <div class="header">
-    <img src="img/banner.png" />
-    <span class="text">Sign in the container repository</span>
+    <img src="img/banner.jpg"/>
+    <span class="title">Sign in the container repository</span>
   </div>
   <div class="content">
-    <div class="login" *ngIf="active === 'login'">
-      <span class="space user">
-        <input type="text" placeholder="Username or Email" [(ngModel)]="user.username" name="username" autocomplete="off">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="space pwd">
-        <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
-        <i class="fa fa-lock"></i>
-      </span>
-      <button class="space sign-in" (click)="login()">Sign in</button>
-      <a href="javascript:void(0)" class="forget-pwd" (click)="changeNav('forget-pwd')">Forgot your password ?</a>
-      <div class="space">
-        <span class="pull-left google">
-          Sign in with <i class="fa fa-glide-g mar-lt-five"></i>
+    <div class="login-content">
+      <div class="login">
+        <span class="space user">
+          <input type="text" placeholder="Username or Email" [(ngModel)]="user.username" name="username" autocomplete="off">
+          <i class="fa fa-user"></i>
         </span>
-        <span class="pull-right github">
-          Sign in with <i class="fa fa-github mar-lt-five"></i>
+        <span class="space pwd">
+          <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
+          <i class="fa fa-lock"></i>
         </span>
-      </div>
-    </div>
-    <div class="sign-up" *ngIf="active==='sign-up'">
-      <span class="space user">
-        <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" autocomplete="off">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="space user">
-        <input type="text" placeholder="email" [(ngModel)]="user.email" name="email" autocomplete="off">
-        <i class="fa fa-envelope"></i>
-      </span>
-      <span class="space pwd">
-        <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
-        <i class="fa fa-lock"></i>
-      </span>
-      <button class="space sign-in" (click)="signUp()">Sign Up</button>
-    </div>
-    <div class="login forget-pwd" *ngIf="active==='forget-pwd'">
-      <span class="space">
-        Enter your email address and we will send you a link to reset your password
-      </span>
-      <span class="space user">
-        <input type="text" placeholder="email" [(ngModel)]="user.email" name="email" autocomplete="off">
-        <i class="fa fa-envelope"></i>
-      </span>
-      <button class="space sign-in" (click)="sendEmail()">Send</button>
-    </div>
-    <div class="login reset-pwd" *ngIf="active==='reset-pwd'">
-      <span class="space pwd">
-        <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
-        <i class="fa fa-lock"></i>
-      </span>
-      <span class="space pwd">
-        <input type="password" placeholder="Comfirm Password" [(ngModel)]="user['re-password']" name="re-password" autocomplete="off">
-        <i class="fa fa-lock"></i>
-      </span>
-      <button class="space sign-in" (click)="resetPwd()">Save</button>
-    </div>
-  </div>
-  <div class="row" class="browse" *ngIf="active==='browse'">
-    <div class="col-xs-12 col-md-offset-1 col-md-10">
-      <div class="row">
-        <div class="col-xs-12 col-md-6" *ngFor="let item of browseList; let i = index">
-          <ul class="space info" (mouseover)="activeHover(i)" (mouseout)="activeHover('')">
-            <li class="name">
-              <div class="over-hidden">
-                <div class="pull-left"><img src={{item.img}} /></div>
-                <div class="pull-left">
-                  <span class="text mar-tb-eight">{{item.name}}</span>
-                  <span class="text">{{item.desc}}</span>
-                </div>
-              </div>
-            </li>
-            <li class="star">
-              <div>
-                <div class="mar-bt-eight"><i class="fa fa-star"></i></div>
-                <div>{{item.stars}}</div>
-              </div>
-            </li>
-            <li class="download">
-              <div>
-                <div class="mar-bt-eight"><i class="fa fa-download"></i></div>
-                <div>{{item.pulls}}</div>
-              </div>
-            </li>
-            <li class="detail" [ngClass]="hover === i ? 'active' : '' ">
-              <div>
-                <div class="mar-bt-eight"><i class="fa fa-chevron-right"></i></div>
-                <div>Detail</div>
-              </div>
-            </li>
-          </ul>
+        <button class="space sign-in" (click)="login()">Sign in</button>
+        <a href="javascript:void(0)" class="forget-pwd" (click)="changeNav('forgetPassword')">Forgot your password ?</a>
+        <div class="space">
+          <span class="pull-left google">
+            Sign in with <i class="fa fa-glide-g mar-lt-five"></i>
+          </span>
+          <span class="pull-right github">
+            Sign in with <i class="fa fa-github mar-lt-five"></i>
+          </span>
         </div>
       </div>
     </div>
   </div>
-  
   <div class="row footer">
-    <p class="col-md-7 col-md-offset-1 col-xs-12 intro" >
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. A rerum vel est quae accusamus adipisci odio im. Ipsam.
-    </p>
-    <p class="col-md-3 col-xs-12 team">
-      <span class="space">Privacy</span>
-      <span class="space">About</span>
-      <span class="space">Teams</span>
-      <span class="space">Contact</span>
-    </p>
+    <div class="row">
+      <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <div class="row">
+          <p class="col-md-5 col-xs-12 intro" >
+            Lorem ipsum dolor sit amet A rerum vel est quae accusamus adipisci odio im. Ipsam.
+          </p>
+          <p class="col-md-7 col-xs-12 team">
+            <span class="space">Privacy</span>
+            <span class="space">About</span>
+            <span class="space">Teams</span>
+            <span class="space" (click)="changeNav('contact')">Contact</span>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="navbar">
-    <div class="logo"><img src="img/opshub.png" /></div>
+    <div class="logo"><img src="img/opshub_03.png" /></div>
     <div class="menu">
-      <a href="javascript:void(0)" class="space" [ngClass]="active==='browse' ? 'active' : '' " (click)="changeNav('browse')">Browse</a>
-      <a href="javascript:void(0)" class="space">Tutorial</a>
-      <a href="javascript:void(0)" class="space">Docs</a>
-      <a href="javascript:void(0)" class="space" [ngClass]="active==='login' ? 'active' : '' " (click)="changeNav('login')">Login</a>
-      <a href="javascript:void(0)" class="space" [ngClass]="active==='sign-up' ? 'active' : '' " (click)="changeNav('sign-up')">Sign Up</a>
+      <a href="javascript:void(0)" class="space" (click)="changeNav('browse')">Browse</a>
+      <a href="javascript:void(0)" class="space tutorial">Tutorial</a>
+      <a href="javascript:void(0)" class="space docs">Docs</a>
+      <a href="javascript:void(0)" class="space active" (click)="changeNav('login')">Login</a>
+      <a href="javascript:void(0)" class="space" (click)="changeNav('register')">Sign Up</a>
       <a href="javascript:void(0)" class="space-remain">.</a>
     </div>
   </div>

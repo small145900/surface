@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute, Params } from '@angular/router';
 import { Org } from './org';
 import { Repo } from './repo';
 import { OrgRepo } from './orgRepo';
@@ -21,6 +21,7 @@ export class RepoListComponent implements OnInit {
 
 	constructor(
 		private router: Router,
+    private route: ActivatedRoute,
 		private orgService: OrgService,
     private repoService: RepoService){
 	}
@@ -41,5 +42,15 @@ export class RepoListComponent implements OnInit {
 
   repoCreate(path){
     this.router.navigate([path]);
+  }
+
+  seeAllRepo(orgInfo) {
+    this.router.navigate(['organizations',orgInfo.name]
+      // {queryParams: orgInfo}
+    )
+  }
+
+  repoDetail(repoInfo){
+    this.router.navigate(['repositories',repoInfo.repository])
   }
 }

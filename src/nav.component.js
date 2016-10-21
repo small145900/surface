@@ -18,7 +18,7 @@ var NavComponent = (function () {
         this.user = {
             username: 'test'
         };
-        this.active = 'repo';
+        this.active = 'login';
     }
     NavComponent.prototype.changeNav = function (nav) {
         this.active = nav;

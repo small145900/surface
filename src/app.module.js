@@ -12,16 +12,15 @@ var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var content_module_1 = require('./content.module');
 var app_component_1 = require('./app.component');
-// import { NavComponent }  from './nav.component';
+// import { HeaderComponent }  from './header.component';
+// import { FooterComponent }  from './footer.component';
+var index_component_1 = require('./index.component');
 var login_component_1 = require('./login.component');
-// import { RepoListComponent }  from './repoList.component';
-// import { RepoCreateComponent }  from './repoCreate.component';
-// import { RepoDetailComponent } from './repoDetail.component';
-// import { OrgListComponent }      from './orgList.component';
-// import { OrgCreateComponent }      from './orgCreate.component';
-// import { UserSettingComponent }      from './userSetting.component';
-// import { OrgService }      from './org.service';
-// import { RepoService }      from './repo.service';
+var register_component_1 = require('./register.component');
+var forgetPassword_component_1 = require('./forgetPassword.component');
+var resetPassword_component_1 = require('./resetPassword.component');
+var browse_component_1 = require('./browse.component');
+var contact_component_1 = require('./contact.component');
 var user_service_1 = require('./user.service');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
@@ -40,11 +39,17 @@ var AppModule = (function () {
             ],
             declarations: [
                 app_component_1.AppComponent,
-                login_component_1.LoginComponent
+                index_component_1.IndexComponent,
+                // HeaderComponent,
+                // FooterComponent,
+                login_component_1.LoginComponent,
+                register_component_1.RegisterComponent,
+                forgetPassword_component_1.ForgetPwdComponent,
+                resetPassword_component_1.ResetPwdComponent,
+                browse_component_1.BrowseComponent,
+                contact_component_1.ContactComponent
             ],
             providers: [
-                // OrgService,
-                // RepoService
                 user_service_1.UserService
             ],
             bootstrap: [app_component_1.AppComponent]
