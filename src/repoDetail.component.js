@@ -15,18 +15,24 @@ var RepoDetailComponent = (function () {
     function RepoDetailComponent(route, location) {
         this.route = route;
         this.location = location;
+        // ngOnInit(): void {
+        //   this.route.params.forEach((params: Params) => {
+        //     let id = +params['repoId'];
+        //     console.log(id)
+        //   });
+        // }
+        // goBack(): void {
+        //   this.location.back();
+        // }
+        this.createStep = 1;
     }
-    // ngOnInit(): void {
-    //   this.route.params.forEach((params: Params) => {
-    //     let id = +params['repoId'];
-    //     console.log(id)
-    //   });
-    // }
-    // goBack(): void {
-    //   this.location.back();
-    // }
-    RepoDetailComponent.prototype.edit = function () {
-        console.log(this);
+    RepoDetailComponent.prototype.createBuildNext = function () {
+        if (this.createStep == 3) {
+            this.createStep = 1;
+        }
+        else {
+            this.createStep++;
+        }
     };
     RepoDetailComponent = __decorate([
         core_1.Component({

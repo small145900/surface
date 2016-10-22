@@ -6,6 +6,7 @@ import { RepoListComponent }  from './repoList.component';
 import { RepoCreateComponent }  from './repoCreate.component';
 import { RepoDetailComponent } from './repoDetail.component';
 
+
 import { OrgListComponent }      from './orgList.component';
 import { OrgCreateComponent }      from './orgCreate.component';
 
@@ -18,7 +19,11 @@ const contentRouting: Routes = [
     children: [
       { path: 'repositories', component: RepoListComponent },
       { path: 'repoCreate', component: RepoCreateComponent },
-      { path: 'repoDetail', component: RepoDetailComponent },
+      { 
+        path: 'repoDetail', 
+        component: RepoDetailComponent
+        
+      },
       { path: 'organizations', component: OrgListComponent },
       { path: 'orgCreate', component: OrgCreateComponent },
       { path: 'userSetting', component: UserSettingComponent }

@@ -17,12 +17,8 @@ ul {
 input,
 textarea,
 select,
-button,
-input:focus,
-textarea:focus,
-select:focus,
-button:hover,
-button:focus {
+button
+{
   outline: none;
   border: none;
 }
@@ -652,13 +648,15 @@ body {
 }
 /* repo create end */
 /* repo detail start */
-#repoDetail .form-control:focus {
-  border-color: inherit;
-  outline: 0;
-  -webkit-box-shadow:none;
-          box-shadow:none;
-}
 
+#repoDetail .table>tbody>tr>td, 
+#repoDetail .table>tbody>tr>th, 
+#repoDetail .table>tfoot>tr>td, 
+#repoDetail .table>tfoot>tr>th, 
+#repoDetail .table>thead>tr>td, 
+#repoDetail .table>thead>tr>th{
+  padding:8px 50px;
+}
 
 #repoDetail .header{
   padding-top:8px;
@@ -840,6 +838,117 @@ body {
 #buildHistory a{
   color:#3d76cc;
 }
+
+#buildTriggers{
+
+}
+
+#buildTriggers .create-build{
+  display:inline-block;
+}
+#buildTriggers .create-build-div{
+  text-align:right;
+  padding-top:30px;
+}
+
+
+#buildTriggers .creat-dropdown-toggle
+{
+  background-color:#3da1e5;
+  color:#fff;
+  border:0;
+  position:relative;
+}
+
+#buildTriggers .setting{
+  position: relative;
+  display:inline-block;
+}
+
+#buildTriggers .setting>ul{
+  display:none;
+  position: absolute;
+  right:0;
+}
+#buildTriggers .fa-gear{
+  cursor:pointer;
+}
+#buildTriggers .setting:hover>ul{
+  display:block;
+}
+#buildTriggers .setting:hover .fa-gear{
+  color:#3da1e5;
+}
+#buildTriggers .setting:hover>ul>li{
+  padding:5px 16px;
+  cursor:pointer;
+}
+
+#buildTriggers .setting:hover>ul>li:hover{
+  background-color:#504e4e;
+  color:#fff;
+}
+
+#buildTriggers ul{
+  white-space:nowrap;
+  background-color:#dedede;
+}
+#buildTriggers ul li a{
+  padding:5px 12px;
+}
+.create-repo-nav{
+  padding-right:20px;
+}
+.create-repo-nav>span{
+  display: table-cell;
+  width:1%;
+  padding:12px 0;
+  text-align:center;
+}
+.create-repo-nav>span:first-child{
+  border-radius:4px 0 0 0;
+}
+.create-repo-nav>span.active{
+  background-color:#565656;
+  color:#fff;
+}
+.create-repo-modal .modal-header{
+  padding:0;
+  border-bottom:2px solid #565656;
+}
+
+.info-circle{
+  color:#4c7fcd;
+}
+
+#createRepoModal .step-div{
+  display:none;
+}
+
+#createRepoModal .step-show{
+  display:block;
+}
+
+
+#runTriggerModal .ssh-key{
+  border:1px solid #ccc;
+  border-radius:4px;
+  position:relative;
+}
+#runTriggerModal .ssh-key input{
+  border-radius:4px;
+  padding:6px 12px;
+  width:100%;
+}
+#runTriggerModal .ssh-key .fa-clipboard{
+  position:absolute;
+  right:5px;
+  top:9px;
+  color:#9f9f9f;
+}
+
+
+
 
 /* repo detail end */
 /* org list start */

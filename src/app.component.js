@@ -19,7 +19,7 @@ var AppComponent = (function () {
             //             <nav-bar></nav-bar>
             //             <router-outlet></router-outlet>
             //           </div>`
-            template: "<router-outlet></router-outlet>"
+            template: '<router-outlet></router-outlet>'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);

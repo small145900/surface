@@ -20,8 +20,14 @@ export class RepoDetailComponent {
   //   this.location.back();
   // }
 
-    edit():void{
-      console.log(this);
+  createStep = 1;
+
+  createBuildNext():void{
+    if(this.createStep == 3){
+      this.createStep = 1;
+    }else{
+      this.createStep++;
     }
+  }
 
 }

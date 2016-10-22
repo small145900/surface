@@ -14,7 +14,10 @@ var contentRouting = [
         children: [
             { path: 'repositories', component: repoList_component_1.RepoListComponent },
             { path: 'repoCreate', component: repoCreate_component_1.RepoCreateComponent },
-            { path: 'repoDetail', component: repoDetail_component_1.RepoDetailComponent },
+            {
+                path: 'repoDetail',
+                component: repoDetail_component_1.RepoDetailComponent
+            },
             { path: 'organizations', component: orgList_component_1.OrgListComponent },
             { path: 'orgCreate', component: orgCreate_component_1.OrgCreateComponent },
             { path: 'userSetting', component: userSetting_component_1.UserSettingComponent }
