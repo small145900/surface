@@ -19,6 +19,7 @@ var RepoDetailComponent = (function () {
         this.repoInfo = {
             repoName: ''
         };
+        this.createStep = 1;
     }
     RepoDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -35,6 +36,14 @@ var RepoDetailComponent = (function () {
     };
     RepoDetailComponent.prototype.repoDetail = function (repoInfo) {
         this.router.navigate(['repositories', repoInfo.repository]);
+    };
+    RepoDetailComponent.prototype.createBuildNext = function () {
+        if (this.createStep == 3) {
+            this.createStep = 1;
+        }
+        else {
+            this.createStep++;
+        }
     };
     RepoDetailComponent = __decorate([
         core_1.Component({
