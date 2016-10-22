@@ -6,3 +6,6 @@
 # systemjs.config.js
 # tsconfig.json
 # typings.json
+
+dist/js
+dist/css

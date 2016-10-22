@@ -11,8 +11,9 @@ var content_component_1 = require('./content.component');
 var appRoutes = [
     {
         path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
+        // redirectTo: '/dockyard',
+        pathMatch: 'full',
+        component: index_component_1.IndexComponent
     },
     {
         path: 'dockyard',

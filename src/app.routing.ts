@@ -13,8 +13,9 @@ import { ContentComponent }  from './content.component';
 const appRoutes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
-    pathMatch: 'full'
+    // redirectTo: '/dockyard',
+    pathMatch: 'full',
+    component: IndexComponent
   },
   {
     path: 'dockyard',
