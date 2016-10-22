@@ -4,6 +4,7 @@ uglify = require('gulp-uglify');
 minifyCss = require('gulp-minify-css');
 rename = require('gulp-rename');
 ts = require('gulp-typescript');
+// htmlmin = require('gulp-htmlmin');
 // browserify = require('browserify');
 // imagemin = require('gulp-imagemin');
 // gutil = require('gulp-util');
@@ -61,7 +62,12 @@ gulp.task("less",function(){
 	return gulp.src(["less/*.less"])
 		.pipe(less())
 		.pipe(gulp.dest("css"));
-})
+});
+
+gulp.task("html",function(){
+	return gulp.src(["templates/*/*.html"])
+		.pipe(gulp.dest("dist/views"));
+});
 
 gulp.task("watch",  () => {
    gulp.watch("less/.less",['less']);
