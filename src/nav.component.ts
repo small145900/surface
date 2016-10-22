@@ -13,7 +13,7 @@ export class NavComponent {
 	user = {
 		username: 'test'
 	}
-	private active = 'repo'
+	private active = 'login'
 
 	constructor(
 		private router: Router,

@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ContentComponent }  from './content.component';
 import { NavComponent } from './nav.component';
 import { RepoListComponent }  from './repoList.component';
+import { RepositoriesComponent }  from './repositories.component';
 import { RepoCreateComponent }  from './repoCreate.component';
 import { RepoDetailComponent } from './repoDetail.component';
 import { OrgListComponent }      from './orgList.component';
@@ -28,7 +29,8 @@ import { routing } from './content.routing';
   declarations: [ 
   	ContentComponent,
     NavComponent,
-  	RepoListComponent, 
+  	RepoListComponent,
+    RepositoriesComponent, 
   	RepoCreateComponent,
     RepoDetailComponent,
   	OrgListComponent,

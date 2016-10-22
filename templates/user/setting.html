@@ -10,13 +10,13 @@
         <div class="col-md-10 col-md-offset-1 col-xs-12">
           <div class="row">
             <ul class="nav nav-tabs user-nav">
-              <li class="col-xs-4 active">
+              <li class="col-xs-12 col-md-4 active">
                 <a href="#userInfo" data-toggle="tab">Base Info</a>
               </li>             
-              <li class="col-xs-4">
+              <li class="col-xs-12 col-md-4">
                 <a href="#notify" data-toggle="tab">Notifications</a>
               </li>
-              <li class="col-xs-4">
+              <li class="col-xs-12 col-md-4">
                 <a href="#linkAccount" data-toggle="tab">Linked Accounts</a>
               </li>
             </ul>
@@ -28,14 +28,14 @@
           <div class="row add-email">
             <div class="col-md-10 col-md-offset-1 col-xs-12">
               <div class="row">
-                <div class="col-xs-6 text">
+                <div class="col-md-6 text">
                   <h4>Email addresses</h4>
                   <p>
                     This email address will be used for all notifications and correspondence from Docker.<br/>
                     If you wish to designate a different email address as primary, first add a new address to your account and then click "make primary".
                   </p>
                 </div>
-                <div class="col-xs-6 email">
+                <div class="col-md-6 col-xs-12 email">
                   <input type="email" [(ngModel)]="user.email" name="email"/> 
                   <button class="add" (click)="addEmail()">Add Email</button>
                   <ul class="emails">
@@ -53,13 +53,13 @@
           <div class="row new-pwd">
             <div class="col-md-10 col-md-offset-1 col-xs-12">
               <div class="row">
-                <div class="col-xs-6 text">
+                <div class="col-md-6 text">
                   <h4>Change Password</h4>
                   <p>
                     Please choose a password which is longer than 6 characters
                   </p>
                 </div>
-                <div class="col-xs-6 text">
+                <div class="col-md-6 col-xs-12">
                   <input type="text" placeholder="Old Password" [(ngModel)]="user['old-password']" name="location"/>
                   <input type="text" placeholder="New Password" [(ngModel)]="user['new-password']" name="password"/>
                   <input type="text" placeholder="Comfirm Password" [(ngModel)]="user['comfirm-password']" name="comfirm"/>
@@ -71,13 +71,13 @@
           <div class="row new-pwd account">
             <div class="col-md-10 col-md-offset-1 col-xs-12">
               <div class="row">
-                <div class="col-xs-6 text">
+                <div class="col-md-6 text">
                   <h4>Account Information</h4>
                   <p>
                     This information will be visible to all users of Docker Hub.
                   </p>
                 </div>
-                <div class="col-xs-6 text">
+                <div class="col-md-6 col-xs-12">
                   <input type="text" placeholder="Name" [(ngModel)]="account.name" name="name"/>
                   <input type="text" placeholder="Company" [(ngModel)]="account.company" name="company"/>
                   <input type="text" placeholder="Gravatar Email" [(ngModel)]="account.email" name="comfirm"/>

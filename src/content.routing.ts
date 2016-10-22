@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { ContentComponent }  from './content.component';
 import { RepoListComponent }  from './repoList.component';
+import { RepositoriesComponent }  from './repositories.component';
 import { RepoCreateComponent }  from './repoCreate.component';
 import { RepoDetailComponent } from './repoDetail.component';
 
@@ -18,12 +19,9 @@ const contentRouting: Routes = [
     component: ContentComponent,
     children: [
       { path: 'repositories', component: RepoListComponent },
+      { path: 'organizations/:orgName', component: RepositoriesComponent },
       { path: 'repoCreate', component: RepoCreateComponent },
-      { 
-        path: 'repoDetail', 
-        component: RepoDetailComponent
-        
-      },
+      { path: 'repositories/:repoName', component: RepoDetailComponent },
       { path: 'organizations', component: OrgListComponent },
       { path: 'orgCreate', component: OrgCreateComponent },
       { path: 'userSetting', component: UserSettingComponent }
