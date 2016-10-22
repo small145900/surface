@@ -2,7 +2,7 @@
   <div class="row" id="newRepo">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
       <div class="row">
-        <ul class="col-xs-6">
+        <ul class="col-xs-12 col-md-6">
           <li>
             <span [ngClass]=" step=== 1? 'step-brown' : '' ">1</span>
             <b>Choose a namespace (Required) </b>
@@ -24,7 +24,7 @@
             <b>Set it to be a private or public repository </b>
           </li>
         </ul>
-        <div class="col-xs-6 info">
+        <div class="col-xs-12 col-md-6 info">
           <p class="mar-bt-twenty clear-gap">
             <select [(ngModel)]="repo.username" name="username" (focus)="changeStep(1)">
               <option value="1">dockyard</option>

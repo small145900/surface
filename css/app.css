@@ -52,6 +52,9 @@ select:-webkit-autofill {
 .bg-outLetGray {
   background: #DEDEDE;
 }
+.bg-bodyGray {
+  background: #EEEEEE;
+}
 .mar-tp-no {
   margin-top: 0;
 }
@@ -285,6 +288,9 @@ body {
   margin-right: 12px;
   color: #fff;
 }
+#nav .user > li > a {
+  padding: 0 5px;
+}
 #nav .menu .logo,
 #nav .menu .logo:hover,
 #nav .menu .logo:active {
@@ -365,12 +371,6 @@ body {
     float: right;
   }
 }
-@media screen and (max-width: 642px) {
-  #nav .user .create,
-  #nav .user .add {
-    display: none;
-  }
-}
 @media screen and (max-width: 700px) {
   #nav .menu-rt {
     width: 40%;
@@ -380,6 +380,12 @@ body {
   }
   #nav .menu .logo a {
     margin-right: 15px;
+  }
+}
+@media screen and (max-width: 642px) {
+  #nav .user .create,
+  #nav .user .add {
+    display: none;
   }
 }
 @media screen and (max-width: 600px) {
@@ -393,25 +399,23 @@ body {
     padding: 0 3px;
   }
   #nav .menu .logo a {
-    margin-right: 15px;
+    margin-right: 10px;
   }
   #nav .menu li a,
   #nav .user > li > a {
     padding: 0 6px;
+    margin-right: 0;
   }
 }
 @media screen and (max-width: 480px) {
   #nav .menu {
-    width: 70%;
+    width: 77%;
   }
   #nav .menu-rt {
-    width: 30%;
+    width: 23%;
   }
   #nav .menu li a {
-    padding: 0 12px;
-  }
-  #nav .menu .org {
-    display: none;
+    padding: 0 7px;
   }
 }
 #userSetting {
@@ -629,6 +633,8 @@ body {
 }
 #newRepo {
   padding-top: 60px;
+  background: #EEEEEE;
+  padding-bottom: 20px;
 }
 #newRepo .guide {
   position: relative;
@@ -1051,7 +1057,7 @@ body {
   margin-top: 12px;
 }
 #createOrg .create {
-  margin: 60px auto 0;
+  margin: 60px auto 20px;
 }
 #createOrg .first-step input,
 #createOrg .first-step .save,
@@ -1337,6 +1343,12 @@ body {
 #userInfo .text {
   padding-left: 0;
   padding-right: 37px;
+}
+@media screen and (max-width: 768px) {
+  #userInfo .text {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
 }
 #userSet .new-pwd {
   background: #DEDEDE;
