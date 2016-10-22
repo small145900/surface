@@ -34,7 +34,7 @@
           </div>
 
           <div class="form-group">
-            <h5>Short Description <span class="fa fa-pencil" (click)="edit()"></span></h5>
+            <h5>Short Description <span class="fa fa-pencil"></span></h5>
             <textarea rows="3" readonly="readonly">Short Description Short Description  Short Description Short De</textarea>
             <input type="button" value="OK" class="ok-btn" />
           </div>
@@ -182,7 +182,224 @@
       
       <!-- BuildTriggers start-->
       <div role="tabpanel" class="tab-pane fade" id="buildTriggers" aria-labelledby="buildTriggers-tab">
-        Build Triggers
+        <div class="create-build-div" >
+            <div class="dropdown create-build">
+              <button class="btn btn-default creat-dropdown-toggle dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                Create Build Triggers
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                <li role="presentation" data-toggle="modal" data-target="#createRepoModal">
+                  <a role="menuitem" tabindex="-1" href="javascript:;">
+                    <span class="fa fa-github"></span>
+                    Github Repository Push
+                  </a>
+                </li>
+                <li role="presentation" data-toggle="modal" data-target="#startBuildModal">
+                  <a role="menuitem" tabindex="-1" href="javascript:;">
+                    <span class="fa fa-github"></span>
+                    Start Build Trigger
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+        </div>
+
+
+        <div>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Branch/tags</th>
+                <th>Dockfile Location</th>
+                <th>Run trigger</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><a href="javascript:;">4ads13216d</a></td>
+                <td>lyy132646</td>
+                <td>Today at 4:30 PM</td>
+                <td>
+                  <a href="javascript:;" data-toggle="modal" data-target="#runTriggerModal">master</a>
+                </td>
+                <td>
+                  <div class="setting">
+                    <span class="fa fa-gear"></span>
+                    <ul>
+                      <li> <span class="fa fa-unlock-alt"></span> View Credentials</li>
+                      <li><span class="fa fa-close"></span> Delete Trigger</li>
+                    </ul>  
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+
+  
+        <!-- createRepoModal start -->
+        <div class="create-repo-modal modal fade" id="createRepoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <div class="create-repo-nav">
+                  <span [ngClass]=" createStep=== 1? 'active' : '' ">Choose repository</span>
+                  <span [ngClass]=" createStep=== 2? 'active' : '' ">Choose branches</span>
+                  <span [ngClass]=" createStep=== 3? 'active' : '' ">Dockfile Location</span>
+                </div>
+              </div>
+              <div class="modal-body">
+
+                <div class="choose-repo-div step-div" [ngClass]=" createStep=== 1? 'step-show' : '' ">
+                  <h5>Please choose the repository that will trigger the build</h5>
+                  <div class="input-group" style="width:90%">
+                    <input type="text" class="form-control">
+                    <div class="input-group-btn">
+                      <button type="button"  style="height:34px;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        <li><a href="#">LYY133</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">LYY133</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="choose-branches-div step-div" [ngClass]=" createStep=== 2? 'step-show' : '' ">
+                  <h5>Repository:lyy135/1561653sada</h5>
+                  <h5>Please choose the branches and tags to which this trigger will</h5>
+                  <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-default active">
+                      <input type="radio" name="options" autocomplete="off" checked> All Branches and Tags
+                    </label>
+                    <label class="btn btn-default">
+                      <input type="radio" name="options" autocomplete="off"> Matching Regular Expression
+                    </label>
+                  </div>
+                </div>
+
+
+                <div class="dockfile-location-div step-div" [ngClass]=" createStep=== 3? 'step-show' : '' ">
+                  <h5>Repository:lyy135/1561653sada</h5>
+                  <h5>Branches and Tags: (Build All)</h5>
+                  <h6>Dockerfile Location:</h6>
+                  <div class="input-group" style="width:90%">
+                    <input type="text" class="form-control">
+                    <div class="input-group-btn">
+                      <button type="button"  style="height:34px;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        <li><a href="#">LYY133</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">LYY133</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="alert alert-warning" role="alert">
+                    Warning:No Dockerfiles were found in small
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="createBuildNext()">Next</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- createRepoModal end -->
+
+        <!-- runTriggerModal start -->
+        <div class="run-trigger-modal modal fade" id="runTriggerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Run Trigger</h4>
+              </div>
+              <div class="modal-body">
+                <h5>Repository: <span class="fa fa-user"></span> lyy135/1561653sada</h5>
+                <h5>Branches and Tags: (Build All)</h5>
+                <h5>Dockerfile Location: <span class="fa fa-folder"></span> Repositor Root</h5>
+                <br>
+                <h5 class="info-circle">
+                  <span class="fa fa-info-circle"></span>
+                  The following key has been automatically added to your source control repository
+                </h5>
+                
+                <h6>
+                  SSH Public Key
+                </h6>
+                <div class="ssh-key">
+                  <input type="text" />
+                  <span class="fa fa-clipboard"></span>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger">Run Trigger Now</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">done</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- runTriggerModal end -->
+
+        
+        <!-- startBuildModal start -->
+        <div class="run-trigger-modal modal fade" id="startBuildModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Manually Start Build Trigger</h4>
+              </div>
+              <div class="modal-body">
+                <h5>
+                  <span class="fa fa-github"></span> 
+                  Push to GitHub repository <a href="javascirpt:;" class="btn-link">lyy135/1561653sada</a>
+                </h5>
+                <div class="input-group" style="width:90%">
+                    <input type="text" class="form-control">
+                    <div class="input-group-btn">
+                      <button type="button"  style="height:34px;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
+                        <span class="caret"></span>
+                        <span class="sr-only">Toggle Dropdown</span>
+                      </button>
+                      <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        <li><a href="#">LYY133</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">LYY133</a></li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-info">Start Build</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- startBuildModal end -->
+
+
+
+
       </div>
       <!-- BuildTriggers end-->
     </div>

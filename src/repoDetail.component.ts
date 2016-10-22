@@ -36,4 +36,15 @@ export class RepoDetailComponent {
     this.router.navigate(['repositories',repoInfo.repository])
   }
 
+
+  createStep = 1;
+
+  createBuildNext():void{
+    if(this.createStep == 3){
+      this.createStep = 1;
+    }else{
+      this.createStep++;
+    }
+  }
+
 }
