@@ -118,25 +118,21 @@ gulp.task("index",function(){
 //     return gulp.src(["src/*", "!**/*.ts"])
 //         .pipe(gulp.dest("dist/js"));
 // });
-gulp.task("libs", () => {
+gulp.task("lib", () => {
   return gulp.src([
-          'core-js/client/shim.min.js',
-          'systemjs/dist/system-polyfills.js',
-          'systemjs/dist/system.src.js',
-          'reflect-metadata/Reflect.js',
-          'rxjs/**/*.js',
-          'zone.js/dist/**',
-          '@angular/**/bundles/**'
-      ], {cwd: "node_modules/**"})
-  		.pipe(concat("lib.min.css"))
-      .pipe(gulp.dest("dist/lib"));
+          'node_modules/core-js/client/shim.min.js',
+          'node_modules/systemjs/dist/system-polyfills.js',
+          'node_modules/systemjs/dist/system.src.js',
+          'node_modules/reflect-metadata/Reflect.js',
+          'node_modules/rxjs/**/*.js',
+          'node_modules/zone.js/dist/**',
+          'node_modules/@angular/**/bundles/**',
+          './systemjs.config.js',
+      ])
+  		.pipe(concat("lib.min.js"))
+      .pipe(gulp.dest("dist/js"));
 });
 
-
-gulp.task("systemjs",function(){
-	return gulp.src(["./systemjs.config.js","./package.json"])
-		.pipe(gulp.dest("dist"));
-});
 
 // gulp.task("minify-ts",function(){
 // 	return gulp.src(["src/*.ts"])
@@ -161,10 +157,8 @@ gulp.task('default', [
 	'json',
 	'templates',
 	'ts',
-	'systemjs',
 	'index',
 	'lib-css',
 	'minify-css',
-	'libs'
-	// 'minify-js'
+	'lib'
 ])
