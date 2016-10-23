@@ -68,10 +68,10 @@ gulp.task("templates",function(){
 		.pipe(gulp.dest("dist/templates"));
 });
 
-// gulp.task("src",function(){
-// 	return gulp.src(["src/*.ts"])
-// 		.pipe(gulp.dest("dist/typeScript"));
-// });
+gulp.task("ts",function(){
+	return gulp.src(["src/*.ts"])
+		.pipe(gulp.dest("dist/ts"));
+});
 
 gulp.task("index",function(){
 	return gulp.src(["index.html"])
@@ -141,21 +141,22 @@ gulp.task("libs", () => {
 // 		.pipe(gulp.dest("dist/js"));
 // });
 
-gulp.task("minify-js",function(){
-	return gulp.src(["src/*.js"])
-		.pipe(concat("app.min.js"))
-		.pipe(babel())
-		.pipe(uglify())
-		.pipe(gulp.dest("dist/js"));
-});
+// gulp.task("minify-js",function(){
+// 	return gulp.src(["ts/*.js"])
+// 		.pipe(concat("app.min.js"))
+// 		// .pipe(babel())
+// 		.pipe(uglify())
+// 		.pipe(gulp.dest("dist/js"));
+// });
 
 gulp.task('default', [
 	'img',
 	'json',
 	'templates',
+	'ts',
 	'index',
 	'lib-css',
 	'minify-css',
-	'libs',
-	'minify-js'
+	'libs'
+	// 'minify-js'
 ])
