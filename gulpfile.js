@@ -45,7 +45,7 @@ gulp.task("templates",function(){
 		.pipe(gulp.dest("dist/templates"));
 });
 
-gulp.task("ts",function(){
+gulp.task("src",function(){
 	return gulp.src(["src/*"])
 		.pipe(gulp.dest("dist/src"));
 });
@@ -60,61 +60,29 @@ gulp.task("index",function(){
 		.pipe(gulp.dest("dist"));
 });
 
-// gulp.task("lib", () => {
-  // return gulp.src([
-  // 				'jquery/dist/jquery.min.js',
-  // 				'bootstrap/dist/js/bootstrap.min.js',
-  //         'core-js/client/shim.min.js',
-  //         'systemjs/dist/system-polyfills.js',
-  //         'systemjs/dist/system.src.js',
-  //         'reflect-metadata/Reflect.js',
-  //         'rxjs/**/*.js',
-  //         'zone.js/dist/**'
-  //         // '@angular/**/bundles/**'
-  //     ],{cwd: "node_modules/**"})
-//   		.pipe(concat("lib.min.js"))
-//       .pipe(gulp.dest("dist/js"));
-// });
-
-gulp.task("lib",function(){
-	return gulp.src([
-			"node_modules/jquery/dist/jquery.min.js",
-			"node_modules/bootstrap/dist/js/bootstrap.min.js",
-			"node_modules/core-js/client/shim.min.js",
-			"node_modules/zone.js/dist/zone.js",
-			"node_modules/reflect-metadata/Reflect.js",
-			"node_modules/systemjs/dist/system.src.js",
-			"systemjs.config.js"
-		])
-    .pipe(concat("lib.min.js"))
-		.pipe(uglify())
-		.pipe(gulp.dest("dist/js"));
-});
-
-gulp.task("angular",function(){
-	return gulp.src([
+gulp.task("lib", () => {
+  return gulp.src([
+  				'jquery/dist/jquery.min.js',
+  				'bootstrap/dist/js/bootstrap.min.js',
+          'core-js/client/shim.min.js',
+          'systemjs/dist/system-polyfills.js',
+          'systemjs/dist/system.src.js',
+          'reflect-metadata/Reflect.js',
+          'rxjs/**/*.js',
+          'zone.js/dist/**',
           '@angular/**/bundles/**'
       ],{cwd: "node_modules/**"})
-      .pipe(gulp.dest("dist/js"));
+      .pipe(gulp.dest("dist/lib"));
 });
-
-// gulp.task("minify-js",function(){
-// 	return gulp.src(["ts/*.js"])
-// 		.pipe(concat("app.min.js"))
-// 		// .pipe(babel())
-// 		.pipe(uglify())
-// 		.pipe(gulp.dest("dist/js"));
-// });
 
 gulp.task('default', [
 	'img',
 	'json',
 	'templates',
-	'ts',
+	'src',
 	'systemjs',
 	'index',
 	'lib-css',
 	'minify-css',
-	'lib',
-	'angular'
+	'lib'
 ])
