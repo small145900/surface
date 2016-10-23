@@ -37,7 +37,7 @@ gulp.task("minify-lib-js",function(){
 			"systemjs.config.js"
 		])
     .pipe(concat("lib.min.js"))
-		.pipe(uglify())
+		// .pipe(uglify())
 		.pipe(gulp.dest("dist/js"));
 });
 
@@ -53,15 +53,11 @@ gulp.task("minify-ts",function(){
     	noImplicitAny: true,
     	out: 'main.min.js'
     }))
-		.pipe(uglify())
-		.pipe(gulp.dest("dist/js"));
+	.pipe(uglify())
+	.pipe(gulp.dest("dist/js"));
 });
 
-gulp.task("less",function(){
-	return gulp.src(["less/*.less"])
-		.pipe(less())
-		.pipe(gulp.dest("css"));
-})
+
 
 gulp.task("watch",  () => {
    gulp.watch("less/.less",['less']);
