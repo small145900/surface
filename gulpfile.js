@@ -69,8 +69,8 @@ gulp.task("templates",function(){
 });
 
 gulp.task("ts",function(){
-	return gulp.src(["src/*.ts"])
-		.pipe(gulp.dest("dist/ts"));
+	return gulp.src(["src/*"])
+		.pipe(gulp.dest("dist/src"));
 });
 
 gulp.task("index",function(){
@@ -128,7 +128,14 @@ gulp.task("libs", () => {
           'zone.js/dist/**',
           '@angular/**/bundles/**'
       ], {cwd: "node_modules/**"})
+  		.pipe(concat("lib.min.css"))
       .pipe(gulp.dest("dist/lib"));
+});
+
+
+gulp.task("systemjs",function(){
+	return gulp.src(["./systemjs.config.js","./package.json"])
+		.pipe(gulp.dest("dist"));
 });
 
 // gulp.task("minify-ts",function(){
@@ -154,6 +161,7 @@ gulp.task('default', [
 	'json',
 	'templates',
 	'ts',
+	'systemjs',
 	'index',
 	'lib-css',
 	'minify-css',
