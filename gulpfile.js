@@ -4,6 +4,7 @@ uglify = require('gulp-uglify');
 minifyCss = require('gulp-minify-css');
 rename = require('gulp-rename');
 ts = require('gulp-typescript');
+babel = require('gulp-babel');
 // tsProject = ts.createProject("tsconfig.json");
 
 // tslint = require('gulp-tslint');
@@ -143,6 +144,7 @@ gulp.task("libs", () => {
 gulp.task("minify-js",function(){
 	return gulp.src(["src/*.js"])
 		.pipe(concat("app.min.js"))
+		.pipe(babel())
 		.pipe(uglify())
 		.pipe(gulp.dest("dist/js"));
 });
