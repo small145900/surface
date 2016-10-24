@@ -137,9 +137,9 @@ html {
   font-size: 10px;
 }
 body {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: #191919;
-  font-family: 'Ubuntu Mono';
+  font-family: 'Ubuntu Mono', monospace;
 }
 #repoContent {
   background: #DEDEDE;
@@ -150,7 +150,7 @@ body {
 /* index start */
 #header {
   overflow: hidden;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   padding: 15px 12px;
   background: lightblue;
 }
@@ -199,12 +199,12 @@ body {
 }
 .content-two {
   padding: 40px 0 40px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: #191919;
   background: #EEEEEE;
 }
 .content-two .title {
-  font-size: 2rem;
+  font-size: 2.4rem;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -220,9 +220,9 @@ body {
   border: 1px solid #DFDFDF;
 }
 .content-three {
-  padding: 60px 0 120px;
-  background: linear-gradient(0, #28529d, #127bd3);
-  background: -webkit-linear-gradient(0, #28529d, #127bd3);
+  padding: 60px 0 130px;
+  background: linear-gradient(0, #28529d, #1d66b8, #127bd3);
+  background: -webkit-linear-gradient(0, #28529d, #1d66b8, #127bd3);
   color: #EEEEEE;
 }
 .content-three .space {
@@ -247,7 +247,7 @@ body {
   border-radius: 24px;
   background: #d7d7d7;
   margin-left: 10px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 /* index end */
 /* nav start */
@@ -263,7 +263,7 @@ body {
 }
 #nav .menu a,
 #nav .user a {
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 #createRepo a:hover,
 #createRepo a:active {
@@ -288,10 +288,10 @@ body {
 }
 #nav .menu li a,
 #nav .user > li > a {
-  padding: 0 12px;
+  padding: 0 8px;
   height: 50px;
   line-height: 50px;
-  margin-right: 12px;
+  margin-right: 10px;
   color: #fff;
 }
 #nav .user > li > a {
@@ -318,7 +318,7 @@ body {
 }
 #nav .user > li > a {
   display: inline-block;
-  padding: 0 12px;
+  padding: 0 3px;
 }
 #nav .user > li {
   height: 44px;
@@ -335,7 +335,7 @@ body {
   padding: 0 5px;
   border-radius: 3px;
   background: #e7e7e7;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 #nav .user li .active {
   color: #3DA1E5;
@@ -344,14 +344,14 @@ body {
   background: #fff;
 }
 #nav .user li:first-child {
-  margin-right: 12px;
+  margin-right: 6px;
 }
 #createRepo,
 #userSetting {
-  width: 200px;
+  width: 250px;
   background: #C0C0C0;
   position: absolute;
-  top: 44px;
+  top: 49px;
   right: 0px;
   z-index: 10000;
   display: none;
@@ -376,13 +376,19 @@ body {
   #nav .user {
     float: right;
   }
+  #nav .menu {
+    width: 65%;
+  }
+  #nav .menu-rt {
+    width: 35%;
+  }
 }
 @media screen and (max-width: 700px) {
   #nav .menu-rt {
-    width: 40%;
+    width: 32%;
   }
   #nav .menu {
-    width: 60%;
+    width: 68%;
   }
   #nav .menu .logo a {
     margin-right: 15px;
@@ -392,6 +398,9 @@ body {
   #nav .user .create,
   #nav .user .add {
     display: none;
+  }
+  .content-three {
+    padding-bottom: 160px;
   }
 }
 @media screen and (max-width: 600px) {
@@ -425,7 +434,7 @@ body {
   }
 }
 #userSetting {
-  width: 120px;
+  width: 150px;
 }
 #createRepo li,
 #createRepo li a,
@@ -443,7 +452,7 @@ body {
   width: 100%;
   height: 44px;
   line-height: 44px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   padding-left: 12px;
 }
 #nav i {
@@ -469,11 +478,11 @@ body {
   width: 100%;
   padding: 16px 20px;
   text-overflow: ellipsis;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: #191919;
 }
 #repoList .repo-left span:first-child {
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   cursor: pointer;
   color: #fff;
 }
@@ -506,17 +515,17 @@ body {
 }
 #repoList .repo-body h3 {
   margin-top: 8px;
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: #191919;
 }
 #repoList .repo-body h5 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   height: 36px;
   overflow: hidden;
   color: #666;
 }
 #repoList .star-fork {
-  font-size: 2rem;
+  font-size: 2.4rem;
   margin-top: 60px;
   margin-bottom: 0;
   position: relative;
@@ -560,7 +569,7 @@ body {
 }
 #allRepo .repo-body h3 {
   margin-top: 8px;
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: #191919;
 }
 #allRepo .repo-body h5 {
@@ -582,7 +591,7 @@ body {
   height: 40px;
   line-height: 40px;
   color: #1F4B9C;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   padding-left: 12px;
 }
 #allRepo .star-fork i.fa-info-circle {
@@ -601,7 +610,7 @@ body {
   width: 100%;
   background: #F3F3F3;
   padding: 8px 35px 8px 10px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   border-radius: 5px;
 }
 #allRepo .filter-repo .filter {
@@ -610,7 +619,7 @@ body {
   top: 4px;
   padding: 5px;
   cursor: pointer;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
 }
 @media screen and (max-width: 640px) {
   #repoList .repo-body a {
@@ -661,7 +670,7 @@ body {
   line-height: 40px;
   text-align: center;
   border-radius: 5px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   background: #919191;
   color: #fff;
   vertical-align: top;
@@ -675,7 +684,7 @@ body {
   top: 5px;
 }
 #newRepo li b {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin-top: 10px;
   font-weight: normal;
   display: inline-block;
@@ -690,7 +699,7 @@ body {
 #newRepo textarea {
   width: 100%;
   padding: 10px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   background: #DFDFDF;
   border-radius: 5px;
   box-shadow: 1px 1px 1px #b4b3b3 inset;
@@ -1162,7 +1171,7 @@ input, textarea{
   color: #fff;
   padding: 10px 20px;
   border-radius: 6px;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 #orgList .media-org {
   background: #F3F3F3;
@@ -1194,11 +1203,11 @@ input, textarea{
   color: #1F4B9C;
 }
 #orgList .org-body span {
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 #orgList .org-body small {
   color: #666;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 #orgList img {
   width: 60px;
@@ -1211,7 +1220,7 @@ input, textarea{
   max-height: 50px;
   overflow: hidden;
   margin-top: 5px;
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: #0E5585;
 }
 /* org list end */
@@ -1228,7 +1237,7 @@ input, textarea{
   width: 100%;
 }
 #createOrg .guide {
-  font-size: 1.6rem;
+  font-size: 2rem;
   color: #545454;
 }
 #createOrg .steps {
@@ -1258,7 +1267,7 @@ input, textarea{
   height: 40px;
   line-height: 40px;
   border-radius: 5px;
-  font-size: 1.6rem;
+  font-size: 2rem;
   text-align: center;
   color: #fff;
   background: #919191;
@@ -1282,7 +1291,7 @@ input, textarea{
   line-height: 40px;
   margin-top: 20px;
   padding: 0 12px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   border-radius: 5px;
   background: #DFDFDF;
   box-shadow: 1px 1px 1px #b4b3b3 inset;
@@ -1292,7 +1301,7 @@ input, textarea{
 #userSet .new-pwd .save {
   color: #fff;
   background: #919191;
-  font-size: 1.6rem;
+  font-size: 2rem;
   box-shadow: none;
 }
 #createOrg .first-step .create,
@@ -1300,7 +1309,7 @@ input, textarea{
 #userSet .new-pwd .save .create,
 #userSet .new-pwd .submit {
   background: #3DA1E5;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 #createOrg .first-step input::-webkit-input-placeholder {
   color: #8B8B8B;
@@ -1375,7 +1384,7 @@ input, textarea{
 #createOrg .members .title .add {
   width: 20%;
   float: left;
-  padding: 10px 0;
+  padding: 12px 0 13px;
   text-align: center;
   background: #F77462;
   border-radius: 0 5px 5px 0;
@@ -1398,7 +1407,7 @@ input, textarea{
   background: #DEDEDE;
 }
 #userSet h4 {
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 #userSet .new-pwd input {
   background: #F7F7F7;
@@ -1431,7 +1440,7 @@ input, textarea{
   display: block;
   border: none;
   background: none;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 #userSet .user-nav > li.active,
 .user-nav > li.active:focus,
@@ -1519,7 +1528,7 @@ input, textarea{
   padding: 40px 0 20px;
   background: #eaeaea;
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 #userSet .password li {
   margin-bottom: 10px;
@@ -1549,7 +1558,7 @@ input, textarea{
   width: 25%;
   padding: 5px 0;
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   border-radius: 5px;
 }
 #userInfo .text {
@@ -1596,7 +1605,7 @@ input, textarea{
 #access .header .title {
   position: absolute;
   bottom: 38px;
-  font-size: 4rem;
+  font-size: 4.4rem;
   color: #fff;
   width: 100%;
   text-align: center;
@@ -1622,7 +1631,7 @@ input, textarea{
   bottom: 28px;
 }
 #access .header .title .help {
-  font-size: 1.6rem;
+  font-size: 2rem;
   font-weight: normal;
 }
 #app .banner {
@@ -1635,7 +1644,7 @@ input, textarea{
   left: 27%;
   width: 46%;
   border-radius: 5px;
-  font-size: 1.6rem;
+  font-size: 2rem;
   background: #fff;
   opacity: 0.8;
   padding: 0 12px;
@@ -1648,7 +1657,7 @@ input, textarea{
 #access .banner .text {
   position: relative;
   bottom: 80px;
-  font-size: 4rem;
+  font-size: 4.4rem;
   word-spacing: 12px;
   color: #fff;
 }
@@ -1750,7 +1759,7 @@ input, textarea{
   height: 40px;
   margin-bottom: 20px;
   border-radius: 5px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   position: relative;
 }
 #access .login input,
@@ -1761,7 +1770,7 @@ input, textarea{
   border-radius: 5px;
   background: #DFDFDF;
   color: #191919;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   box-shadow: 1px 1px 1px #b4b3b3 inset;
 }
 #access .login .space > i,
@@ -1770,7 +1779,7 @@ input, textarea{
   right: 9px;
   top: 12px;
   color: #8B8B8B;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 #access .login .user,
 #access .login .pwd,
@@ -1791,7 +1800,7 @@ input, textarea{
 #access .sign-up .sign-in {
   background: #2C58A7;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 #access .login .google {
   background: #F77462;
@@ -1800,7 +1809,7 @@ input, textarea{
   text-align: center;
   border-radius: 5px 0 0 5px;
   padding: 5px 0;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 #access .login .github {
   background: #56ABE4;
@@ -1809,14 +1818,14 @@ input, textarea{
   text-align: center;
   border-radius: 0 5px 5px 0;
   padding: 5px 0;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 #access .login .forget-pwd {
   display: block;
   text-align: center;
   color: #8B8B8B;
   margin-bottom: 15px;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
 }
 #access .navbar,
 #app .navbar {
@@ -1857,7 +1866,7 @@ input, textarea{
   width: 15%;
   background: #fff;
   opacity: 0.75;
-  font-size: 1.4rem;
+  font-size: 2rem;
   float: left;
   text-align: center;
 }
@@ -1986,7 +1995,7 @@ input, textarea{
   margin-bottom: 20px;
   overflow: hidden;
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   border-left: 5px solid transparent;
 }
 #access .browse .info li {
@@ -1996,7 +2005,7 @@ input, textarea{
   text-align: center;
 }
 #access .browse .info li i {
-  font-size: 2rem;
+  font-size: 2.4rem;
 }
 #access .browse .space:hover {
   border-left: 5px solid #3DA1E5;

@@ -169,10 +169,8 @@ html {
 
 body {
 	font-size: @baseSize;
-	// background: @bodyGray;
 	color: @black;
-	font-family: 'Ubuntu Mono';
-	// font-family: Microsoft YaHei;
+	font-family: 'Ubuntu Mono', monospace;
 }
 
 #repoContent {
@@ -270,9 +268,9 @@ body {
 }
 
 .content-three {
-	padding: 60px 0 120px;
-	background: linear-gradient(0, #28529d, #127bd3);
-	background: -webkit-linear-gradient(0, #28529d, #127bd3);
+	padding: 60px 0 130px;
+	background: linear-gradient(0, #28529d, #1d66b8, #127bd3);
+	background: -webkit-linear-gradient(0, #28529d, #1d66b8, #127bd3);
 	color: @bodyGray;
 }
 
@@ -319,7 +317,7 @@ body {
 }
 
 #nav .menu a, #nav .user a {
-	font-size: @baseSize;
+	font-size: @smallSize;
 }
  
 #createRepo a:hover, 
@@ -345,10 +343,10 @@ body {
 }
 
 #nav .menu li a, #nav .user > li > a {
-	padding: 0 12px;
+	padding: 0 8px;
 	height: 50px;
 	line-height: 50px;
-	margin-right: @baseMargin+2px;
+	margin-right: @baseMargin;
 	color: @white;
 }
 
@@ -376,7 +374,7 @@ body {
 
 #nav .user > li > a {
 	display: inline-block;
-	padding: 0 12px;
+	padding: 0 3px;
 }
 
 #nav .user > li {
@@ -408,14 +406,14 @@ body {
 }
 
 #nav .user li:first-child {
-	margin-right: 12px;
+	margin-right: 6px;
 }
 
 #createRepo, #userSetting {
-	width: 200px;
+	width: 250px;
 	background: @createGray;
 	position: absolute;
-	top: 44px;
+	top: 49px;
 	right: 0px;
 	z-index: 10000;
 	display: none;
@@ -445,15 +443,23 @@ body {
 	#nav .user {
 		float: right;
 	}
+
+	#nav .menu {
+		width: 65%;
+	}
+
+	#nav .menu-rt {
+		width: 35%;
+	}
 }
 
 @media screen and (max-width: 700px) {
 	#nav .menu-rt {
-		width: 40%;
+		width: 32%;
 	}
 
 	#nav .menu {
-		width: 60%;
+		width: 68%;
 	}
 
 	#nav .menu .logo a {
@@ -464,6 +470,9 @@ body {
 @media screen and (max-width: 642px) {
 	#nav .user .create, #nav .user .add {
 		display: none;
+	}
+	.content-three {
+		padding-bottom: 160px;
 	}
 }
 
@@ -505,7 +514,7 @@ body {
 }
 
 #userSetting {
-	width: 120px;
+	width: 150px;
 }
 
 #createRepo li, 
@@ -1594,7 +1603,7 @@ input, textarea{
 #createOrg .members .title .add {
 	width: 20%;
 	float: left;
-	padding: 10px 0;
+	padding: 12px 0 13px;
 	text-align: center;
 	background: @repoOrange;
 	border-radius: 0 5px 5px 0;
@@ -2143,7 +2152,7 @@ input, textarea{
 	width: 15%;
 	background: @headerWhite;
 	opacity: 0.75;
-	font-size: @baseSize;
+	font-size: @smallSize;
 	float: left;
 	text-align: center;
 }

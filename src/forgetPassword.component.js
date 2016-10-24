@@ -16,10 +16,7 @@ var ForgetPwdComponent = (function () {
         this.router = router;
         this.userService = userService;
         this.user = {
-            username: '',
-            email: '',
-            password: '',
-            're-password': ''
+            email: ''
         };
         this.active = '';
         this.browseList = [];
@@ -35,11 +32,27 @@ var ForgetPwdComponent = (function () {
         this.router.navigate([val]);
     };
     ForgetPwdComponent.prototype.sendEmail = function () {
+        var _this = this;
         console.log(this.user);
-        // this.userService.sendEmail(this.user)
-        //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
-        //           error => this.errorMsg = <any>error);
-        this.router.navigate(['repositories']);
+        var user = this.user;
+        if (this.user.email && this.user.email.indexOf('@') !== -1) {
+            this.userService.sendEmail(this.user)
+                .then(function (res) {
+                if (res.code === 200) {
+                    _this.router.navigate(['repositories']);
+                }
+                else {
+                    alert(res.message);
+                }
+            }, function (error) { return _this.errorMsg = error; });
+        }
+        else if (!user.email) {
+            alert('please input correct email');
+        }
+        else if (!(user.email && this.user.email.indexOf('@') !== -1)) {
+            alert('please input correct email');
+        }
+        // this.router.navigate(['repositories']);
     };
     ForgetPwdComponent = __decorate([
         core_1.Component({

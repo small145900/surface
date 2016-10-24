@@ -25,7 +25,14 @@ var BrowseComponent = (function () {
     BrowseComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userService.getBrowseList()
-            .then(function (browseList) { return _this.browseList = browseList; }, function (error) { return _this.errorMsg = error; });
+            .then(function (res) {
+            if (res.code === 200) {
+                _this.browseList = res.list;
+            }
+            else {
+                alert(res.message);
+            }
+        }, function (error) { return _this.errorMsg = error; });
     };
     BrowseComponent.prototype.activeHover = function (index) {
         this.hover = index;

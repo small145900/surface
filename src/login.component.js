@@ -17,9 +17,7 @@ var LoginComponent = (function () {
         this.userService = userService;
         this.user = {
             username: '',
-            email: '',
-            password: '',
-            're-password': ''
+            password: ''
         };
         this.active = '';
         this.browseList = [];
@@ -35,11 +33,28 @@ var LoginComponent = (function () {
         this.router.navigate([val]);
     };
     LoginComponent.prototype.login = function () {
+        var _this = this;
         console.log(this.user);
-        // this.userService.doLogin(this.user)
-        //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
-        //           error => this.errorMsg = <any>error);
-        this.router.navigate(['repositories']);
+        var user = this.user;
+        if (user.username && user.password) {
+            this.userService.doLogin(this.user)
+                .then(function (res) {
+                if (res.code === 200) {
+                    _this.router.navigate(['repositories']);
+                    sessionStorage.setItem("username", user.username);
+                }
+                else {
+                    alert(res.message);
+                }
+            }, function (error) { return _this.errorMsg = error; });
+        }
+        else if (!user.username) {
+            alert('please input username');
+        }
+        else if (!user.password) {
+            alert('please input password');
+        }
+        // this.router.navigate(['repositories']);
     };
     LoginComponent = __decorate([
         core_1.Component({

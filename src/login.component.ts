@@ -12,9 +12,7 @@ export class LoginComponent implements OnInit {
 	errorMsg: string;
 	user = {
 		username: '',
-		email: '',
-		password: '',
-		're-password': ''
+		password: ''
 	}
 	active = '';
 	browseList = [];
@@ -39,9 +37,23 @@ export class LoginComponent implements OnInit {
 
 	login() {
 		console.log(this.user)
-		// this.userService.doLogin(this.user)
-  //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
-  //           error => this.errorMsg = <any>error);
-    this.router.navigate(['repositories']);
+		var user = this.user;
+		if(user.username&&user.password){
+			this.userService.doLogin(this.user)
+      .then(res => { 
+      	if(res.code === 200){
+      		this.router.navigate(['repositories'])
+      		sessionStorage.setItem("username", user.username)
+      	}else{
+      		alert(res.message)
+      	}
+      },error => this.errorMsg = <any>error);
+		}else if(!user.username){
+			alert('please input username')
+		}else if(!user.password){
+			alert('please input password')
+		}
+		
+    // this.router.navigate(['repositories']);
 	}
 }

@@ -13,8 +13,7 @@ export class RegisterComponent implements OnInit {
 	user = {
 		username: '',
 		email: '',
-		password: '',
-		're-password': ''
+		password: ''
 	}
 	active = '';
 	browseList = [];
@@ -38,12 +37,27 @@ export class RegisterComponent implements OnInit {
 
 	signUp() {
 		console.log(this.user)
-		this.userService.signUp(this.user)
-      .then(res => { if(res.code === 201){
-      		this.router.navigate(['repositories']);
-      		sessionStorage.setItem("username", this.user.username)
+		var user = this.user;
+		if(user.username&&user.password&&user.email){
+			this.userService.signUp(this.user)
+      .then(res => { 
+      	if(res.code === 201){
+      		this.router.navigate(['repositories'])
+      		sessionStorage.setItem("username", user.username)
+      	}else{
+      		alert(res.message)
       	}
       },error => this.errorMsg = <any>error);
+		}else if(!user.username){
+			alert('please input username')
+		}else if(!user.password){
+			alert('please input password')
+		}else if(!user.email){
+			alert('please input email')
+		}else if(!(user.email&&user.email.indexOf('@')!==-1)){
+			alert('please input correct email')
+		}
+		
     // this.router.navigate(['repositories']);
 	}
 }

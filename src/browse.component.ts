@@ -23,9 +23,14 @@ export class BrowseComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-    this.userService.getBrowseList()
-      .then(browseList => this.browseList = browseList,
-            error => this.errorMsg = <any>error);
+		this.userService.getBrowseList()
+    .then(res => {
+    	if(res.code === 200){
+    		this.browseList = res.list      
+    	}else{
+    		alert(res.message)
+    	}
+    },error => this.errorMsg = <any>error);
   }
 
   activeHover(index){
