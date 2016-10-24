@@ -263,7 +263,7 @@ body {
 }
 #nav .menu a,
 #nav .user a {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 #createRepo a:hover,
 #createRepo a:active {
@@ -1736,7 +1736,7 @@ body {
   width: 15%;
   background: #fff;
   opacity: 0.75;
-  font-size: 1.8rem;
+  font-size: 2rem;
   float: left;
   text-align: center;
 }
