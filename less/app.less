@@ -218,6 +218,7 @@ body {
 	overflow: hidden;
 	background: @bodyGray;
 	padding: 40px;
+	display: none;
 }
 
 .content-one .space {
@@ -243,9 +244,8 @@ body {
 .content-two {
 	padding: 40px 0 40px;
 	font-size: @baseSize;
-	color: @white;
-	background: linear-gradient(0, #28529d, #127bd3);
-	background: -webkit-linear-gradient(0, #28529d, #127bd3);
+	color: @black;
+	background: @bodyGray;
 }
 
 .content-two .title {
@@ -269,18 +269,23 @@ body {
 }
 
 .content-three {
-	padding: 80px 0 110px;
-	background: @bodyGray;
+	padding: 60px 0 120px;
+	background: linear-gradient(0, #28529d, #127bd3);
+	background: -webkit-linear-gradient(0, #28529d, #127bd3);
 }
 
 .content-three .space {
-	height: 220px;
+	text-align: center;
 }
 
 .content-three .space img {
-	width: 100%;
+	width: 30px;
 	height: auto;
-	max-height: 100%;
+	max-height: 30px;
+}
+
+.content-three .space .text {
+	margin-top: 20px;
 }
 
 #footer {
@@ -1889,12 +1894,30 @@ input, textarea{
 	font-weight: normal;
 }
 
-#app .header img {
+#app .banner {
+	position: relative;
+	width: 100%;
+}
+
+#app .banner .search-info {
+	position: absolute;
+	top: 59%;
+	left: 27%;
+	width: 46%;
+	border-radius: @smallRadius;
+	font-size: @smallSize;
+	background: @white;
+	opacity: 0.8;
+	padding: 0 12px;
+	height: 44px;
+}
+
+#app .banner img {
 	width: 100%;
 	height: auto;
 }
 
-#access .header .text {
+#access .banner .text {
 	position: relative;
 	bottom: 80px;
 	font-size: @bigPlusSize;
@@ -2158,6 +2181,9 @@ input, textarea{
 	#access .menu .space, #app .menu .space {
 		width: 20%;
 	}
+	#app .banner .search-info {
+		height: 42px;
+	}
 }
 
 @media screen and (max-width: 640px) { 
@@ -2177,6 +2203,9 @@ input, textarea{
 	#access .header .text,
 	#app .header .text {
 		bottom: 10px;
+	}
+	#app .banner .search-info {
+		height: 36px;
 	}
 }
 
@@ -2307,6 +2336,11 @@ input, textarea{
 @media screen and (max-width: 425px) {
 	#access .contact img {
 		width: 80px;
+	}
+	#app .banner .search-info {
+		height: 30px;
+		width: 50%;
+		left: 25%;
 	}
 }
 /* sign in & sign up end */
