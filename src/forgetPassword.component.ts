@@ -11,10 +11,7 @@ import { UserService } from './user.service';
 export class ForgetPwdComponent implements OnInit { 
 	errorMsg: string;
 	user = {
-		username: '',
-		email: '',
-		password: '',
-		're-password': ''
+		email: ''
 	}
 	active = '';
 	browseList = [];
@@ -39,9 +36,22 @@ export class ForgetPwdComponent implements OnInit {
 	
 	sendEmail() {
 		console.log(this.user)
-		// this.userService.sendEmail(this.user)
-  //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
-  //           error => this.errorMsg = <any>error);
-    this.router.navigate(['repositories']);
+		var user = this.user;
+		if(this.user.email&&this.user.email.indexOf('@')!==-1){
+			this.userService.sendEmail(this.user)
+      .then(res => { 
+      	if(res.code === 200){
+      		this.router.navigate(['repositories'])
+      	}else{
+      		alert(res.message)
+      	}
+      },error => this.errorMsg = <any>error);
+		}else if(!user.email){
+			alert('please input correct email')
+		}else if(!(user.email&&this.user.email.indexOf('@')!==-1)){
+			alert('please input correct email')
+		}
+		
+    // this.router.navigate(['repositories']);
 	}
 }

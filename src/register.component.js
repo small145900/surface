@@ -18,8 +18,7 @@ var RegisterComponent = (function () {
         this.user = {
             username: '',
             email: '',
-            password: '',
-            're-password': ''
+            password: ''
         };
         this.active = '';
         this.browseList = [];
@@ -36,13 +35,31 @@ var RegisterComponent = (function () {
     RegisterComponent.prototype.signUp = function () {
         var _this = this;
         console.log(this.user);
-        this.userService.signUp(this.user)
-            .then(function (res) {
-            if (res.code === 201) {
-                _this.router.navigate(['repositories']);
-                sessionStorage.setItem("username", _this.user.username);
-            }
-        }, function (error) { return _this.errorMsg = error; });
+        var user = this.user;
+        if (user.username && user.password && user.email) {
+            this.userService.signUp(this.user)
+                .then(function (res) {
+                if (res.code === 201) {
+                    _this.router.navigate(['repositories']);
+                    sessionStorage.setItem("username", user.username);
+                }
+                else {
+                    alert(res.message);
+                }
+            }, function (error) { return _this.errorMsg = error; });
+        }
+        else if (!user.username) {
+            alert('please input username');
+        }
+        else if (!user.password) {
+            alert('please input password');
+        }
+        else if (!user.email) {
+            alert('please input email');
+        }
+        else if (!(user.email && user.email.indexOf('@') !== -1)) {
+            alert('please input correct email');
+        }
         // this.router.navigate(['repositories']);
     };
     RegisterComponent = __decorate([
