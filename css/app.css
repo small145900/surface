@@ -178,6 +178,7 @@ body {
   overflow: hidden;
   background: #EEEEEE;
   padding: 40px;
+  display: none;
 }
 .content-one .space {
   display: block;
