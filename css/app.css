@@ -199,9 +199,8 @@ body {
 .content-two {
   padding: 40px 0 40px;
   font-size: 1.4rem;
-  color: #fff;
-  background: linear-gradient(0, #28529d, #127bd3);
-  background: -webkit-linear-gradient(0, #28529d, #127bd3);
+  color: #191919;
+  background: #EEEEEE;
 }
 .content-two .title {
   font-size: 2rem;
@@ -220,16 +219,20 @@ body {
   border: 1px solid #DFDFDF;
 }
 .content-three {
-  padding: 80px 0 110px;
-  background: #EEEEEE;
+  padding: 60px 0 120px;
+  background: linear-gradient(0, #28529d, #127bd3);
+  background: -webkit-linear-gradient(0, #28529d, #127bd3);
 }
 .content-three .space {
-  height: 220px;
+  text-align: center;
 }
 .content-three .space img {
-  width: 100%;
+  width: 30px;
   height: auto;
-  max-height: 100%;
+  max-height: 30px;
+}
+.content-three .space .text {
+  margin-top: 20px;
 }
 #footer {
   padding: 20px 12px;
@@ -1499,11 +1502,27 @@ body {
   font-size: 1.6rem;
   font-weight: normal;
 }
-#app .header img {
+#app .banner {
+  position: relative;
+  width: 100%;
+}
+#app .banner .search-info {
+  position: absolute;
+  top: 59%;
+  left: 27%;
+  width: 46%;
+  border-radius: 5px;
+  font-size: 1.6rem;
+  background: #fff;
+  opacity: 0.8;
+  padding: 0 12px;
+  height: 44px;
+}
+#app .banner img {
   width: 100%;
   height: auto;
 }
-#access .header .text {
+#access .banner .text {
   position: relative;
   bottom: 80px;
   font-size: 4rem;
@@ -1756,6 +1775,9 @@ body {
   #app .menu .space {
     width: 20%;
   }
+  #app .banner .search-info {
+    height: 42px;
+  }
 }
 @media screen and (max-width: 640px) {
   #access .logo,
@@ -1777,6 +1799,9 @@ body {
   #access .header .text,
   #app .header .text {
     bottom: 10px;
+  }
+  #app .banner .search-info {
+    height: 36px;
   }
 }
 @media screen and (max-width: 625px) {
@@ -1895,6 +1920,11 @@ body {
 @media screen and (max-width: 425px) {
   #access .contact img {
     width: 80px;
+  }
+  #app .banner .search-info {
+    height: 30px;
+    width: 50%;
+    left: 25%;
   }
 }
 /* sign in & sign up end */
