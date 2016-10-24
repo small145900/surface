@@ -34,11 +34,16 @@ var RegisterComponent = (function () {
         this.router.navigate([val]);
     };
     RegisterComponent.prototype.signUp = function () {
+        var _this = this;
         console.log(this.user);
-        // this.userService.signUp(this.user)
-        //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
-        //           error => this.errorMsg = <any>error);
-        this.router.navigate(['repositories']);
+        this.userService.signUp(this.user)
+            .then(function (res) {
+            if (res.code === 201) {
+                _this.router.navigate(['repositories']);
+                sessionStorage.setItem("username", _this.user.username);
+            }
+        }, function (error) { return _this.errorMsg = error; });
+        // this.router.navigate(['repositories']);
     };
     RegisterComponent = __decorate([
         core_1.Component({

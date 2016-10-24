@@ -38,9 +38,12 @@ export class RegisterComponent implements OnInit {
 
 	signUp() {
 		console.log(this.user)
-		// this.userService.signUp(this.user)
-  //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
-  //           error => this.errorMsg = <any>error);
-    this.router.navigate(['repositories']);
+		this.userService.signUp(this.user)
+      .then(res => { if(res.code === 201){
+      		this.router.navigate(['repositories']);
+      		sessionStorage.setItem("username", this.user.username)
+      	}
+      },error => this.errorMsg = <any>error);
+    // this.router.navigate(['repositories']);
 	}
 }

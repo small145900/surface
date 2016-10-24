@@ -139,6 +139,7 @@ html {
 body {
   font-size: 1.4rem;
   color: #191919;
+  font-family: 'Ubuntu Mono';
 }
 #repoContent {
   background: #DEDEDE;
@@ -222,6 +223,7 @@ body {
   padding: 60px 0 120px;
   background: linear-gradient(0, #28529d, #127bd3);
   background: -webkit-linear-gradient(0, #28529d, #127bd3);
+  color: #EEEEEE;
 }
 .content-three .space {
   text-align: center;
@@ -1824,6 +1826,10 @@ input, textarea{
   top: 0;
   height: 50px;
   line-height: 50px;
+}
+#access .navbar,
+#app .navbar {
+  border: none;
 }
 #access .logo,
 #app .logo {
