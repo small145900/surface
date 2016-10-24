@@ -4,28 +4,30 @@ uglify = require('gulp-uglify');
 minifyCss = require('gulp-minify-css');
 rename = require('gulp-rename');
 ts = require('gulp-typescript');
+// htmlmin = require('gulp-htmlmin');
 // browserify = require('browserify');
 // imagemin = require('gulp-imagemin');
 // gutil = require('gulp-util');
 
-gulp.task("minify-css",function(){
-	return gulp.src(["css/*.css"])
-    .pipe(concat("main.css"))
-		.pipe(minifyCss())
-		.pipe(rename('app.min.css'))
-		.pipe(gulp.dest("dist/css"));
-});
+// gulp.task("minify-css",function(){
+// 	return gulp.src(["css/*.css"])
+//     .pipe(concat("main.css"))
+// 		.pipe(minifyCss())
+// 		.pipe(rename('app.min.css'))
+// 		.pipe(gulp.dest("dist/css"));
+// });
 
-gulp.task("minify-lib-css",function(){
-	return gulp.src([
-			"node_modules/bootstrap/dist/css/bootstrap.min.css",
-			"node_modules/font-awesome/css/font-awesome.min.css"
-		])
-    .pipe(concat("lib.min.css"))
-		.pipe(minifyCss())
-		.pipe(gulp.dest("dist/css"));
-});
+// gulp.task("minify-lib-css",function(){
+// 	return gulp.src([
+// 			"node_modules/bootstrap/dist/css/bootstrap.min.css",
+// 			"node_modules/font-awesome/css/font-awesome.min.css"
+// 		])
+//     .pipe(concat("lib.min.css"))
+// 		.pipe(minifyCss())
+// 		.pipe(gulp.dest("dist/css"));
+// });
 
+<<<<<<< HEAD
 gulp.task("minify-lib-js",function(){
 	return gulp.src([
 			"node_modules/jquery/dist/jquery.min.js",
@@ -40,13 +42,30 @@ gulp.task("minify-lib-js",function(){
 		// .pipe(uglify())
 		.pipe(gulp.dest("dist/js"));
 });
+=======
+// gulp.task("minify-lib-js",function(){
+// 	return gulp.src([
+// 			"node_modules/jquery/dist/jquery.min.js",
+// 			"node_modules/bootstrap/dist/js/bootstrap.min.js",
+// 			"node_modules/core-js/client/shim.min.js",
+// 			"node_modules/zone.js/dist/zone.js",
+// 			"node_modules/reflect-metadata/Reflect.js",
+// 			"node_modules/systemjs/dist/system.src.js",
+// 			"systemjs.config.js"
+// 		])
+//     .pipe(concat("lib.min.js"))
+// 		.pipe(uglify())
+// 		.pipe(gulp.dest("dist/js"));
+// });
+>>>>>>> upstream/develop
 
 gulp.task("less",function(){
 	return gulp.src(["less/*.less"])
 		.pipe(less())
 		.pipe(gulp.dest("css"));
-})
+});
 
+<<<<<<< HEAD
 gulp.task("minify-ts",function(){
 	return gulp.src(["src/*.ts"])
     .pipe(ts({
@@ -58,9 +77,47 @@ gulp.task("minify-ts",function(){
 });
 
 
-
-gulp.task("watch",  () => {
-   gulp.watch("less/.less",['less']);
+=======
+gulp.task("img",function(){
+	return gulp.src(["img/*"])
+		.pipe(gulp.dest("dist/img"));
 });
 
-gulp.task('default', ['minify-lib-css','minify-css','minify-lib-js','minify-ts']);
+gulp.task("json",function(){
+	return gulp.src(["json/*"])
+		.pipe(gulp.dest("dist/json"));
+});
+
+gulp.task("templates",function(){
+	return gulp.src(["templates/*/*.html"])
+		.pipe(gulp.dest("dist/templates"));
+});
+
+gulp.task("src",function(){
+	return gulp.src(["src/*.ts"])
+		.pipe(gulp.dest("dist/typeScript"));
+});
+>>>>>>> upstream/develop
+
+gulp.task("index",function(){
+	return gulp.src(["index.html"])
+		.pipe(gulp.dest("dist"));
+});
+
+
+// gulp.task("watch",  () => {
+//    gulp.watch("less/.less",['less']);
+// });
+
+// gulp.task('default', []);
+// gulp.task('default', [
+// 	'img',
+// 	'json',
+// 	'index',
+// 	'templates',
+// 	"src",
+// 	"minify-lib-js",
+// 	'minify-lib-css',
+// 	"minify-css",
+// 	"minify-ts"
+// ])

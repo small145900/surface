@@ -260,40 +260,23 @@
                 <div class="choose-repo-div step-div" [ngClass]=" createStep=== 1? 'step-show' : '' ">
                   <h5>Please choose the repository that will trigger the build</h5>
                   <div class="input-group" style="width:90%">
-                    <input type="text" class="input">
+                    <input type="text" class="form-control">
                     <div class="input-group-btn">
-                      <button type="button" class="button dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
+                      <button type="button"  style="height:34px;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                        <li>
-                          <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
-                          <div class="items">
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
-                          </div>
-                        </li>
+                        <li><a href="#">LYY133</a></li>
                         <li class="divider"></li>
-                        <li>
-                          <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
-                          <div class="items">
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
-                          </div>
-                        </li>
+                        <li><a href="#">LYY133</a></li>
                       </ul>
                     </div>
                   </div>
                 </div>
                 
                 <div class="choose-branches-div step-div" [ngClass]=" createStep=== 2? 'step-show' : '' ">
-                  <h5>Repository:<span class="fa fa-user"></span> lyy135/1561653sada</h5>
+                  <h5>Repository:lyy135/1561653sada</h5>
                   <h5>Please choose the branches and tags to which this trigger will</h5>
                   <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-default active">
@@ -307,37 +290,20 @@
 
 
                 <div class="dockfile-location-div step-div" [ngClass]=" createStep=== 3? 'step-show' : '' ">
-                  <h5>Repository:<span class="fa fa-user"></span> lyy135/1561653sada</h5>
+                  <h5>Repository:lyy135/1561653sada</h5>
                   <h5>Branches and Tags: (Build All)</h5>
                   <h6>Dockerfile Location:</h6>
                   <div class="input-group" style="width:90%">
-                    <input type="text" class="input">
+                    <input type="text" class="form-control">
                     <div class="input-group-btn">
-                      <button type="button" class="button dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
+                      <button type="button"  style="height:34px;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
                       <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                        <li>
-                          <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
-                          <div class="items">
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
-                          </div>
-                        </li>
+                        <li><a href="#">LYY133</a></li>
                         <li class="divider"></li>
-                        <li>
-                          <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
-                          <div class="items">
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
-                          </div>
-                        </li>
+                        <li><a href="#">LYY133</a></li>
                       </ul>
                     </div>
                   </div>
@@ -350,8 +316,8 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="ibutton btn-blue" (click)="createBuildNext()">Next</button>
-                <button type="button" class="ibutton btn-cancel" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" (click)="createBuildNext()">Next</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
               </div>
             </div>
           </div>
@@ -385,8 +351,8 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="ibutton btn-danger">Run Trigger Now</button>
-                <button type="button" class="ibutton btn-cancel" data-dismiss="modal">done</button>
+                <button type="button" class="btn btn-danger">Run Trigger Now</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">done</button>
               </div>
             </div>
           </div>
@@ -408,9 +374,9 @@
                   Push to GitHub repository <a href="javascirpt:;" class="btn-link">lyy135/1561653sada</a>
                 </h5>
                 <div class="input-group" style="width:90%">
-                    <input type="text" class="input">
+                    <input type="text" class="form-control">
                     <div class="input-group-btn">
-                      <button type="button" class="button dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
+                      <button type="button"  style="height:34px;" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
                         <span class="caret"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                       </button>
@@ -423,8 +389,8 @@
                   </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="ibutton btn-blue">Start Build</button>
-                <button type="button" class="ibutton btn-cancel" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-info">Start Build</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
               </div>
             </div>
           </div>
