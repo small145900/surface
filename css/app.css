@@ -1788,6 +1788,12 @@ body {
 #access .sign-up .pwd input:focus {
   background: #DFDFDF;
 }
+#access .login .tips {
+  color: #F77462;
+  font-size: 1.4rem;
+  display: inline-block;
+  margin-bottom: 10px;
+}
 #access .ng-untouched,
 #access .ng-valid,
 #access .ng-dirty {
