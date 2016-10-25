@@ -23,6 +23,7 @@ var LoginComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
+        this.userService.changeTitle('login');
     }
     LoginComponent.prototype.ngOnInit = function () { };
     LoginComponent.prototype.activeHover = function (index) {

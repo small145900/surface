@@ -24,6 +24,7 @@ var ContactComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
+        this.userService.changeTitle('contact');
     }
     ContactComponent.prototype.ngOnInit = function () {
         // console.log($('.content')[0].offsetTop)

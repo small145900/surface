@@ -23,6 +23,7 @@ export class ResetPwdComponent implements OnInit {
 	constructor(
 		private router: Router,
 	 	private userService: UserService){
+		this.userService.changeTitle('resetpassword')
 	}
 	
 	ngOnInit(): void {}

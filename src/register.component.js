@@ -30,6 +30,7 @@ var RegisterComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
+        this.userService.changeTitle('register');
     }
     RegisterComponent.prototype.ngOnInit = function () { };
     RegisterComponent.prototype.activeHover = function (index) {

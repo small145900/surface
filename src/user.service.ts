@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
@@ -7,7 +8,10 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class UserService {
   private headers = new Headers({'Content-Type': 'application/json'});
-  constructor(private http: Http){}
+  constructor(
+    private http: Http,
+    private title: Title
+  ){}
   
   getBrowseList(): Promise<any> {
     return this.http.get('json/browseList.json')
@@ -97,5 +101,9 @@ export class UserService {
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg); 
     return Promise.reject(errMsg);
+  }
+
+  changeTitle(val){
+    this.title.setTitle(val)
   }
 }

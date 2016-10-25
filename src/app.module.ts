@@ -1,5 +1,5 @@
 import { NgModule }      from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { ContentModule }  from './content.module';
 
@@ -31,8 +31,6 @@ import { routing } from './app.routing';
   declarations: [ 
   	AppComponent,
     IndexComponent,
-    // HeaderComponent,
-    // FooterComponent,
     LoginComponent,
   	RegisterComponent, 
   	ForgetPwdComponent, 
@@ -41,7 +39,8 @@ import { routing } from './app.routing';
   	ContactComponent
   ],
   providers: [
-    UserService
+    UserService,
+    Title
   ],
   bootstrap: [ AppComponent ]
 })

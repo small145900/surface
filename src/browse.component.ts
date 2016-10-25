@@ -20,6 +20,7 @@ export class BrowseComponent implements OnInit {
 	constructor(
 		private router: Router,
 	 	private userService: UserService){
+		this.userService.changeTitle('browse')
 	}
 
 	ngOnInit(): void {

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
@@ -8,7 +9,10 @@ import { Org } from './org';
 @Injectable()
 export class OrgService {
   private headers = new Headers({'Content-Type':'application/json'})
-  constructor(private http: Http){}
+  constructor(
+    private http: Http,
+    private title: Title
+  ){}
 
   // getOrgList(): Promise<Org[]> {
   //   var arr = [{ name: "small",
@@ -51,4 +55,7 @@ export class OrgService {
   //   return this.getRepoList()
   //              .then(heroes => heroes.find(hero => hero.id === id));
   // }
+  changeTitle(val){
+    this.title.setTitle(val)
+  }
 }

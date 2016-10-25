@@ -24,6 +24,7 @@ export class ContactComponent implements OnInit {
 	constructor(
 		private router: Router,
 	 	private userService: UserService){
+		this.userService.changeTitle('contact')
 	}
 
 	ngOnInit(): void {

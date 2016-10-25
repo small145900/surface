@@ -40,8 +40,6 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent,
                 index_component_1.IndexComponent,
-                // HeaderComponent,
-                // FooterComponent,
                 login_component_1.LoginComponent,
                 register_component_1.RegisterComponent,
                 forgetPassword_component_1.ForgetPwdComponent,
@@ -50,7 +48,8 @@ var AppModule = (function () {
                 contact_component_1.ContactComponent
             ],
             providers: [
-                user_service_1.UserService
+                user_service_1.UserService,
+                platform_browser_1.Title
             ],
             bootstrap: [app_component_1.AppComponent]
         }), 
