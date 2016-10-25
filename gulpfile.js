@@ -30,6 +30,13 @@ gulp.task("lib-css",function(){
 		.pipe(gulp.dest("dist/css"));
 });
 
+gulp.task("fonts",function(){
+	return gulp.src('node_modules/font-awesome/fonts/*')
+    .pipe(concat("lib.min.css"))
+		.pipe(minifyCss())
+		.pipe(gulp.dest("dist/css/fonts"));
+});
+
 gulp.task("img",function(){
 	return gulp.src(["img/*"])
 		.pipe(gulp.dest("dist/img"));
@@ -84,5 +91,6 @@ gulp.task('default', [
 	'index',
 	'lib-css',
 	'minify-css',
+	'fonts',
 	'lib'
 ])
