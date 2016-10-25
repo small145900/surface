@@ -1788,7 +1788,7 @@ body {
 #access .sign-up .pwd input:focus {
   background: #DFDFDF;
 }
-#access .login .tips {
+#access .tips {
   color: #F77462;
   font-size: 1.4rem;
   display: inline-block;
@@ -2067,4 +2067,35 @@ body {
   }
 }
 /* sign in & sign up end */
+/* register email start */
+#registerEmail {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+  text-align: center;
+}
+#registerEmail img {
+  width: 300px;
+  height: auto;
+}
+#registerEmail .text {
+  font-size: 1.8rem;
+  color: #2f5eac;
+  margin: 30px auto 40px;
+}
+#registerEmail .do-login {
+  padding: 12px 35px;
+  background: #3DA1E5;
+  color: #eee;
+  font-size: 2rem;
+  border-radius: 5px;
+}
+#registerEmail .verticl {
+  width: 100%;
+  min-height: 240px;
+  position: relative;
+  top: calc((100% - 340px) / 2);
+  top: -webkit-calc((100% - 340px) / 2);
+}
+/* register email end */
 /*# sourceMappingURL=app.css.map */

@@ -2100,7 +2100,7 @@ body {
 	background: @gray; 
 }
 
-#access .login .tips {
+#access .tips {
 	color: @orange;
 	font-size: @tinySize;
 	display: inline-block;
@@ -2392,3 +2392,39 @@ body {
 	}
 }
 /* sign in & sign up end */
+
+/* register email start */ 
+#registerEmail {
+	width: 100%;
+	height: 100%;
+	background: @registerEmailWhite;
+	text-align: center;
+}
+
+#registerEmail img {
+	width: 300px;
+	height: auto;
+}
+
+#registerEmail .text {
+	font-size: @baseSize;
+	color: @registerEmailBlue;
+	margin: 30px auto 40px;
+}
+
+#registerEmail .do-login {
+	padding: 12px 35px;
+	background: @baseBlue;
+	color: @registerEmailWhite;
+	font-size: @smallSize;
+	border-radius: @smallRadius;
+}
+
+#registerEmail .verticl {
+	width: 100%;
+	min-height: 240px;
+	position: relative;
+	top: e("calc((100% - 340px) / 2)");
+	top: e("-webkit-calc((100% - 340px) / 2)");	
+}
+/* register email end */ 

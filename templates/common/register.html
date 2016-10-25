@@ -9,20 +9,20 @@
         <small class="tips" *ngIf="isTips.otherError">username is required</small>
         <span class="space user">
           <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" autocomplete="off" (change)="tips('username',false)">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-user"></i><br/>
+          <small class="tips" *ngIf="isTips.username">username is required</small>
         </span>
-        <small class="tips" *ngIf="isTips.username">username is required</small>
         <span class="space user">
           <input type="text" placeholder="email" [(ngModel)]="user.email" name="email" autocomplete="off" (change)="tips('username',false)">
-          <i class="fa fa-envelope"></i>
+          <i class="fa fa-envelope"></i><br/>
+          <small class="tips" *ngIf="isTips.email">email is required</small><br/>
+          <small class="tips" *ngIf="isTips.isEmailRight">invalid email</small>
         </span>
-        <small class="tips" *ngIf="isTips.email">email is required</small>
-        <small class="tips" *ngIf="isTips.isEmailRight">invalid email</small>
         <span class="space pwd">
           <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off" (change)="tips('username',false)">
-          <i class="fa fa-lock"></i>
+          <i class="fa fa-lock"></i><br/>
+          <small class="tips" *ngIf="isTips.password">password is required</small>
         </span>
-        <small class="tips" *ngIf="isTips.password">password is required</small>
         <button class="space sign-in" (click)="signUp()">Sign Up</button>
       </div>
     </div>
