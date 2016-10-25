@@ -31,10 +31,11 @@ gulp.task("lib-css",function(){
 });
 
 gulp.task("fonts",function(){
-	return gulp.src('node_modules/font-awesome/fonts/*')
-    .pipe(concat("lib.min.css"))
-		.pipe(minifyCss())
-		.pipe(gulp.dest("dist/css/fonts"));
+	return gulp.src([
+			'node_modules/font-awesome/fonts/*',
+			'node_modules/bootstrap/dist/fonts/*'
+		])
+		.pipe(gulp.dest("dist/fonts"));
 });
 
 gulp.task("img",function(){

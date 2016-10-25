@@ -295,7 +295,7 @@ body {
   color: #fff;
 }
 #nav .user > li > a {
-  padding: 0 5px;
+  padding: 0 6px;
 }
 #nav .menu .logo,
 #nav .menu .logo:hover,
@@ -318,7 +318,7 @@ body {
 }
 #nav .user > li > a {
   display: inline-block;
-  padding: 0 3px;
+  padding: 0 6px;
 }
 #nav .user > li {
   height: 44px;
@@ -351,7 +351,7 @@ body {
   width: 250px;
   background: #C0C0C0;
   position: absolute;
-  top: 49px;
+  top: 50px;
   right: 0px;
   z-index: 10000;
   display: none;
@@ -385,10 +385,13 @@ body {
 }
 @media screen and (max-width: 700px) {
   #nav .menu-rt {
-    width: 32%;
+    width: 25%;
+  }
+  #nav .menu-rt .add {
+    display: none;
   }
   #nav .menu {
-    width: 68%;
+    width: 75%;
   }
   #nav .menu .logo a {
     margin-right: 15px;
@@ -410,9 +413,6 @@ body {
   #nav .menu {
     width: 80%;
   }
-  #nav .user > li > a {
-    padding: 0 3px;
-  }
   #nav .menu .logo a {
     margin-right: 10px;
   }
@@ -422,12 +422,12 @@ body {
     margin-right: 0;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 485px) {
   #nav .menu {
-    width: 77%;
+    width: 100%;
   }
   #nav .menu-rt {
-    width: 23%;
+    display: none;
   }
   #nav .menu li a {
     padding: 0 7px;
@@ -773,56 +773,53 @@ body {
 }
 /* repo create end */
 /* repo detail start */
-input, textarea{
-  background-color:#f1f1f1;
+input,
+textarea {
+  background-color: #f1f1f1;
 }
-
-#repoDetail .table>tbody>tr>td, 
-#repoDetail .table>tbody>tr>th, 
-#repoDetail .table>tfoot>tr>td, 
-#repoDetail .table>tfoot>tr>th, 
-#repoDetail .table>thead>tr>td, 
-#repoDetail .table>thead>tr>th{
-  padding:8px 30px;
+#repoDetail .table > tbody > tr > td,
+#repoDetail .table > tbody > tr > th,
+#repoDetail .table > tfoot > tr > td,
+#repoDetail .table > tfoot > tr > th,
+#repoDetail .table > thead > tr > td,
+#repoDetail .table > thead > tr > th {
+  padding: 8px 30px;
 }
-
-#repoDetail .dropdown-menu .user-name{
-  padding:5px 12px;
-  color:#999;
+#repoDetail .dropdown-menu .user-name {
+  padding: 5px 12px;
+  color: #999;
 }
-
-#repoDetail .dropdown-menu .items>a{
-  padding:5px 24px;
-  display:block;
+#repoDetail .dropdown-menu .items > a {
+  padding: 5px 24px;
+  display: block;
 }
-#repoDetail .dropdown-menu .items>a:hover{
-  background-color:#2682c1;
-  color:#fff;
+#repoDetail .dropdown-menu .items > a:hover {
+  background-color: #2682c1;
+  color: #fff;
 }
-#repoDetail .dropdown-menu .divider{
-  background-color:#adadad;
+#repoDetail .dropdown-menu .divider {
+  background-color: #adadad;
 }
-
-#repoDetail .btn-group .btn{
-  box-shadow: 1px 1px 4px rgba(0,0,0,.3);
-  -webkit-box-shadow:1px 1px 4px rgba(0,0,0,.3);
-  margin-left:0;
-  border:0;
-  outline:none;
-  background-image:-webkit-gradient(linear,0 0,0 100%,from(#f1f1f1),to(#e6e6e6));
-  background-image:-webkit-linear-gradient(top,#f1f1f1,#e6e6e6);
-  background-image:linear-gradient(to bottom,#f1f1f1,#e6e6e6);
+#repoDetail .btn-group .btn {
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+  margin-left: 0;
+  border: 0;
+  outline: none;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f1f1f1), to(#e6e6e6));
+  background-image: -webkit-linear-gradient(top, #f1f1f1, #e6e6e6);
+  background-image: linear-gradient(to bottom, #f1f1f1, #e6e6e6);
 }
-#repoDetail .btn-group .btn.active{
-  box-shadow: inset 3px 3px 6px rgba(0,0,0,.2);
-  -webkit-box-shadow:inset 3px 3px 6px rgba(0,0,0,.2);
-  background:#f77462;
-  color:#fff;
+#repoDetail .btn-group .btn.active {
+  box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.2);
+  background: #f77462;
+  color: #fff;
 }
-#repoDetail .alert-warning{
-  background-color:#d9eeed;
-  border-color:#b4d0cf;
-  color:#5b8a90;
+#repoDetail .alert-warning {
+  background-color: #d9eeed;
+  border-color: #b4d0cf;
+  color: #5b8a90;
 }
 #repoDetail .header {
   padding-top: 8px;
@@ -1078,75 +1075,69 @@ input, textarea{
   top: 9px;
   color: #9f9f9f;
 }
-
-
-#repoDetail button.close{
-  width:30px;
-  border-radius:0 4px 0 0;
-  margin-top:-1px;
-  position:absolute;
-  right:0;
-  top:0;
-  bottom:0;
+#repoDetail button.close {
+  width: 30px;
+  border-radius: 0 4px 0 0;
+  margin-top: -1px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
-
-#repoDetail button.close:hover{
-  background-color:#565656;
-  opacity:1;
-  color:#fff;
+#repoDetail button.close:hover {
+  background-color: #565656;
+  opacity: 1;
+  color: #fff;
 }
-#repoDetail .modal-footer{
-  border:0;
+#repoDetail .modal-footer {
+  border: 0;
 }
-
-#repoDetail .modal-header{
-  border-bottom:2px solid #565656;
-  position:relative;
+#repoDetail .modal-header {
+  border-bottom: 2px solid #565656;
+  position: relative;
 }
-#repoDetail .modal-body{
-  padding:15px 38px;
+#repoDetail .modal-body {
+  padding: 15px 38px;
 }
-#repoDetail .modal-content{
-  background-color:#f1f1f1;
+#repoDetail .modal-content {
+  background-color: #f1f1f1;
 }
-#repoDetail .input-group .input{
-  border:1px solid #9f9f9f;
-  width:100%;
-  padding:6px 12px;
-  border-radius:4px 0 0 4px;
+#repoDetail .input-group .input {
+  border: 1px solid #9f9f9f;
+  width: 100%;
+  padding: 6px 12px;
+  border-radius: 4px 0 0 4px;
 }
-#repoDetail .input-group .button{
-  padding:15px;
-  background-color:#9f9f9f;
-  border-radius:0 4px 4px 0;
-  color:#f1f1f1;
+#repoDetail .input-group .button {
+  padding: 15px;
+  background-color: #9f9f9f;
+  border-radius: 0 4px 4px 0;
+  color: #f1f1f1;
 }
-#repoDetail .ibutton{
-  padding:6px 18px;
-  border-radius:4px;
-  cursor:pointer;
+#repoDetail .ibutton {
+  padding: 6px 18px;
+  border-radius: 4px;
+  cursor: pointer;
 }
-#repoDetail .btn-blue{
-  background-color:#3da1e5;
-  border:1px solid #3da1e5;
-  color:#fff;
+#repoDetail .btn-blue {
+  background-color: #3da1e5;
+  border: 1px solid #3da1e5;
+  color: #fff;
 }
-#repoDetail .btn-cancel{
-  background:none;
-  border:1px solid #9f9f9f;
-  color:#9f9f9f;
+#repoDetail .btn-cancel {
+  background: none;
+  border: 1px solid #9f9f9f;
+  color: #9f9f9f;
 }
-#repoDetail .btn-danger{
-  background-color:#f77462;
-  border:1px solid #f77462;
-  color:#fff;
+#repoDetail .btn-danger {
+  background-color: #f77462;
+  border: 1px solid #f77462;
+  color: #fff;
 }
-
-.modal-footer .ibutton+.ibutton{
-  margin-bottom:0;
+.modal-footer .ibutton + .ibutton {
+  margin-bottom: 0;
   margin-left: 10px;
 }
-
 /* repo detail end */
 /* org list start */
 #orgList,
