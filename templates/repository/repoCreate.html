@@ -25,15 +25,36 @@
           </li>
         </ul>
         <div class="col-xs-12 col-md-6 info">
-          <p class="mar-bt-twenty clear-gap">
-            <select [(ngModel)]="repo.username" name="username" (focus)="changeStep(1)">
+          <div class="mar-bt-twenty clear-gap">
+            <span class="select" type="button">
+              <i class="fa fa-caret-down"></i>
+            </span>
+            <!-- <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+              <li (click)="getUserName('dockyard')">dockyard</li>
+              <li (click)="getUserName('surface')">surface</li>
+            </ul> -->
+
+
+
+            <!-- <button class="dropdown-toggle" type="button" id="teamName" data-toggle="dropdown" (click)="changeStep(1)">
+              
+            </button>
+            <span>
+              dfsfsdf
+              <i class=""></i>
+            </span> -->
+            <!-- <ul class="dropdown-menu" aria-labelledby="teamName">
+              <li (click)="getUserName('dockyard')">dockyard</li>
+              <li (click)="getUserName('surface')">surface</li>
+            </ul> -->
+            <!-- <select [(ngModel)]="repo.username" name="username" (focus)="changeStep(1)">
               <option value="1">dockyard</option>
               <option value="2">surface</option>
-            </select>
-            <input type="text" placeholder="name"  (focus)="changeStep(2)" [(ngModel)]="repo.repository" name="repository"/>
-          </p>
+            </select> -->
+            <input type="text" placeholder="name" [(ngModel)]="repo.repository" name="repository" (focus)="changeStep(2)"/>
+          </div>
           <p class="mar-bt-twenty">
-            <input type="text" placeholder="short descript"  (focus)="changeStep(3)" [(ngModel)]="repo.short" name="short"/>
+            <input type="text" placeholder="short descript" (focus)="changeStep(3)" [(ngModel)]="repo.short" name="short"/>
           </p>
           <textarea placeholder="full descript" (focus)="changeStep(4)" [(ngModel)]="repo.description" name="description"></textarea>
           <div class="visible-type">

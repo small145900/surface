@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
 	constructor(
 		private router: Router,
 	 	private userService: UserService){
+		this.userService.changeTitle('login')
 	}
 
 	ngOnInit(): void {}

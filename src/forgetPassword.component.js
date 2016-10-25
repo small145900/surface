@@ -24,6 +24,7 @@ var ForgetPwdComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
+        this.userService.changeTitle('forgetpassword');
     }
     ForgetPwdComponent.prototype.ngOnInit = function () { };
     ForgetPwdComponent.prototype.activeHover = function (index) {

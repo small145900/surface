@@ -8,8 +8,10 @@ a {
 }
 a,
 a:hover,
-a:active {
+a:active,
+a:focus {
   text-decoration: none !important;
+  outline: none;
 }
 ul {
   list-style: none;
@@ -752,16 +754,27 @@ body {
 #newRepo .clear-gap {
   font-size: 0;
 }
-#newRepo select {
+#newRepo .select {
   width: 42%;
-  padding: 12px;
+  padding: 22px 12px 22px;
   background: #d7d7d7;
   color: #DFDFDF;
   margin-right: 3%;
   border-radius: 5px;
   font-size: 12px;
+  display: inline-block;
+  box-shadow: 1px 1px 1px #b4b3b3 inset;
+  position: relative;
+  vertical-align: top;
 }
-#newRepo select + input {
+#newRepo .select i {
+  position: absolute;
+  right: 10px;
+  top: 12px;
+  color: #fff;
+  font-size: 2rem;
+}
+#newRepo .select + input {
   width: 55%;
 }
 #newRepo option {

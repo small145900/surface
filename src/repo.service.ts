@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/catch';
@@ -8,7 +9,10 @@ import { Repo } from './repo';
 @Injectable()
 export class RepoService {
   private headers = new Headers({'Content-Type':'application/json'})
-  constructor(private http: Http){}
+  constructor(
+    private http: Http,
+    private title: Title
+  ){}
   
   getRepoList(orgInfo): Promise<Repo[]> {
     return this.http.get('json/repoList.json')
@@ -34,5 +38,8 @@ export class RepoService {
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg); 
     return Promise.reject(errMsg);
+  }
+  changeTitle(val){
+    this.title.setTitle(val)
   }
 }

@@ -9,12 +9,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 require('rxjs/add/operator/catch');
 var RepoService = (function () {
-    function RepoService(http) {
+    function RepoService(http, title) {
         this.http = http;
+        this.title = title;
         this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
     }
     RepoService.prototype.getRepoList = function (orgInfo) {
@@ -39,9 +41,12 @@ var RepoService = (function () {
         console.error(errMsg);
         return Promise.reject(errMsg);
     };
+    RepoService.prototype.changeTitle = function (val) {
+        this.title.setTitle(val);
+    };
     RepoService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, platform_browser_1.Title])
     ], RepoService);
     return RepoService;
 }());

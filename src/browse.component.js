@@ -21,6 +21,7 @@ var BrowseComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
+        this.userService.changeTitle('browse');
     }
     BrowseComponent.prototype.ngOnInit = function () {
         var _this = this;

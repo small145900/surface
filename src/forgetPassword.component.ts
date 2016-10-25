@@ -23,6 +23,7 @@ export class ForgetPwdComponent implements OnInit {
 	constructor(
 		private router: Router,
 	 	private userService: UserService){
+		this.userService.changeTitle('forgetpassword')
 	}
 
 	ngOnInit(): void {}
