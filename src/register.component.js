@@ -15,6 +15,13 @@ var RegisterComponent = (function () {
     function RegisterComponent(router, userService) {
         this.router = router;
         this.userService = userService;
+        this.isTips = {
+            username: false,
+            email: false,
+            isEmailRight: false,
+            password: false,
+            otherError: false
+        };
         this.user = {
             username: '',
             email: '',
@@ -44,23 +51,29 @@ var RegisterComponent = (function () {
                     sessionStorage.setItem("username", user.username);
                 }
                 else {
-                    alert(res.message);
+                    _this.tips('otherError', true);
+                    setTimeout(function () {
+                        this.tips('otherError', false);
+                    }, 3000);
                 }
             }, function (error) { return _this.errorMsg = error; });
         }
         else if (!user.username) {
-            alert('please input username');
+            this.tips('username', true);
         }
         else if (!user.password) {
-            alert('please input password');
+            this.tips('password', true);
         }
         else if (!user.email) {
-            alert('please input email');
+            this.tips('email', true);
         }
         else if (!(user.email && user.email.indexOf('@') !== -1)) {
-            alert('please input correct email');
+            this.tips('isEmailRight', true);
         }
         // this.router.navigate(['repositories']);
+    };
+    RegisterComponent.prototype.tips = function (name, val) {
+        this.isTips[name] = val;
     };
     RegisterComponent = __decorate([
         core_1.Component({

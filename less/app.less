@@ -60,6 +60,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 	background: @bodyGray;
 }
 
+.bg-white {
+	background: @white;
+}
+
 .mar-tp-no {
 	margin-top: 0;
 }
@@ -104,6 +108,10 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 .mar-t-twenty {
 	margin-top: 20px;
+}
+
+.mar-t-thirty {
+	margin-top: 30px;
 }
 
 .mar-bt-twenty {
@@ -943,10 +951,6 @@ body {
 /* repo create end */
 
 /* repo detail start */ 
-input, textarea{
-  background-color:#f1f1f1;
-}
-
 #repoDetail .table>tbody>tr>td, 
 #repoDetail .table>tbody>tr>th, 
 #repoDetail .table>tfoot>tr>td, 
@@ -954,6 +958,11 @@ input, textarea{
 #repoDetail .table>thead>tr>td, 
 #repoDetail .table>thead>tr>th{
   padding:8px 30px;
+  font-size: @baseSize;
+}
+
+#repoDetail .table .title {
+	font-size: @smallSize;
 }
 
 #repoDetail .dropdown-menu .user-name{
@@ -979,9 +988,9 @@ input, textarea{
   margin-left:0;
   border:0;
   outline:none;
-  background-image:-webkit-gradient(linear,0 0,0 100%,from(#f1f1f1),to(#e6e6e6));
-  background-image:-webkit-linear-gradient(top,#f1f1f1,#e6e6e6);
-  background-image:linear-gradient(to bottom,#f1f1f1,#e6e6e6);
+  background-image:-webkit-gradient(linear,0 0,0 100%,from(@triggerWhite),to(#e6e6e6));
+  background-image:-webkit-linear-gradient(top,@triggerWhite,#e6e6e6);
+  background-image:linear-gradient(to bottom,@triggerWhite,#e6e6e6);
 }
 #repoDetail .btn-group .btn.active{
   box-shadow: inset 3px 3px 6px rgba(0,0,0,.2);
@@ -997,25 +1006,24 @@ input, textarea{
 #repoDetail .header {
   padding-top: 8px;
   padding-bottom: 8px;
+  margin: 10px auto;
 }
 #repoDetail .fa-star {
   cursor: pointer;
 }
 #repoDetail .header .repo-name {
-  font-size: 15px;
-  color: #191919;
+  font-size: @smallSize;
 }
 #repoDetail .header .repo-user {
-  color: #667a9c;
-  font-size: 20px;
-  padding: 6px 0;
+  color: @repoNamelBlue;
+  font-size: @middleSize;
 }
 #repoDetail .header .repo-status {
-  color: #878787;
-  font-size: 14px;
+  color: @modifyGray;
+  font-size: @baseSize;
 }
 #repoDetail .repo-nav {
-  background-color: #CCCCCC;
+  background-color: @userNavGray;
 }
 #repoDetail .clear-padding-left {
   padding-left: 0;
@@ -1038,7 +1046,7 @@ input, textarea{
   border: 0;
 }
 .repo-content {
-  background-color: #dedede;
+  background-color: @outLetGray;
   height: 100%;
 }
 .bast-info {
@@ -1048,6 +1056,7 @@ input, textarea{
 .bast-info h5 {
   padding: 2px 10px;
   position: relative;
+  font-size: @smallSize;
 }
 .bast-info h5 .fa-pencil {
   position: absolute;
@@ -1067,48 +1076,48 @@ input, textarea{
 }
 .bast-info textarea {
   resize: none;
-  border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
   padding: 5px 10px;
-  font-size: 14px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  box-shadow: 1px 1px 1px @insetBlack inset;
+  background: @userFormWhite;
 }
 .bast-info textarea.pull-command-text {
-  border-bottom-color: #d46354;
-  border-bottom-width: 2px;
+  border-bottom: 2px solid @orange;
+  background: @userFormWhite;
 }
 .bast-info .make-public {
-  float: right;
-  display: inline-block;
-  width: 182px;
+  // float: right;
+  // display: inline-block;
+  // width: 182px;
 }
 .bast-info .make-public-btn {
-  background-color: #3da1e5;
+  background-color: @baseBlue;
   width: 100%;
-  display: inline-block;
   text-align: center;
-  color: #fff;
+  color: @white;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-radius: 4px;
+  border-radius: @smallRadius;
 }
 .bast-info .make-public-h5 {
   padding-left: 0;
   padding-right: 0;
 }
 .bast-info .delete-repo-btn {
-  background-color: #c39287;
-  width: 182px;
-  display: inline-block;
+  background-color: @repoDelOrange;
+  width: 100%;
   text-align: center;
-  color: #f7f7f7;
+  color: @white;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-radius: 4px;
-  position: absolute;
-  right: 0;
-  bottom: 15px;
+  border-radius: @smallRadius;
+ 	margin-top: 145px;
+}
+@media screen and (max-width: 1000px) {
+	.bast-info .delete-repo-btn {
+		margin-top: 30px;
+	}
 }
 #tags {
   padding-top: 30px;
@@ -1120,16 +1129,16 @@ input, textarea{
   color: #a9200d;
 }
 #collaborators .left-block {
-  padding: 0;
-  width: 60%;
-  float: left;
-  display: inline-block;
+  // padding: 0;
+  // width: 60%;
+  // float: left;
+  // display: inline-block;
 }
 #collaborators .right-block {
-  padding: 0;
-  width: 35%;
-  float: right;
-  display: inline-block;
+  // padding: 0;
+//   width: 35%;
+//   float: right;
+//   display: inline-block;
 }
 #collaborators .right-block h5 {
   padding-left: 8px;
@@ -1198,7 +1207,7 @@ input, textarea{
 }
 #buildTriggers ul {
   white-space: nowrap;
-  background-color: #dedede;
+  background-color: @outLetGray;
 }
 #buildTriggers ul li a {
   padding: 5px 12px;
@@ -1216,12 +1225,12 @@ input, textarea{
   border-radius: 6px 0 0 0;
 }
 .create-repo-nav > span.active {
-  background-color: #565656;
+  background-color: @triggerNavGray;
   color: #fff;
 }
 .create-repo-modal .modal-header {
   padding: 0;
-  border-bottom: 2px solid #565656;
+  border-bottom: 2px solid @triggerNavGray;
 }
 .info-circle {
   color: #4c7fcd;
@@ -1246,10 +1255,15 @@ input, textarea{
   position: absolute;
   right: 5px;
   top: 9px;
-  color: #9f9f9f;
+  color: @triggerDropGray;
 }
 
-
+#repoDetail {
+	width: 100%;
+	height: e("calc(100% - 50px)");
+	height: e("-webkit-calc(100% - 50px)");
+	background: @outLetGray;
+}
 #repoDetail button.close{
   width:30px;
   border-radius:0 4px 0 0;
@@ -1261,7 +1275,7 @@ input, textarea{
 }
 
 #repoDetail button.close:hover{
-  background-color:#565656;
+  background-color:@triggerNavGray;
   opacity:1;
   color:#fff;
 }
@@ -1270,45 +1284,56 @@ input, textarea{
 }
 
 #repoDetail .modal-header{
-  border-bottom:2px solid #565656;
+  border-bottom:2px solid @triggerNavGray;
   position:relative;
 }
 #repoDetail .modal-body{
   padding:15px 38px;
 }
 #repoDetail .modal-content{
-  background-color:#f1f1f1;
+  background-color:@triggerWhite;
+}
+#repoDetail .modal-content .title {
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	position: relative;
+	text-align: left;
+	padding-left: 12px;
 }
 #repoDetail .input-group .input{
-  border:1px solid #9f9f9f;
+  border:1px solid @triggerDropGray;
   width:100%;
   padding:6px 12px;
   border-radius:4px 0 0 4px;
+  background: @triggerWhite;
 }
 #repoDetail .input-group .button{
-  padding:15px;
-  background-color:#9f9f9f;
-  border-radius:0 4px 4px 0;
-  color:#f1f1f1;
+  padding:17px 15px 18px;
+  background-color:@triggerDropGray;
+  border-radius:0 @smallRadius @smallRadius 0;
+  color:@triggerWhite;
 }
 #repoDetail .ibutton{
-  padding:6px 18px;
-  border-radius:4px;
+  border-radius:@smallRadius;
   cursor:pointer;
+	width: 110px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
 }
 #repoDetail .btn-blue{
-  background-color:#3da1e5;
-  border:1px solid #3da1e5;
-  color:#fff;
+  background: @baseBlue;
+  border: 1px solid @baseBlue;
+  color: @white;
 }
 #repoDetail .btn-cancel{
   background:none;
-  border:1px solid #9f9f9f;
-  color:#9f9f9f;
+  border: 1px solid @triggerDropGray;
+  color:@triggerDropGray;
 }
 #repoDetail .btn-danger{
-  background-color:#f77462;
-  border:1px solid #f77462;
+  background-color: @orange;
   color:#fff;
 }
 
@@ -2037,7 +2062,7 @@ input, textarea{
 }
 
 #access .login-content {
-	width: 300px;
+	width: 350px;
 	margin: 0 auto;
 	padding-top: 150px;
 }
@@ -2073,6 +2098,13 @@ input, textarea{
 #access .login .user, #access .login .pwd, #access .login .user input:focus, #access .login .pwd input:focus,
 #access .sign-up .user, #access .sign-up .pwd, #access .sign-up .user input:focus, #access .sign-up .pwd input:focus {
 	background: @gray; 
+}
+
+#access .login .tips {
+	color: @orange;
+	font-size: @tinySize;
+	display: inline-block;
+	margin-bottom: 10px;
 }
 
 #access .ng-untouched, #access .ng-valid, #access .ng-dirty {

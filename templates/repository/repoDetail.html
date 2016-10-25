@@ -1,444 +1,430 @@
 <div id="repoDetail">
-  <div class="header container">
-      <div class="repo-name">Private Repository</div>
-      <div class="repo-user">{{repoInfo.repoName}} <span class="fa fa-star"></span></div>
-      <div class="repo-status">Last pushed: Never</div>
-  </div>
-  <div class="repo-nav">
-      <div class="container">
-          <ul class="nav nav-tabs nav-justified" role="tablist">
-            <li role="presentation" class="active"><a href="#bastInfo" id="bastInfo-tab" role="tab" data-toggle="tab" aria-controls="bastInfo" aria-expanded="true">Bast Info</a></li>
-            <li role="presentation" class=""><a href="#tags" role="tab" id="tags-tab" data-toggle="tab" aria-controls="tags" aria-expanded="false">Tags</a></li>
-
-            <li role="presentation"><a href="#collaborators" role="tab" id="collaborators-tab" aria-controls="collaborators" data-toggle="tab" aria-expanded="false" >Collaborators</a></li>
-
-            <li role="presentation"><a href="#buildHistory" role="tab" aria-controls="buildHistory" aria-expanded="false" id="buildHistory-tag" data-toggle="tab">Build History</a></li>
-            <li role="presentation"><a href="#buildTriggers" role="tab" aria-controls="buildTriggers" aria-expanded="false" id="buildTriggers-tag" data-toggle="tab">Build Triggers</a></li>
-
-            
-          </ul>
+  <div class="row bg-white">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <div class="header">
+        <div class="repo-name">Private Repository</div>
+        <div class="repo-user">{{repoInfo.repoName}} <span class="fa fa-star"></span></div>
+        <div class="repo-status">Last pushed: Never</div>
       </div>
+    </div>
   </div>
+  <div class="row repo-nav">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+      <ul class="nav nav-tabs nav-justified" role="tablist">
+        <li role="presentation" class="active"><a href="#bastInfo" id="bastInfo-tab" role="tab" data-toggle="tab" aria-controls="bastInfo" aria-expanded="true">Bast Info</a></li>
+        <li role="presentation" class=""><a href="#tags" role="tab" id="tags-tab" data-toggle="tab" aria-controls="tags" aria-expanded="false">Tags</a></li>
 
-  <div class="repo-content">
-    <div class="container tab-content">
-      
-      <!-- BastInfo start-->
-      <div role="tabpanel" id="bastInfo" aria-labelledby="bastInfo-tag" class="bast-info row tab-pane fade active in">
-  
-        <div class="col-md-8 clear-padding-left">
-          <div class="form-group">
-            <h5>OpsHub Pull Command</h5>
-            <textarea class="pull-command-text" rows="3" readonly="readonly">OpsHub Pull Lyy/123456789456488</textarea>
-            
-          </div>
+        <li role="presentation"><a href="#collaborators" role="tab" id="collaborators-tab" aria-controls="collaborators" data-toggle="tab" aria-expanded="false" >Collaborators</a></li>
 
-          <div class="form-group">
-            <h5>Short Description <span class="fa fa-pencil"></span></h5>
-            <textarea rows="3" readonly="readonly">Short Description Short Description  Short Description Short De</textarea>
-            <input type="button" value="OK" class="ok-btn" />
-          </div>
-
-          <div class="form-group">
-            <h5>Full Description <span class="fa fa-pencil"></span></h5>
-            <textarea rows="3" readonly="readonly">Full Description</textarea>
-            <input type="button" value="OK" class="ok-btn" />
+        <li role="presentation"><a href="#buildHistory" role="tab" aria-controls="buildHistory" aria-expanded="false" id="buildHistory-tag" data-toggle="tab">Build History</a></li>
+        <li role="presentation"><a href="#buildTriggers" role="tab" aria-controls="buildTriggers" aria-expanded="false" id="buildTriggers-tag" data-toggle="tab">Build Triggers</a></li>   
+      </ul>
+    </div>
+  </div>
+  <div class="tab-content user-content">
+    <div class="tab-pane active bast-info" id="bastInfo">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-xs-12">
+          <div class="row">
+            <div class="col-xs-12 col-md-8 pad-no">
+              <div class="form-group">
+                <h5>OpsHub Pull Command</h5>
+                <textarea class="pull-command-text" rows="3" readonly="readonly">OpsHub Pull Lyy/123456789456488</textarea>
+              </div>
+              <div class="form-group mar-t-thirty">
+                <h5>Short Description <span class="fa fa-pencil"></span></h5>
+                <textarea rows="3" readonly="readonly">Short Description Short Description  Short Description Short De</textarea>
+                <input type="button" value="OK" class="ok-btn" />
+              </div>
+              <div class="form-group mar-t-thirty">
+                <h5>Full Description <span class="fa fa-pencil"></span></h5>
+                <textarea rows="3" readonly="readonly">Full Description</textarea>
+                <input type="button" value="OK" class="ok-btn" />
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-3 col-md-offset-1 pad-no">
+              <div class="make-public">
+                <h5 class="make-public-h5">Make this Repository Public</h5>
+                <input type="button" class="make-public-btn" value="Make public" />
+              </div>  
+              <input type="button" class="delete-repo-btn" value="Delete Repository" />
+            </div>
           </div>
         </div>
-        
-        <div class="" >
-         
-          <div class="make-public">
-            <h5 class="make-public-h5">Make this Repository Public</h5>
-            <input type="button" class="make-public-btn" value="Make public" />
-          </div>  
-         
-          <input type="button" class="delete-repo-btn" value="Delete Repository" />
-
-        </div>
-
       </div>
-      <!-- BastInfo end-->
-  
-      
-      <!-- Tags start-->
-      <div role="tabpanel" class="tab-pane fade" id="tags" aria-labelledby="tags-tab">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Tag</th>
-              <th>Image</th>
-              <th>Size</th>
-              <th>Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="javascript:;">v0.0.1</a></td>
-              <td>lyy132646</td>
-              <td>15691</td>
-              <td>2015.5.5</td>
-            </tr>
-            <tr>
-              <td><a href="javascript:;">v0.0.2</a></td>
-              <td>lyy132646</td>
-              <td>15691</td>
-              <td>2015.5.5</td>
-            </tr>
-            <tr>
-              <td><a href="javascript:;">v0.0.3</a></td>
-              <td>lyy132646</td>
-              <td>15691</td>
-              <td>2015.5.5</td>
-            </tr>
-
-          </tbody>
-        </table>
-      </div>
-      <!-- Tags end-->
-
-
-      <!-- Collaborators start-->
-      <div role="tabpanel" class="tab-pane fade" id="collaborators" aria-labelledby="collaborators-tab">
-        <div class="row">
-          <div class="left-block">
-            <table class="table table-striped">
+    </div>
+    <div class="tab-pane" id="tags">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-xs-12">
+          <div class="row">
+             <table class="col-xs-12 table table-striped">
               <thead>
-                <tr>
-                  <th>UserName</th>
-                  <th>Access</th>
-                  <th>Action</th>
+                <tr class="title">
+                  <th>Tag</th>
+                  <th>Image</th>
+                  <th>Size</th>
+                  <th>Time</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><a href="javascript:;">lyy132646</a></td>
-                  <td>Collaborator</td>
-                  <td><span class="remove">Remove</span></td>
+                  <td><a href="javascript:;">v0.0.1</a></td>
+                  <td>lyy132646</td>
+                  <td>15691</td>
+                  <td>2015.5.5</td>
                 </tr>
                 <tr>
-                  <td><a href="javascript:;">lyy132646</a></td>
-                  <td>Collaborator</td>
-                  <td><span class="remove">Remove</span></td>
+                  <td><a href="javascript:;">v0.0.2</a></td>
+                  <td>lyy132646</td>
+                  <td>15691</td>
+                  <td>2015.5.5</td>
                 </tr>
                 <tr>
-                  <td><a href="javascript:;">lyy132646</a></td>
-                  <td>Collaborator</td>
-                  <td><span class="remove">Remove</span></td>
+                  <td><a href="javascript:;">v0.0.3</a></td>
+                  <td>lyy132646</td>
+                  <td>15691</td>
+                  <td>2015.5.5</td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="right-block">
-              <h5>Add User</h5>
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Username">
-                <span class="input-group-addon"><i class="fa fa-plus"></i></span>
-              </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane" id="collaborators">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-xs-12">
+          <div class="row">
+            <div class="col-xs-12 col-md-6 left-block">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>UserName</th>
+                    <th>Access</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="javascript:;">lyy132646</a></td>
+                    <td>Collaborator</td>
+                    <td><span class="remove">Remove</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="javascript:;">lyy132646</a></td>
+                    <td>Collaborator</td>
+                    <td><span class="remove">Remove</span></td>
+                  </tr>
+                  <tr>
+                    <td><a href="javascript:;">lyy132646</a></td>
+                    <td>Collaborator</td>
+                    <td><span class="remove">Remove</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-xs-12 col-md-5 col-md-offset-1 right-block">
+                <h5>Add User</h5>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Username">
+                  <span class="input-group-addon"><i class="fa fa-plus"></i></span>
+                </div>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Collaborators end-->
-    
-    
-      <!-- BuildHistory start-->
-      <div role="tabpanel" class="tab-pane fade" id="buildHistory" aria-labelledby="buildHistory-tab">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Build ID</th>
-              <th>Triggered by</th>
-              <th>Date Started</th>
-              <th>Tags</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><a href="javascript:;">4ads13216d</a></td>
-              <td>lyy132646</td>
-              <td>Today at 4:30 PM</td>
-              <td>master</td>
-              <td><span class="fa fa-trash-o"></span></td>
-            </tr>
-            <tr>
-              <td><a href="javascript:;">4ads13216d</a></td>
-              <td>lyy132646</td>
-              <td>Today at 4:30 PM</td>
-              <td>master</td>
-              <td><span class="fa fa-trash-o"></span></td>
-            </tr>
-            <tr>
-              <td><a href="javascript:;">4ads13216d</a></td>
-              <td>lyy132646</td>
-              <td>Today at 4:30 PM</td>
-              <td>master</td>
-              <td><span class="fa fa-trash-o"></span></td>
-            </tr>
-          </tbody>
-        </table>
+    </div>
+    <div class="tab-pane" id="buildHistory">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-xs-12">
+          <div class="row">
+            <table class="col-xs-12 table table-striped">
+              <thead>
+                <tr>
+                  <th>Build ID</th>
+                  <th>Triggered by</th>
+                  <th>Date Started</th>
+                  <th>Tags</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="javascript:;">4ads13216d</a></td>
+                  <td>lyy132646</td>
+                  <td>Today at 4:30 PM</td>
+                  <td>master</td>
+                  <td><span class="fa fa-trash-o"></span></td>
+                </tr>
+                <tr>
+                  <td><a href="javascript:;">4ads13216d</a></td>
+                  <td>lyy132646</td>
+                  <td>Today at 4:30 PM</td>
+                  <td>master</td>
+                  <td><span class="fa fa-trash-o"></span></td>
+                </tr>
+                <tr>
+                  <td><a href="javascript:;">4ads13216d</a></td>
+                  <td>lyy132646</td>
+                  <td>Today at 4:30 PM</td>
+                  <td>master</td>
+                  <td><span class="fa fa-trash-o"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <!-- BuildHistory end-->
-      
-      <!-- BuildTriggers start-->
-      <div role="tabpanel" class="tab-pane fade" id="buildTriggers" aria-labelledby="buildTriggers-tab">
-        <div class="create-build-div" >
-            <div class="dropdown create-build">
-              <button class="btn btn-default creat-dropdown-toggle dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-                Create Build Triggers
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                <li role="presentation" data-toggle="modal" data-target="#createRepoModal">
-                  <a role="menuitem" tabindex="-1" href="javascript:;">
-                    <span class="fa fa-github"></span>
-                    Github Repository Push
-                  </a>
-                </li>
-                <li role="presentation" data-toggle="modal" data-target="#startBuildModal">
-                  <a role="menuitem" tabindex="-1" href="javascript:;">
-                    <span class="fa fa-github"></span>
-                    Start Build Trigger
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-        </div>
-
-
-        <div>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Branch/tags</th>
-                <th>Dockfile Location</th>
-                <th>Run trigger</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><a href="javascript:;">4ads13216d</a></td>
-                <td>lyy132646</td>
-                <td>Today at 4:30 PM</td>
-                <td>
-                  <a href="javascript:;" data-toggle="modal" data-target="#runTriggerModal">master</a>
-                </td>
-                <td>
-                  <div class="setting">
-                    <span class="fa fa-gear"></span>
-                    <ul>
-                      <li> <span class="fa fa-unlock-alt"></span> View Credentials</li>
-                      <li><span class="fa fa-close"></span> Delete Trigger</li>
-                    </ul>  
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-
-        </div>
-
-
-  
-        <!-- createRepoModal start -->
-        <div class="create-repo-modal modal fade" id="createRepoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <div class="create-repo-nav">
-                  <span [ngClass]=" createStep=== 1? 'active' : '' ">Choose repository</span>
-                  <span [ngClass]=" createStep=== 2? 'active' : '' ">Choose branches</span>
-                  <span [ngClass]=" createStep=== 3? 'active' : '' ">Dockfile Location</span>
-                </div>
+    </div>
+    <div class="tab-pane" id="buildTriggers">
+      <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-xs-12">
+          <div class="row">
+            <div class="create-build-div" >
+              <div class="dropdown create-build">
+                <button class="btn btn-default creat-dropdown-toggle dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                  Create Build Triggers
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                  <li role="presentation" data-toggle="modal" data-target="#createRepoModal">
+                    <a role="menuitem" tabindex="-1" href="javascript:;">
+                      <span class="fa fa-github"></span>
+                      Github Repository Push
+                    </a>
+                  </li>
+                  <li role="presentation" data-toggle="modal" data-target="#startBuildModal">
+                    <a role="menuitem" tabindex="-1" href="javascript:;">
+                      <span class="fa fa-github"></span>
+                      Start Build Trigger
+                    </a>
+                  </li>
+                </ul>
               </div>
-              <div class="modal-body">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Branch/tags</th>
+                    <th>Dockfile Location</th>
+                    <th>Run trigger</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a href="javascript:;">4ads13216d</a></td>
+                    <td>lyy132646</td>
+                    <td>Today at 4:30 PM</td>
+                    <td>
+                      <a href="javascript:;" data-toggle="modal" data-target="#runTriggerModal">master</a>
+                    </td>
+                    <td>
+                      <div class="setting">
+                        <span class="fa fa-gear"></span>
+                        <ul>
+                          <li> <span class="fa fa-unlock-alt"></span> View Credentials</li>
+                          <li><span class="fa fa-close"></span> Delete Trigger</li>
+                        </ul>  
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!-- createRepoModal start -->
+              <div class="create-repo-modal modal fade" id="createRepoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <!-- <div class="title">
+                      Create Build Trigger
+                    </div> -->
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <div class="create-repo-nav">
+                        <span [ngClass]=" createStep=== 1? 'active' : '' ">Choose repository</span>
+                        <span [ngClass]=" createStep=== 2? 'active' : '' ">Choose branches</span>
+                        <span [ngClass]=" createStep=== 3? 'active' : '' ">Dockfile Location</span>
+                      </div>
+                    </div>
+                    <div class="modal-body">
 
-                <div class="choose-repo-div step-div" [ngClass]=" createStep=== 1? 'step-show' : '' ">
-                  <h5>Please choose the repository that will trigger the build</h5>
-                  <div class="input-group" style="width:90%">
-                    <input type="text" class="input">
-                    <div class="input-group-btn">
-                      <button type="button" class="button dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                        <li>
-                          <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
-                          <div class="items">
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
+                      <div class="choose-repo-div step-div" [ngClass]=" createStep=== 1? 'step-show' : '' ">
+                        <h5>Please choose the repository that will trigger the build</h5>
+                        <div class="input-group" style="width:90%">
+                          <input type="text" class="input">
+                          <div class="input-group-btn">
+                            <button type="button" class="button dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
+                              <span class="caret"></span>
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                              <li>
+                                <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
+                                <div class="items">
+                                    <a href="javascript:;">
+                                      <span class="fa fa-github"></span> lyy3315/abcatea
+                                    </a>
+                                </div>
+                              </li>
+                              <li class="divider"></li>
+                              <li>
+                                <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
+                                <div class="items">
+                                    <a href="javascript:;">
+                                      <span class="fa fa-github"></span> lyy3315/abcatea
+                                    </a>
+                                    <a href="javascript:;">
+                                      <span class="fa fa-github"></span> lyy3315/abcatea
+                                    </a>
+                                </div>
+                              </li>
+                            </ul>
                           </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                          <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
-                          <div class="items">
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
+                        </div>
+                      </div>
+                      
+                      <div class="choose-branches-div step-div" [ngClass]=" createStep=== 2? 'step-show' : '' ">
+                        <h5>Repository:<span class="fa fa-user"></span> lyy135/1561653sada</h5>
+                        <h5>Please choose the branches and tags to which this trigger will</h5>
+                        <div class="btn-group" data-toggle="buttons">
+                          <label class="btn btn-default active">
+                            <input type="radio" name="options" autocomplete="off" checked> All Branches and Tags
+                          </label>
+                          <label class="btn btn-default">
+                            <input type="radio" name="options" autocomplete="off"> Matching Regular Expression
+                          </label>
+                        </div>
+                      </div>
+
+
+                      <div class="dockfile-location-div step-div" [ngClass]=" createStep=== 3? 'step-show' : '' ">
+                        <h5>Repository:<span class="fa fa-user"></span> lyy135/1561653sada</h5>
+                        <h5>Branches and Tags: (Build All)</h5>
+                        <h6>Dockerfile Location:</h6>
+                        <div class="input-group" style="width:90%">
+                          <input type="text" class="input">
+                          <div class="input-group-btn">
+                            <button type="button" class="button dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
+                              <span class="caret"></span>
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                              <li>
+                                <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
+                                <div class="items">
+                                    <a href="javascript:;">
+                                      <span class="fa fa-github"></span> lyy3315/abcatea
+                                    </a>
+                                </div>
+                              </li>
+                              <li class="divider"></li>
+                              <li>
+                                <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
+                                <div class="items">
+                                    <a href="javascript:;">
+                                      <span class="fa fa-github"></span> lyy3315/abcatea
+                                    </a>
+                                    <a href="javascript:;">
+                                      <span class="fa fa-github"></span> lyy3315/abcatea
+                                    </a>
+                                </div>
+                              </li>
+                            </ul>
                           </div>
-                        </li>
-                      </ul>
+                        </div>
+                        <br>
+                        <div class="alert alert-warning" role="alert">
+                          Warning:No Dockerfiles were found in small
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="ibutton btn-blue" (click)="createBuildNext()">Next</button>
+                      <button type="button" class="ibutton btn-cancel" data-dismiss="modal">Cancel</button>
                     </div>
                   </div>
                 </div>
-                
-                <div class="choose-branches-div step-div" [ngClass]=" createStep=== 2? 'step-show' : '' ">
-                  <h5>Repository:<span class="fa fa-user"></span> lyy135/1561653sada</h5>
-                  <h5>Please choose the branches and tags to which this trigger will</h5>
-                  <div class="btn-group" data-toggle="buttons">
-                    <label class="btn btn-default active">
-                      <input type="radio" name="options" autocomplete="off" checked> All Branches and Tags
-                    </label>
-                    <label class="btn btn-default">
-                      <input type="radio" name="options" autocomplete="off"> Matching Regular Expression
-                    </label>
-                  </div>
-                </div>
+              </div>
+              <!-- createRepoModal end -->
 
-
-                <div class="dockfile-location-div step-div" [ngClass]=" createStep=== 3? 'step-show' : '' ">
-                  <h5>Repository:<span class="fa fa-user"></span> lyy135/1561653sada</h5>
-                  <h5>Branches and Tags: (Build All)</h5>
-                  <h6>Dockerfile Location:</h6>
-                  <div class="input-group" style="width:90%">
-                    <input type="text" class="input">
-                    <div class="input-group-btn">
-                      <button type="button" class="button dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                        <li>
-                          <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
-                          <div class="items">
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
-                          </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                          <div class="user-name"><span class="fa fa-user"></span> LYY133</div>
-                          <div class="items">
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
-                              <a href="javascript:;">
-                                <span class="fa fa-github"></span> lyy3315/abcatea
-                              </a>
-                          </div>
-                        </li>
-                      </ul>
+              <!-- runTriggerModal start -->
+              <div class="run-trigger-modal modal fade" id="runTriggerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title">Run Trigger</h4>
+                    </div>
+                    <div class="modal-body">
+                      <h5>Repository: <span class="fa fa-user"></span> lyy135/1561653sada</h5>
+                      <h5>Branches and Tags: (Build All)</h5>
+                      <h5>Dockerfile Location: <span class="fa fa-folder"></span> Repositor Root</h5>
+                      <br>
+                      <h5 class="info-circle">
+                        <span class="fa fa-info-circle"></span>
+                        The following key has been automatically added to your source control repository
+                      </h5>
+                      
+                      <h6>
+                        SSH Public Key
+                      </h6>
+                      <div class="ssh-key">
+                        <input type="text" />
+                        <span class="fa fa-clipboard"></span>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="ibutton btn-danger">Run Trigger Now</button>
+                      <button type="button" class="ibutton btn-cancel" data-dismiss="modal">done</button>
                     </div>
                   </div>
-                  <br>
-                  <div class="alert alert-warning" role="alert">
-                    Warning:No Dockerfiles were found in small
-                  </div>
-                </div>
-
-
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="ibutton btn-blue" (click)="createBuildNext()">Next</button>
-                <button type="button" class="ibutton btn-cancel" data-dismiss="modal">Cancel</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- createRepoModal end -->
-
-        <!-- runTriggerModal start -->
-        <div class="run-trigger-modal modal fade" id="runTriggerModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Run Trigger</h4>
-              </div>
-              <div class="modal-body">
-                <h5>Repository: <span class="fa fa-user"></span> lyy135/1561653sada</h5>
-                <h5>Branches and Tags: (Build All)</h5>
-                <h5>Dockerfile Location: <span class="fa fa-folder"></span> Repositor Root</h5>
-                <br>
-                <h5 class="info-circle">
-                  <span class="fa fa-info-circle"></span>
-                  The following key has been automatically added to your source control repository
-                </h5>
-                
-                <h6>
-                  SSH Public Key
-                </h6>
-                <div class="ssh-key">
-                  <input type="text" />
-                  <span class="fa fa-clipboard"></span>
                 </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="ibutton btn-danger">Run Trigger Now</button>
-                <button type="button" class="ibutton btn-cancel" data-dismiss="modal">done</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- runTriggerModal end -->
+              <!-- runTriggerModal end -->
 
-        
-        <!-- startBuildModal start -->
-        <div class="run-trigger-modal modal fade" id="startBuildModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                <h4 class="modal-title">Manually Start Build Trigger</h4>
-              </div>
-              <div class="modal-body">
-                <h5>
-                  <span class="fa fa-github"></span> 
-                  Push to GitHub repository <a href="javascirpt:;" class="btn-link">lyy135/1561653sada</a>
-                </h5>
-                <div class="input-group" style="width:90%">
-                    <input type="text" class="input">
-                    <div class="input-group-btn">
-                      <button type="button" class="button dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
-                        <span class="caret"></span>
-                        <span class="sr-only">Toggle Dropdown</span>
-                      </button>
-                      <ul class="dropdown-menu dropdown-menu-right" role="menu">
-                        <li><a href="#">LYY133</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">LYY133</a></li>
-                      </ul>
+              
+              <!-- startBuildModal start -->
+              <div class="run-trigger-modal modal fade" id="startBuildModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title">Manually Start Build Trigger</h4>
+                    </div>
+                    <div class="modal-body">
+                      <h5>
+                        <span class="fa fa-github"></span> 
+                        Push to GitHub repository <a href="javascirpt:;" class="btn-link">lyy135/1561653sada</a>
+                      </h5>
+                      <div class="input-group" style="width:90%">
+                          <input type="text" class="input">
+                          <div class="input-group-btn">
+                            <button type="button" class="button dropdown-toggle" data-toggle="dropdown" tabindex="-1" aria-expanded="false">
+                              <span class="caret"></span>
+                              <span class="sr-only">Toggle Dropdown</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                              <li><a href="#">LYY133</a></li>
+                              <li class="divider"></li>
+                              <li><a href="#">LYY133</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="ibutton btn-blue">Start Build</button>
+                      <button type="button" class="ibutton btn-cancel" data-dismiss="modal">Cancel</button>
                     </div>
                   </div>
+                </div>
               </div>
-              <div class="modal-footer">
-                <button type="button" class="ibutton btn-blue">Start Build</button>
-                <button type="button" class="ibutton btn-cancel" data-dismiss="modal">Cancel</button>
-              </div>
+              <!-- startBuildModal end -->
             </div>
           </div>
         </div>
-        <!-- startBuildModal end -->
-
-
-
-
       </div>
-      <!-- BuildTriggers end-->
     </div>
   </div>
-
 </div>
 
 

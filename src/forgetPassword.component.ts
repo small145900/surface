@@ -10,6 +10,9 @@ import { UserService } from './user.service';
 
 export class ForgetPwdComponent implements OnInit { 
 	errorMsg: string;
+	isTips = {
+		otherError: false
+	}
 	user = {
 		email: ''
 	}
@@ -42,8 +45,8 @@ export class ForgetPwdComponent implements OnInit {
       .then(res => { 
       	if(res.code === 200){
       		this.router.navigate(['repositories'])
-      	}else{
-      		alert(res.message)
+      	}else if(res.code === 400){
+      		this.tips('otherError',true)
       	}
       },error => this.errorMsg = <any>error);
 		}else if(!user.email){
@@ -53,5 +56,9 @@ export class ForgetPwdComponent implements OnInit {
 		}
 		
     // this.router.navigate(['repositories']);
+	}
+
+	tips(name,val){
+		this.isTips[name] = val;
 	}
 }

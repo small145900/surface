@@ -15,6 +15,9 @@ var ForgetPwdComponent = (function () {
     function ForgetPwdComponent(router, userService) {
         this.router = router;
         this.userService = userService;
+        this.isTips = {
+            otherError: false
+        };
         this.user = {
             email: ''
         };
@@ -41,8 +44,8 @@ var ForgetPwdComponent = (function () {
                 if (res.code === 200) {
                     _this.router.navigate(['repositories']);
                 }
-                else {
-                    alert(res.message);
+                else if (res.code === 400) {
+                    _this.tips('otherError', true);
                 }
             }, function (error) { return _this.errorMsg = error; });
         }
@@ -53,6 +56,9 @@ var ForgetPwdComponent = (function () {
             alert('please input correct email');
         }
         // this.router.navigate(['repositories']);
+    };
+    ForgetPwdComponent.prototype.tips = function (name, val) {
+        this.isTips[name] = val;
     };
     ForgetPwdComponent = __decorate([
         core_1.Component({

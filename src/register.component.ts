@@ -10,6 +10,13 @@ import { UserService } from './user.service';
 
 export class RegisterComponent implements OnInit { 
 	errorMsg: string;
+	isTips = {
+    username: false,
+    email: false,
+    isEmailRight: false,
+    password: false,
+    otherError: false
+  }
 	user = {
 		username: '',
 		email: '',
@@ -45,19 +52,25 @@ export class RegisterComponent implements OnInit {
       		this.router.navigate(['repositories'])
       		sessionStorage.setItem("username", user.username)
       	}else{
-      		alert(res.message)
+      		this.tips('otherError',true)
+      		setTimeout(function(){
+      			this.tips('otherError',false)
+      		},3000)
       	}
       },error => this.errorMsg = <any>error);
 		}else if(!user.username){
-			alert('please input username')
+			this.tips('username',true)
 		}else if(!user.password){
-			alert('please input password')
+			this.tips('password',true)
 		}else if(!user.email){
-			alert('please input email')
+			this.tips('email',true)
 		}else if(!(user.email&&user.email.indexOf('@')!==-1)){
-			alert('please input correct email')
-		}
-		
+			this.tips('isEmailRight',true)
+		}	
     // this.router.navigate(['repositories']);
+	}
+
+	tips(name,val){
+		this.isTips[name] = val;
 	}
 }

@@ -15,6 +15,7 @@ var LoginComponent = (function () {
     function LoginComponent(router, userService) {
         this.router = router;
         this.userService = userService;
+        this.isTips = false;
         this.user = {
             username: '',
             password: ''
@@ -43,18 +44,23 @@ var LoginComponent = (function () {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
                 }
-                else {
-                    alert(res.message);
+                else if (res.code === 400) {
+                    _this.tips(true);
+                    setTimeout(function () {
+                        this.tips(false);
+                    }.bind(_this), 3000);
                 }
             }, function (error) { return _this.errorMsg = error; });
         }
-        else if (!user.username) {
-            alert('please input username');
-        }
-        else if (!user.password) {
-            alert('please input password');
-        }
+        // else if(!user.username){
+        // 	this.tips.username = true;
+        // }else if(!user.password){
+        // 	this.tips.password = true;
+        // }
         // this.router.navigate(['repositories']);
+    };
+    LoginComponent.prototype.tips = function (val) {
+        this.isTips = val;
     };
     LoginComponent = __decorate([
         core_1.Component({
