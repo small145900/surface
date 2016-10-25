@@ -55,6 +55,9 @@ select:-webkit-autofill {
 .bg-bodyGray {
   background: #EEEEEE;
 }
+.bg-white {
+  background: #fff;
+}
 .mar-tp-no {
   margin-top: 0;
 }
@@ -89,6 +92,9 @@ select:-webkit-autofill {
 }
 .mar-t-twenty {
   margin-top: 20px;
+}
+.mar-t-thirty {
+  margin-top: 30px;
 }
 .mar-bt-twenty {
   margin-bottom: 20px;
@@ -773,10 +779,6 @@ body {
 }
 /* repo create end */
 /* repo detail start */
-input,
-textarea {
-  background-color: #f1f1f1;
-}
 #repoDetail .table > tbody > tr > td,
 #repoDetail .table > tbody > tr > th,
 #repoDetail .table > tfoot > tr > td,
@@ -784,6 +786,10 @@ textarea {
 #repoDetail .table > thead > tr > td,
 #repoDetail .table > thead > tr > th {
   padding: 8px 30px;
+  font-size: 1.8rem;
+}
+#repoDetail .table .title {
+  font-size: 2rem;
 }
 #repoDetail .dropdown-menu .user-name {
   padding: 5px 12px;
@@ -824,22 +830,21 @@ textarea {
 #repoDetail .header {
   padding-top: 8px;
   padding-bottom: 8px;
+  margin: 10px auto;
 }
 #repoDetail .fa-star {
   cursor: pointer;
 }
 #repoDetail .header .repo-name {
-  font-size: 15px;
-  color: #191919;
+  font-size: 2rem;
 }
 #repoDetail .header .repo-user {
-  color: #667a9c;
-  font-size: 20px;
-  padding: 6px 0;
+  color: #073b77;
+  font-size: 2.4rem;
 }
 #repoDetail .header .repo-status {
   color: #878787;
-  font-size: 14px;
+  font-size: 1.8rem;
 }
 #repoDetail .repo-nav {
   background-color: #CCCCCC;
@@ -865,7 +870,7 @@ textarea {
   border: 0;
 }
 .repo-content {
-  background-color: #dedede;
+  background-color: #DEDEDE;
   height: 100%;
 }
 .bast-info {
@@ -875,6 +880,7 @@ textarea {
 .bast-info h5 {
   padding: 2px 10px;
   position: relative;
+  font-size: 2rem;
 }
 .bast-info h5 .fa-pencil {
   position: absolute;
@@ -894,31 +900,24 @@ textarea {
 }
 .bast-info textarea {
   resize: none;
-  border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
   padding: 5px 10px;
-  font-size: 14px;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+  box-shadow: 1px 1px 1px #b4b3b3 inset;
+  background: #F7F7F7;
 }
 .bast-info textarea.pull-command-text {
-  border-bottom-color: #d46354;
-  border-bottom-width: 2px;
-}
-.bast-info .make-public {
-  float: right;
-  display: inline-block;
-  width: 182px;
+  border-bottom: 2px solid #F77462;
+  background: #F7F7F7;
 }
 .bast-info .make-public-btn {
-  background-color: #3da1e5;
+  background-color: #3DA1E5;
   width: 100%;
-  display: inline-block;
   text-align: center;
   color: #fff;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 .bast-info .make-public-h5 {
   padding-left: 0;
@@ -926,16 +925,18 @@ textarea {
 }
 .bast-info .delete-repo-btn {
   background-color: #c39287;
-  width: 182px;
-  display: inline-block;
+  width: 100%;
   text-align: center;
-  color: #f7f7f7;
+  color: #fff;
   padding-top: 10px;
   padding-bottom: 10px;
-  border-radius: 4px;
-  position: absolute;
-  right: 0;
-  bottom: 15px;
+  border-radius: 5px;
+  margin-top: 145px;
+}
+@media screen and (max-width: 1000px) {
+  .bast-info .delete-repo-btn {
+    margin-top: 30px;
+  }
 }
 #tags {
   padding-top: 30px;
@@ -945,18 +946,6 @@ textarea {
 }
 #collaborators .remove {
   color: #a9200d;
-}
-#collaborators .left-block {
-  padding: 0;
-  width: 60%;
-  float: left;
-  display: inline-block;
-}
-#collaborators .right-block {
-  padding: 0;
-  width: 35%;
-  float: right;
-  display: inline-block;
 }
 #collaborators .right-block h5 {
   padding-left: 8px;
@@ -1025,7 +1014,7 @@ textarea {
 }
 #buildTriggers ul {
   white-space: nowrap;
-  background-color: #dedede;
+  background-color: #DEDEDE;
 }
 #buildTriggers ul li a {
   padding: 5px 12px;
@@ -1075,6 +1064,12 @@ textarea {
   top: 9px;
   color: #9f9f9f;
 }
+#repoDetail {
+  width: 100%;
+  height: calc(100% - 50px);
+  height: -webkit-calc(100% - 50px);
+  background: #DEDEDE;
+}
 #repoDetail button.close {
   width: 30px;
   border-radius: 0 4px 0 0;
@@ -1102,26 +1097,38 @@ textarea {
 #repoDetail .modal-content {
   background-color: #f1f1f1;
 }
+#repoDetail .modal-content .title {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  position: relative;
+  text-align: left;
+  padding-left: 12px;
+}
 #repoDetail .input-group .input {
   border: 1px solid #9f9f9f;
   width: 100%;
   padding: 6px 12px;
   border-radius: 4px 0 0 4px;
+  background: #f1f1f1;
 }
 #repoDetail .input-group .button {
-  padding: 15px;
+  padding: 17px 15px 18px;
   background-color: #9f9f9f;
-  border-radius: 0 4px 4px 0;
+  border-radius: 0 5px 5px 0;
   color: #f1f1f1;
 }
 #repoDetail .ibutton {
-  padding: 6px 18px;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
+  width: 110px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
 }
 #repoDetail .btn-blue {
-  background-color: #3da1e5;
-  border: 1px solid #3da1e5;
+  background: #3DA1E5;
+  border: 1px solid #3DA1E5;
   color: #fff;
 }
 #repoDetail .btn-cancel {
@@ -1130,8 +1137,7 @@ textarea {
   color: #9f9f9f;
 }
 #repoDetail .btn-danger {
-  background-color: #f77462;
-  border: 1px solid #f77462;
+  background-color: #F77462;
   color: #fff;
 }
 .modal-footer .ibutton + .ibutton {
@@ -1739,7 +1745,7 @@ textarea {
   background: blue;
 }
 #access .login-content {
-  width: 300px;
+  width: 350px;
   margin: 0 auto;
   padding-top: 150px;
 }
