@@ -11,7 +11,9 @@
           <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" autocomplete="off" (change)="tips('username',false)">
           <i class="fa fa-user"></i><br/>
           <small class="tips" *ngIf="isTips.username">username is required</small>
+          <small class="tips" *ngIf="isTips.isUsernameRight">username is invalid</small>
         </span>
+        <small class="require">*user name must be the numbers and letters</small>
         <span class="space user">
           <input type="text" placeholder="Email" [(ngModel)]="user.email" name="email" autocomplete="off" (change)="tips('username',false)">
           <i class="fa fa-envelope"></i>

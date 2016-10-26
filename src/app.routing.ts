@@ -24,6 +24,9 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+    // data: {
+    //   title: 'test title'
+    // }
   },
   {
     path: 'register',
