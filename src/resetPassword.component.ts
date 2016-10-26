@@ -40,9 +40,9 @@ export class ResetPwdComponent implements OnInit {
 
 	resetPwd() {
 		console.log(this.user)
-		// this.userService.resetPwd(this.user)
-  //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
-  //           error => this.errorMsg = <any>error);
-    this.router.navigate(['repositories']);
+		this.userService.resetPwd(this.user)
+      .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
+            error => this.errorMsg = <any>error);
+    // this.router.navigate(['repositories']);
 	}
 }
