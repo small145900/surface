@@ -19,6 +19,7 @@
           <i class="fa fa-envelope"></i><br/>
           <small class="tips" *ngIf="isTips.email">email is required</small>
           <small class="tips" *ngIf="isTips.emailError">email is invalid</small>
+          <small class="tips" *ngIf="isTips.emailErr"></small>
         </span>
         <span class="space pwd">
           <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
