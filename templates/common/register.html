@@ -18,7 +18,7 @@
           <input type="text" placeholder="Email" [(ngModel)]="user.email" name="email" autocomplete="off" (change)="tips('username',false)">
           <i class="fa fa-envelope"></i>
           <br/>
-          <small class="tips" *ngIf="isTips.email">{{emailText}}</small><br/>
+          <small class="tips" *ngIf="isTips.emailError">{{emailText}}</small><br/>
         </span>
         <span class="space pwd">
           <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off" (change)="tips('username',false)">

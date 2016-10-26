@@ -1809,7 +1809,7 @@ body {
 #access .tips {
   color: #F77462;
   font-size: 1.4rem;
-  display: inline-block;
+  display: block;
   margin-bottom: 10px;
 }
 #access .ng-untouched,

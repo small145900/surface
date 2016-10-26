@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
 	isTips = {
     username: false,
     isUsernameRight: false,
-    email: false,
+    emailError: false,
     emailText:'',
     password: false,
 		pwdError: false,
@@ -63,6 +63,7 @@ export class RegisterComponent implements OnInit {
       		sessionStorage.setItem("username", user.username)
       	}else if(res.code === 400){
       		this.tips('otherError',true)
+      		console.log(res.data)
       		this.isTips.otherText = res.data.message
       	}
       },error => this.errorMsg = <any>error);
@@ -73,11 +74,11 @@ export class RegisterComponent implements OnInit {
 			this.tips('isUsernameRight',true)
 		}else if(!user.email){
 			console.log('no email')
-			this.tips('email',true)
+			this.tips('emailError',true)
 			this.isTips.emailText = 'email is required'
 		}else if(user.email.indexOf('@')===-1){
 			console.log('have email')
-			this.tips('email',true)
+			this.tips('emailError',true)
 			this.isTips.emailText = 'email is invalid'
 		}else if(user.password){
 			console.log('have password')
