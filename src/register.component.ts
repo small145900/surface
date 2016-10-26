@@ -13,8 +13,8 @@ export class RegisterComponent implements OnInit {
 	isTips = {
     username: false,
     isUsernameRight: false,
-    emailError: false,
-    emailText:'',
+    email: false,
+    emailText: '',
     password: false,
 		pwdError: false,
     otherError: false,
@@ -74,11 +74,11 @@ export class RegisterComponent implements OnInit {
 			this.tips('isUsernameRight',true)
 		}else if(!user.email){
 			console.log('no email')
-			this.tips('emailError',true)
+			this.tips('email',true)
 			this.isTips.emailText = 'email is required'
-		}else if(user.email.indexOf('@')===-1){
+		}else if(user.email&&user.email.indexOf('@')===-1){
 			console.log('have email')
-			this.tips('emailError',true)
+			this.tips('email',true)
 			this.isTips.emailText = 'email is invalid'
 		}else if(user.password){
 			console.log('have password')
