@@ -42,10 +42,10 @@ var ForgetPwdComponent = (function () {
         if (this.user.email && this.user.email.indexOf('@') !== -1) {
             this.userService.sendEmail(this.user)
                 .then(function (res) {
-                if (res.code === 200) {
+                if (res.status === 200) {
                     _this.router.navigate(['repositories']);
                 }
-                else if (res.code === 400) {
+                else if (res.status === 400) {
                     _this.tips('otherError', true);
                     setTimeout(function () {
                         this.tips('otherError', false);

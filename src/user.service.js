@@ -89,7 +89,11 @@ var UserService = (function () {
             .catch(this.handleError);
     };
     UserService.prototype.dealData = function (res) {
-        return res.json() || {};
+        var object = {
+            status: res.status,
+            data: res.json()
+        };
+        return object || {};
     };
     UserService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :

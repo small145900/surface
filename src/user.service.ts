@@ -93,7 +93,11 @@ export class UserService {
   }
 
   private dealData (res: Response) {
-    return res.json() || {}
+    var object = {
+      status: res.status,
+      data: res.json()
+    }
+    return object || {}
   }
   
   private handleError (error: any) {
