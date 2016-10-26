@@ -15,7 +15,7 @@
         </span>
         <small class="require">*user name must be the numbers and letters</small>
         <span class="space user">
-          <input type="text" placeholder="Email" [(ngModel)]="user.email" name="email" autocomplete="off">
+          <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" autocomplete="off">
           <i class="fa fa-envelope"></i><br/>
           <small class="tips" *ngIf="isTips.email">{{isTips.emailInfo}}</small>
         </span>
