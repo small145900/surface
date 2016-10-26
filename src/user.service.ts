@@ -97,10 +97,12 @@ export class UserService {
       code: res.status,
       data: res.json()
     }
+    console.log(res,'---')
     return object || {}
   }
   
   private handleError (error: any) {
+    console.log('err',error)
     let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
     console.error(errMsg); 
