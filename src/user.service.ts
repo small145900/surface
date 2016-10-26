@@ -104,11 +104,15 @@ export class UserService {
   }
   
   private handleError (error: any) {
-    console.log('err',error)
-    let errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.log(errMsg); 
-    return Promise.reject(errMsg);
+    console.log(error)
+    // let errMsg = (error.message) ? error.message :
+    //   error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    // console.log(errMsg);
+    var object = {
+      code: error.status,
+      data: error.json()
+    }; 
+    return Promise.reject(object);
   }
 
   changeTitle(val){

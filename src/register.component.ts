@@ -60,16 +60,18 @@ export class RegisterComponent implements OnInit {
 		if(user.username&&pwdReg&&user.email){
 			this.userService.signUp(this.user)
       .then(res => { 
-      	console.log(res,111)
       	if(res.code === 201){
       		this.router.navigate(['repositories'])
       		sessionStorage.setItem("username", user.username)
-      	}else if(res.code === 400){
-      		this.tips('otherError',true)
-      		console.log(res.data)
-      		this.isTips.otherText = res.data.message
       	}
-      },error => {this.errorMsg = <any>error;console.log(error)});
+      },error => {
+      	console.log(error)
+      	if(error.code === 400){
+      		this.tips('otherError',true)
+      		console.log(error.data)
+      		this.isTips.otherText = error.data.message
+      	}
+      });
 		}else if(!user.username){
 			this.tips('username',true)
 		}else if(!(user.username&&/[0-9A-Za-z]/.test(user.username))){
