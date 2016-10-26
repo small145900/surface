@@ -48,7 +48,7 @@ var LoginComponent = (function () {
                 }
                 
             }, function (error) { 
-                if (error.code === 400) {
+                if (error.code === (400 || 401)) {
                     _this.tips(true);
                     _this.errorText = error.data.message
                 } 

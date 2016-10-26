@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       		sessionStorage.setItem("username", user.username)
       	}
       },error => {
-      	if(error.code === 400){
+      	if(error.code === (400 || 401)){
       		this.tips(true)
       		this.errorText = error.data.message
       	}
