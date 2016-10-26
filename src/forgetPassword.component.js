@@ -47,6 +47,9 @@ var ForgetPwdComponent = (function () {
                 }
                 else if (res.code === 400) {
                     _this.tips('otherError', true);
+                    setTimeout(function () {
+                        this.tips('otherError', false);
+                    }.bind(_this), 3000);
                 }
             }, function (error) { return _this.errorMsg = error; });
         }

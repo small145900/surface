@@ -1598,6 +1598,11 @@ body {
 #access {
   overflow-y: hidden;
 }
+#access .require {
+  color: #A9A9A9;
+  display: inline-block;
+  margin-bottom: 20px;
+}
 #access .content {
   background: #EEEEEE;
   width: 100%;

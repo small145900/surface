@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
     email: false,
     isEmailRight: false,
     password: false,
+		pwdError: false,
     otherError: false
   }
 	user = {
@@ -46,7 +47,9 @@ export class RegisterComponent implements OnInit {
 	signUp() {
 		console.log(this.user)
 		var user = this.user;
-		if(user.username&&user.password&&user.email){
+		var pwdReg=/(?![0-9a-z]+$)(?![a-zA-Z]+$)[0-9A-Z]{8,}/
+		console.log(/(?![0-9a-z]+$)(?![a-zA-Z]+$)[0-9A-Z]{8,}/.test(user.password))
+		if(user.username&&user.password&&pwdReg.test(user.password)&&user.password.indexOf(''+user.username)===-1&&user.email){
 			this.userService.signUp(this.user)
       .then(res => { 
       	if(res.code === 201){
@@ -54,15 +57,14 @@ export class RegisterComponent implements OnInit {
       		sessionStorage.setItem("username", user.username)
       	}else{
       		this.tips('otherError',true)
-      		setTimeout(function(){
-      			this.tips('otherError',false)
-      		},3000)
       	}
       },error => this.errorMsg = <any>error);
 		}else if(!user.username){
 			this.tips('username',true)
 		}else if(!user.password){
 			this.tips('password',true)
+		}else if(!(user.password&&pwdReg.test(user.password)&&user.password.indexOf(''+user.username)===-1)){
+			this.tips('pwdError',true)
 		}else if(!user.email){
 			this.tips('email',true)
 		}else if(!(user.email&&user.email.indexOf('@')!==-1)){
@@ -73,5 +75,10 @@ export class RegisterComponent implements OnInit {
 
 	tips(name,val){
 		this.isTips[name] = val;
+		if(val){
+			setTimeout(function(){
+				this.tips(name,false)
+			}.bind(this),4000)
+		}
 	}
 }
