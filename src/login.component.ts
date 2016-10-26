@@ -47,11 +47,13 @@ export class LoginComponent implements OnInit {
       	if(res.code === 200){
       		this.router.navigate(['repositories'])
       		sessionStorage.setItem("username", user.username)
-      	}else if(res.code === 400){
-      		this.tips(true)
-      		this.errorText = res.data.message
       	}
-      },error => this.errorMsg = <any>error);
+      },error => {
+      	if(error.code === 400){
+      		this.tips(true)
+      		this.errorText = error.data.message
+      	}
+      });
 		}
 		// else if(!user.username){
 		// 	this.tips.username = true;

@@ -68,7 +68,6 @@ export class RegisterComponent implements OnInit {
       	console.log(error)
       	if(error.code === 400){
       		this.tips('otherError',true)
-      		console.log(error.data)
       		this.isTips.otherText = error.data.message
       	}
       });

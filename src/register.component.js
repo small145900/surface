@@ -19,10 +19,12 @@ var RegisterComponent = (function () {
             username: false,
             isUsernameRight: false,
             email: false,
+            emailError: false,
             isEmailRight: false,
             password: false,
             pwdError: false,
             otherError: false,
+            otherText: '',
             passwordText: ''
         };
         this.user = {
@@ -58,10 +60,12 @@ var RegisterComponent = (function () {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
                 }
-                else {
-                    _this.tips('otherError', true);
+            }, function (error) { 
+                if(error.code === 400){
+                    _this.tips('otherError',true)
+                    _this.isTips.otherText = error.data.message
                 }
-            }, function (error) { return _this.errorMsg = error; });
+            });
         }
         else if (!user.username) {
             this.tips('username', true);
@@ -74,9 +78,9 @@ var RegisterComponent = (function () {
             console.log('no email');
             this.tips('email', true);
         }
-        else if (user.email && user.email.indexOf('@') === -1) {
+        else if (user.email.indexOf('@')==-1) {
             console.log('have email');
-            this.tips('isEmailRight', true);
+            this.tips('emailError', true);
         }
         else if (user.password) {
             console.log('have password');

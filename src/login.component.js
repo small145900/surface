@@ -45,10 +45,13 @@ var LoginComponent = (function () {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
                 }
-                else if (res.code === 400) {
+                
+            }, function (error) { 
+                else if (error.code === 400) {
                     _this.tips(true);
-                }
-            }, function (error) { return _this.errorMsg = error; });
+                    _this.errorText = error.data.message
+                } 
+            });
         }
         // else if(!user.username){
         // 	this.tips.username = true;
