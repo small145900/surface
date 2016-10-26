@@ -11,6 +11,7 @@ import { UserService } from './user.service';
 export class LoginComponent implements OnInit { 
 	errorMsg: string;
 	isTips = false;
+	errorText = '';
 	user = {
 		username: '',
 		password: ''
@@ -46,10 +47,13 @@ export class LoginComponent implements OnInit {
       	if(res.code === 200){
       		this.router.navigate(['repositories'])
       		sessionStorage.setItem("username", user.username)
-      	}else if(res.code === 400){
-      		this.tips(true)
       	}
-      },error => this.errorMsg = <any>error);
+      },error => {
+      	if(error.code === (400 || 401)){
+      		this.tips(true)
+      		this.errorText = error.data.message
+      	}
+      });
 		}
 		// else if(!user.username){
 		// 	this.tips.username = true;

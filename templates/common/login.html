@@ -6,7 +6,7 @@
   <div class="content">
     <div class="login-content">
       <div class="login">
-        <span class="tips" *ngIf="isTips">invalid username or password</span>
+        <span class="tips" *ngIf="isTips">{{errorText}}</span>
         <span class="space user">
           <input type="text" placeholder="Username or Email" [(ngModel)]="user.username" name="username" autocomplete="off">
           <i class="fa fa-user"></i>

@@ -19,10 +19,12 @@ var RegisterComponent = (function () {
             username: false,
             isUsernameRight: false,
             email: false,
+            emailError: false,
             isEmailRight: false,
             password: false,
             pwdError: false,
             otherError: false,
+            otherText: '',
             passwordText: ''
         };
         this.user = {
@@ -51,17 +53,19 @@ var RegisterComponent = (function () {
         // console.log(/(?![0-9a-z]+$)(?![a-zA-Z]+$){8,}/.test(user.password))
         var password = user.password;
         var pwdReg = password && (password.length > 8) && (password.indexOf('' + user.username) === -1) && (/[0-9]/g.test(password)) && (/[A-Z]/g.test(password));
-        if (user.username && pwdReg && user.email) {
+        if (user.username && pwdReg && user.email && (user.email.indexOf('@')!==-1)) {
             this.userService.signUp(this.user)
                 .then(function (res) {
                 if (res.code === 201) {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
                 }
-                else {
-                    _this.tips('otherError', true);
+            }, function (error) { 
+                if(error.code === 400){
+                    _this.tips('otherError',true)
+                    _this.isTips.otherText = error.data.message
                 }
-            }, function (error) { return _this.errorMsg = error; });
+            });
         }
         else if (!user.username) {
             this.tips('username', true);
@@ -74,9 +78,9 @@ var RegisterComponent = (function () {
             console.log('no email');
             this.tips('email', true);
         }
-        else if (user.email && user.email.indexOf('@') === -1) {
+        else if (!(user.email.indexOf('@')!==-1)) {
             console.log('have email');
-            this.tips('isEmailRight', true);
+            this.tips('emailError', true);
         }
         else if (user.password) {
             console.log('have password');

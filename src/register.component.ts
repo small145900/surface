@@ -14,10 +14,13 @@ export class RegisterComponent implements OnInit {
     username: false,
     isUsernameRight: false,
     email: false,
-    isEmailRight: false,
+    // emailInfo: '',
+    emailError: false,
+    emailInfo: false,
     password: false,
 		pwdError: false,
     otherError: false,
+    otherText: '',
 		passwordText: ''
   }
 	user = {
@@ -54,16 +57,20 @@ export class RegisterComponent implements OnInit {
 		var password = user.password
 
 		var pwdReg = password && (password.length > 8) && (password.indexOf(''+user.username)===-1) && (/[0-9]/g.test(password)) && (/[A-Z]/g.test(password))
-		if(user.username&&pwdReg&&user.email){
+		if(user.username&&pwdReg&&user.email&&user.email.indexOf('@')!==-1){
 			this.userService.signUp(this.user)
       .then(res => { 
       	if(res.code === 201){
       		this.router.navigate(['repositories'])
       		sessionStorage.setItem("username", user.username)
-      	}else{
-      		this.tips('otherError',true)
       	}
-      },error => this.errorMsg = <any>error);
+      },error => {
+      	console.log(error)
+      	if(error.code === 400){
+      		this.tips('otherError',true)
+      		this.isTips.otherText = error.data.message
+      	}
+      });
 		}else if(!user.username){
 			this.tips('username',true)
 		}else if(!(user.username&&/[0-9A-Za-z]/.test(user.username))){
@@ -71,10 +78,12 @@ export class RegisterComponent implements OnInit {
 			this.tips('isUsernameRight',true)
 		}else if(!user.email){
 			console.log('no email')
+			// this.isTips.emailInfo = 'email is required'
 			this.tips('email',true)
-		}else if(user.email&&user.email.indexOf('@')===-1){
+		}else if(!(user.email.indexOf('@')!==-1)){
 			console.log('have email')
-			this.tips('isEmailRight',true)
+			// this.isTips.emailInfo = 'email is invalid'
+			this.tips('emailError',true)
 		}else if(user.password){
 			console.log('have password')
 			if(password.length < 8){

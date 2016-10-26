@@ -96,10 +96,11 @@ var UserService = (function () {
         return object || {};
     };
     UserService.prototype.handleError = function (error) {
-        var errMsg = (error.message) ? error.message :
-            error.status ? error.status + " - " + error.statusText : 'Server error';
-        console.error(errMsg);
-        return Promise.reject(errMsg);
+        var object = {
+          code: error.status,
+          data: error.json()
+        }; 
+        return Promise.reject(object);
     };
     UserService.prototype.changeTitle = function (val) {
         this.title.setTitle(val);

@@ -24,7 +24,9 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/user/signin', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,function(err){
+                 console.log(err)
+               })
                .catch(this.handleError)
   }
 
@@ -97,14 +99,20 @@ export class UserService {
       code: res.status,
       data: res.json()
     }
+    console.log(res,'---')
     return object || {}
   }
   
   private handleError (error: any) {
-    let errMsg = (error.message) ? error.message :
-      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); 
-    return Promise.reject(errMsg);
+    console.log(error)
+    // let errMsg = (error.message) ? error.message :
+    //   error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    // console.log(errMsg);
+    var object = {
+      code: error.status,
+      data: error.json()
+    }; 
+    return Promise.reject(object);
   }
 
   changeTitle(val){
