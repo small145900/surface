@@ -67,11 +67,13 @@ export class RegisterComponent implements OnInit {
 		}else if(!user.username){
 			this.tips('username',true)
 		}else if(!(user.username&&/[0-9A-Za-z]/.test(user.username))){
+			console.log('have username')
 			this.tips('isUsernameRight',true)
 		}else if(!user.email){
 			console.log('no email')
 			this.tips('email',true)
 		}else if(user.email&&user.email.indexOf('@')===-1){
+			console.log('have email')
 			this.tips('isEmailRight',true)
 		}else if(user.password){
 			console.log('have password')

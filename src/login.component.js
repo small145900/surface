@@ -12,9 +12,8 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_service_1 = require('./user.service');
 var LoginComponent = (function () {
-    function LoginComponent(router, routerLink, userService) {
+    function LoginComponent(router, userService) {
         this.router = router;
-        this.routerLink = routerLink;
         this.userService = userService;
         this.isTips = false;
         this.user = {
@@ -71,7 +70,7 @@ var LoginComponent = (function () {
             selector: 'login',
             templateUrl: '../templates/common/login.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.RouterLink, user_service_1.UserService])
+        __metadata('design:paramtypes', [router_1.Router, user_service_1.UserService])
     ], LoginComponent);
     return LoginComponent;
 }());

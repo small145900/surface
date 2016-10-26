@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule, RouterLink } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { UserService } from './user.service';
 
 
@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
 
 	constructor(
 		private router: Router,
-		private routerLink: RouterLink,
 	 	private userService: UserService){
 		this.userService.changeTitle('login')
 	}

@@ -67,6 +67,7 @@ var RegisterComponent = (function () {
             this.tips('username', true);
         }
         else if (!(user.username && /[0-9A-Za-z]/.test(user.username))) {
+            console.log('have username');
             this.tips('isUsernameRight', true);
         }
         else if (!user.email) {
@@ -74,6 +75,7 @@ var RegisterComponent = (function () {
             this.tips('email', true);
         }
         else if (user.email && user.email.indexOf('@') === -1) {
+            console.log('have email');
             this.tips('isEmailRight', true);
         }
         else if (user.password) {
