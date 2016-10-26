@@ -47,10 +47,10 @@ var RegisterComponent = (function () {
         var user = this.user;
         var pwdReg = /(?![0-9a-z]+$)(?![a-zA-Z]+$)[0-9A-Z]{8,}/;
         console.log(/(?![0-9a-z]+$)(?![a-zA-Z]+$)[0-9A-Z]{8,}/.test(user.password));
-        if (user.username && user.password && pwdReg.test(user.password) && user.email) {
+        if (user.username && user.password && pwdReg.test(user.password) && user.password.indexOf('' + user.username) === -1 && user.email) {
             this.userService.signUp(this.user)
                 .then(function (res) {
-                if (res.code === 201) {
+                if (res.status === 201) {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
                 }
@@ -65,7 +65,7 @@ var RegisterComponent = (function () {
         else if (!user.password) {
             this.tips('password', true);
         }
-        else if (!(user.password && pwdReg.test(user.password))) {
+        else if (!(user.password && pwdReg.test(user.password) && user.password.indexOf('' + user.username) === -1)) {
             this.tips('pwdError', true);
         }
         else if (!user.email) {

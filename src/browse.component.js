@@ -27,11 +27,11 @@ var BrowseComponent = (function () {
         var _this = this;
         this.userService.getBrowseList()
             .then(function (res) {
-            if (res.code === 200) {
-                _this.browseList = res.list;
+            if (res.status === 200) {
+                _this.browseList = res.data.list;
             }
-            else {
-                alert(res.message);
+            else if (res.status === 400) {
+                console.log(res.status);
             }
         }, function (error) { return _this.errorMsg = error; });
     };

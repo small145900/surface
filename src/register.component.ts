@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
 		if(user.username&&user.password&&pwdReg.test(user.password)&&user.password.indexOf(''+user.username)===-1&&user.email){
 			this.userService.signUp(this.user)
       .then(res => { 
-      	if(res.code === 201){
+      	if(res.status === 201){
       		this.router.navigate(['repositories'])
       		sessionStorage.setItem("username", user.username)
       	}else{
