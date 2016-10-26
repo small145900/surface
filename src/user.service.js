@@ -98,7 +98,7 @@ var UserService = (function () {
     UserService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :
             error.status ? error.status + " - " + error.statusText : 'Server error';
-        console.error(errMsg);
+        console.log(errMsg);
         return Promise.reject(errMsg);
     };
     UserService.prototype.changeTitle = function (val) {

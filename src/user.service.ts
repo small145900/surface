@@ -107,7 +107,7 @@ export class UserService {
     console.log('err',error)
     let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg); 
+    console.log(errMsg); 
     return Promise.reject(errMsg);
   }
 
