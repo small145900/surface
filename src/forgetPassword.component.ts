@@ -48,6 +48,9 @@ export class ForgetPwdComponent implements OnInit {
       		this.router.navigate(['repositories'])
       	}else if(res.code === 400){
       		this.tips('otherError',true)
+      		setTimeout(function(){
+      			this.tips('otherError',false)
+      		}.bind(this),3000)
       	}
       },error => this.errorMsg = <any>error);
 		}else if(!user.email){

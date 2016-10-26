@@ -47,9 +47,6 @@ var LoginComponent = (function () {
                 }
                 else if (res.code === 400) {
                     _this.tips(true);
-                    setTimeout(function () {
-                        this.tips(false);
-                    }.bind(_this), 3000);
                 }
             }, function (error) { return _this.errorMsg = error; });
         }
@@ -62,6 +59,11 @@ var LoginComponent = (function () {
     };
     LoginComponent.prototype.tips = function (val) {
         this.isTips = val;
+        if (val) {
+            setTimeout(function () {
+                this.tips(false);
+            }.bind(this), 4000);
+        }
     };
     LoginComponent = __decorate([
         core_1.Component({

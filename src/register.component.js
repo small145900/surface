@@ -20,6 +20,7 @@ var RegisterComponent = (function () {
             email: false,
             isEmailRight: false,
             password: false,
+            pwdError: false,
             otherError: false
         };
         this.user = {
@@ -44,7 +45,9 @@ var RegisterComponent = (function () {
         var _this = this;
         console.log(this.user);
         var user = this.user;
-        if (user.username && user.password && user.email) {
+        var pwdReg = /(?![0-9a-z]+$)(?![a-zA-Z]+$)[0-9A-Z]{8,}/;
+        console.log(/(?![0-9a-z]+$)(?![a-zA-Z]+$)[0-9A-Z]{8,}/.test(user.password));
+        if (user.username && user.password && pwdReg.test(user.password) && user.email) {
             this.userService.signUp(this.user)
                 .then(function (res) {
                 if (res.code === 201) {
@@ -53,9 +56,6 @@ var RegisterComponent = (function () {
                 }
                 else {
                     _this.tips('otherError', true);
-                    setTimeout(function () {
-                        this.tips('otherError', false);
-                    }, 3000);
                 }
             }, function (error) { return _this.errorMsg = error; });
         }
@@ -64,6 +64,9 @@ var RegisterComponent = (function () {
         }
         else if (!user.password) {
             this.tips('password', true);
+        }
+        else if (!(user.password && pwdReg.test(user.password))) {
+            this.tips('pwdError', true);
         }
         else if (!user.email) {
             this.tips('email', true);
@@ -75,6 +78,11 @@ var RegisterComponent = (function () {
     };
     RegisterComponent.prototype.tips = function (name, val) {
         this.isTips[name] = val;
+        if (val) {
+            setTimeout(function () {
+                this.tips(name, false);
+            }.bind(this), 4000);
+        }
     };
     RegisterComponent = __decorate([
         core_1.Component({

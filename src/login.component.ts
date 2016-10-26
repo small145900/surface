@@ -48,9 +48,6 @@ export class LoginComponent implements OnInit {
       		sessionStorage.setItem("username", user.username)
       	}else if(res.code === 400){
       		this.tips(true)
-      		setTimeout(function(){
-		  			this.tips(false)
-		  		}.bind(this),3000)
       	}
       },error => this.errorMsg = <any>error);
 		}
@@ -65,5 +62,10 @@ export class LoginComponent implements OnInit {
 
 	tips(val){
 		this.isTips = val
+		if(val){
+			setTimeout(function(){
+				this.tips(false)
+			}.bind(this),4000)
+		}
 	}
 }
