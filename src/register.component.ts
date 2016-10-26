@@ -68,7 +68,7 @@ export class RegisterComponent implements OnInit {
 		}else if(!user.email){
 			console.log('no email')
 			this.tips('email',true)
-		}else if(!(user.email&&user.email.indexOf('@')!==-1)){
+		}else if(user.email&&user.email.indexOf('@')===-1){
 			this.tips('isEmailRight',true)
 		}else if(user.password){
 			console.log('have password')
