@@ -24,7 +24,9 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/user/signin', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,function(err){
+                 console.log(err)
+               })
                .catch(this.handleError)
   }
 
