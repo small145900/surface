@@ -65,9 +65,10 @@ export class RegisterComponent implements OnInit {
       },error => this.errorMsg = <any>error);
 		}else if(!user.username){
 			this.tips('username',true)
-		}else if(!user.password){
-			this.tips('password',true)
-			this.isTips.passwordText = 'password is required'
+		}else if(!user.email){
+			this.tips('email',true)
+		}else if(!(user.email&&user.email.indexOf('@')!==-1)){
+			this.tips('isEmailRight',true)
 		}else if(user.password){
 			if(password.length < 8){
 				this.tips('password',true)
@@ -82,11 +83,10 @@ export class RegisterComponent implements OnInit {
 				this.tips('password',true)
 				this.isTips.passwordText = 'password must contain a capital letter'
 			}
-		}else if(!user.email){
-			this.tips('email',true)
-		}else if(!(user.email&&user.email.indexOf('@')!==-1)){
-			this.tips('isEmailRight',true)
-		}	
+		}else if(!user.password){
+			this.tips('password',true)
+			this.isTips.passwordText = 'password is required'
+		}
 	}
 
 	tips(name,val){

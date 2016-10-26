@@ -23,7 +23,7 @@
           <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off" (change)="tips('username',false)">
           <i class="fa fa-lock"></i><br/>
           <small class="tips" *ngIf="isTips.password">{{isTips.passwordText}}</small>
-          <small class="tips" *ngIf="isTips.pwdError">password is invalid</small>
+          <!-- <small class="tips" *ngIf="isTips.pwdError">password is invalid</small> -->
         </span>
         <small class="require">*Password at least 8 bit,it contains numbers, capital letters,not including user name</small>
         <button class="space sign-in" (click)="signUp()">Sign Up</button>
