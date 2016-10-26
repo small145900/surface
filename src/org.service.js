@@ -44,7 +44,11 @@ var OrgService = (function () {
             .catch(this.handleError);
     };
     OrgService.prototype.dealData = function (res) {
-        return res.json() || {};
+        var object = {
+            code: res.status,
+            data: res.json()
+        };
+        return object || {};
     };
     OrgService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :

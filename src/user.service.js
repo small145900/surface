@@ -90,7 +90,7 @@ var UserService = (function () {
     };
     UserService.prototype.dealData = function (res) {
         var object = {
-            status: res.status,
+            code: res.status,
             data: res.json()
         };
         return object || {};
