@@ -33,7 +33,11 @@ var RepoService = (function () {
             .catch(this.handleError);
     };
     RepoService.prototype.dealData = function (res) {
-        return res.json() || {};
+        var object = {
+            code: res.status,
+            data: res.json()
+        };
+        return object || {};
     };
     RepoService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :

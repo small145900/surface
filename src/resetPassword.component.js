@@ -36,11 +36,13 @@ var ResetPwdComponent = (function () {
         this.router.navigate([val]);
     };
     ResetPwdComponent.prototype.resetPwd = function () {
+        var _this = this;
         console.log(this.user);
-        // this.userService.resetPwd(this.user)
-        //     .then(res => { if(res.code === 200){this.router.navigate(['repositories'])}},
-        //           error => this.errorMsg = <any>error);
-        this.router.navigate(['repositories']);
+        this.userService.resetPwd(this.user)
+            .then(function (res) { if (res.code === 200) {
+            _this.router.navigate(['repositories']);
+        } }, function (error) { return _this.errorMsg = error; });
+        // this.router.navigate(['repositories']);
     };
     ResetPwdComponent = __decorate([
         core_1.Component({
