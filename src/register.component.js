@@ -53,7 +53,7 @@ var RegisterComponent = (function () {
         // console.log(/(?![0-9a-z]+$)(?![a-zA-Z]+$){8,}/.test(user.password))
         var password = user.password;
         var pwdReg = password && (password.length > 8) && (password.indexOf('' + user.username) === -1) && (/[0-9]/g.test(password)) && (/[A-Z]/g.test(password));
-        if (user.username && pwdReg && user.email) {
+        if (user.username && pwdReg && user.email && (user.email.indexOf('@')!==-1)) {
             this.userService.signUp(this.user)
                 .then(function (res) {
                 if (res.code === 201) {
@@ -78,7 +78,7 @@ var RegisterComponent = (function () {
             console.log('no email');
             this.tips('email', true);
         }
-        else if (user.email.indexOf('@')==-1) {
+        else if (!(user.email.indexOf('@')!==-1)) {
             console.log('have email');
             this.tips('emailError', true);
         }

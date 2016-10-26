@@ -16,6 +16,7 @@ var LoginComponent = (function () {
         this.router = router;
         this.userService = userService;
         this.isTips = false;
+        this.errorText = '';
         this.user = {
             username: '',
             password: ''

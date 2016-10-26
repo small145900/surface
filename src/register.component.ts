@@ -57,7 +57,7 @@ export class RegisterComponent implements OnInit {
 		var password = user.password
 
 		var pwdReg = password && (password.length > 8) && (password.indexOf(''+user.username)===-1) && (/[0-9]/g.test(password)) && (/[A-Z]/g.test(password))
-		if(user.username&&pwdReg&&user.email){
+		if(user.username&&pwdReg&&user.email&&user.email.indexOf('@')!==-1){
 			this.userService.signUp(this.user)
       .then(res => { 
       	if(res.code === 201){
@@ -80,7 +80,7 @@ export class RegisterComponent implements OnInit {
 			console.log('no email')
 			// this.isTips.emailInfo = 'email is required'
 			this.tips('email',true)
-		}else if(user.email.indexOf('@')==-1){
+		}else if(!(user.email.indexOf('@')!==-1)){
 			console.log('have email')
 			// this.isTips.emailInfo = 'email is invalid'
 			this.tips('emailError',true)
