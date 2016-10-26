@@ -11,6 +11,7 @@ import { UserService } from './user.service';
 export class LoginComponent implements OnInit { 
 	errorMsg: string;
 	isTips = false;
+	errorText = '';
 	user = {
 		username: '',
 		password: ''
@@ -48,6 +49,7 @@ export class LoginComponent implements OnInit {
       		sessionStorage.setItem("username", user.username)
       	}else if(res.code === 400){
       		this.tips(true)
+      		this.errorText = res.data.message
       	}
       },error => this.errorMsg = <any>error);
 		}

@@ -6,7 +6,7 @@
   <div class="content">
     <div class="login-content">
       <div class="sign-up">
-        <small class="tips" *ngIf="isTips.otherError">username is required</small>
+        <small class="tips" *ngIf="isTips.otherError">{{isTips.otherText}}</small>
         <span class="space user">
           <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" autocomplete="off" (change)="tips('username',false)">
           <i class="fa fa-user"></i><br/>

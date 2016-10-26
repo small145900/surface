@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
     password: false,
 		pwdError: false,
     otherError: false,
+    otherText: '',
 		passwordText: ''
   }
 	user = {
@@ -60,8 +61,9 @@ export class RegisterComponent implements OnInit {
       	if(res.code === 201){
       		this.router.navigate(['repositories'])
       		sessionStorage.setItem("username", user.username)
-      	}else{
+      	}else if(res.code === 400){
       		this.tips('otherError',true)
+      		this.isTips.otherText = res.data.message
       	}
       },error => this.errorMsg = <any>error);
 		}else if(!user.username){
@@ -72,7 +74,7 @@ export class RegisterComponent implements OnInit {
 		}else if(!user.email){
 			console.log('no email')
 			this.tips('email',true)
-		}else if(user.email&&user.email.indexOf('@')===-1){
+		}else if(user.email.indexOf('@')===-1){
 			console.log('have email')
 			this.tips('isEmailRight',true)
 		}else if(user.password){
