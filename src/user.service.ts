@@ -94,7 +94,7 @@ export class UserService {
 
   private dealData (res: Response) {
     var object = {
-      status: res.status,
+      code: res.status,
       data: res.json()
     }
     return object || {}

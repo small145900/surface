@@ -47,8 +47,8 @@ export class RegisterComponent implements OnInit {
 	signUp() {
 		console.log(this.user)
 		var user = this.user;
-		var pwdReg=/(?![0-9a-z]+$)(?![a-zA-Z]+$)[0-9A-Z]{8,}/
-		console.log(/(?![0-9a-z]+$)(?![a-zA-Z]+$)[0-9A-Z]{8,}/.test(user.password))
+		var pwdReg=/(?![0-9a-z]+$)(?![a-zA-Z]+$){8,}/
+		console.log(/(?![0-9a-z]+$)(?![a-zA-Z]+$){8,}/.test(user.password))
 		if(user.username&&user.password&&pwdReg.test(user.password)&&user.password.indexOf(''+user.username)===-1&&user.email){
 			this.userService.signUp(this.user)
       .then(res => { 

@@ -42,7 +42,11 @@ export class OrgService {
   }
 
   private dealData (res: Response) {
-    return res.json() || {}
+    var object = {
+      code: res.status,
+      data: res.json()
+    }
+    return object || {}
   }
   
   private handleError (error: any) {

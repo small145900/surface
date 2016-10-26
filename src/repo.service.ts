@@ -30,7 +30,11 @@ export class RepoService {
   }
 
   private dealData (res: Response) {
-    return res.json() || {}
+    var object = {
+      code: res.status,
+      data: res.json()
+    }
+    return object || {}
   }
   
   private handleError (error: any) {

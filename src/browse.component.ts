@@ -26,10 +26,10 @@ export class BrowseComponent implements OnInit {
 	ngOnInit(): void {
 		this.userService.getBrowseList()
     .then(res => {
-    	if(res.status === 200){
+    	if(res.code === 200){
     		this.browseList = res.data.list      
-    	}else if(res.status === 400){
-    		console.log(res.status)
+    	}else if(res.code === 400){
+    		console.log(res.code)
     	}
     },error => this.errorMsg = <any>error);
   }
