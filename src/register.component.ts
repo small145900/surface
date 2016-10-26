@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     email: false,
     // emailInfo: '',
     emailError: false,
-    emailErr: false,
+    emailInfo: false,
     password: false,
 		pwdError: false,
     otherError: false,
