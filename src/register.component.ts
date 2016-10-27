@@ -68,6 +68,9 @@ export class RegisterComponent implements OnInit {
       	if(res.code === 201){
       		this.router.navigate(['repositories'])
       		sessionStorage.setItem("username", user.username)
+      	}else if(400 <= res.code && res.code < 500){
+      		this.tips('otherError',true)
+      		this.isTips.otherText = res.data.message
       	}
       },error => {
       	console.log(error)

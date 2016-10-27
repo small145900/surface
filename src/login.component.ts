@@ -52,6 +52,9 @@ export class LoginComponent implements OnInit {
       	if(res.code === 200){
       		this.router.navigate(['repositories'])
       		sessionStorage.setItem("username", user.username)
+      	}else if(400 <= res.code && res.code < 500){
+      		this.tips(true)
+      		this.errorText = res.data.message
       	}
       },error => {
       	if(400 <= error.code && error.code < 500){

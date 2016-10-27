@@ -50,6 +50,9 @@ var LoginComponent = (function () {
                 if (res.code === 200) {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
+                }else if(400 <= res.code && res.code < 500){
+                    _this.tips(true)
+                    _this.errorText = res.data.message
                 }
             }, function (error) {
                 if (400 <= error.code && error.code < 500) {

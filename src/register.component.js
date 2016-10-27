@@ -66,6 +66,9 @@ var RegisterComponent = (function () {
                 if (res.code === 201) {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
+                }else if(400 <= res.code && res.code < 500){
+                    _this.tips('otherError',true)
+                    _this.isTips.otherText = res.data.message
                 }
             }, function (error) {
                 console.log(error);
