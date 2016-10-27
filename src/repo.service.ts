@@ -17,7 +17,7 @@ export class RepoService {
   getRepoList(orgInfo): Promise<Repo[]> {
     return this.http.get('json/repoList.json')
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -25,7 +25,7 @@ export class RepoService {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/repository', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -34,6 +34,15 @@ export class RepoService {
       code: res.status,
       data: res.json()
     }
+    return object || {}
+  }
+
+  private dealError (err: Response) {
+    var object = {
+      code: err.status,
+      data: err.json()
+    }
+    console.log(err)
     return object || {}
   }
   

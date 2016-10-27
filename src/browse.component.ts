@@ -27,11 +27,12 @@ export class BrowseComponent implements OnInit {
 		this.userService.getBrowseList()
     .then(res => {
     	if(res.code === 200){
-    		this.browseList = res.data.list      
-    	}else if(res.code === 400){
+    		console.log(res.data)
+    		this.browseList = res.data      
+    	}else if(400 <= res.code && res.code < 500){
     		console.log(res.code)
     	}
-    },error => this.errorMsg = <any>error);
+    },error => {this.errorMsg = <any>error;console.log(error)});
   }
 
   activeHover(index){

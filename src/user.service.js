@@ -22,7 +22,7 @@ var UserService = (function () {
     UserService.prototype.getBrowseList = function () {
         return this.http.get('json/browseList.json')
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.doLogin = function (info) {
@@ -43,49 +43,49 @@ var UserService = (function () {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/user/forget', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.resetPwd = function (info) {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/user/forget/reset', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.getEmailList = function (info) {
         var params = JSON.stringify(info);
         return this.http.get('json/emailList.json')
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.addEmail = function (info) {
         var params = JSON.stringify(info);
         return this.http.put('/web/v1/user/' + info.username + '/email', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.verifyEmail = function (info, user) {
         var params = JSON.stringify(info);
         return this.http.put('/web/v1/user/' + user.username + '/email/' + info.email + '/send', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.delEmail = function (info, user) {
         var params = JSON.stringify(info);
         return this.http.put('/web/v1/user/' + user.username + '/email/' + info.email, params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.loginOut = function (user) {
         var params = JSON.stringify(user);
         return this.http.put('/web/v1/user/' + user.username + '/signout', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.dealData = function (res) {

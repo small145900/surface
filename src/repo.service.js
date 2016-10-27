@@ -22,14 +22,14 @@ var RepoService = (function () {
     RepoService.prototype.getRepoList = function (orgInfo) {
         return this.http.get('json/repoList.json')
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     RepoService.prototype.repoCreate = function (info) {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/repository', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     RepoService.prototype.dealData = function (res) {
@@ -38,6 +38,14 @@ var RepoService = (function () {
             data: res.json()
         };
         return object || {};
+    };
+    RepoService.prototype.dealError = function (err) {
+        var object = {
+          code: err.status,
+          data: err.json()
+        }
+        console.log(err)
+        return object || {}
     };
     RepoService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :
