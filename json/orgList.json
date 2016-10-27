@@ -1,5 +1,4 @@
-{
-  "orgList":[
+[
   { "name": "dockyard",
     "title": "dockyard",
     "bio": "this is dockyard",
@@ -36,5 +35,4 @@
     "repositories": 120,
     "role":"read"
   }
-  ]
-}
+]

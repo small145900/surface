@@ -33,20 +33,27 @@ var OrgService = (function () {
     OrgService.prototype.getOrgList = function () {
         return this.http.get('json/orgList.json')
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     OrgService.prototype.orgCreate = function (info) {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/orgs', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     OrgService.prototype.dealData = function (res) {
         var object = {
             code: res.status,
             data: res.json()
+        };
+        return object || {};
+    };
+    OrgService.prototype.dealError = function (err) {
+        var object = {
+            code: err.status,
+            data: err.json()
         };
         return object || {};
     };

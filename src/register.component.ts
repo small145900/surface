@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from './user.service';
-
+import * as md5 from "blueimp-md5/js/md5";
 
 @Component({
   selector: 'register',
@@ -58,15 +58,23 @@ export class RegisterComponent implements OnInit {
 
 		var pwdReg = password && (password.length > 8) && (password.indexOf(''+user.username)===-1) && (/[0-9]/g.test(password)) && (/[A-Z]/g.test(password))
 		if(user.username&&pwdReg&&user.email&&user.email.indexOf('@')!==-1){
-			this.userService.signUp(this.user)
+			var data = {
+				username: user.username,
+				email: user.email,
+				password: md5(user.password)
+			}
+			this.userService.signUp(data)
       .then(res => { 
       	if(res.code === 201){
       		this.router.navigate(['repositories'])
       		sessionStorage.setItem("username", user.username)
+      	}else if(400 <= res.code && res.code < 500){
+      		this.tips('otherError',true)
+      		this.isTips.otherText = res.data.message
       	}
       },error => {
       	console.log(error)
-      	if(error.code === 400){
+      	if(400 <= error.code && error.code < 500){
       		this.tips('otherError',true)
       		this.isTips.otherText = error.data.message
       	}

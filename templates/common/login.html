@@ -8,11 +8,11 @@
       <div class="login">
         <span class="tips" *ngIf="isTips">{{errorText}}</span>
         <span class="space user">
-          <input type="text" placeholder="Username or Email" [(ngModel)]="user.username" name="username" autocomplete="off">
+          <input type="text" placeholder="Username or Email" [(ngModel)]="user.username" name="username" autocomplete="off" (keyup.enter)="login()"/>
           <i class="fa fa-user"></i>
         </span>
         <span class="space pwd">
-          <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
+          <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off" (keyup.enter)="login()"/>
           <i class="fa fa-lock"></i>
         </span>
         <button class="space sign-in" (click)="login()">Sign in</button>

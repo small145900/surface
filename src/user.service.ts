@@ -16,7 +16,7 @@ export class UserService {
   getBrowseList(): Promise<any> {
     return this.http.get('json/browseList.json')
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -24,9 +24,7 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/user/signin', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData,function(err){
-                 console.log(err)
-               })
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -34,7 +32,7 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/user', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -42,7 +40,7 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/user/forget', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -50,7 +48,7 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/user/forget/reset', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -58,7 +56,7 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.get('json/emailList.json')
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -66,7 +64,7 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.put('/web/v1/user/'+info.username+'/email', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -82,7 +80,7 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.put('/web/v1/user/'+user.username+'/email/'+info.email, params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -90,7 +88,7 @@ export class UserService {
     let params=JSON.stringify(user)
     return this.http.put('/web/v1/user/'+user.username+'/signout', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -99,10 +97,19 @@ export class UserService {
       code: res.status,
       data: res.json()
     }
-    console.log(res,'---')
+    console.log(res)
     return object || {}
   }
-  
+
+  private dealError (err: Response) {
+    var object = {
+      code: err.status,
+      data: err.json()
+    }
+    console.log(err)
+    return object || {}
+  }
+
   private handleError (error: any) {
     console.log(error)
     // let errMsg = (error.message) ? error.message :
