@@ -24,9 +24,7 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/user/signin', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData,function(err){
-                 console.log(err)
-               })
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -34,7 +32,7 @@ export class UserService {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/user', params, {headers: this.headers})
                .toPromise()
-               .then(this.dealData)
+               .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
@@ -99,10 +97,19 @@ export class UserService {
       code: res.status,
       data: res.json()
     }
-    console.log(res,'---')
+    console.log(res)
     return object || {}
   }
-  
+
+  private dealError (err: Response) {
+    var object = {
+      code: err.status,
+      data: err.json()
+    }
+    console.log(err)
+    return object || {}
+  }
+
   private handleError (error: any) {
     console.log(error)
     // let errMsg = (error.message) ? error.message :

@@ -29,16 +29,14 @@ var UserService = (function () {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/user/signin', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData, function (err) {
-            console.log(err);
-        })
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.signUp = function (info) {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/user', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData,this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.sendEmail = function (info) {
@@ -97,6 +95,14 @@ var UserService = (function () {
         };
         console.log(res, '---');
         return object || {};
+    };
+    UserService.prototype.dealError = function (err) {
+        var object = {
+          code: err.status,
+          data: err.json()
+        }
+        console.log(err)
+        return object || {}
     };
     UserService.prototype.handleError = function (error) {
         console.log(error);
