@@ -14,9 +14,11 @@ import { RepoService } from './repo.service';
 
 export class RepoListComponent implements OnInit {
   errorMsg: string;
-	orgList: Org[] = [];
+  orgList = [];
+	// orgList: Org[] = [];
   // repoList: Repo[] = [];
-	orgRepo: OrgRepo[] = [];
+  // orgRepo: OrgRepo[] = [];
+	orgRepo = [];
 
 
 	constructor(
@@ -28,13 +30,23 @@ export class RepoListComponent implements OnInit {
 
   ngOnInit(): void {
   	this.orgService.getOrgList()
-      .then(orgList => this.orgList = orgList)
+      .then(res => {
+        if(res.code === 200){
+          this.orgList = res.data
+        }else{
+          console.log('get org list error',res)
+        }
+      })
       .then(() => {
       	this.orgList.map((dom) => {
       		this.repoService.getRepoList(dom)
-      			.then(repoList => {
-              dom.children = repoList.slice(0,4); 
-              this.orgRepo.push(dom)
+      			.then(response => {
+              if(response.code === 200){
+                dom.children = response.data.slice(0,4); 
+                this.orgRepo.push(dom)
+              }else{
+                console.log('get repo list error',response,'orgInfo',dom)
+              }
             },error => this.errorMsg = <any>error)
       	})
       })        

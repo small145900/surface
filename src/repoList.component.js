@@ -19,19 +19,33 @@ var RepoListComponent = (function () {
         this.orgService = orgService;
         this.repoService = repoService;
         this.orgList = [];
+        // orgList: Org[] = [];
         // repoList: Repo[] = [];
+        // orgRepo: OrgRepo[] = [];
         this.orgRepo = [];
     }
     RepoListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.orgService.getOrgList()
-            .then(function (orgList) { return _this.orgList = orgList; })
+            .then(function (res) {
+            if (res.code === 200) {
+                _this.orgList = res.data;
+            }
+            else {
+                console.log('get org list error', res);
+            }
+        })
             .then(function () {
             _this.orgList.map(function (dom) {
                 _this.repoService.getRepoList(dom)
-                    .then(function (repoList) {
-                    dom.children = repoList.slice(0, 4);
-                    _this.orgRepo.push(dom);
+                    .then(function (response) {
+                    if (response.code === 200) {
+                        dom.children = response.data.slice(0, 4);
+                        _this.orgRepo.push(dom);
+                    }
+                    else {
+                        console.log('get repo list error', response, 'orgInfo', dom);
+                    }
                 }, function (error) { return _this.errorMsg = error; });
             });
         });

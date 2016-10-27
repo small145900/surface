@@ -33,14 +33,14 @@ var OrgService = (function () {
     OrgService.prototype.getOrgList = function () {
         return this.http.get('json/orgList.json')
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     OrgService.prototype.orgCreate = function (info) {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/orgs', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     OrgService.prototype.dealData = function (res) {
@@ -52,11 +52,11 @@ var OrgService = (function () {
     };
     OrgService.prototype.dealError = function (err) {
         var object = {
-          code: err.status,
-          data: err.json()
-        }
-        console.log(err)
-        return object || {}
+            code: err.status,
+            data: err.json()
+        };
+        console.log(err);
+        return object || {};
     };
     OrgService.prototype.handleError = function (error) {
         var errMsg = (error.message) ? error.message :

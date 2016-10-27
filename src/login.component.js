@@ -44,15 +44,16 @@ var LoginComponent = (function () {
             var data = {
                 username: user.username,
                 password: md5(user.password)
-            }
+            };
             this.userService.doLogin(data)
                 .then(function (res) {
                 if (res.code === 200) {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
-                }else if(400 <= res.code && res.code < 500){
-                    _this.tips(true)
-                    _this.errorText = res.data.message
+                }
+                else if (400 <= res.code && res.code < 500) {
+                    _this.tips(true);
+                    _this.errorText = res.data.message;
                 }
             }, function (error) {
                 if (400 <= error.code && error.code < 500) {

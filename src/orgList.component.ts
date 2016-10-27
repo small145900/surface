@@ -12,7 +12,8 @@ import { OrgService } from './org.service';
 
 export class OrgListComponent implements OnInit {
   errorMsg: string;
-	orgList: Org[] = [];
+  // orgList: Org[] = [];
+	orgList = [];
 
 	constructor(
 		private router: Router,
@@ -21,8 +22,13 @@ export class OrgListComponent implements OnInit {
 
   ngOnInit(): void {
     this.orgService.getOrgList()
-      .then(orgList => this.orgList = orgList,
-            error => this.errorMsg = <any>error);
+      .then(res => {
+        if(res.code === 200){
+          this.orgList = res.data
+        }else{
+          console.log('get org list err',res)
+        }
+      },error => this.errorMsg = <any>error);
   }
 
   // gotoDetail(repo: Repo): void {

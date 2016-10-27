@@ -22,70 +22,70 @@ var UserService = (function () {
     UserService.prototype.getBrowseList = function () {
         return this.http.get('json/browseList.json')
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.doLogin = function (info) {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/user/signin', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.signUp = function (info) {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/user', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.sendEmail = function (info) {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/user/forget', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.resetPwd = function (info) {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/user/forget/reset', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.getEmailList = function (info) {
         var params = JSON.stringify(info);
         return this.http.get('json/emailList.json')
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.addEmail = function (info) {
         var params = JSON.stringify(info);
         return this.http.put('/web/v1/user/' + info.username + '/email', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.verifyEmail = function (info, user) {
         var params = JSON.stringify(info);
         return this.http.put('/web/v1/user/' + user.username + '/email/' + info.email + '/send', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData)
             .catch(this.handleError);
     };
     UserService.prototype.delEmail = function (info, user) {
         var params = JSON.stringify(info);
         return this.http.put('/web/v1/user/' + user.username + '/email/' + info.email, params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.loginOut = function (user) {
         var params = JSON.stringify(user);
         return this.http.put('/web/v1/user/' + user.username + '/signout', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData,this.dealError)
+            .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
     UserService.prototype.dealData = function (res) {
@@ -93,16 +93,16 @@ var UserService = (function () {
             code: res.status,
             data: res.json()
         };
-        console.log(res, '---');
+        console.log(res);
         return object || {};
     };
     UserService.prototype.dealError = function (err) {
         var object = {
-          code: err.status,
-          data: err.json()
-        }
-        console.log(err)
-        return object || {}
+            code: err.status,
+            data: err.json()
+        };
+        console.log(err);
+        return object || {};
     };
     UserService.prototype.handleError = function (error) {
         console.log(error);

@@ -60,15 +60,16 @@ var RegisterComponent = (function () {
                 username: user.username,
                 email: user.email,
                 password: md5(user.password)
-            }
+            };
             this.userService.signUp(data)
                 .then(function (res) {
                 if (res.code === 201) {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
-                }else if(400 <= res.code && res.code < 500){
-                    _this.tips('otherError',true)
-                    _this.isTips.otherText = res.data.message
+                }
+                else if (400 <= res.code && res.code < 500) {
+                    _this.tips('otherError', true);
+                    _this.isTips.otherText = res.data.message;
                 }
             }, function (error) {
                 console.log(error);

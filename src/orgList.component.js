@@ -15,12 +15,20 @@ var OrgListComponent = (function () {
     function OrgListComponent(router, orgService) {
         this.router = router;
         this.orgService = orgService;
+        // orgList: Org[] = [];
         this.orgList = [];
     }
     OrgListComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.orgService.getOrgList()
-            .then(function (orgList) { return _this.orgList = orgList; }, function (error) { return _this.errorMsg = error; });
+            .then(function (res) {
+            if (res.code === 200) {
+                _this.orgList = res.data;
+            }
+            else {
+                console.log('get org list err', res);
+            }
+        }, function (error) { return _this.errorMsg = error; });
     };
     // gotoDetail(repo: Repo): void {
     //   let link = ['repoDetail', repo.namespace,repo.repository];
