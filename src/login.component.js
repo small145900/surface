@@ -41,8 +41,11 @@ var LoginComponent = (function () {
         console.log(this.user);
         var user = this.user;
         if (user.username && user.password) {
-            user.password = md5(user.password);
-            this.userService.doLogin(this.user)
+            var data = {
+                username: user.username,
+                password: md5(user.password)
+            }
+            this.userService.doLogin(data)
                 .then(function (res) {
                 if (res.code === 200) {
                     _this.router.navigate(['repositories']);

@@ -56,8 +56,12 @@ var RegisterComponent = (function () {
         var password = user.password;
         var pwdReg = password && (password.length > 8) && (password.indexOf('' + user.username) === -1) && (/[0-9]/g.test(password)) && (/[A-Z]/g.test(password));
         if (user.username && pwdReg && user.email && user.email.indexOf('@') !== -1) {
-            user.password = md5(user.password);
-            this.userService.signUp(this.user)
+            var data = {
+                username: user.username,
+                email: user.email,
+                password: md5(user.password)
+            }
+            this.userService.signUp(data)
                 .then(function (res) {
                 if (res.code === 201) {
                     _this.router.navigate(['repositories']);
