@@ -54,7 +54,6 @@ export class OrgService {
       code: err.status,
       data: err.json()
     }
-    console.log(err)
     return object || {}
   }
   

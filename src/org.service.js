@@ -55,7 +55,6 @@ var OrgService = (function () {
             code: err.status,
             data: err.json()
         };
-        console.log(err);
         return object || {};
     };
     OrgService.prototype.handleError = function (error) {

@@ -11,14 +11,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 var repo_service_1 = require('./repo.service');
+var org_service_1 = require('./org.service');
 require('rxjs/add/operator/toPromise');
 var RepoCreateComponent = (function () {
-    function RepoCreateComponent(http, repoService) {
+    function RepoCreateComponent(http, repoService, orgService) {
         this.http = http;
         this.repoService = repoService;
+        this.orgService = orgService;
         this.step = 0;
+        this.isShowOrg = false;
+        this.chosedOrgName = '';
         this.repo = {};
+        this.orgList = [];
     }
+    RepoCreateComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // if(sessionStorage.getItem("username")){
+        this.orgService.getOrgList()
+            .then(function (res) {
+            // if(res.code === 200){
+            //   this.orgList = res.data
+            // }else{
+            //   console.log('get org list err',res)
+            // }
+        }, function (error) { return _this.errorMsg = error; });
+        // }
+    };
+    RepoCreateComponent.prototype.choseOrg = function (orgInfo) {
+        this.chosedOrgName = orgInfo.name;
+        this.isShowOrg = false;
+    };
     RepoCreateComponent.prototype.changeStep = function (step) {
         this.step = step;
     };
@@ -34,7 +56,7 @@ var RepoCreateComponent = (function () {
             selector: 'repo-create',
             templateUrl: '../templates/repository/repoCreate.html'
         }), 
-        __metadata('design:paramtypes', [http_1.Http, repo_service_1.RepoService])
+        __metadata('design:paramtypes', [http_1.Http, repo_service_1.RepoService, org_service_1.OrgService])
     ], RepoCreateComponent);
     return RepoCreateComponent;
 }());
