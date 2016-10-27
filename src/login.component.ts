@@ -66,6 +66,9 @@ export class LoginComponent implements OnInit {
     // this.router.navigate(['repositories']);
 	}
 
+	// toLogin(envet){
+	// 	console.log(event)
+	// }
 	tips(val){
 		this.isTips = val
 		if(val){

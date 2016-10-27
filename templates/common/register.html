@@ -8,21 +8,21 @@
       <div class="sign-up">
         <small class="tips" *ngIf="isTips.otherError">{{isTips.otherText}}</small>
         <span class="space user">
-          <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" autocomplete="off">
+          <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" autocomplete="off" (keyup.enter)="signUp()" />
           <i class="fa fa-user"></i><br/>
           <small class="tips" *ngIf="isTips.username">username is required</small>
           <small class="tips" *ngIf="isTips.isUsernameRight">username is invalid</small>
         </span>
         <small class="require">*user name must be the numbers and letters</small>
         <span class="space user">
-          <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" autocomplete="off">
+          <input type="email" placeholder="Email" [(ngModel)]="user.email" name="email" autocomplete="off" (keyup.enter)="signUp()" />
           <i class="fa fa-envelope"></i><br/>
           <small class="tips" *ngIf="isTips.email">email is required</small>
           <small class="tips" *ngIf="isTips.emailError">email is invalid</small>
           <small class="tips" *ngIf="isTips.emailInfo"></small>
         </span>
         <span class="space pwd">
-          <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off">
+          <input type="password" placeholder="Password" [(ngModel)]="user.password" name="password" autocomplete="off" (keyup.enter)="signUp()" />
           <i class="fa fa-lock"></i><br/>
           <small class="tips" *ngIf="isTips.password">{{isTips.passwordText}}</small>
         </span>

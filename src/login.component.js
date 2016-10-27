@@ -62,6 +62,9 @@ var LoginComponent = (function () {
         // }
         // this.router.navigate(['repositories']);
     };
+    // toLogin(envet){
+    // 	console.log(event)
+    // }
     LoginComponent.prototype.tips = function (val) {
         this.isTips = val;
         if (val) {
