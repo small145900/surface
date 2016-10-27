@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from './user.service';
+import * as md5 from "blueimp-md5/js/md5";
 
 
 @Component({
@@ -42,6 +43,7 @@ export class LoginComponent implements OnInit {
 		console.log(this.user)
 		var user = this.user;
 		if(user.username&&user.password){
+			user.password = md5(user.password)
 			this.userService.doLogin(this.user)
       .then(res => { 
       	if(res.code === 200){
@@ -49,7 +51,7 @@ export class LoginComponent implements OnInit {
       		sessionStorage.setItem("username", user.username)
       	}
       },error => {
-      	if(error.code === (400 || 401)){
+      	if(400 <= error.code && error.code < 500){
       		this.tips(true)
       		this.errorText = error.data.message
       	}

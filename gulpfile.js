@@ -64,7 +64,7 @@ gulp.task("systemjs",function(){
 });
 
 gulp.task("index",function(){
-	return gulp.src(["index.html"])
+	return gulp.src(["index.html","favicon.ico"])
 		.pipe(gulp.dest("dist"));
 });
 
@@ -72,6 +72,7 @@ gulp.task("lib", () => {
   return gulp.src([
   				'jquery/dist/jquery.min.js',
   				'bootstrap/dist/js/bootstrap.min.js',
+  				'blueimp-md5/js/**',
           'core-js/client/shim.min.js',
           'systemjs/dist/system-polyfills.js',
           'systemjs/dist/system.src.js',

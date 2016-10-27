@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_service_1 = require('./user.service');
+var md5 = require("blueimp-md5/js/md5");
 var LoginComponent = (function () {
     function LoginComponent(router, userService) {
         this.router = router;
@@ -40,18 +41,18 @@ var LoginComponent = (function () {
         console.log(this.user);
         var user = this.user;
         if (user.username && user.password) {
+            user.password = md5(user.password);
             this.userService.doLogin(this.user)
                 .then(function (res) {
                 if (res.code === 200) {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
                 }
-                
-            }, function (error) { 
-                if (error.code === (400 || 401)) {
+            }, function (error) {
+                if (400 <= error.code && error.code < 500) {
                     _this.tips(true);
-                    _this.errorText = error.data.message
-                } 
+                    _this.errorText = error.data.message;
+                }
             });
         }
         // else if(!user.username){

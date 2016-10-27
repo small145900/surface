@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_service_1 = require('./user.service');
+var md5 = require("blueimp-md5/js/md5");
 var RegisterComponent = (function () {
     function RegisterComponent(router, userService) {
         this.router = router;
@@ -19,8 +20,9 @@ var RegisterComponent = (function () {
             username: false,
             isUsernameRight: false,
             email: false,
+            // emailInfo: '',
             emailError: false,
-            isEmailRight: false,
+            emailInfo: false,
             password: false,
             pwdError: false,
             otherError: false,
@@ -53,17 +55,19 @@ var RegisterComponent = (function () {
         // console.log(/(?![0-9a-z]+$)(?![a-zA-Z]+$){8,}/.test(user.password))
         var password = user.password;
         var pwdReg = password && (password.length > 8) && (password.indexOf('' + user.username) === -1) && (/[0-9]/g.test(password)) && (/[A-Z]/g.test(password));
-        if (user.username && pwdReg && user.email && (user.email.indexOf('@')!==-1)) {
+        if (user.username && pwdReg && user.email && user.email.indexOf('@') !== -1) {
+            user.password = md5(user.password);
             this.userService.signUp(this.user)
                 .then(function (res) {
                 if (res.code === 201) {
                     _this.router.navigate(['repositories']);
                     sessionStorage.setItem("username", user.username);
                 }
-            }, function (error) { 
-                if(error.code === 400){
-                    _this.tips('otherError',true)
-                    _this.isTips.otherText = error.data.message
+            }, function (error) {
+                console.log(error);
+                if (400 <= error.code && error.code < 500) {
+                    _this.tips('otherError', true);
+                    _this.isTips.otherText = error.data.message;
                 }
             });
         }
@@ -76,10 +80,12 @@ var RegisterComponent = (function () {
         }
         else if (!user.email) {
             console.log('no email');
+            // this.isTips.emailInfo = 'email is required'
             this.tips('email', true);
         }
-        else if (!(user.email.indexOf('@')!==-1)) {
+        else if (!(user.email.indexOf('@') !== -1)) {
             console.log('have email');
+            // this.isTips.emailInfo = 'email is invalid'
             this.tips('emailError', true);
         }
         else if (user.password) {

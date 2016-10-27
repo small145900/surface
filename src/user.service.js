@@ -29,7 +29,9 @@ var UserService = (function () {
         var params = JSON.stringify(info);
         return this.http.post('/web/v1/user/signin', params, { headers: this.headers })
             .toPromise()
-            .then(this.dealData)
+            .then(this.dealData, function (err) {
+            console.log(err);
+        })
             .catch(this.handleError);
     };
     UserService.prototype.signUp = function (info) {
@@ -93,13 +95,18 @@ var UserService = (function () {
             code: res.status,
             data: res.json()
         };
+        console.log(res, '---');
         return object || {};
     };
     UserService.prototype.handleError = function (error) {
+        console.log(error);
+        // let errMsg = (error.message) ? error.message :
+        //   error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+        // console.log(errMsg);
         var object = {
-          code: error.status,
-          data: error.json()
-        }; 
+            code: error.status,
+            data: error.json()
+        };
         return Promise.reject(object);
     };
     UserService.prototype.changeTitle = function (val) {
