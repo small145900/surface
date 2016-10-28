@@ -70,7 +70,7 @@ gulp.task("index",function(){
 
 gulp.task("lib", () => {
   return gulp.src([
-  				'jquery/dist/jquery.min.js',
+  				'jquery/dist/**',
   				'bootstrap/dist/js/bootstrap.min.js',
   				'blueimp-md5/js/**',
           'core-js/client/shim.min.js',

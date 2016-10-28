@@ -22,11 +22,12 @@ var OrgListComponent = (function () {
         var _this = this;
         this.orgService.getOrgList()
             .then(function (res) {
-            // if(res.code === 200){
-            //   this.orgList = res.data
-            // }else{
-            //   console.log('get org list err',res)
-            // }
+            if (res.code === 200) {
+                _this.orgList = res.data;
+            }
+            else {
+                console.log('get org list err', res);
+            }
         }, function (error) { return _this.errorMsg = error; });
     };
     // gotoDetail(repo: Repo): void {

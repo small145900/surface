@@ -19,7 +19,10 @@ export class RepoListComponent implements OnInit {
   // repoList: Repo[] = [];
   // orgRepo: OrgRepo[] = [];
 	orgRepo = [];
-
+  promptInfo = {
+    isShow: false,
+    text: ''
+  }
 
 	constructor(
 		private router: Router,
@@ -31,22 +34,22 @@ export class RepoListComponent implements OnInit {
   ngOnInit(): void {
   	this.orgService.getOrgList()
       .then(res => {
-        // if(res.code === 200){
-        //   this.orgList = res.data
-        // }else{
-        //   console.log('get org list error',res)
-        // }
+        if(res.code === 200){
+          this.orgList = res.data
+        }else{
+          console.log('get org list error',res)
+        }
       })
       .then(() => {
       	this.orgList.map((dom) => {
       		this.repoService.getRepoList(dom)
       			.then(response => {
-              // if(response.code === 200){
-              //   dom.children = response.data.slice(0,4); 
-              //   this.orgRepo.push(dom)
-              // }else{
-              //   console.log('get repo list error',response,'orgInfo',dom)
-              // }
+              if(response.code === 200){
+                dom.children = response.data.slice(0,4); 
+                this.orgRepo.push(dom)
+              }else{
+                console.log('get repo list error',response,'orgInfo',dom)
+              }
             },error => this.errorMsg = <any>error)
       	})
       })        
@@ -64,5 +67,17 @@ export class RepoListComponent implements OnInit {
 
   repoDetail(repoInfo){
     this.router.navigate(['repositories',repoInfo.repository])
+  }
+
+  isShowPrompt(boolean,text){
+    this.promptInfo = {
+      isShow: boolean,
+      text: text
+    }
+    if(boolean){
+      setTimeout(function(){
+        this.isShowPrompt(false,'')
+      }.bind(this),3000)
+    }
   }
 }

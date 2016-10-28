@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from './user.service';
-// import * as md5 from "blueimp-md5/js/md5";
+var md5 = require("blueimp-md5/js/md5")
+// var $ = require("jquery/dist")
 
 
 @Component({
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
 	active = '';
 	browseList = [];
 	hover = '';
+	salt = '';
 
 	constructor(
 		private router: Router,
@@ -27,11 +29,13 @@ export class LoginComponent implements OnInit {
 		this.userService.changeTitle('login')
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		var salt = document.getElementsByTagName('meta')['salt'].getAttribute('content')
+		this.salt = salt;
+	}
 	
   activeHover(index){
   	this.hover = index;
-  	console.log(index)
   }
 
 	changeNav(val){
@@ -44,8 +48,8 @@ export class LoginComponent implements OnInit {
 		var user = this.user;
 		if(user.username&&user.password){
 			var data = {
-				// username: user.username,
-				// password: md5(user.password)
+				username: user.username,
+				password: md5(this.salt + user.password)
 			}
 			this.userService.doLogin(data)
       .then(res => { 

@@ -28,7 +28,14 @@ var RepositoriesComponent = (function () {
             console.log(_this.orgInfo);
         });
         this.repoService.getRepoList(this.orgInfo)
-            .then(function (repoList) { return _this.repoList = repoList; }, function (error) { return _this.errorMsg = error; });
+            .then(function (response) {
+            if (response.code === 200) {
+                _this.repoList = response.data;
+            }
+            else {
+                console.log('get repo list error', response);
+            }
+        }, function (error) { return _this.errorMsg = error; });
     };
     RepositoriesComponent.prototype.repoCreate = function (path) {
         this.router.navigate([path]);

@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_service_1 = require('./user.service');
-// import * as md5 from "blueimp-md5/js/md5";
+var md5 = require("blueimp-md5/js/md5");
 var RegisterComponent = (function () {
     function RegisterComponent(router, userService) {
         this.router = router;
@@ -37,9 +37,13 @@ var RegisterComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
+        this.salt = '';
         this.userService.changeTitle('register');
     }
-    RegisterComponent.prototype.ngOnInit = function () { };
+    RegisterComponent.prototype.ngOnInit = function () {
+        var salt = document.getElementsByTagName('meta')['salt'].getAttribute('content');
+        this.salt = salt;
+    };
     RegisterComponent.prototype.activeHover = function (index) {
         this.hover = index;
     };
@@ -56,7 +60,11 @@ var RegisterComponent = (function () {
         var password = user.password;
         var pwdReg = password && (password.length > 8) && (password.indexOf('' + user.username) === -1) && (/[0-9]/g.test(password)) && (/[A-Z]/g.test(password));
         if (user.username && pwdReg && user.email && user.email.indexOf('@') !== -1) {
-            var data = {};
+            var data = {
+                username: user.username,
+                email: user.email,
+                password: md5(this.salt + user.password)
+            };
             this.userService.signUp(data)
                 .then(function (res) {
                 if (res.code === 201) {

@@ -934,10 +934,13 @@ body {
 #newRepo .chosed {
 	display: inline-block;
 	box-shadow: 1px 1px 1px @insetBlack inset;
-	padding: 22px 12px;
+	padding: 0 12px;
 	border-radius: 5px;
+	height: 44px;
+	line-height: 44px;
 	width: 100%;
 	color: @black;
+	font-size: @baseSize;
 	background: @gray;
 }
 
@@ -946,7 +949,7 @@ body {
 	top: 45px;
 	right: 0;
 	width: 100%;
-	background: @optionGray;
+	background: @createGray;
 	border: 1px solid @repoFormGray;
 	color: @black;
 	font-size: @baseSize;
@@ -962,7 +965,7 @@ body {
 }
 
 #newRepo .option li:hover {
-	background: @baseBlue;
+	background: @placeHolderGray;
 	color: @white;
 }
 
@@ -970,7 +973,7 @@ body {
 	position: absolute;
 	right: 10px;
 	top: 12px;
-	color: @white;
+	color: @createGray;
 	font-size: @smallSize;
 }
 
@@ -982,7 +985,7 @@ body {
 }
 
 #newRepo .btn-create {
-	font-size: 16px;
+	font-size: @smallSize;
 	width: 100%;
 	height: 40px;
 	line-height: 40px;
@@ -2631,3 +2634,38 @@ body {
 	border-radius: 5px;
 }
 /* brochur end */ 
+/* prompt start */ 
+#prompt .mcover {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+	z-index: 10000;
+}
+
+#prompt .info {
+	position: fixed;
+	top: e("calc((100% - 260px) / 2)");
+	left: e("calc((100% - 380px) / 2)");
+	width: 380px;
+	padding: 60px 40px;
+	text-align: center;
+	color: @black;
+	background: @triggerWhite;
+	font-size: @smallSize;
+	border-radius: @smallRadius;
+	box-shadow: 0 5px 15px rgba(0,0,0,.5);
+	z-index: 10000;
+}
+
+#prompt .info .text {
+	display: inline-block;
+	text-align: left;
+	color: #f00;
+}
+/* prompt end */ 

@@ -26,14 +26,14 @@ export class OrgService {
   //   return Promise.resolve(arr);
   // }
   
-  getOrgList(): Promise<Org[]> {
+  getOrgList(): Promise<any> {
     return this.http.get('json/orgList.json')
                .toPromise()
                .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
-  orgCreate(info): Promise<Org[]> {
+  orgCreate(info): Promise<any> {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/orgs', params, {headers: this.headers})
                .toPromise()

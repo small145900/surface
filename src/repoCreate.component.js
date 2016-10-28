@@ -9,36 +9,58 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var repo_service_1 = require('./repo.service');
 var org_service_1 = require('./org.service');
 require('rxjs/add/operator/toPromise');
 var RepoCreateComponent = (function () {
-    function RepoCreateComponent(http, repoService, orgService) {
+    function RepoCreateComponent(router, http, repoService, orgService) {
+        this.router = router;
         this.http = http;
         this.repoService = repoService;
         this.orgService = orgService;
         this.step = 0;
         this.isShowOrg = false;
-        this.chosedOrgName = '';
-        this.repo = {};
+        this.repo = {
+            username: '',
+            id: '',
+            repository: '',
+            short: '',
+            description: '',
+            privilege: "public"
+        };
         this.orgList = [];
+        this.promptInfo = {
+            isShow: false,
+            text: ''
+        };
+        // this.isShowPrompt(true,999)
     }
     RepoCreateComponent.prototype.ngOnInit = function () {
         var _this = this;
         // if(sessionStorage.getItem("username")){
         this.orgService.getOrgList()
             .then(function (res) {
-            // if(res.code === 200){
-            //   this.orgList = res.data
-            // }else{
-            //   console.log('get org list err',res)
-            // }
+            if (res.code === 200) {
+                _this.orgList = res.data;
+            }
+            else {
+                console.log('get org list err', res);
+            }
         }, function (error) { return _this.errorMsg = error; });
+        // }else {
+        // 	this.router.navigate(['login']);
         // }
     };
+    RepoCreateComponent.prototype.showOptions = function () {
+        this.isShowOrg = !this.isShowOrg;
+        this.changeStep(1);
+    };
     RepoCreateComponent.prototype.choseOrg = function (orgInfo) {
-        this.chosedOrgName = orgInfo.name;
+        console.log(orgInfo);
+        this.repo.username = orgInfo.name;
+        this.repo.id = orgInfo.id;
         this.isShowOrg = false;
     };
     RepoCreateComponent.prototype.changeStep = function (step) {
@@ -47,8 +69,42 @@ var RepoCreateComponent = (function () {
     RepoCreateComponent.prototype.saveRepoInfo = function (step) {
         var _this = this;
         console.log(this.repo);
-        this.repoService.repoCreate(this.repo)
-            .then(function (res) { }, function (error) { return _this.errorMsg = error; });
+        var repo = this.repo;
+        var CanCreateRepo = repo.username;
+        if (repo.username && repo.repository && repo.short && repo.description && repo.privilege) {
+            this.repoService.repoCreate(this.repo)
+                .then(function (res) {
+                if (res.code === 201) {
+                    _this.changeStep(step);
+                }
+                else {
+                    _this.isShowPrompt(true, res.data.message);
+                }
+            }, function (error) { return _this.errorMsg = error; });
+        }
+        else if (!repo.username) {
+            this.isShowPrompt(true, 'please choose namespace');
+        }
+        else if (!repo.repository) {
+            this.isShowPrompt(true, 'please input repository name');
+        }
+        else if (!repo.short) {
+            this.isShowPrompt(true, 'please input short description');
+        }
+        // else if(!repo.description){
+        // 	this.isShowPrompt(true,'please input full description')
+        // }
+    };
+    RepoCreateComponent.prototype.isShowPrompt = function (boolean, text) {
+        this.promptInfo = {
+            isShow: boolean,
+            text: text
+        };
+        if (boolean) {
+            setTimeout(function () {
+                this.isShowPrompt(false, '');
+            }.bind(this), 2000);
+        }
     };
     RepoCreateComponent = __decorate([
         core_1.Component({
@@ -56,7 +112,7 @@ var RepoCreateComponent = (function () {
             selector: 'repo-create',
             templateUrl: '../templates/repository/repoCreate.html'
         }), 
-        __metadata('design:paramtypes', [http_1.Http, repo_service_1.RepoService, org_service_1.OrgService])
+        __metadata('design:paramtypes', [router_1.Router, http_1.Http, repo_service_1.RepoService, org_service_1.OrgService])
     ], RepoCreateComponent);
     return RepoCreateComponent;
 }());
