@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from './user.service';
-import * as md5 from "blueimp-md5/js/md5";
+// import * as md5 from "blueimp-md5/js/md5";
 
 
 @Component({
@@ -44,8 +44,8 @@ export class LoginComponent implements OnInit {
 		var user = this.user;
 		if(user.username&&user.password){
 			var data = {
-				username: user.username,
-				password: md5(user.password)
+				// username: user.username,
+				// password: md5(user.password)
 			}
 			this.userService.doLogin(data)
       .then(res => { 

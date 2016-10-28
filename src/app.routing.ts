@@ -7,26 +7,23 @@ import { RegisterComponent }  from './register.component';
 import { ForgetPwdComponent }  from './forgetPassword.component';
 import { ResetPwdComponent }  from './resetPassword.component';
 import { BrowseComponent }  from './browse.component';
+import { BrochurComponent }  from './brochur.component';
 import { ContactComponent }  from './contact.component';
 import { ContentComponent }  from './content.component';
 
 const appRoutes: Routes = [
   {
     path: '',
-    // redirectTo: '/dockyard',
     pathMatch: 'full',
     component: IndexComponent
   },
   {
-    path: 'dockyard',
-    component: IndexComponent
+    path: 'brochur',
+    component: BrochurComponent
   },
   {
     path: 'login',
     component: LoginComponent
-    // data: {
-    //   title: 'test title'
-    // }
   },
   {
     path: 'register',

@@ -23,11 +23,11 @@ export class OrgListComponent implements OnInit {
   ngOnInit(): void {
     this.orgService.getOrgList()
       .then(res => {
-        if(res.code === 200){
-          this.orgList = res.data
-        }else{
-          console.log('get org list err',res)
-        }
+        // if(res.code === 200){
+        //   this.orgList = res.data
+        // }else{
+        //   console.log('get org list err',res)
+        // }
       },error => this.errorMsg = <any>error);
   }
 

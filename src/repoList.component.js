@@ -28,24 +28,22 @@ var RepoListComponent = (function () {
         var _this = this;
         this.orgService.getOrgList()
             .then(function (res) {
-            if (res.code === 200) {
-                _this.orgList = res.data;
-            }
-            else {
-                console.log('get org list error', res);
-            }
+            // if(res.code === 200){
+            //   this.orgList = res.data
+            // }else{
+            //   console.log('get org list error',res)
+            // }
         })
             .then(function () {
             _this.orgList.map(function (dom) {
                 _this.repoService.getRepoList(dom)
                     .then(function (response) {
-                    if (response.code === 200) {
-                        dom.children = response.data.slice(0, 4);
-                        _this.orgRepo.push(dom);
-                    }
-                    else {
-                        console.log('get repo list error', response, 'orgInfo', dom);
-                    }
+                    // if(response.code === 200){
+                    //   dom.children = response.data.slice(0,4); 
+                    //   this.orgRepo.push(dom)
+                    // }else{
+                    //   console.log('get repo list error',response,'orgInfo',dom)
+                    // }
                 }, function (error) { return _this.errorMsg = error; });
             });
         });

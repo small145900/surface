@@ -31,22 +31,22 @@ export class RepoListComponent implements OnInit {
   ngOnInit(): void {
   	this.orgService.getOrgList()
       .then(res => {
-        if(res.code === 200){
-          this.orgList = res.data
-        }else{
-          console.log('get org list error',res)
-        }
+        // if(res.code === 200){
+        //   this.orgList = res.data
+        // }else{
+        //   console.log('get org list error',res)
+        // }
       })
       .then(() => {
       	this.orgList.map((dom) => {
       		this.repoService.getRepoList(dom)
       			.then(response => {
-              if(response.code === 200){
-                dom.children = response.data.slice(0,4); 
-                this.orgRepo.push(dom)
-              }else{
-                console.log('get repo list error',response,'orgInfo',dom)
-              }
+              // if(response.code === 200){
+              //   dom.children = response.data.slice(0,4); 
+              //   this.orgRepo.push(dom)
+              // }else{
+              //   console.log('get repo list error',response,'orgInfo',dom)
+              // }
             },error => this.errorMsg = <any>error)
       	})
       })        

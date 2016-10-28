@@ -20,6 +20,7 @@ var register_component_1 = require('./register.component');
 var forgetPassword_component_1 = require('./forgetPassword.component');
 var resetPassword_component_1 = require('./resetPassword.component');
 var browse_component_1 = require('./browse.component');
+var brochur_component_1 = require('./brochur.component');
 var contact_component_1 = require('./contact.component');
 var user_service_1 = require('./user.service');
 var forms_1 = require('@angular/forms');
@@ -45,6 +46,7 @@ var AppModule = (function () {
                 forgetPassword_component_1.ForgetPwdComponent,
                 resetPassword_component_1.ResetPwdComponent,
                 browse_component_1.BrowseComponent,
+                brochur_component_1.BrochurComponent,
                 contact_component_1.ContactComponent
             ],
             providers: [

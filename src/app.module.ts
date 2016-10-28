@@ -12,6 +12,7 @@ import { RegisterComponent }  from './register.component';
 import { ForgetPwdComponent }  from './forgetPassword.component';
 import { ResetPwdComponent }  from './resetPassword.component';
 import { BrowseComponent }  from './browse.component';
+import { BrochurComponent }  from './brochur.component';
 import { ContactComponent }  from './contact.component';
 import { UserService }      from './user.service';
 
@@ -36,6 +37,7 @@ import { routing } from './app.routing';
   	ForgetPwdComponent, 
   	ResetPwdComponent,
     BrowseComponent,
+    BrochurComponent,
   	ContactComponent
   ],
   providers: [
