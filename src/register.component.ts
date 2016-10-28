@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from './user.service';
-import * as md5 from "blueimp-md5/js/md5";
+var md5 = require("blueimp-md5/js/md5")
 
 @Component({
   selector: 'register',
@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
 	active = '';
 	browseList = [];
 	hover = '';
+	salt = '';
 
 	constructor(
 		private router: Router,
@@ -38,7 +39,10 @@ export class RegisterComponent implements OnInit {
 		this.userService.changeTitle('register')
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		var salt = document.getElementsByTagName('meta')['salt'].getAttribute('content')
+		this.salt = salt;
+	}
 	
   activeHover(index){
   	this.hover = index;
@@ -61,7 +65,7 @@ export class RegisterComponent implements OnInit {
 			var data = {
 				username: user.username,
 				email: user.email,
-				password: md5(user.password)
+				password: md5(this.salt + user.password)
 			}
 			this.userService.signUp(data)
       .then(res => { 

@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var user_service_1 = require('./user.service');
 var md5 = require("blueimp-md5/js/md5");
+// var $ = require("jquery/dist")
 var LoginComponent = (function () {
     function LoginComponent(router, userService) {
         this.router = router;
@@ -25,12 +26,15 @@ var LoginComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
+        this.salt = '';
         this.userService.changeTitle('login');
     }
-    LoginComponent.prototype.ngOnInit = function () { };
+    LoginComponent.prototype.ngOnInit = function () {
+        var salt = document.getElementsByTagName('meta')['salt'].getAttribute('content');
+        this.salt = salt;
+    };
     LoginComponent.prototype.activeHover = function (index) {
         this.hover = index;
-        console.log(index);
     };
     LoginComponent.prototype.changeNav = function (val) {
         // this.active = val
@@ -43,13 +47,13 @@ var LoginComponent = (function () {
         if (user.username && user.password) {
             var data = {
                 username: user.username,
-                password: md5(user.password)
+                password: md5(this.salt + user.password)
             };
             this.userService.doLogin(data)
                 .then(function (res) {
                 if (res.code === 200) {
+                    sessionStorage.setItem("username", res.data.username);
                     _this.router.navigate(['repositories']);
-                    sessionStorage.setItem("username", user.username);
                 }
                 else if (400 <= res.code && res.code < 500) {
                     _this.tips(true);

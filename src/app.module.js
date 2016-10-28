@@ -11,6 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var content_module_1 = require('./content.module');
+// import { PromptModule }  from './prompt.module';
 var app_component_1 = require('./app.component');
 // import { HeaderComponent }  from './header.component';
 // import { FooterComponent }  from './footer.component';
@@ -20,7 +21,9 @@ var register_component_1 = require('./register.component');
 var forgetPassword_component_1 = require('./forgetPassword.component');
 var resetPassword_component_1 = require('./resetPassword.component');
 var browse_component_1 = require('./browse.component');
+var brochur_component_1 = require('./brochur.component');
 var contact_component_1 = require('./contact.component');
+// import { PromptComponent }  from './prompt.component';
 var user_service_1 = require('./user.service');
 var forms_1 = require('@angular/forms');
 var http_1 = require('@angular/http');
@@ -35,6 +38,7 @@ var AppModule = (function () {
                 forms_1.FormsModule,
                 http_1.HttpModule,
                 content_module_1.ContentModule,
+                // PromptModule,
                 app_routing_1.routing
             ],
             declarations: [
@@ -45,6 +49,7 @@ var AppModule = (function () {
                 forgetPassword_component_1.ForgetPwdComponent,
                 resetPassword_component_1.ResetPwdComponent,
                 browse_component_1.BrowseComponent,
+                brochur_component_1.BrochurComponent,
                 contact_component_1.ContactComponent
             ],
             providers: [

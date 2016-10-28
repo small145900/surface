@@ -76,7 +76,7 @@
 
 ###  repositories
 		method: get
-		url: "/v1/user/<username>/orgs" // only org list
+		url: "/v1/user/<username>/orgs" // only org list 
 		req: 
 			{
 				usrname:""

@@ -23,6 +23,10 @@ var RepoListComponent = (function () {
         // repoList: Repo[] = [];
         // orgRepo: OrgRepo[] = [];
         this.orgRepo = [];
+        this.promptInfo = {
+            isShow: false,
+            text: ''
+        };
     }
     RepoListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -58,6 +62,17 @@ var RepoListComponent = (function () {
     };
     RepoListComponent.prototype.repoDetail = function (repoInfo) {
         this.router.navigate(['repositories', repoInfo.repository]);
+    };
+    RepoListComponent.prototype.isShowPrompt = function (boolean, text) {
+        this.promptInfo = {
+            isShow: boolean,
+            text: text
+        };
+        if (boolean) {
+            setTimeout(function () {
+                this.isShowPrompt(false, '');
+            }.bind(this), 3000);
+        }
     };
     RepoListComponent = __decorate([
         core_1.Component({

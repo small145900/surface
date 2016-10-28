@@ -37,9 +37,13 @@ var RegisterComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
+        this.salt = '';
         this.userService.changeTitle('register');
     }
-    RegisterComponent.prototype.ngOnInit = function () { };
+    RegisterComponent.prototype.ngOnInit = function () {
+        var salt = document.getElementsByTagName('meta')['salt'].getAttribute('content');
+        this.salt = salt;
+    };
     RegisterComponent.prototype.activeHover = function (index) {
         this.hover = index;
     };
@@ -59,7 +63,7 @@ var RegisterComponent = (function () {
             var data = {
                 username: user.username,
                 email: user.email,
-                password: md5(user.password)
+                password: md5(this.salt + user.password)
             };
             this.userService.signUp(data)
                 .then(function (res) {

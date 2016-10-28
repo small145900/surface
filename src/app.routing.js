@@ -6,18 +6,18 @@ var register_component_1 = require('./register.component');
 var forgetPassword_component_1 = require('./forgetPassword.component');
 var resetPassword_component_1 = require('./resetPassword.component');
 var browse_component_1 = require('./browse.component');
+var brochur_component_1 = require('./brochur.component');
 var contact_component_1 = require('./contact.component');
 var content_component_1 = require('./content.component');
 var appRoutes = [
     {
         path: '',
-        // redirectTo: '/dockyard',
         pathMatch: 'full',
         component: index_component_1.IndexComponent
     },
     {
-        path: 'dockyard',
-        component: index_component_1.IndexComponent
+        path: 'brochur',
+        component: brochur_component_1.BrochurComponent
     },
     {
         path: 'login',

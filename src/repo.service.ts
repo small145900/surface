@@ -8,20 +8,21 @@ import { Repo } from './repo';
 
 @Injectable()
 export class RepoService {
+
   private headers = new Headers({'Content-Type':'application/json'})
   constructor(
     private http: Http,
     private title: Title
   ){}
   
-  getRepoList(orgInfo): Promise<Repo[]> {
+  getRepoList(orgInfo): Promise<any> {
     return this.http.get('json/repoList.json')
                .toPromise()
                .then(this.dealData,this.dealError)
                .catch(this.handleError)
   }
 
-  repoCreate(info): Promise<Repo[]> {
+  repoCreate(info): Promise<any> {
     let params=JSON.stringify(info)
     return this.http.post('/web/v1/repository', params, {headers: this.headers})
                .toPromise()
@@ -52,6 +53,7 @@ export class RepoService {
     console.error(errMsg); 
     return Promise.reject(errMsg);
   }
+
   changeTitle(val){
     this.title.setTitle(val)
   }

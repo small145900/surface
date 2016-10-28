@@ -19,7 +19,10 @@ export class RepoListComponent implements OnInit {
   // repoList: Repo[] = [];
   // orgRepo: OrgRepo[] = [];
 	orgRepo = [];
-
+  promptInfo = {
+    isShow: false,
+    text: ''
+  }
 
 	constructor(
 		private router: Router,
@@ -64,5 +67,17 @@ export class RepoListComponent implements OnInit {
 
   repoDetail(repoInfo){
     this.router.navigate(['repositories',repoInfo.repository])
+  }
+
+  isShowPrompt(boolean,text){
+    this.promptInfo = {
+      isShow: boolean,
+      text: text
+    }
+    if(boolean){
+      setTimeout(function(){
+        this.isShowPrompt(false,'')
+      }.bind(this),3000)
+    }
   }
 }

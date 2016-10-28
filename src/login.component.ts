@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from './user.service';
-import * as md5 from "blueimp-md5/js/md5";
+var md5 = require("blueimp-md5/js/md5")
+// var $ = require("jquery/dist")
 
 
 @Component({
@@ -20,6 +21,7 @@ export class LoginComponent implements OnInit {
 	active = '';
 	browseList = [];
 	hover = '';
+	salt = '';
 
 	constructor(
 		private router: Router,
@@ -27,11 +29,13 @@ export class LoginComponent implements OnInit {
 		this.userService.changeTitle('login')
 	}
 
-	ngOnInit(): void {}
+	ngOnInit(): void {
+		var salt = document.getElementsByTagName('meta')['salt'].getAttribute('content')
+		this.salt = salt;
+	}
 	
   activeHover(index){
   	this.hover = index;
-  	console.log(index)
   }
 
 	changeNav(val){
@@ -45,13 +49,13 @@ export class LoginComponent implements OnInit {
 		if(user.username&&user.password){
 			var data = {
 				username: user.username,
-				password: md5(user.password)
+				password: md5(this.salt + user.password)
 			}
 			this.userService.doLogin(data)
       .then(res => { 
       	if(res.code === 200){
+      		sessionStorage.setItem("username", res.data.username)
       		this.router.navigate(['repositories'])
-      		sessionStorage.setItem("username", user.username)
       	}else if(400 <= res.code && res.code < 500){
       		this.tips(true)
       		this.errorText = res.data.message

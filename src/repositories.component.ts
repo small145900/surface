@@ -11,7 +11,7 @@ import { RepoService } from './repo.service';
 
 export class RepositoriesComponent implements OnInit {
   errorMsg: string;
-  repoList: Repo[] = [];
+  repoList = [];
   orgInfo = {
     orgName: ''
   }
@@ -29,8 +29,13 @@ export class RepositoriesComponent implements OnInit {
       console.log(this.orgInfo)
     });
   	this.repoService.getRepoList(this.orgInfo)
-      .then(repoList => this.repoList = repoList,
-        error => this.errorMsg = <any>error)    
+      .then(response => {
+        if(response.code === 200){
+          this.repoList = response.data 
+        }else{
+          console.log('get repo list error',response)
+        }
+      },error => this.errorMsg = <any>error)    
   }
 
   repoCreate(path){

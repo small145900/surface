@@ -26,6 +26,7 @@
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'blueimp-md5':               'npm:blueimp-md5',
+      // 'jquery':                    'npm:jquery/dist/jquery.min.js',
       '@ng-bootstrap':             'node_modules/@ng-bootstrap'
     },
     // packages tells the System loader how to load when no filename and/or no extension
@@ -40,6 +41,9 @@
       'blueimp-md5': {
         defaultExtension: 'js'
       },
+      // 'jquery': {
+      //   defaultExtension: 'js'
+      // },
       'angular-in-memory-web-api': {
         main: './index.js',
         defaultExtension: 'js'

@@ -10,6 +10,9 @@ import { RepoDetailComponent } from './repoDetail.component';
 import { OrgListComponent }      from './orgList.component';
 import { OrgCreateComponent }      from './orgCreate.component';
 import { UserSettingComponent }      from './userSetting.component';
+import { PromptComponent }  from './prompt.component';
+
+// import { PromptModule }  from './prompt.module';
 
 import { OrgService }      from './org.service';
 import { RepoService }      from './repo.service';
@@ -24,6 +27,7 @@ import { routing } from './content.routing';
   	BrowserModule,
     FormsModule,
     HttpModule,
+    // PromptModule,
   	routing
   ],
   declarations: [ 
@@ -35,7 +39,8 @@ import { routing } from './content.routing';
     RepoDetailComponent,
   	OrgListComponent,
   	OrgCreateComponent,
-    UserSettingComponent
+    UserSettingComponent,
+    PromptComponent
   ],
   providers: [
     OrgService,
