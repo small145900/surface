@@ -38,18 +38,28 @@ export class RepoCreateComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		// if(sessionStorage.getItem("username")){
+		var username = 'sessionStorage.getItem("username")';
+		if(username){
+			var orgList = this.orgList;
 			this.orgService.getOrgList()
 	      .then(res => {
 	        if(res.code === 200){
-	          this.orgList = res.data
+	        	res.data.map(function(r){
+	        		if(r.role === 'admin' || r.role === 'write'){
+	        			orgList.push(r)
+	        		}
+	        	})
+	        	orgList.push({name: username})
+	        	if(orgList.length === 1) {
+	        		this.repo.username = orgList[0].name
+	        	}
 	        }else{
 	          console.log('get org list err',res)
 	        }
 	      },error => this.errorMsg = <any>error);
-		// }else {
-		// 	this.router.navigate(['login']);
-		// }
+		}else {
+			this.router.navigate(['login']);
+		}
   }
 
   showOptions(){
@@ -72,11 +82,11 @@ export class RepoCreateComponent implements OnInit {
 		console.log(this.repo)
 		var repo = this.repo;
 		var CanCreateRepo = repo.username
-		if(repo.username&&repo.repository&&repo.short&&repo.description&&repo.privilege){
+		if(repo.username&&repo.repository&&repo.short&&repo.privilege){
 			this.repoService.repoCreate(this.repo)
       .then(res => {
       	if(res.code === 201){
-      		this.changeStep(step)
+      		this.router.navigate(['repositories']);
       	}else{
       		this.isShowPrompt(true,res.data.message)
       	}
@@ -88,9 +98,6 @@ export class RepoCreateComponent implements OnInit {
 		}else if(!repo.short){
 			this.isShowPrompt(true,'please input short description')
 		}
-		// else if(!repo.description){
-		// 	this.isShowPrompt(true,'please input full description')
-		// }
 	}
 
 	isShowPrompt(boolean,text){

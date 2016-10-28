@@ -52,8 +52,8 @@ var LoginComponent = (function () {
             this.userService.doLogin(data)
                 .then(function (res) {
                 if (res.code === 200) {
+                    sessionStorage.setItem("username", res.data.username);
                     _this.router.navigate(['repositories']);
-                    sessionStorage.setItem("username", user.username);
                 }
                 else if (400 <= res.code && res.code < 500) {
                     _this.tips(true);

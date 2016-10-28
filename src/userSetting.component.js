@@ -22,7 +22,11 @@ var UserSettingComponent = (function () {
     UserSettingComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.userService.getEmailList(this.user)
-            .then(function (res) { _this.emailList = res; console.log(res); }, function (error) { return _this.errorMsg = error; });
+            .then(function (res) {
+            if (res.code === 200) {
+                _this.emailList = res.data;
+            }
+        }, function (error) { return _this.errorMsg = error; });
     };
     UserSettingComponent.prototype.addEmail = function () {
         var _this = this;

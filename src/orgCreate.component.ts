@@ -33,10 +33,9 @@ export class OrgCreateComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		console.log(222)
-		// if(!sessionStorage.getItem("username")){
-		// 	this.router.navigate(['login']);
-		// }
+		if(!sessionStorage.getItem("username")){
+			this.router.navigate(['login']);
+		}
   }
 
 	changeStep(step) {
@@ -46,7 +45,7 @@ export class OrgCreateComponent implements OnInit {
 	saveOrgInfo(step){
 		console.log(this.org)
 		var org = this.org
-		if(org.namespace && org['full-name']&&org.description&&org.location&&org.gravatar&&org.url&&org.email){
+		if(org.namespace && org['full-name']&&org.description){
 			this.orgService.orgCreate(this.org)
       .then(res => {
       	if(res.code === 201){
@@ -61,17 +60,18 @@ export class OrgCreateComponent implements OnInit {
 			this.isShowPrompt(true,'please input full name')
 		}else if(!org.description){
 			this.isShowPrompt(true,'please input description')
-		}else if(!org.location){
-			this.isShowPrompt(true,'please input location')
-		}else if(!org.gravatar){
-			this.isShowPrompt(true,'please input gravatar')
-		}else if(org.gravatar&&org.gravatar.indexOf('@')===-1){
-			this.isShowPrompt(true,'gravatar is invalid')
-		}else if(!org.url){
-			this.isShowPrompt(true,'please input url')
-		}else if(!org.email){
-			this.isShowPrompt(true,'please input email')
 		}
+		// else if(!org.location){
+		// 	this.isShowPrompt(true,'please input location')
+		// }else if(!org.gravatar){
+		// 	this.isShowPrompt(true,'please input gravatar')
+		// }else if(org.gravatar&&org.gravatar.indexOf('@')===-1){
+		// 	this.isShowPrompt(true,'gravatar is invalid')
+		// }else if(!org.url){
+		// 	this.isShowPrompt(true,'please input url')
+		// }else if(!org.email){
+		// 	this.isShowPrompt(true,'please input email')
+		// }
 	}
 
 	saveTeamInfo(){

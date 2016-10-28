@@ -39,19 +39,30 @@ var RepoCreateComponent = (function () {
     }
     RepoCreateComponent.prototype.ngOnInit = function () {
         var _this = this;
-        // if(sessionStorage.getItem("username")){
-        this.orgService.getOrgList()
-            .then(function (res) {
-            if (res.code === 200) {
-                _this.orgList = res.data;
-            }
-            else {
-                console.log('get org list err', res);
-            }
-        }, function (error) { return _this.errorMsg = error; });
-        // }else {
-        // 	this.router.navigate(['login']);
-        // }
+        var username = 'sessionStorage.getItem("username")';
+        if (username) {
+            var orgList = this.orgList;
+            this.orgService.getOrgList()
+                .then(function (res) {
+                if (res.code === 200) {
+                    res.data.map(function (r) {
+                        if (r.role === 'admin' || r.role === 'write') {
+                            orgList.push(r);
+                        }
+                    });
+                    orgList.push({ name: username });
+                    if (orgList.length === 1) {
+                        _this.repo.username = orgList[0].name;
+                    }
+                }
+                else {
+                    console.log('get org list err', res);
+                }
+            }, function (error) { return _this.errorMsg = error; });
+        }
+        else {
+            this.router.navigate(['login']);
+        }
     };
     RepoCreateComponent.prototype.showOptions = function () {
         this.isShowOrg = !this.isShowOrg;
@@ -71,11 +82,11 @@ var RepoCreateComponent = (function () {
         console.log(this.repo);
         var repo = this.repo;
         var CanCreateRepo = repo.username;
-        if (repo.username && repo.repository && repo.short && repo.description && repo.privilege) {
+        if (repo.username && repo.repository && repo.short && repo.privilege) {
             this.repoService.repoCreate(this.repo)
                 .then(function (res) {
                 if (res.code === 201) {
-                    _this.changeStep(step);
+                    _this.router.navigate(['repositories']);
                 }
                 else {
                     _this.isShowPrompt(true, res.data.message);
@@ -91,9 +102,6 @@ var RepoCreateComponent = (function () {
         else if (!repo.short) {
             this.isShowPrompt(true, 'please input short description');
         }
-        // else if(!repo.description){
-        // 	this.isShowPrompt(true,'please input full description')
-        // }
     };
     RepoCreateComponent.prototype.isShowPrompt = function (boolean, text) {
         this.promptInfo = {

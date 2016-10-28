@@ -18,8 +18,11 @@ export class UserSettingComponent implements OnInit {
 
 	ngOnInit(): void {
     this.userService.getEmailList(this.user)
-      .then(res => { this.emailList = res; console.log(res)},
-            error => this.errorMsg = <any>error);
+      .then(res => { 
+      	if(res.code === 200){
+      			this.emailList = res.data
+		      }
+		    },error => this.errorMsg = <any>error);
   }
 
 	addEmail(){

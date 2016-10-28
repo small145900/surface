@@ -54,8 +54,8 @@ export class LoginComponent implements OnInit {
 			this.userService.doLogin(data)
       .then(res => { 
       	if(res.code === 200){
+      		sessionStorage.setItem("username", res.data.username)
       		this.router.navigate(['repositories'])
-      		sessionStorage.setItem("username", user.username)
       	}else if(400 <= res.code && res.code < 500){
       		this.tips(true)
       		this.errorText = res.data.message

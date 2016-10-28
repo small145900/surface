@@ -33,10 +33,9 @@ var OrgCreateComponent = (function () {
         };
     }
     OrgCreateComponent.prototype.ngOnInit = function () {
-        console.log(222);
-        // if(!sessionStorage.getItem("username")){
-        // 	this.router.navigate(['login']);
-        // }
+        if (!sessionStorage.getItem("username")) {
+            this.router.navigate(['login']);
+        }
     };
     OrgCreateComponent.prototype.changeStep = function (step) {
         this.step = step;
@@ -45,7 +44,7 @@ var OrgCreateComponent = (function () {
         var _this = this;
         console.log(this.org);
         var org = this.org;
-        if (org.namespace && org['full-name'] && org.description && org.location && org.gravatar && org.url && org.email) {
+        if (org.namespace && org['full-name'] && org.description) {
             this.orgService.orgCreate(this.org)
                 .then(function (res) {
                 if (res.code === 201) {
@@ -65,21 +64,17 @@ var OrgCreateComponent = (function () {
         else if (!org.description) {
             this.isShowPrompt(true, 'please input description');
         }
-        else if (!org.location) {
-            this.isShowPrompt(true, 'please input location');
-        }
-        else if (!org.gravatar) {
-            this.isShowPrompt(true, 'please input gravatar');
-        }
-        else if (org.gravatar && org.gravatar.indexOf('@') === -1) {
-            this.isShowPrompt(true, 'gravatar is invalid');
-        }
-        else if (!org.url) {
-            this.isShowPrompt(true, 'please input url');
-        }
-        else if (!org.email) {
-            this.isShowPrompt(true, 'please input email');
-        }
+        // else if(!org.location){
+        // 	this.isShowPrompt(true,'please input location')
+        // }else if(!org.gravatar){
+        // 	this.isShowPrompt(true,'please input gravatar')
+        // }else if(org.gravatar&&org.gravatar.indexOf('@')===-1){
+        // 	this.isShowPrompt(true,'gravatar is invalid')
+        // }else if(!org.url){
+        // 	this.isShowPrompt(true,'please input url')
+        // }else if(!org.email){
+        // 	this.isShowPrompt(true,'please input email')
+        // }
     };
     OrgCreateComponent.prototype.saveTeamInfo = function () {
         console.log(this.team);
