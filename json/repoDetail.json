@@ -1,0 +1,89 @@
+{
+	"namespace": "xxx",
+	"repository": "surface",
+	"privilege": "private",
+	"isPraise": true,
+	"time": "xxx", //last pushed
+	"list": [
+		{
+			"type": "DockerV1",
+			"typeId": "xxx",
+			"baseInfo": {
+										"command": "xxx",
+										"shortDesc": "xxx",
+										"fullDesc": "xxx",
+										"privilege": "private"
+									},
+			"tags": [
+								{
+									"tag": "v0.0.1",
+									"image": "ffddd563",
+									"size": "30K",
+									"time": "2015.07.07"
+								}
+							],
+			"collaborators": [
+												  {
+												 	 	"username": "xxx",
+												 	 	"access": "collaborator" //[default => write&read]
+												  }
+											 ],
+			"buildHistory": [
+												{
+													"id": "ffdd455",
+													"username": "xxx",
+													"time": "2015.03.03 14:30",
+													"branch": "master"
+												}
+											],
+			"triggers": [
+										{
+											"name": "github",
+											"branch": "master",
+											"dockfile": "/",
+											"triggerId": "xxx"
+										}
+									] 
+		},
+		{
+			"type": "DockerV2",
+			"typeId": "xxx",
+			"baseInfo": {
+										"command": "xxx",
+										"shortDesc": "xxx",
+										"fullDesc": "xxx",
+										"privilege": "private"
+									},
+			"tags": [
+								{
+									"tag": "v0.0.1",
+									"image": "ffddd563",
+									"size": "30K",
+									"time": "2015.07.07"
+								}
+							],
+			"collaborators": [
+												  {
+												 	 	"username": "xxx",
+												 	 	"access": "collaborator" //[default => write&read]
+												  }
+											 ],
+			"buildHistory": [
+												{
+													"id": "ffdd455",
+													"username": "xxx",
+													"time": "2015.03.03 14:30",
+													"branch": "master"
+												}
+											],
+			"triggers": [
+										{
+											"name": "github",
+											"branch": "master",
+											"dockfile": "/",
+											"triggerId": "xxx"
+										}
+									] 
+		}
+	]
+}
