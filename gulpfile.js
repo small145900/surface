@@ -68,6 +68,11 @@ gulp.task("index",function(){
 		.pipe(gulp.dest("dist"));
 });
 
+gulp.task("email",function(){
+	return gulp.src(["email/*"])
+		.pipe(gulp.dest("dist/email"));
+});
+
 gulp.task("lib", () => {
   return gulp.src([
   				'jquery/dist/**',
