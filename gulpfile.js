@@ -94,6 +94,7 @@ gulp.task('default', [
 	'json',
 	'templates',
 	'src',
+	'email',
 	'systemjs',
 	'index',
 	'lib-css',
