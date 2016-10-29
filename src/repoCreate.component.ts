@@ -35,6 +35,7 @@ export class RepoCreateComponent implements OnInit {
 		private repoService: RepoService,
 		private orgService: OrgService){
 		// this.isShowPrompt(true,999)
+		this.changeTitle('- repoCreate')
 	}
 
 	ngOnInit(): void {
@@ -60,6 +61,11 @@ export class RepoCreateComponent implements OnInit {
 		}else {
 			this.router.navigate(['login']);
 		}
+  }
+
+  changeTitle(val) {
+    var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+    this.repoService.changeTitle(title)
   }
 
   showOptions(){

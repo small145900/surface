@@ -20,7 +20,7 @@ export class BrowseComponent implements OnInit {
 	constructor(
 		private router: Router,
 	 	private userService: UserService){
-		this.userService.changeTitle('browse')
+		this.changeTitle('- browse')
 	}
 
 	ngOnInit(): void {
@@ -34,6 +34,11 @@ export class BrowseComponent implements OnInit {
     	}
     },error => {this.errorMsg = <any>error;console.log(error)});
   }
+
+  changeTitle(val) {
+		var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+		this.userService.changeTitle(title)
+	}
 
   activeHover(index){
   	this.hover = index;

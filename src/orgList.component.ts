@@ -18,6 +18,7 @@ export class OrgListComponent implements OnInit {
 	constructor(
 		private router: Router,
     private orgService: OrgService){
+    this.changeTitle('- orgList')
 	}
 
   ngOnInit(): void {
@@ -29,6 +30,11 @@ export class OrgListComponent implements OnInit {
           console.log('get org list err',res)
         }
       },error => this.errorMsg = <any>error);
+  }
+
+  changeTitle(val) {
+    var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+    this.orgService.changeTitle(title)
   }
 
   // gotoDetail(repo: Repo): void {

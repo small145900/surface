@@ -16,11 +16,11 @@ export class RepositoriesComponent implements OnInit {
     orgName: ''
   }
 
-
 	constructor(
 		private router: Router,
     private route: ActivatedRoute,
     private repoService: RepoService){
+    this.changeTitle('- repositories')
 	}
 
   ngOnInit(): void {
@@ -36,6 +36,11 @@ export class RepositoriesComponent implements OnInit {
           console.log('get repo list error',response)
         }
       },error => this.errorMsg = <any>error)    
+  }
+
+  changeTitle(val) {
+    var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+    this.repoService.changeTitle(title)
   }
 
   repoCreate(path){

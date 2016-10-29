@@ -30,6 +30,7 @@ export class OrgCreateComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private orgService: OrgService){ 
+		this.changeTitle('- orgCreate')
 	}
 
 	ngOnInit(): void {
@@ -37,6 +38,11 @@ export class OrgCreateComponent implements OnInit {
 			this.router.navigate(['login']);
 		}
   }
+
+  changeTitle(val) {
+		var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+		this.orgService.changeTitle(title)
+	}
 
 	changeStep(step) {
 		this.step = step

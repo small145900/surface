@@ -14,7 +14,9 @@ export class UserSettingComponent implements OnInit {
 	account = {};
 	emailList = [];
 
-	constructor(private userService: UserService){ }
+	constructor(private userService: UserService){ 
+		this.changeTitle('- resetpwd')
+	}
 
 	ngOnInit(): void {
     this.userService.getEmailList(this.user)
@@ -24,6 +26,11 @@ export class UserSettingComponent implements OnInit {
 		      }
 		    },error => this.errorMsg = <any>error);
   }
+
+  changeTitle(val) {
+		var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+		this.userService.changeTitle(title)
+	}
 
 	addEmail(){
 		console.log(this.user)
