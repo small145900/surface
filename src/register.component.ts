@@ -36,12 +36,17 @@ export class RegisterComponent implements OnInit {
 	constructor(
 		private router: Router,
 	 	private userService: UserService){
-		this.userService.changeTitle('register')
+			this.changeTitle('- register')
 	}
 
 	ngOnInit(): void {
 		var salt = document.getElementsByTagName('meta')['salt'].getAttribute('content')
 		this.salt = salt;
+	}
+
+	changeTitle(val) {
+		var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+		this.userService.changeTitle(title)
 	}
 	
   activeHover(index){

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
+import { RepoService } from './repo.service';
 
 @Component({
   selector: 'repo-detail',
@@ -10,7 +11,9 @@ export class RepoDetailComponent {
 	constructor(
     private location: Location,
     private route: ActivatedRoute,
-    private router: Router){
+    private router: Router,
+    private repoService: RepoService ){
+    this.changeTitle('- repoDetail')
   }
 
   repoInfo = {
@@ -22,6 +25,11 @@ export class RepoDetailComponent {
       this.repoInfo.repoName = params['repoName']
       console.log(params['repoName'])
     });
+  }
+
+  changeTitle(val) {
+    var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+    this.repoService.changeTitle(title)
   }
 
   // goBack(): void {

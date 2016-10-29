@@ -24,11 +24,16 @@ export class ContactComponent implements OnInit {
 	constructor(
 		private router: Router,
 	 	private userService: UserService){
-		this.userService.changeTitle('contact')
+		this.changeTitle('- contact')
 	}
 
 	ngOnInit(): void {
 		// console.log($('.content')[0].offsetTop)
+	}
+
+	changeTitle(val) {
+		var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+		this.userService.changeTitle(title)
 	}
 
 	ngAfterViewInit(): void {

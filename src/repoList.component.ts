@@ -29,6 +29,7 @@ export class RepoListComponent implements OnInit {
     private route: ActivatedRoute,
 		private orgService: OrgService,
     private repoService: RepoService){
+    this.changeTitle('- repoDetail')
 	}
 
   ngOnInit(): void {
@@ -53,6 +54,11 @@ export class RepoListComponent implements OnInit {
             },error => this.errorMsg = <any>error)
       	})
       })        
+  }
+
+  changeTitle(val) {
+    var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+    this.repoService.changeTitle(title)
   }
 
   repoCreate(path){

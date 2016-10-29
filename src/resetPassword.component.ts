@@ -23,10 +23,15 @@ export class ResetPwdComponent implements OnInit {
 	constructor(
 		private router: Router,
 	 	private userService: UserService){
-		this.userService.changeTitle('resetpassword')
+		this.changeTitle('- resetpwd')
 	}
 	
 	ngOnInit(): void {}
+
+	changeTitle(val) {
+		var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+		this.userService.changeTitle(title)
+	}
 	
   activeHover(index){
   	this.hover = index;
