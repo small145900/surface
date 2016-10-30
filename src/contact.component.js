@@ -24,10 +24,14 @@ var ContactComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
-        this.userService.changeTitle('contact');
+        this.changeTitle('- contact');
     }
     ContactComponent.prototype.ngOnInit = function () {
         // console.log($('.content')[0].offsetTop)
+    };
+    ContactComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.userService.changeTitle(title);
     };
     ContactComponent.prototype.ngAfterViewInit = function () {
         // console.log($('.content').offset().top,111)

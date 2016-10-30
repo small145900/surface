@@ -27,6 +27,7 @@ var RepoListComponent = (function () {
             isShow: false,
             text: ''
         };
+        this.changeTitle('- repoDetail');
     }
     RepoListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -53,6 +54,10 @@ var RepoListComponent = (function () {
                 }, function (error) { return _this.errorMsg = error; });
             });
         });
+    };
+    RepoListComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.repoService.changeTitle(title);
     };
     RepoListComponent.prototype.repoCreate = function (path) {
         this.router.navigate([path]);

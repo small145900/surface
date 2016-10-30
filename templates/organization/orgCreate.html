@@ -39,8 +39,7 @@
                     <div class="teams">
                       <p class="title">Choose Team</p>
                       <ul>
-                        <li>owners  <i class="fa fa-chevron-right"></i></li>
-                        <li>owners  <i class="fa fa-chevron-right"></i></li>
+                        <li *ngFor="let team of teamList" [ngClass]="currentTeam === team.name? 'active': '' " (click)="getMemberList(team)">{{team.name}} <i class="fa fa-chevron-right"></i></li>
                       </ul>
                     </div>
                     <div class="members">
@@ -48,9 +47,8 @@
                         <input type="text" placeholder="Add member" />
                         <span class="add"><i class="fa fa-plus"></i></span>
                       </p>
-                      <ul>
-                        <li>surface  <i class="fa fa-trash-o"></i></li>
-                        <li>small  <i class="fa fa-trash-o"></i></li>
+                      <ul *ngFor="let member of memberList">
+                        <li>{{member.name}}  <i class="fa fa-trash-o" (click)="delMember(member)"></i></li>
                       </ul>
                     </div>
                   </div>
@@ -63,13 +61,22 @@
                 </div>
                 <div class="third-step" id="newRepo"  *ngIf="step===3">
                   <div class="info">
-                    <p class="mar-bt-twenty clear-gap">
-                      <select [(ngModel)]="repo.username" name="username">
-                        <option value="1">dockyard</option>
-                        <option value="2">surface</option>
-                      </select>
+                    <div class="mar-bt-twenty clear-gap">
+                      <div class="select">
+                        <span class="chosed">
+                          {{org.namespace}}
+                        </span>
+                        <!-- <span class="chosed" (click)="showOptions()">
+                          {{org.namespace}}
+                          <i class="fa fa-caret-down" *ngIf="teamList.length>0"></i>
+                        </span>
+                        <ul class="option" *ngIf="isShowTeam&&teamList.length>0">
+                          <li *ngFor="let item of teamList" (click)="choseTeam(item)">{{item.name}}</li>
+                          <li>sjkljljljkl</li>
+                        </ul> -->
+                      </div>
                       <input type="text" placeholder="name" [(ngModel)]="repo.repository" name="repository"/>
-                    </p>
+                    </div>
                     <p class="mar-bt-twenty">
                       <input type="text" placeholder="short descript" (focus)="changeStep(3)" [(ngModel)]="repo.short" name="short"/>
                     </p>

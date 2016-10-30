@@ -18,6 +18,7 @@ var UserSettingComponent = (function () {
         };
         this.account = {};
         this.emailList = [];
+        this.changeTitle('- resetpwd');
     }
     UserSettingComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -27,6 +28,10 @@ var UserSettingComponent = (function () {
                 _this.emailList = res.data;
             }
         }, function (error) { return _this.errorMsg = error; });
+    };
+    UserSettingComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.userService.changeTitle(title);
     };
     UserSettingComponent.prototype.addEmail = function () {
         var _this = this;

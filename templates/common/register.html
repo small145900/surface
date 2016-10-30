@@ -11,7 +11,7 @@
           <input type="text" placeholder="Username" [(ngModel)]="user.username" name="username" autocomplete="off" (keyup.enter)="signUp()" />
           <i class="fa fa-user"></i><br/>
           <small class="tips" *ngIf="isTips.username">username is required</small>
-          <small class="tips" *ngIf="isTips.isUsernameRight">username is invalid</small>
+          <small class="tips" *ngIf="isTips.isUsernameRight">username is numbers or letters</small>
         </span>
         <small class="require">*user name must be the numbers and letters</small>
         <span class="space user">

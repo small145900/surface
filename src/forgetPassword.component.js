@@ -24,9 +24,13 @@ var ForgetPwdComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
-        this.userService.changeTitle('forgetpassword');
+        this.changeTitle('- forgetpwd');
     }
     ForgetPwdComponent.prototype.ngOnInit = function () { };
+    ForgetPwdComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.userService.changeTitle(title);
+    };
     ForgetPwdComponent.prototype.activeHover = function (index) {
         this.hover = index;
         console.log(index);

@@ -21,7 +21,7 @@ var BrowseComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
-        this.userService.changeTitle('browse');
+        this.changeTitle('- browse');
     }
     BrowseComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -35,6 +35,10 @@ var BrowseComponent = (function () {
                 console.log(res.code);
             }
         }, function (error) { _this.errorMsg = error; console.log(error); });
+    };
+    BrowseComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.userService.changeTitle(title);
     };
     BrowseComponent.prototype.activeHover = function (index) {
         this.hover = index;

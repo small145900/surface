@@ -17,6 +17,7 @@ var OrgListComponent = (function () {
         this.orgService = orgService;
         // orgList: Org[] = [];
         this.orgList = [];
+        this.changeTitle('- orgList');
     }
     OrgListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -29,6 +30,10 @@ var OrgListComponent = (function () {
                 console.log('get org list err', res);
             }
         }, function (error) { return _this.errorMsg = error; });
+    };
+    OrgListComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.orgService.changeTitle(title);
     };
     // gotoDetail(repo: Repo): void {
     //   let link = ['repoDetail', repo.namespace,repo.repository];
