@@ -7,6 +7,7 @@ var repoCreate_component_1 = require('./repoCreate.component');
 var repoDetail_component_1 = require('./repoDetail.component');
 var orgList_component_1 = require('./orgList.component');
 var orgCreate_component_1 = require('./orgCreate.component');
+var orgEdit_component_1 = require('./orgEdit.component');
 var userSetting_component_1 = require('./userSetting.component');
 var contentRouting = [
     {
@@ -19,6 +20,7 @@ var contentRouting = [
             { path: 'repositories/:repoName', component: repoDetail_component_1.RepoDetailComponent },
             { path: 'organizations', component: orgList_component_1.OrgListComponent },
             { path: 'orgCreate', component: orgCreate_component_1.OrgCreateComponent },
+            { path: 'orgEdit/:orgName', component: orgEdit_component_1.OrgEditComponent },
             { path: 'userSetting', component: userSetting_component_1.UserSettingComponent }
         ]
     }

@@ -42,6 +42,9 @@ var OrgListComponent = (function () {
     OrgListComponent.prototype.orgCreate = function (path) {
         this.router.navigate([path]);
     };
+    OrgListComponent.prototype.editOrg = function (org) {
+        this.router.navigate(['orgEdit', org.name]);
+    };
     OrgListComponent = __decorate([
         core_1.Component({
             selector: 'org-list',

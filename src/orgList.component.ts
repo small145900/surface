@@ -44,4 +44,7 @@ export class OrgListComponent implements OnInit {
   orgCreate(path){
     this.router.navigate([path]);
   }
+  editOrg(org){
+    this.router.navigate(['orgEdit',org.name]);
+  }
 }

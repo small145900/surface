@@ -14,7 +14,7 @@
       <div class="row pad-bt-twenty bg-outLetGray">
         <div class="col-xs-12 col-md-4 pad-lr-twelve" *ngFor="let org of orgList">
           <div class="media-org">
-            <a href="javascript:void(0)" class="org-left">
+            <a href="javascript:void(0)" class="org-left" (click)="editOrg(org)">
               <img src={{org.gravatar}}/>
               <span>{{org.name}}</span>
             </a>
