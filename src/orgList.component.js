@@ -45,6 +45,9 @@ var OrgListComponent = (function () {
     OrgListComponent.prototype.editOrg = function (org) {
         this.router.navigate(['orgEdit', org.name]);
     };
+    OrgListComponent.prototype.seeAllRepo = function (orgInfo) {
+        this.router.navigate(['organizations', orgInfo.name]);
+    };
     OrgListComponent = __decorate([
         core_1.Component({
             selector: 'org-list',

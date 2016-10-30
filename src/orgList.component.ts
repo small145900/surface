@@ -44,7 +44,14 @@ export class OrgListComponent implements OnInit {
   orgCreate(path){
     this.router.navigate([path]);
   }
+
   editOrg(org){
     this.router.navigate(['orgEdit',org.name]);
+  }
+
+  seeAllRepo(orgInfo) {
+    this.router.navigate(['organizations',orgInfo.name]
+      // {queryParams: orgInfo}
+    )
   }
 }
