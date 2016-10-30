@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute, Params } from '@angular/router';
 
 import { Org } from './org';
 import { OrgService } from './org.service';
@@ -17,11 +17,19 @@ export class OrgListComponent implements OnInit {
 
 	constructor(
 		private router: Router,
+    private route: ActivatedRoute,
     private orgService: OrgService){
     this.changeTitle('- orgList')
 	}
 
   ngOnInit(): void {
+    // if(!sessionStorage.getItem("username")){
+    //   this.router.navigate(['login']);
+    // }
+    this.getOrgList()
+  }
+
+  getOrgList(){
     this.orgService.getOrgList()
       .then(res => {
         if(res.code === 200){

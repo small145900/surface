@@ -29,10 +29,14 @@ var NavComponent = (function () {
         // this.router.navigate(["repoDetail",5]);
     };
     NavComponent.prototype.loginOut = function () {
-        // this.userService.loginOut(this.user)
-        //    .then(res => { if(res.code === 200){this.router.navigate([''])}},
-        //          error => this.errorMsg = <any>error);
-        this.router.navigate(['']);
+        var _this = this;
+        this.userService.loginOut(this.user)
+            .then(function (res) {
+            if (res.code === 200) {
+                sessionStorage.setItem("username", '');
+                _this.router.navigate(['']);
+            }
+        }, function (error) { return _this.errorMsg = error; });
     };
     NavComponent = __decorate([
         core_1.Component({

@@ -53,9 +53,8 @@ export class UserService {
                .catch(this.handleError)
   }
 
-  getEmailList(info): Promise<any> {
-    let params=JSON.stringify(info)
-    return this.http.get('json/emailList.json')
+  getEmailList(user): Promise<any> {
+    return this.http.get('/web/v1/user/'+user.username+'/emails')
                .toPromise()
                .then(this.dealData,this.dealError)
                .catch(this.handleError)
@@ -70,8 +69,9 @@ export class UserService {
   }
 
   verifyEmail(info,user): Promise<any> {
+    info.username = user.username;
     let params=JSON.stringify(info)
-    return this.http.put('/web/v1/user/'+user.username+'/email/'+info.email+'/send', params, {headers: this.headers})
+    return this.http.put('/web/v1/user/'+user.username+'/email/'+info.id+'/send', params, {headers: this.headers})
                .toPromise()
                .then(this.dealData)
                .catch(this.handleError)
@@ -79,7 +79,7 @@ export class UserService {
   
   delEmail(info,user): Promise<any> {
     let params=JSON.stringify(info)
-    return this.http.put('/web/v1/user/'+user.username+'/email/'+info.email, params, {headers: this.headers})
+    return this.http.delete('/web/v1/user/'+user.username+'/email/'+info.id, {headers: this.headers})
                .toPromise()
                .then(this.dealData,this.dealError)
                .catch(this.handleError)

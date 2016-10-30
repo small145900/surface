@@ -53,9 +53,8 @@ var UserService = (function () {
             .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
-    UserService.prototype.getEmailList = function (info) {
-        var params = JSON.stringify(info);
-        return this.http.get('json/emailList.json')
+    UserService.prototype.getEmailList = function (user) {
+        return this.http.get('/web/v1/user/' + user.username + '/emails')
             .toPromise()
             .then(this.dealData, this.dealError)
             .catch(this.handleError);
@@ -68,15 +67,16 @@ var UserService = (function () {
             .catch(this.handleError);
     };
     UserService.prototype.verifyEmail = function (info, user) {
+        info.username = user.username;
         var params = JSON.stringify(info);
-        return this.http.put('/web/v1/user/' + user.username + '/email/' + info.email + '/send', params, { headers: this.headers })
+        return this.http.put('/web/v1/user/' + user.username + '/email/' + info.id + '/send', params, { headers: this.headers })
             .toPromise()
             .then(this.dealData)
             .catch(this.handleError);
     };
     UserService.prototype.delEmail = function (info, user) {
         var params = JSON.stringify(info);
-        return this.http.put('/web/v1/user/' + user.username + '/email/' + info.email, params, { headers: this.headers })
+        return this.http.delete('/web/v1/user/' + user.username + '/email/' + info.id, { headers: this.headers })
             .toPromise()
             .then(this.dealData, this.dealError)
             .catch(this.handleError);
