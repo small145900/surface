@@ -20,6 +20,7 @@ var RepositoriesComponent = (function () {
         this.orgInfo = {
             orgName: ''
         };
+        this.changeTitle('- repositories');
     }
     RepositoriesComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -36,6 +37,10 @@ var RepositoriesComponent = (function () {
                 console.log('get repo list error', response);
             }
         }, function (error) { return _this.errorMsg = error; });
+    };
+    RepositoriesComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.repoService.changeTitle(title);
     };
     RepositoriesComponent.prototype.repoCreate = function (path) {
         this.router.navigate([path]);

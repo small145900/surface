@@ -43,6 +43,38 @@ var OrgService = (function () {
             .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
+    OrgService.prototype.teamCreate = function (info) {
+        var params = JSON.stringify(info);
+        return this.http.post('/web/v1/orgs/' + info.orgName + '/team', params, { headers: this.headers })
+            .toPromise()
+            .then(this.dealData, this.dealError)
+            .catch(this.handleError);
+    };
+    OrgService.prototype.getTeamList = function (orgName) {
+        return this.http.get('/web/v1/orgs/' + orgName + '/teams?organization=' + orgName)
+            .toPromise()
+            .then(this.dealData, this.dealError)
+            .catch(this.handleError);
+    };
+    OrgService.prototype.getMemberList = function (teamName, orgName) {
+        return this.http.get('/web/v1/orgs/' + orgName + '/' + teamName + '/membership/list')
+            .toPromise()
+            .then(this.dealData, this.dealError)
+            .catch(this.handleError);
+    };
+    OrgService.prototype.addMember = function (name, teamName, orgName) {
+        var params = JSON.stringify({ username: name });
+        return this.http.put('/web/v1/orgs/' + orgName + '/' + teamName + '/membership', params, { headers: this.headers })
+            .toPromise()
+            .then(this.dealData, this.dealError)
+            .catch(this.handleError);
+    };
+    OrgService.prototype.delMember = function (name, teamName, orgName) {
+        return this.http.delete('/web/v1/orgs/' + orgName + '/' + teamName + '/membership/' + name, { headers: this.headers })
+            .toPromise()
+            .then(this.dealData, this.dealError)
+            .catch(this.handleError);
+    };
     OrgService.prototype.dealData = function (res) {
         var object = {
             code: res.status,

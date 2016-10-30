@@ -63,10 +63,11 @@ export class RegisterComponent implements OnInit {
 		var user = this.user;
 		// var pwdReg=/(?![0-9a-z]+$)(?![a-zA-Z]+$){8,}/
 		// console.log(/(?![0-9a-z]+$)(?![a-zA-Z]+$){8,}/.test(user.password))
+		var nameReg = /[0-9A-Za-z]{1,}/.test(user.username)
 		var password = user.password
 
 		var pwdReg = password && (password.length > 8) && (password.indexOf(''+user.username)===-1) && (/[0-9]/g.test(password)) && (/[A-Z]/g.test(password))
-		if(user.username&&pwdReg&&user.email&&user.email.indexOf('@')!==-1){
+		if(nameReg&&pwdReg&&user.email&&user.email.indexOf('@')!==-1){
 			var data = {
 				username: user.username,
 				email: user.email,
@@ -90,7 +91,7 @@ export class RegisterComponent implements OnInit {
       });
 		}else if(!user.username){
 			this.tips('username',true)
-		}else if(!(user.username&&/[0-9A-Za-z]/.test(user.username))){
+		}else if(!(user.username&&nameReg)){
 			console.log('have username')
 			this.tips('isUsernameRight',true)
 		}else if(!user.email){

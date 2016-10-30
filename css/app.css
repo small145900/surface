@@ -1404,6 +1404,13 @@ body {
 #createOrg .members li:hover i {
   color: #fff;
 }
+#createOrg .teams .active {
+  background: #687C8A;
+  color: #fff;
+}
+#createOrg .teams .active i {
+  color: #fff;
+}
 #createOrg .teams li i,
 #createOrg .members li i {
   position: absolute;

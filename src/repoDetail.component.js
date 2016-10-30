@@ -11,15 +11,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
+var repo_service_1 = require('./repo.service');
 var RepoDetailComponent = (function () {
-    function RepoDetailComponent(location, route, router) {
+    function RepoDetailComponent(location, route, router, repoService) {
         this.location = location;
         this.route = route;
         this.router = router;
+        this.repoService = repoService;
         this.repoInfo = {
             repoName: ''
         };
         this.createStep = 1;
+        this.changeTitle('- repoDetail');
     }
     RepoDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -27,6 +30,10 @@ var RepoDetailComponent = (function () {
             _this.repoInfo.repoName = params['repoName'];
             console.log(params['repoName']);
         });
+    };
+    RepoDetailComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.repoService.changeTitle(title);
     };
     // goBack(): void {
     //   this.location.back();
@@ -50,7 +57,7 @@ var RepoDetailComponent = (function () {
             selector: 'repo-detail',
             templateUrl: '../templates/repository/repoDetail.html'
         }), 
-        __metadata('design:paramtypes', [common_1.Location, router_1.ActivatedRoute, router_1.Router])
+        __metadata('design:paramtypes', [common_1.Location, router_1.ActivatedRoute, router_1.Router, repo_service_1.RepoService])
     ], RepoDetailComponent);
     return RepoDetailComponent;
 }());

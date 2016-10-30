@@ -24,9 +24,13 @@ var ResetPwdComponent = (function () {
         this.active = '';
         this.browseList = [];
         this.hover = '';
-        this.userService.changeTitle('resetpassword');
+        this.changeTitle('- resetpwd');
     }
     ResetPwdComponent.prototype.ngOnInit = function () { };
+    ResetPwdComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.userService.changeTitle(title);
+    };
     ResetPwdComponent.prototype.activeHover = function (index) {
         this.hover = index;
         console.log(index);

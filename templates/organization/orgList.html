@@ -14,11 +14,11 @@
       <div class="row pad-bt-twenty bg-outLetGray">
         <div class="col-xs-12 col-md-4 pad-lr-twelve" *ngFor="let org of orgList">
           <div class="media-org">
-            <a href="javascript:void(0)" class="org-left">
+            <a href="javascript:void(0)" class="org-left" title="edit" (click)="editOrg(org)">
               <img src={{org.gravatar}}/>
               <span>{{org.name}}</span>
             </a>
-            <a href="javascript:void(0)" class="org-body">
+            <a href="javascript:void(0)" class="org-body" title="see repositories" (click)="seeAllRepo(org)">
               <p class="mar-t-twenty"><span>{{org.teams}}</span><br/>
               <small>team num</small></p>
               <p class="mar-t-twenty"><span>{{org.repositories}}</span><br/>

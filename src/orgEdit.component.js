@@ -12,12 +12,13 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var org_service_1 = require('./org.service');
 var repo_service_1 = require('./repo.service');
-var OrgCreateComponent = (function () {
-    function OrgCreateComponent(router, route, orgService, repoService) {
+var OrgEditComponent = (function () {
+    function OrgEditComponent(router, route, orgService, repoService) {
         this.router = router;
         this.route = route;
         this.orgService = orgService;
         this.repoService = repoService;
+        this.isEdit = false;
         this.step = 1;
         this.repo = {
             username: '',
@@ -54,21 +55,31 @@ var OrgCreateComponent = (function () {
             isShow: false,
             text: ''
         };
-        this.changeTitle('- orgCreate');
+        this.changeTitle('- orgEdit');
     }
-    OrgCreateComponent.prototype.ngOnInit = function () {
+    OrgEditComponent.prototype.ngOnInit = function () {
+        var _this = this;
         // if(!sessionStorage.getItem("username")){
         // 	this.router.navigate(['login']);
         // }
+        this.route.params.forEach(function (params) {
+            _this.editOrg();
+        });
     };
-    OrgCreateComponent.prototype.changeTitle = function (val) {
+    OrgEditComponent.prototype.editOrg = function () {
+        this.route.params.forEach(function (params) {
+            if (params['orgName'] !== '-1') {
+            }
+        });
+    };
+    OrgEditComponent.prototype.changeTitle = function (val) {
         var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
         this.orgService.changeTitle(title);
     };
-    OrgCreateComponent.prototype.changeStep = function (step) {
+    OrgEditComponent.prototype.changeStep = function (step) {
         this.step = step;
     };
-    OrgCreateComponent.prototype.saveOrgInfo = function (step) {
+    OrgEditComponent.prototype.saveOrgInfo = function (step) {
         var _this = this;
         console.log(this.org);
         var org = this.org;
@@ -104,7 +115,7 @@ var OrgCreateComponent = (function () {
         // 	this.isShowPrompt(true,'please input email')
         // }
     };
-    OrgCreateComponent.prototype.saveTeamInfo = function () {
+    OrgEditComponent.prototype.saveTeamInfo = function () {
         var _this = this;
         var team = this.team;
         if (team.name && team.title && team.description) {
@@ -130,7 +141,7 @@ var OrgCreateComponent = (function () {
             this.isShowPrompt(true, 'please input description');
         }
     };
-    OrgCreateComponent.prototype.getTeamList = function () {
+    OrgEditComponent.prototype.getTeamList = function () {
         var _this = this;
         this.orgService.getTeamList(this.org.namespace)
             .then(function (res) {
@@ -142,7 +153,7 @@ var OrgCreateComponent = (function () {
             }
         }, function (error) { return _this.errorMsg = error; });
     };
-    OrgCreateComponent.prototype.getMemberList = function (team) {
+    OrgEditComponent.prototype.getMemberList = function (team) {
         var _this = this;
         this.currentTeam = team.name;
         this.orgService.getMemberList(team.name, this.org.namespace)
@@ -155,7 +166,7 @@ var OrgCreateComponent = (function () {
             }
         }, function (error) { return _this.errorMsg = error; });
     };
-    OrgCreateComponent.prototype.addMember = function () {
+    OrgEditComponent.prototype.addMember = function () {
         var _this = this;
         var member = this.member;
         if (member.name && this.currentTeam) {
@@ -176,7 +187,7 @@ var OrgCreateComponent = (function () {
             this.isShowPrompt(true, 'please choose team');
         }
     };
-    OrgCreateComponent.prototype.delMember = function (member) {
+    OrgEditComponent.prototype.delMember = function (member) {
         var _this = this;
         this.orgService.delMember(member.name, this.currentTeam, this.org.namespace)
             .then(function (res) {
@@ -188,14 +199,14 @@ var OrgCreateComponent = (function () {
             }
         }, function (error) { return _this.errorMsg = error; });
     };
-    OrgCreateComponent.prototype.showOptions = function () {
+    OrgEditComponent.prototype.showOptions = function () {
         this.isShowTeam = !this.isShowTeam;
     };
-    OrgCreateComponent.prototype.choseTeam = function (team) {
+    OrgEditComponent.prototype.choseTeam = function (team) {
         this.chosedTeam = team.name;
         this.isShowTeam = false;
     };
-    OrgCreateComponent.prototype.saveRepoInfo = function () {
+    OrgEditComponent.prototype.saveRepoInfo = function () {
         var _this = this;
         var repo = this.repo;
         if (this.org.namespace && repo.repository && repo.short && repo.privilege) {
@@ -220,7 +231,7 @@ var OrgCreateComponent = (function () {
             this.isShowPrompt(true, 'please input short description');
         }
     };
-    OrgCreateComponent.prototype.isShowPrompt = function (boolean, text) {
+    OrgEditComponent.prototype.isShowPrompt = function (boolean, text) {
         this.promptInfo = {
             isShow: boolean,
             text: text
@@ -231,13 +242,13 @@ var OrgCreateComponent = (function () {
             }.bind(this), 2000);
         }
     };
-    OrgCreateComponent = __decorate([
+    OrgEditComponent = __decorate([
         core_1.Component({
-            selector: 'org-create',
-            templateUrl: '../templates/organization/orgCreate.html'
+            selector: 'org-edit',
+            templateUrl: '../templates/organization/orgEdit.html'
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, org_service_1.OrgService, repo_service_1.RepoService])
-    ], OrgCreateComponent);
-    return OrgCreateComponent;
+    ], OrgEditComponent);
+    return OrgEditComponent;
 }());
-exports.OrgCreateComponent = OrgCreateComponent;
+exports.OrgEditComponent = OrgEditComponent;

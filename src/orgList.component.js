@@ -12,13 +12,21 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var org_service_1 = require('./org.service');
 var OrgListComponent = (function () {
-    function OrgListComponent(router, orgService) {
+    function OrgListComponent(router, route, orgService) {
         this.router = router;
+        this.route = route;
         this.orgService = orgService;
         // orgList: Org[] = [];
         this.orgList = [];
+        this.changeTitle('- orgList');
     }
     OrgListComponent.prototype.ngOnInit = function () {
+        // if(!sessionStorage.getItem("username")){
+        //   this.router.navigate(['login']);
+        // }
+        this.getOrgList();
+    };
+    OrgListComponent.prototype.getOrgList = function () {
         var _this = this;
         this.orgService.getOrgList()
             .then(function (res) {
@@ -30,6 +38,10 @@ var OrgListComponent = (function () {
             }
         }, function (error) { return _this.errorMsg = error; });
     };
+    OrgListComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.orgService.changeTitle(title);
+    };
     // gotoDetail(repo: Repo): void {
     //   let link = ['repoDetail', repo.namespace,repo.repository];
     //   this.router.navigate(link);
@@ -37,12 +49,18 @@ var OrgListComponent = (function () {
     OrgListComponent.prototype.orgCreate = function (path) {
         this.router.navigate([path]);
     };
+    OrgListComponent.prototype.editOrg = function (org) {
+        this.router.navigate(['orgEdit', org.name]);
+    };
+    OrgListComponent.prototype.seeAllRepo = function (orgInfo) {
+        this.router.navigate(['organizations', orgInfo.name]);
+    };
     OrgListComponent = __decorate([
         core_1.Component({
             selector: 'org-list',
             templateUrl: '../templates/organization/orgList.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, org_service_1.OrgService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, org_service_1.OrgService])
     ], OrgListComponent);
     return OrgListComponent;
 }());

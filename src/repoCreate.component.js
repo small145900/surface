@@ -36,6 +36,7 @@ var RepoCreateComponent = (function () {
             text: ''
         };
         // this.isShowPrompt(true,999)
+        this.changeTitle('- repoCreate');
     }
     RepoCreateComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -63,6 +64,10 @@ var RepoCreateComponent = (function () {
         else {
             this.router.navigate(['login']);
         }
+    };
+    RepoCreateComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.repoService.changeTitle(title);
     };
     RepoCreateComponent.prototype.showOptions = function () {
         this.isShowOrg = !this.isShowOrg;

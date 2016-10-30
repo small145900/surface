@@ -31,9 +31,12 @@ export class NavComponent {
   }
 
   loginOut(){
-  	// this.userService.loginOut(this.user)
-   //    .then(res => { if(res.code === 200){this.router.navigate([''])}},
-   //          error => this.errorMsg = <any>error);
-   this.router.navigate([''])
+  	this.userService.loginOut(this.user)
+      .then(res => {
+          if(res.code === 200){
+            sessionStorage.setItem("username", '')
+            this.router.navigate([''])
+          }
+        },error => this.errorMsg = <any>error);
   }
 }

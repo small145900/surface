@@ -41,6 +41,43 @@ export class OrgService {
                .catch(this.handleError)
   }
 
+  teamCreate(info): Promise<any> {
+    let params=JSON.stringify(info)
+    return this.http.post('/web/v1/orgs/'+info.orgName+'/team', params, {headers: this.headers})
+               .toPromise()
+               .then(this.dealData,this.dealError)
+               .catch(this.handleError)
+  }
+
+  getTeamList(orgName): Promise<any> {
+    return this.http.get('/web/v1/orgs/'+orgName+'/teams?organization='+orgName)
+               .toPromise()
+               .then(this.dealData,this.dealError)
+               .catch(this.handleError)
+  }
+
+  getMemberList(teamName,orgName): Promise<any> {
+    return this.http.get('/web/v1/orgs/'+orgName+'/'+teamName+'/membership/list')
+               .toPromise()
+               .then(this.dealData,this.dealError)
+               .catch(this.handleError)
+  }
+
+  addMember(name,teamName,orgName): Promise<any> {
+    let params=JSON.stringify({username: name})
+    return this.http.put('/web/v1/orgs/'+orgName+'/'+teamName+'/membership', params, {headers: this.headers})
+               .toPromise()
+               .then(this.dealData,this.dealError)
+               .catch(this.handleError)
+  }
+
+  delMember(name,teamName,orgName): Promise<any> {
+    return this.http.delete('/web/v1/orgs/'+orgName+'/'+teamName+'/membership/'+name, {headers: this.headers})
+               .toPromise()
+               .then(this.dealData,this.dealError)
+               .catch(this.handleError)
+  }
+
   private dealData (res: Response) {
     var object = {
       code: res.status,

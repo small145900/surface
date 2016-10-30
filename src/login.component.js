@@ -27,11 +27,15 @@ var LoginComponent = (function () {
         this.browseList = [];
         this.hover = '';
         this.salt = '';
-        this.userService.changeTitle('login');
+        this.changeTitle('- login');
     }
     LoginComponent.prototype.ngOnInit = function () {
         var salt = document.getElementsByTagName('meta')['salt'].getAttribute('content');
         this.salt = salt;
+    };
+    LoginComponent.prototype.changeTitle = function (val) {
+        var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
+        this.userService.changeTitle(title);
     };
     LoginComponent.prototype.activeHover = function (index) {
         this.hover = index;

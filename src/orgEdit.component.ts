@@ -5,12 +5,13 @@ import { RepoService } from './repo.service';
 
 
 @Component({
-  selector: 'org-create',
-  templateUrl: '../templates/organization/orgCreate.html'
+  selector: 'org-edit',
+  templateUrl: '../templates/organization/orgEdit.html'
 })
 
-export class OrgCreateComponent implements OnInit {
+export class OrgEditComponent implements OnInit {
 	errorMsg: string;
+	isEdit = false;
 	step = 1;
 	repo = {
 		username:'',
@@ -59,13 +60,25 @@ export class OrgCreateComponent implements OnInit {
 		private route: ActivatedRoute,
 		private orgService: OrgService,
 		private repoService: RepoService){ 
-		this.changeTitle('- orgCreate')
+		this.changeTitle('- orgEdit')
 	}
 
 	ngOnInit(): void {
 		// if(!sessionStorage.getItem("username")){
 		// 	this.router.navigate(['login']);
 		// }
+		this.route.params.forEach((params: Params) => {
+      this.editOrg()
+    });
+		
+  }
+
+  editOrg(){
+  	this.route.params.forEach((params: Params) => {
+      if(params['orgName']!=='-1'){
+      	//获取组织的信息
+      }
+    });
   }
 
   changeTitle(val) {

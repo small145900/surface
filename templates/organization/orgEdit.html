@@ -21,8 +21,8 @@
             <div class="row">
               <div class="space">
                 <div class="first-step" *ngIf="step===1">
-                  <input type="text" placeholder="Namespace"  [(ngModel)]="org.namespace" name="namespace"/>
-                  <input type="text" placeholder="Organization Name" [(ngModel)]="org['full-name']" name="orgname"/>
+                  <input type="text" placeholder="Namespace"  [(ngModel)]="org.namespace" name="namespace" disabled/>
+                  <input type="text" placeholder="Organization Name" [(ngModel)]="org['full-name']" name="orgname" disabled/>
                   <input type="text" placeholder="Description" [(ngModel)]="org.description" name="description"/>
                   <input type="text" placeholder="Location" [(ngModel)]="org.location" name="location"/>
                   <input type="text" placeholder="Gravatar Email" [(ngModel)]="org.gravatar" name="gravatar"/>
