@@ -6,7 +6,7 @@ import { RepoService } from './repo.service';
 
 @Component({
   selector: 'browse-detail',
-  templateUrl: '../templates/repository/repoDetail.html'
+  templateUrl: '../templates/common/browseDetail.html'
 })
 export class BrowseDetailComponent {
 	constructor(
@@ -20,7 +20,8 @@ export class BrowseDetailComponent {
 
   repoInfo = {
     repoName: ''
-  }
+  };
+  type = 1;
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
@@ -57,4 +58,7 @@ export class BrowseDetailComponent {
     }
   }
 
+  changeType(val){
+    this.type = val
+  }
 }

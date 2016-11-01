@@ -21,7 +21,8 @@ export class RepoDetailComponent {
 
   repoInfo = {
     repoName: ''
-  }
+  };
+  type = 1;
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
@@ -58,4 +59,7 @@ export class RepoDetailComponent {
     }
   }
 
+  changeType(val){
+    this.type = val
+  }
 }

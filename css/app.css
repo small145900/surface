@@ -889,6 +889,7 @@ body {
   padding-top: 8px;
   padding-bottom: 8px;
   margin: 10px auto;
+  background: #ededed;
 }
 #repoDetail .fa-star {
   cursor: pointer;
@@ -905,27 +906,41 @@ body {
   font-size: 1.8rem;
 }
 #repoDetail .repo-nav {
-  background-color: #CCCCCC;
+  width: 100%;
+  border: none;
+  background: #CCCCCC;
+}
+#repoDetail .repo-nav li {
+  text-align: center;
+  padding: 0;
+  border: none;
+}
+#repoDetail .repo-nav li > a {
+  border: none;
+}
+#repoDetail .repo-nav li > a:hover {
+  background: none;
+  border: none;
+  border-radius: 0;
+}
+#repoDetail .repo-nav > li {
+  margin: 0;
+}
+#repoDetail .repo-nav .active,
+#repoDetail .repo-nav .active > a {
+  background: #2C374B;
+  color: #fff;
+  border: none;
+  border-radius: 0;
+}
+#repoDetail .repo-nav .blank {
+  background: #ededed;
+}
+#repoDetail .repo-nav .blank a {
+  color: #ededed;
 }
 #repoDetail .clear-padding-left {
   padding-left: 0;
-}
-.repo-nav .nav-tabs > li > a:hover,
-.repo-nav .nav-tabs > li > a:focus {
-  background-color: #ddd;
-  border: 0;
-}
-.repo-nav .nav-tabs.nav-justified > li > a,
-.repo-nav .nav-tabs.nav-justified > .active > a:hover {
-  border-radius: 0;
-  border: 0;
-}
-.repo-nav .nav-tabs.nav-justified > .active > a,
-.repo-nav .nav-tabs.nav-justified > .active > a:hover,
-.repo-nav .nav-tabs.nav-justified > .active > a:focus {
-  background-color: #2c374b;
-  color: #fff;
-  border: 0;
 }
 .repo-content {
   background-color: #DEDEDE;
@@ -988,6 +1003,7 @@ body {
   color: #fff;
   padding-top: 10px;
   padding-bottom: 10px;
+  margin-bottom: 20px;
   border-radius: 5px;
 }
 @media screen and (max-width: 1000px) {
@@ -1203,14 +1219,25 @@ body {
 }
 #repoDetail .repo-type {
   text-align: center;
+  padding: 0;
+  height: 100%;
+  background: #ededed;
+}
+#repoDetail .head {
+  background: #ededed;
 }
 #repoDetail .repo-type li {
-  padding: 20px 0;
-  background: #fff;
+  padding: 12px 0;
+  width: 100%;
 }
-#repoDetail .repo-type li:hover {
-  background: #3DA1E5;
-  color: #fff;
+#repoDetail .repo-type .active {
+  background: #DEDEDE;
+  color: #191919;
+}
+#repoDetail .content {
+  background: #DEDEDE;
+  height: calc(100% - 170px);
+  height: -webkit-calc(100% - 170px);
 }
 /* repo detail end */
 /* org list start */

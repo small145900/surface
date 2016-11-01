@@ -23,6 +23,7 @@ var BrowseDetailComponent = (function () {
         this.repoInfo = {
             repoName: ''
         };
+        this.type = 1;
         this.createStep = 1;
         this.changeTitle('- detail');
     }
@@ -54,10 +55,13 @@ var BrowseDetailComponent = (function () {
             this.createStep++;
         }
     };
+    BrowseDetailComponent.prototype.changeType = function (val) {
+        this.type = val;
+    };
     BrowseDetailComponent = __decorate([
         core_1.Component({
             selector: 'browse-detail',
-            templateUrl: '../templates/repository/repoDetail.html'
+            templateUrl: '../templates/common/browseDetail.html'
         }), 
         __metadata('design:paramtypes', [common_1.Location, router_1.ActivatedRoute, router_1.Router, user_service_1.UserService, repo_service_1.RepoService])
     ], BrowseDetailComponent);

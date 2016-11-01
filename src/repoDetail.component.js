@@ -23,6 +23,7 @@ var RepoDetailComponent = (function () {
         this.repoInfo = {
             repoName: ''
         };
+        this.type = 1;
         this.createStep = 1;
         this.changeTitle('- repoDetail');
     }
@@ -53,6 +54,9 @@ var RepoDetailComponent = (function () {
         else {
             this.createStep++;
         }
+    };
+    RepoDetailComponent.prototype.changeType = function (val) {
+        this.type = val;
     };
     RepoDetailComponent = __decorate([
         core_1.Component({
