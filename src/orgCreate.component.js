@@ -12,10 +12,12 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var org_service_1 = require('./org.service');
 var repo_service_1 = require('./repo.service');
+var user_service_1 = require('./user.service');
 var OrgCreateComponent = (function () {
-    function OrgCreateComponent(router, route, orgService, repoService) {
+    function OrgCreateComponent(router, route, userService, orgService, repoService) {
         this.router = router;
         this.route = route;
+        this.userService = userService;
         this.orgService = orgService;
         this.repoService = repoService;
         this.step = 1;
@@ -63,7 +65,7 @@ var OrgCreateComponent = (function () {
     };
     OrgCreateComponent.prototype.changeTitle = function (val) {
         var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-        this.orgService.changeTitle(title);
+        this.userService.changeTitle(title);
     };
     OrgCreateComponent.prototype.changeStep = function (step) {
         this.step = step;
@@ -236,7 +238,7 @@ var OrgCreateComponent = (function () {
             selector: 'org-create',
             templateUrl: '../templates/organization/orgCreate.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, org_service_1.OrgService, repo_service_1.RepoService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, user_service_1.UserService, org_service_1.OrgService, repo_service_1.RepoService])
     ], OrgCreateComponent);
     return OrgCreateComponent;
 }());

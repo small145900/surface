@@ -10,27 +10,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
-var repo_service_1 = require('./repo.service');
 var user_service_1 = require('./user.service');
-var RepositoriesComponent = (function () {
-    function RepositoriesComponent(router, route, userService, repoService) {
+var repo_service_1 = require('./repo.service');
+var UserRepoComponent = (function () {
+    function UserRepoComponent(router, route, userService, repoService) {
         this.router = router;
         this.route = route;
         this.userService = userService;
         this.repoService = repoService;
         this.repoList = [];
-        this.orgInfo = {
-            orgName: ''
+        // orgList: Org[] = [];
+        // repoList: Repo[] = [];
+        // orgRepo: OrgRepo[] = [];
+        this.user = {
+            username: '',
+            img: ''
         };
-        this.changeTitle('- repositories');
+        this.orgRepo = [];
+        this.promptInfo = {
+            isShow: false,
+            text: ''
+        };
+        this.changeTitle('- user');
     }
-    RepositoriesComponent.prototype.ngOnInit = function () {
+    UserRepoComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
-            _this.orgInfo.orgName = params['orgName'];
-            console.log(_this.orgInfo);
+            _this.user.username = params['username'];
         });
-        this.repoService.getRepoList(this.orgInfo)
+        this.getRepoList();
+    };
+    UserRepoComponent.prototype.getRepoList = function () {
+        var _this = this;
+        this.repoService.getRepoList(this.user)
             .then(function (response) {
             if (response.code === 200) {
                 _this.repoList = response.data;
@@ -40,24 +52,35 @@ var RepositoriesComponent = (function () {
             }
         }, function (error) { return _this.errorMsg = error; });
     };
-    RepositoriesComponent.prototype.changeTitle = function (val) {
+    UserRepoComponent.prototype.changeTitle = function (val) {
         var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
         this.userService.changeTitle(title);
     };
-    RepositoriesComponent.prototype.repoCreate = function (path) {
-        this.router.navigate([path]);
+    UserRepoComponent.prototype.changeNav = function (val) {
+        this.router.navigate([val]);
     };
-    RepositoriesComponent.prototype.repoDetail = function (repoInfo) {
-        this.router.navigate(['repositories', repoInfo.repository]);
+    UserRepoComponent.prototype.repoDetail = function (repoInfo) {
+        this.router.navigate(['detail', repoInfo.repository]);
     };
-    RepositoriesComponent = __decorate([
+    UserRepoComponent.prototype.isShowPrompt = function (boolean, text) {
+        this.promptInfo = {
+            isShow: boolean,
+            text: text
+        };
+        if (boolean) {
+            setTimeout(function () {
+                this.isShowPrompt(false, '');
+            }.bind(this), 3000);
+        }
+    };
+    UserRepoComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'repositories',
-            templateUrl: '../templates/repository/repositories.html'
+            selector: 'user-repo',
+            templateUrl: '../templates/common/user.repo.html'
         }), 
         __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, user_service_1.UserService, repo_service_1.RepoService])
-    ], RepositoriesComponent);
-    return RepositoriesComponent;
+    ], UserRepoComponent);
+    return UserRepoComponent;
 }());
-exports.RepositoriesComponent = RepositoriesComponent;
+exports.UserRepoComponent = UserRepoComponent;

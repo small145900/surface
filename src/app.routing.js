@@ -9,6 +9,8 @@ var browse_component_1 = require('./browse.component');
 var brochur_component_1 = require('./brochur.component');
 var contact_component_1 = require('./contact.component');
 var content_component_1 = require('./content.component');
+var userRepo_component_1 = require('./userRepo.component');
+var browseDetail_component_1 = require('./browseDetail.component');
 var appRoutes = [
     {
         path: '',
@@ -42,6 +44,14 @@ var appRoutes = [
     {
         path: 'contact',
         component: contact_component_1.ContactComponent
+    },
+    {
+        path: 'user/:username',
+        component: userRepo_component_1.UserRepoComponent
+    },
+    {
+        path: 'detail/:repoName',
+        component: browseDetail_component_1.BrowseDetailComponent
     },
     {
         path: 'content',

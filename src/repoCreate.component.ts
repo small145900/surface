@@ -4,6 +4,7 @@ import { Headers, Http } from '@angular/http';
 import { NgClass } from '@angular/common';
 import { RepoService } from './repo.service';
 import { OrgService } from './org.service';
+import { UserService } from './user.service';
 import 'rxjs/add/operator/toPromise';
 
 @Component({
@@ -32,6 +33,7 @@ export class RepoCreateComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private http: Http,
+		private userService: UserService,
 		private repoService: RepoService,
 		private orgService: OrgService){
 		// this.isShowPrompt(true,999)
@@ -65,7 +67,7 @@ export class RepoCreateComponent implements OnInit {
 
   changeTitle(val) {
     var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-    this.repoService.changeTitle(title)
+    this.userService.changeTitle(title)
   }
 
   showOptions(){

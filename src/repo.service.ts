@@ -53,8 +53,4 @@ export class RepoService {
     console.error(errMsg); 
     return Promise.reject(errMsg);
   }
-
-  changeTitle(val){
-    this.title.setTitle(val)
-  }
 }

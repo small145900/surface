@@ -12,15 +12,15 @@
               <div class="over-hidden">
                 <div class="pull-left"><img src={{item.img}} /></div>
                 <div class="pull-left">
-                  <span class="text mar-tb-eight">{{item.name}}</span>
-                  <span class="text">{{item.desc}}</span>
+                  <span class="text mar-tb-eight">{{item.namespace}}</span>
+                  <span class="text">{{item.repository}}</span>
                 </div>
               </div>
             </li>
             <li class="star">
               <div>
                 <div class="mar-bt-eight"><i class="fa fa-star"></i></div>
-                <div>{{item.stars}}</div>
+                <div>{{item.star}}</div>
               </div>
             </li>
             <li class="download">
@@ -29,7 +29,7 @@
                 <div>{{item.pulls}}</div>
               </div>
             </li>
-            <li class="detail" [ngClass]="hover === i ? 'active' : '' ">
+            <li class="detail" [ngClass]="hover === i ? 'active' : '' " (click)="repoDetail(item)">
               <div>
                 <div class="mar-bt-eight"><i class="fa fa-chevron-right"></i></div>
                 <div>Detail</div>

@@ -12,10 +12,12 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var org_service_1 = require('./org.service');
 var repo_service_1 = require('./repo.service');
+var user_service_1 = require('./user.service');
 var RepoListComponent = (function () {
-    function RepoListComponent(router, route, orgService, repoService) {
+    function RepoListComponent(router, route, userService, orgService, repoService) {
         this.router = router;
         this.route = route;
+        this.userService = userService;
         this.orgService = orgService;
         this.repoService = repoService;
         this.orgList = [];
@@ -27,7 +29,7 @@ var RepoListComponent = (function () {
             isShow: false,
             text: ''
         };
-        this.changeTitle('- repoDetail');
+        this.changeTitle('- repositories');
     }
     RepoListComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -57,7 +59,7 @@ var RepoListComponent = (function () {
     };
     RepoListComponent.prototype.changeTitle = function (val) {
         var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-        this.repoService.changeTitle(title);
+        this.userService.changeTitle(title);
     };
     RepoListComponent.prototype.repoCreate = function (path) {
         this.router.navigate([path]);
@@ -85,7 +87,7 @@ var RepoListComponent = (function () {
             selector: 'repo-list',
             templateUrl: '../templates/repository/repoList.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, org_service_1.OrgService, repo_service_1.RepoService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, user_service_1.UserService, org_service_1.OrgService, repo_service_1.RepoService])
     ], RepoListComponent);
     return RepoListComponent;
 }());

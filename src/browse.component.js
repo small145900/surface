@@ -44,6 +44,9 @@ var BrowseComponent = (function () {
         this.hover = index;
         console.log(index);
     };
+    BrowseComponent.prototype.repoDetail = function (repoInfo) {
+        this.router.navigate(['detail', repoInfo.repository]);
+    };
     BrowseComponent.prototype.changeNav = function (val) {
         // this.active = val
         this.router.navigate([val]);

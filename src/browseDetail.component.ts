@@ -1,22 +1,21 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
-import { RepoService } from './repo.service';
 import { UserService } from './user.service';
-
+import { RepoService } from './repo.service';
 
 @Component({
-  selector: 'repo-detail',
-  templateUrl: '../templates/repository/repoDetail.html'
+  selector: 'browse-detail',
+  templateUrl: '../templates/common/browseDetail.html'
 })
-export class RepoDetailComponent {
+export class BrowseDetailComponent {
 	constructor(
     private location: Location,
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
     private repoService: RepoService ){
-    this.changeTitle('- repoDetail')
+    this.changeTitle('- detail')
   }
 
   repoInfo = {

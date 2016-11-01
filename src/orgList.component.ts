@@ -3,6 +3,8 @@ import { Router, RouterModule, ActivatedRoute, Params } from '@angular/router';
 
 import { Org } from './org';
 import { OrgService } from './org.service';
+import { UserService } from './user.service';
+
 
 
 @Component({
@@ -18,6 +20,7 @@ export class OrgListComponent implements OnInit {
 	constructor(
 		private router: Router,
     private route: ActivatedRoute,
+    private userService: UserService,
     private orgService: OrgService){
     this.changeTitle('- orgList')
 	}
@@ -42,7 +45,7 @@ export class OrgListComponent implements OnInit {
 
   changeTitle(val) {
     var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-    this.orgService.changeTitle(title)
+    this.userService.changeTitle(title)
   }
 
   // gotoDetail(repo: Repo): void {

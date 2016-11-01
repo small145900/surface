@@ -104,7 +104,5 @@ export class OrgService {
   //   return this.getRepoList()
   //              .then(heroes => heroes.find(hero => hero.id === id));
   // }
-  changeTitle(val){
-    this.title.setTitle(val)
-  }
+ 
 }

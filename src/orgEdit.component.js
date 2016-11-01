@@ -12,10 +12,12 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var org_service_1 = require('./org.service');
 var repo_service_1 = require('./repo.service');
+var user_service_1 = require('./user.service');
 var OrgEditComponent = (function () {
-    function OrgEditComponent(router, route, orgService, repoService) {
+    function OrgEditComponent(router, route, userService, orgService, repoService) {
         this.router = router;
         this.route = route;
+        this.userService = userService;
         this.orgService = orgService;
         this.repoService = repoService;
         this.isEdit = false;
@@ -74,7 +76,7 @@ var OrgEditComponent = (function () {
     };
     OrgEditComponent.prototype.changeTitle = function (val) {
         var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-        this.orgService.changeTitle(title);
+        this.userService.changeTitle(title);
     };
     OrgEditComponent.prototype.changeStep = function (step) {
         this.step = step;
@@ -247,7 +249,7 @@ var OrgEditComponent = (function () {
             selector: 'org-edit',
             templateUrl: '../templates/organization/orgEdit.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, org_service_1.OrgService, repo_service_1.RepoService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, user_service_1.UserService, org_service_1.OrgService, repo_service_1.RepoService])
     ], OrgEditComponent);
     return OrgEditComponent;
 }());

@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var org_service_1 = require('./org.service');
+var user_service_1 = require('./user.service');
 var OrgListComponent = (function () {
-    function OrgListComponent(router, route, orgService) {
+    function OrgListComponent(router, route, userService, orgService) {
         this.router = router;
         this.route = route;
+        this.userService = userService;
         this.orgService = orgService;
         // orgList: Org[] = [];
         this.orgList = [];
@@ -40,7 +42,7 @@ var OrgListComponent = (function () {
     };
     OrgListComponent.prototype.changeTitle = function (val) {
         var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-        this.orgService.changeTitle(title);
+        this.userService.changeTitle(title);
     };
     // gotoDetail(repo: Repo): void {
     //   let link = ['repoDetail', repo.namespace,repo.repository];
@@ -60,7 +62,7 @@ var OrgListComponent = (function () {
             selector: 'org-list',
             templateUrl: '../templates/organization/orgList.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, org_service_1.OrgService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, user_service_1.UserService, org_service_1.OrgService])
     ], OrgListComponent);
     return OrgListComponent;
 }());
