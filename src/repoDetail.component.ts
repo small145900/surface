@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
 import { RepoService } from './repo.service';
+import { UserService } from './user.service';
+
 
 @Component({
   selector: 'repo-detail',
@@ -12,6 +14,7 @@ export class RepoDetailComponent {
     private location: Location,
     private route: ActivatedRoute,
     private router: Router,
+    private userService: UserService,
     private repoService: RepoService ){
     this.changeTitle('- repoDetail')
   }
@@ -29,7 +32,7 @@ export class RepoDetailComponent {
 
   changeTitle(val) {
     var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-    this.repoService.changeTitle(title)
+    this.userService.changeTitle(title)
   }
 
   // goBack(): void {

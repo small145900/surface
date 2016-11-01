@@ -45,6 +45,10 @@ export class BrowseComponent implements OnInit {
   	console.log(index)
   }
 
+  repoDetail(repoInfo){
+    this.router.navigate(['detail',repoInfo.repository])
+  }
+
 	changeNav(val){
 		// this.active = val
     this.router.navigate([val]);

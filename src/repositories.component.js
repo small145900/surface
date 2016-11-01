@@ -11,10 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var repo_service_1 = require('./repo.service');
+var user_service_1 = require('./user.service');
 var RepositoriesComponent = (function () {
-    function RepositoriesComponent(router, route, repoService) {
+    function RepositoriesComponent(router, route, userService, repoService) {
         this.router = router;
         this.route = route;
+        this.userService = userService;
         this.repoService = repoService;
         this.repoList = [];
         this.orgInfo = {
@@ -40,7 +42,7 @@ var RepositoriesComponent = (function () {
     };
     RepositoriesComponent.prototype.changeTitle = function (val) {
         var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-        this.repoService.changeTitle(title);
+        this.userService.changeTitle(title);
     };
     RepositoriesComponent.prototype.repoCreate = function (path) {
         this.router.navigate([path]);
@@ -54,7 +56,7 @@ var RepositoriesComponent = (function () {
             selector: 'repositories',
             templateUrl: '../templates/repository/repositories.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, repo_service_1.RepoService])
+        __metadata('design:paramtypes', [router_1.Router, router_1.ActivatedRoute, user_service_1.UserService, repo_service_1.RepoService])
     ], RepositoriesComponent);
     return RepositoriesComponent;
 }());

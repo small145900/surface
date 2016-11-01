@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule, ActivatedRoute, Params } from '@angular/router';
 import { OrgService } from './org.service';
 import { RepoService } from './repo.service';
+import { UserService } from './user.service';
 
 
 @Component({
@@ -57,6 +58,7 @@ export class OrgCreateComponent implements OnInit {
 	constructor(
 		private router: Router,
 		private route: ActivatedRoute,
+		private userService: UserService,
 		private orgService: OrgService,
 		private repoService: RepoService){ 
 		this.changeTitle('- orgCreate')
@@ -70,7 +72,7 @@ export class OrgCreateComponent implements OnInit {
 
   changeTitle(val) {
 		var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-		this.orgService.changeTitle(title)
+		this.userService.changeTitle(title)
 	}
 
 	changeStep(step) {

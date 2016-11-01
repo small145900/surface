@@ -11,18 +11,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var common_1 = require('@angular/common');
+var user_service_1 = require('./user.service');
 var repo_service_1 = require('./repo.service');
 var BrowseDetailComponent = (function () {
-    function BrowseDetailComponent(location, route, router, repoService) {
+    function BrowseDetailComponent(location, route, router, userService, repoService) {
         this.location = location;
         this.route = route;
         this.router = router;
+        this.userService = userService;
         this.repoService = repoService;
         this.repoInfo = {
             repoName: ''
         };
         this.createStep = 1;
-        this.changeTitle('- repoDetail');
+        this.changeTitle('- detail');
     }
     BrowseDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -33,7 +35,7 @@ var BrowseDetailComponent = (function () {
     };
     BrowseDetailComponent.prototype.changeTitle = function (val) {
         var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-        this.repoService.changeTitle(title);
+        this.userService.changeTitle(title);
     };
     // goBack(): void {
     //   this.location.back();
@@ -57,7 +59,7 @@ var BrowseDetailComponent = (function () {
             selector: 'browse-detail',
             templateUrl: '../templates/repository/repoDetail.html'
         }), 
-        __metadata('design:paramtypes', [common_1.Location, router_1.ActivatedRoute, router_1.Router, repo_service_1.RepoService])
+        __metadata('design:paramtypes', [common_1.Location, router_1.ActivatedRoute, router_1.Router, user_service_1.UserService, repo_service_1.RepoService])
     ], BrowseDetailComponent);
     return BrowseDetailComponent;
 }());

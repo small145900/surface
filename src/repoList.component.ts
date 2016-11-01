@@ -5,6 +5,8 @@ import { Repo } from './repo';
 import { OrgRepo } from './orgRepo';
 import { OrgService } from './org.service';
 import { RepoService } from './repo.service';
+import { UserService } from './user.service';
+
 
 @Component({
 	moduleId: module.id,
@@ -27,9 +29,10 @@ export class RepoListComponent implements OnInit {
 	constructor(
 		private router: Router,
     private route: ActivatedRoute,
+    private userService: UserService,
 		private orgService: OrgService,
     private repoService: RepoService){
-    this.changeTitle('- repoDetail')
+    this.changeTitle('- repositories')
 	}
 
   ngOnInit(): void {
@@ -58,7 +61,7 @@ export class RepoListComponent implements OnInit {
 
   changeTitle(val) {
     var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-    this.repoService.changeTitle(title)
+    this.userService.changeTitle(title)
   }
 
   repoCreate(path){

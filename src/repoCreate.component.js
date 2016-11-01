@@ -13,11 +13,13 @@ var router_1 = require('@angular/router');
 var http_1 = require('@angular/http');
 var repo_service_1 = require('./repo.service');
 var org_service_1 = require('./org.service');
+var user_service_1 = require('./user.service');
 require('rxjs/add/operator/toPromise');
 var RepoCreateComponent = (function () {
-    function RepoCreateComponent(router, http, repoService, orgService) {
+    function RepoCreateComponent(router, http, userService, repoService, orgService) {
         this.router = router;
         this.http = http;
+        this.userService = userService;
         this.repoService = repoService;
         this.orgService = orgService;
         this.step = 0;
@@ -67,7 +69,7 @@ var RepoCreateComponent = (function () {
     };
     RepoCreateComponent.prototype.changeTitle = function (val) {
         var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-        this.repoService.changeTitle(title);
+        this.userService.changeTitle(title);
     };
     RepoCreateComponent.prototype.showOptions = function () {
         this.isShowOrg = !this.isShowOrg;
@@ -125,7 +127,7 @@ var RepoCreateComponent = (function () {
             selector: 'repo-create',
             templateUrl: '../templates/repository/repoCreate.html'
         }), 
-        __metadata('design:paramtypes', [router_1.Router, http_1.Http, repo_service_1.RepoService, org_service_1.OrgService])
+        __metadata('design:paramtypes', [router_1.Router, http_1.Http, user_service_1.UserService, repo_service_1.RepoService, org_service_1.OrgService])
     ], RepoCreateComponent);
     return RepoCreateComponent;
 }());

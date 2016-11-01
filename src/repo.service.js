@@ -53,9 +53,6 @@ var RepoService = (function () {
         console.error(errMsg);
         return Promise.reject(errMsg);
     };
-    RepoService.prototype.changeTitle = function (val) {
-        this.title.setTitle(val);
-    };
     RepoService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http, platform_browser_1.Title])

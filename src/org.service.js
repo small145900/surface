@@ -95,13 +95,6 @@ var OrgService = (function () {
         console.error(errMsg);
         return Promise.reject(errMsg);
     };
-    // getRepo(id: number): Promise<Repo> {
-    //   return this.getRepoList()
-    //              .then(heroes => heroes.find(hero => hero.id === id));
-    // }
-    OrgService.prototype.changeTitle = function (val) {
-        this.title.setTitle(val);
-    };
     OrgService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http, platform_browser_1.Title])

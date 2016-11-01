@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule, ActivatedRoute, Params } from '@angular/router';
 import { Repo } from './repo';
 import { RepoService } from './repo.service';
+import { UserService } from './user.service';
+
 
 @Component({
 	moduleId: module.id,
@@ -19,6 +21,7 @@ export class RepositoriesComponent implements OnInit {
 	constructor(
 		private router: Router,
     private route: ActivatedRoute,
+    private userService: UserService,
     private repoService: RepoService){
     this.changeTitle('- repositories')
 	}
@@ -40,7 +43,7 @@ export class RepositoriesComponent implements OnInit {
 
   changeTitle(val) {
     var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-    this.repoService.changeTitle(title)
+    this.userService.changeTitle(title)
   }
 
   repoCreate(path){

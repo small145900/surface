@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Location }               from '@angular/common';
+import { UserService } from './user.service';
 import { RepoService } from './repo.service';
 
 @Component({
@@ -12,8 +13,9 @@ export class BrowseDetailComponent {
     private location: Location,
     private route: ActivatedRoute,
     private router: Router,
+    private userService: UserService,
     private repoService: RepoService ){
-    this.changeTitle('- repoDetail')
+    this.changeTitle('- detail')
   }
 
   repoInfo = {
@@ -29,7 +31,7 @@ export class BrowseDetailComponent {
 
   changeTitle(val) {
     var title = (document.getElementsByTagName('title')[0].innerHTML) ? (document.getElementsByTagName('title')[0].innerHTML).split('-')[0] + val : val;
-    this.repoService.changeTitle(title)
+    this.userService.changeTitle(title)
   }
 
   // goBack(): void {
