@@ -116,6 +116,10 @@ select:-webkit-autofill {
 .pad-rt-no {
   padding-right: 0;
 }
+.pad-lr-five {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 .pad-lr-twelve {
   padding-left: 12px;
   padding-right: 12px;
@@ -472,7 +476,8 @@ body {
   width: 100%;
   margin-left: 12px;
 }
-#repoList .media-repo {
+#repoList .media-repo,
+.user-repo .media-repo {
   margin-top: 40px;
   overflow: hidden;
 }
@@ -489,18 +494,22 @@ body {
   font-size: 1.8rem;
   color: #191919;
 }
-#repoList .repo-left span:first-child {
+#repoList .repo-left span:first-child,
+.user-repo .repo-left span:first-child {
   font-size: 2.2rem;
   cursor: pointer;
   color: #fff;
 }
-#repoList .repo-left .bg-orange {
+#repoList .repo-left .bg-orange,
+.user-repo .repo-left .bg-orange {
   background: #F77462;
 }
-#repoList .repo-left .bg-blue {
+#repoList .repo-left .bg-blue,
+.user-repo .repo-left .bg-blue {
   background: #3DA1E5;
 }
-#repoList .repo-body {
+#repoList .repo-body,
+.user-repo .repo-body {
   padding-left: 5px;
   padding-right: 5px;
 }
@@ -515,33 +524,40 @@ body {
   height: 200px;
   border-bottom: 5px solid transparent;
 }
-#repoList .repo-body a:hover {
+#repoList .repo-body a:hover,
+.user-repo .repo-body a:hover {
   border-bottom: 5px solid #3DA1E5;
 }
-#repoList .repo-body a:nth-child(2n) {
+#repoList .repo-body a:nth-child(2n),
+.user-repo .repo-body a:nth-child(2n) {
   margin-left: 5px;
 }
-#repoList .repo-body h3 {
+#repoList .repo-body h3,
+.user-repo .repo-body h3 {
   margin-top: 8px;
   font-size: 2rem;
   color: #191919;
 }
-#repoList .repo-body h5 {
+#repoList .repo-body h5,
+.user-repo .repo-body h5 {
   font-size: 1.8rem;
-  height: 36px;
+  height: 40px;
   overflow: hidden;
   color: #666;
 }
-#repoList .star-fork {
+#repoList .star-fork,
+.user-repo .star-fork {
   font-size: 2.4rem;
   margin-top: 60px;
   margin-bottom: 0;
   position: relative;
 }
-#repoList .star-fork i {
+#repoList .star-fork i,
+.user-repo .star-fork i {
   font-size: 24px;
 }
-#repoList .star-fork i.fa-info-circle {
+#repoList .star-fork i.fa-info-circle,
+.user-repo .star-fork i.fa-info-circle {
   font-size: 18px;
   position: absolute;
   top: 8px;
@@ -973,7 +989,6 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 5px;
-  margin-top: 145px;
 }
 @media screen and (max-width: 1000px) {
   .bast-info .delete-repo-btn {
@@ -1185,6 +1200,17 @@ body {
 .modal-footer .ibutton + .ibutton {
   margin-bottom: 0;
   margin-left: 10px;
+}
+#repoDetail .repo-type {
+  text-align: center;
+}
+#repoDetail .repo-type li {
+  padding: 20px 0;
+  background: #fff;
+}
+#repoDetail .repo-type li:hover {
+  background: #3DA1E5;
+  color: #fff;
 }
 /* repo detail end */
 /* org list start */
@@ -2058,7 +2084,7 @@ body {
 #access .browse .info li {
   float: left;
   background: #F3F3F3;
-  padding: 25px 0 26px;
+  padding: 25px 0 25px;
   text-align: center;
 }
 #access .browse .info li i {
@@ -2093,7 +2119,7 @@ body {
 #access .browse .name img {
   width: 60px;
   height: 60px;
-  margin: 0 12px;
+  margin: 5px 10px 0 12px;
 }
 #access .browse .name .text {
   display: block;
@@ -2295,4 +2321,44 @@ body {
   color: #f00;
 }
 /* prompt end */
+/* user repo start */
+.user-repo .repo-body {
+  padding: 0 5px;
+}
+.user-repo .repo-body a {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 5px;
+  background: #F3F3F3;
+  vertical-align: top;
+  height: 200px;
+  border-bottom: 5px solid transparent;
+}
+.user-repo .repo-left {
+  min-height: 200px;
+  background: #F3F3F3;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.user-repo .repo-left img {
+  width: 150px;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.user-repo .repo-left span {
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+  text-overflow: ellipsis;
+  font-size: 1.8rem;
+  color: #191919;
+}
+.user-repo .repo-left .time {
+  color: #666;
+  font-size: 1.4rem;
+  border-top: 1px solid #CCCCCC;
+}
+/* user repo end */
 /*# sourceMappingURL=app.css.map */

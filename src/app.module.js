@@ -23,6 +23,8 @@ var resetPassword_component_1 = require('./resetPassword.component');
 var browse_component_1 = require('./browse.component');
 var brochur_component_1 = require('./brochur.component');
 var contact_component_1 = require('./contact.component');
+var userRepo_component_1 = require('./userRepo.component');
+var browseDetail_component_1 = require('./browseDetail.component');
 // import { PromptComponent }  from './prompt.component';
 var user_service_1 = require('./user.service');
 var forms_1 = require('@angular/forms');
@@ -50,7 +52,9 @@ var AppModule = (function () {
                 resetPassword_component_1.ResetPwdComponent,
                 browse_component_1.BrowseComponent,
                 brochur_component_1.BrochurComponent,
-                contact_component_1.ContactComponent
+                contact_component_1.ContactComponent,
+                userRepo_component_1.UserRepoComponent,
+                browseDetail_component_1.BrowseDetailComponent
             ],
             providers: [
                 user_service_1.UserService,

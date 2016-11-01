@@ -15,6 +15,8 @@ import { ResetPwdComponent }  from './resetPassword.component';
 import { BrowseComponent }  from './browse.component';
 import { BrochurComponent }  from './brochur.component';
 import { ContactComponent }  from './contact.component';
+import { UserRepoComponent }  from './userRepo.component';
+import { BrowseDetailComponent }  from './browseDetail.component';
 // import { PromptComponent }  from './prompt.component';
 import { UserService }      from './user.service';
 
@@ -41,7 +43,9 @@ import { routing } from './app.routing';
   	ResetPwdComponent,
     BrowseComponent,
     BrochurComponent,
-  	ContactComponent
+  	ContactComponent,
+    UserRepoComponent,
+    BrowseDetailComponent
     // PromptComponent
   ],
   providers: [

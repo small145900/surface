@@ -26,12 +26,5 @@
 		"description": "this is dockyard, this is something.....",
 		"star": 386,
 		"role": "admin"
-	},
-	{
-		"namespace": "container",
-		"repository": "golang",
-		"description": "this is dockyard, this is something.....",
-		"star": 310,
-		"role": "admin"
 	}
 ]

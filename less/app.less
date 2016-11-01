@@ -139,6 +139,11 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 	padding-right: 0;
 }
 
+.pad-lr-five {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
 .pad-lr-twelve {
 	padding-left: 12px;
 	padding-right: 12px;
@@ -587,7 +592,8 @@ body {
 	margin-left: @baseMargin+2px;
 }
 
-#repoList .media-repo {
+#repoList .media-repo,
+.user-repo .media-repo {
 	margin-top: @baseMargin+30px;
 	overflow: hidden;
 }
@@ -607,21 +613,25 @@ body {
 	color: @black;
 }
 
-#repoList .repo-left span:first-child {
+#repoList .repo-left span:first-child,
+.user-repo .repo-left span:first-child {
 	font-size: @smallSize+0.2;
 	cursor: pointer;
 	color: @white;
 }
 
-#repoList .repo-left .bg-orange {
+#repoList .repo-left .bg-orange,
+.user-repo .repo-left .bg-orange {
 	background: @repoOrange;
 }
 
-#repoList .repo-left .bg-blue {
+#repoList .repo-left .bg-blue,
+.user-repo .repo-left .bg-blue {
 	background: @baseBlue;
 }
 
-#repoList .repo-body {
+#repoList .repo-body,
+.user-repo .repo-body {
 	padding-left: 5px;
 	padding-right: 5px;
 }
@@ -638,39 +648,46 @@ body {
 	border-bottom: 5px solid transparent;
 }
 
-#repoList .repo-body a:hover {
+#repoList .repo-body a:hover,
+.user-repo .repo-body a:hover {
 	border-bottom: 5px solid @baseBlue;
 }
 
-#repoList .repo-body a:nth-child(2n) {
+#repoList .repo-body a:nth-child(2n),
+.user-repo .repo-body a:nth-child(2n) {
 	margin-left: 5px;
 }
 
-#repoList .repo-body h3{
+#repoList .repo-body h3,
+.user-repo .repo-body h3 {
 	margin-top: 8px;
 	font-size: @smallSize;
 	color: @black;
 }
 
-#repoList .repo-body h5 {
+#repoList .repo-body h5,
+.user-repo .repo-body h5 {
 	font-size: @baseSize;
-	height: 36px;
+	height: 40px;
 	overflow: hidden;
 	color: @orgFontGray;
 }
 
-#repoList .star-fork {
+#repoList .star-fork,
+.user-repo .star-fork {
 	font-size: @middleSize;
 	margin-top: @baseMargin+50px;
 	margin-bottom: 0;
 	position: relative;
 }
 
-#repoList .star-fork i {
+#repoList .star-fork i,
+.user-repo .star-fork i {
 	font-size: 24px;
 }
 
-#repoList .star-fork i.fa-info-circle {
+#repoList .star-fork i.fa-info-circle,
+.user-repo .star-fork i.fa-info-circle {
 	font-size: 18px;
 	position: absolute;
 	top: 8px;
@@ -1159,7 +1176,6 @@ body {
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: @smallRadius;
- 	margin-top: 145px;
 }
 @media screen and (max-width: 1000px) {
 	.bast-info .delete-repo-btn {
@@ -1387,6 +1403,20 @@ body {
 .modal-footer .ibutton+.ibutton{
   margin-bottom:0;
   margin-left: 10px;
+}
+
+#repoDetail .repo-type {
+	text-align: center;
+}
+
+#repoDetail .repo-type li {
+	padding: 20px 0;
+	background: #fff;
+}
+
+#repoDetail .repo-type li:hover {
+	background: @baseBlue;
+	color: @white;
 }
 
 /* repo detail end */ 
@@ -2378,7 +2408,7 @@ body {
 #access .browse .info li {
 	float: left;
 	background: @browseWhite;
-	padding: 25px 0 26px;
+	padding: 25px 0 25px;
 	text-align: center;
 }
 
@@ -2421,7 +2451,7 @@ body {
 #access .browse .name img {
 	width: 60px;
 	height: 60px;
-	margin: 0 12px;
+	margin: 5px 10px 0 12px;
 }
 
 #access .browse .name .text {
@@ -2677,3 +2707,48 @@ body {
 	color: #f00;
 }
 /* prompt end */ 
+/* user repo start */ 
+.user-repo .repo-body {
+	padding: 0 5px;
+}
+
+.user-repo .repo-body a {
+	display: block;
+	width: 100%;
+	padding: 12px;
+	margin-bottom: 5px;
+	background: @browseWhite;
+	vertical-align: top;
+	height: 200px;
+	border-bottom: 5px solid transparent;
+}
+
+.user-repo .repo-left {
+	min-height: 200px;
+	background: @browseWhite;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.user-repo .repo-left img {
+	width: 150px;
+	height: auto;
+	max-width: 100%;
+	margin-bottom: 20px;
+}
+
+.user-repo .repo-left span {
+	display: block;
+	width: 100%;
+	padding: 5px 0;
+	text-overflow: ellipsis;
+	font-size: @baseSize;
+	color: @black;
+}
+
+.user-repo .repo-left .time {
+	color: @orgFontGray;
+	font-size: @tinySize;
+	border-top: 1px solid @userNavGray;
+}
+/* user repo end */ 

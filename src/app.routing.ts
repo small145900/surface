@@ -10,6 +10,9 @@ import { BrowseComponent }  from './browse.component';
 import { BrochurComponent }  from './brochur.component';
 import { ContactComponent }  from './contact.component';
 import { ContentComponent }  from './content.component';
+import { UserRepoComponent }  from './userRepo.component';
+import { BrowseDetailComponent }  from './browseDetail.component';
+
 
 const appRoutes: Routes = [
   {
@@ -44,6 +47,14 @@ const appRoutes: Routes = [
   {
     path: 'contact',
     component: ContactComponent
+  },
+  {
+    path: 'user/:username',
+    component: UserRepoComponent
+  },
+  {
+    path: 'detail/:repoName',
+    component: BrowseDetailComponent
   },
   {
     path: 'content',
