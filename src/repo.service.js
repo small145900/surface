@@ -32,6 +32,13 @@ var RepoService = (function () {
             .then(this.dealData, this.dealError)
             .catch(this.handleError);
     };
+    RepoService.prototype.getRepoDetail = function (info) {
+        // let params=JSON.stringify(info)
+        return this.http.get('json/repoDetail.json')
+            .toPromise()
+            .then(this.dealData, this.dealError)
+            .catch(this.handleError);
+    };
     RepoService.prototype.dealData = function (res) {
         var object = {
             code: res.status,

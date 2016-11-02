@@ -1,17 +1,16 @@
 {
 	"namespace": "xxx",
 	"repository": "surface",
-	"privilege": "private",
 	"isPraise": true,
-	"time": "xxx", //last pushed
+	"time": "2016.11.11", 
 	"list": [
 		{
 			"type": "DockerV1",
 			"typeId": "xxx",
 			"baseInfo": {
-										"command": "xxx",
-										"shortDesc": "xxx",
-										"fullDesc": "xxx",
+										"command": "pull command",
+										"shortDesc": "this is short desc",
+										"fullDesc": "this is full desc",
 										"privilege": "private"
 									},
 			"tags": [
@@ -19,13 +18,43 @@
 									"tag": "v0.0.1",
 									"image": "ffddd563",
 									"size": "30K",
-									"time": "2015.07.07"
+									"time": "2016.10.07"
+								},
+								{
+									"tag": "v0.0.2",
+									"image": "ffddd573",
+									"size": "32K",
+									"time": "2016.10.08"
+								},
+								{
+									"tag": "v0.0.3",
+									"image": "ffddd579",
+									"size": "32K",
+									"time": "2016.10.09"
+								},
+								{
+									"tag": "v0.0.4",
+									"image": "ffddd583",
+									"size": "32K",
+									"time": "2016.10.10"
 								}
 							],
 			"collaborators": [
 												  {
-												 	 	"username": "xxx",
-												 	 	"access": "collaborator" //[default => write&read]
+												 	 	"username": "tom",
+												 	 	"access": "collaborator"
+												  },
+												  {
+												 	 	"username": "lily",
+												 	 	"access": "collaborator"
+												  },
+												  {
+												 	 	"username": "json",
+												 	 	"access": "collaborator"
+												  },
+												  {
+												 	 	"username": "momo",
+												 	 	"access": "collaborator"
 												  }
 											 ],
 			"buildHistory": [
@@ -49,9 +78,9 @@
 			"type": "DockerV2",
 			"typeId": "xxx",
 			"baseInfo": {
-										"command": "xxx",
-										"shortDesc": "xxx",
-										"fullDesc": "xxx",
+										"command": "pull command",
+										"shortDesc": "this is short desc",
+										"fullDesc": "this is full desc",
 										"privilege": "private"
 									},
 			"tags": [
@@ -59,13 +88,43 @@
 									"tag": "v0.0.1",
 									"image": "ffddd563",
 									"size": "30K",
-									"time": "2015.07.07"
+									"time": "2016.10.07"
+								},
+								{
+									"tag": "v0.0.2",
+									"image": "ffddd573",
+									"size": "32K",
+									"time": "2016.10.08"
+								},
+								{
+									"tag": "v0.0.3",
+									"image": "ffddd579",
+									"size": "32K",
+									"time": "2016.10.09"
+								},
+								{
+									"tag": "v0.0.4",
+									"image": "ffddd583",
+									"size": "32K",
+									"time": "2016.10.10"
 								}
 							],
 			"collaborators": [
 												  {
-												 	 	"username": "xxx",
-												 	 	"access": "collaborator" //[default => write&read]
+												 	 	"username": "tom",
+												 	 	"access": "collaborator"
+												  },
+												  {
+												 	 	"username": "lily",
+												 	 	"access": "collaborator"
+												  },
+												  {
+												 	 	"username": "json",
+												 	 	"access": "collaborator"
+												  },
+												  {
+												 	 	"username": "momo",
+												 	 	"access": "collaborator"
 												  }
 											 ],
 			"buildHistory": [

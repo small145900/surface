@@ -23,15 +23,31 @@ var BrowseDetailComponent = (function () {
         this.repoInfo = {
             repoName: ''
         };
-        this.type = 1;
+        this.repoDetail = {
+            list: []
+        };
+        this.isShowType = false;
+        this.chosedType = '';
+        this.typeDetail = {};
+        this.baseInfo = {};
+        this.tags = [];
+        this.collaborators = [];
+        this.buildHistory = [];
+        this.triggers = [];
+        this.collaborator = {
+            username: ''
+        };
+        // repoDetail(repoInfo){
+        //   this.router.navigate(['repositories',repoInfo.repository])
+        // }
         this.createStep = 1;
-        this.changeTitle('- detail');
+        this.changeTitle('- repoDetail');
     }
     BrowseDetailComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.route.params.forEach(function (params) {
             _this.repoInfo.repoName = params['repoName'];
-            console.log(params['repoName']);
+            _this.getRepoDetail(_this.repoInfo.repoName);
         });
     };
     BrowseDetailComponent.prototype.changeTitle = function (val) {
@@ -44,8 +60,53 @@ var BrowseDetailComponent = (function () {
     BrowseDetailComponent.prototype.edit = function () {
         console.log(this);
     };
-    BrowseDetailComponent.prototype.repoDetail = function (repoInfo) {
-        this.router.navigate(['repositories', repoInfo.repository]);
+    BrowseDetailComponent.prototype.getRepoDetail = function (repoName) {
+        var _this = this;
+        this.repoService.getRepoDetail(repoName)
+            .then(function (res) {
+            if (res.code === 200) {
+                _this.repoDetail = res.data;
+                _this.chosedType = res.data.list[0].type;
+                _this.getTypeDetail(_this.chosedType);
+                console.log(res.data);
+            }
+            else {
+                console.log('get repo detail err', res);
+            }
+        }, function (error) { return _this.errorMsg = error; });
+    };
+    BrowseDetailComponent.prototype.getTypeDetail = function (chosedType) {
+        this.repoDetail.list.map(function (item) {
+            if (chosedType === item.type) {
+                this.typeDetail = item;
+                this.baseInfo = item.baseInfo;
+                this.tags = item.tags;
+                this.collaborators = item.collaborators;
+                console.log(item, 222);
+                return;
+            }
+        }.bind(this));
+    };
+    BrowseDetailComponent.prototype.isShowTypes = function () {
+        this.isShowType = !this.isShowType;
+    };
+    BrowseDetailComponent.prototype.changeType = function (typeInfo) {
+        this.isShowType = false;
+        this.chosedType = typeInfo.type;
+        this.getTypeDetail(this.chosedType);
+    };
+    BrowseDetailComponent.prototype.delCollaborator = function (item, index) {
+        this.collaborators.splice(index, 1);
+    };
+    BrowseDetailComponent.prototype.addCollaborator = function () {
+        if (this.collaborator.username) {
+            var collaborator = {
+                username: this.collaborator.username,
+                access: 'collaborator'
+            };
+            this.collaborators.push(collaborator);
+            this.collaborator.username = '';
+        }
     };
     BrowseDetailComponent.prototype.createBuildNext = function () {
         if (this.createStep == 3) {
@@ -54,9 +115,6 @@ var BrowseDetailComponent = (function () {
         else {
             this.createStep++;
         }
-    };
-    BrowseDetailComponent.prototype.changeType = function (val) {
-        this.type = val;
     };
     BrowseDetailComponent = __decorate([
         core_1.Component({

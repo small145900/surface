@@ -30,6 +30,14 @@ export class RepoService {
                .catch(this.handleError)
   }
 
+  getRepoDetail(info): Promise<any> {
+    // let params=JSON.stringify(info)
+    return this.http.get('json/repoDetail.json')
+               .toPromise()
+               .then(this.dealData,this.dealError)
+               .catch(this.handleError)
+  }
+
   private dealData (res: Response) {
     var object = {
       code: res.status,
