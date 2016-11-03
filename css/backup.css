@@ -885,6 +885,12 @@ body {
   border-color: #b4d0cf;
   color: #5b8a90;
 }
+#repoDetail .header {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin: 10px auto;
+  background: #ededed;
+}
 #repoDetail .fa-star {
   cursor: pointer;
 }
@@ -900,21 +906,11 @@ body {
   font-size: 1.8rem;
 }
 #repoDetail .repo-nav {
+  width: 100%;
   border: none;
-  padding: 0 0 20px;
-  background: #ededed;
-  height: 100%;
-}
-@media screen and (max-width: 1000px) {
-  #repoDetail .repo-nav {
-    height: auto;
-  }
-}
-#repoDetail .user-content {
-  background: #DEDEDE;
+  background: #CCCCCC;
 }
 #repoDetail .repo-nav li {
-  background: #ededed;
   text-align: center;
   padding: 0;
   border: none;
@@ -929,11 +925,11 @@ body {
 }
 #repoDetail .repo-nav > li {
   margin: 0;
-  width: 100%;
 }
 #repoDetail .repo-nav .active,
 #repoDetail .repo-nav .active > a {
-  background: #DEDEDE;
+  background: #2C374B;
+  color: #fff;
   border: none;
   border-radius: 0;
 }
@@ -1222,55 +1218,26 @@ body {
   margin-left: 10px;
 }
 #repoDetail .repo-type {
-  float: left;
-  position: relative;
-}
-#repoDetail .chosed-type {
-  display: block;
-  width: 160px;
-  height: 40px;
-  line-height: 40px;
-  padding: 0 20px 0 10px;
-  color: #fff;
-  background: #F77462;
-  position: relative;
-}
-#repoDetail .chosed-type i {
-  position: absolute;
-  right: 8px;
-  top: 12px;
-}
-#repoDetail .repo-type ul {
-  position: absolute;
-  top: 40px;
-  left: 0;
-  background: #F7F7F7;
-  width: 160px;
-  z-index: 10000;
-}
-#repoDetail .repo-type li {
-  height: 44px;
-  line-height: 44px;
-  width: 100%;
-  cursor: pointer;
-  padding-left: 12px;
-}
-#repoDetail .repo-type li:hover {
-  background: #C0C0C0;
-  color: #fff;
+  text-align: center;
+  padding: 0;
+  height: 100%;
+  background: #ededed;
 }
 #repoDetail .head {
-  padding: 40px 0;
   background: #ededed;
+}
+#repoDetail .repo-type li {
+  padding: 12px 0;
+  width: 100%;
 }
 #repoDetail .repo-type .active {
   background: #DEDEDE;
   color: #191919;
 }
 #repoDetail .content {
-  height: calc(100% - 140px);
-  height: -webkit-calc(100% - 140px);
   background: #DEDEDE;
+  height: calc(100% - 170px);
+  height: -webkit-calc(100% - 170px);
 }
 /* repo detail end */
 /* org list start */
@@ -2422,4 +2389,4 @@ body {
   border-top: 1px solid #CCCCCC;
 }
 /* user repo end */
-/*# sourceMappingURL=app.css.map */
+/*# sourceMappingURL=backup.css.map */

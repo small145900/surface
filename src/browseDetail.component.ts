@@ -8,25 +8,45 @@ import { RepoService } from './repo.service';
   selector: 'browse-detail',
   templateUrl: '../templates/common/browseDetail.html'
 })
+
 export class BrowseDetailComponent {
-	constructor(
+  constructor(
     private location: Location,
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
     private repoService: RepoService ){
-    this.changeTitle('- detail')
+    this.changeTitle('- repoDetail')
   }
+
+  errorMsg: string;
 
   repoInfo = {
     repoName: ''
   };
-  type = 1;
+
+  repoDetail = {
+    list: []
+  };
+
+  isShowType = false;
+
+  chosedType = '';
+  typeDetail = {};
+  baseInfo = {};
+  tags = [];
+  collaborators = [];
+  buildHistory = [];
+  triggers = [];
+
+  collaborator = {
+    username: ''
+  };
 
   ngOnInit(): void {
     this.route.params.forEach((params: Params) => {
       this.repoInfo.repoName = params['repoName']
-      console.log(params['repoName'])
+      this.getRepoDetail(this.repoInfo.repoName)
     });
   }
 
@@ -43,9 +63,60 @@ export class BrowseDetailComponent {
     console.log(this);
   }
 
-  repoDetail(repoInfo){
-    this.router.navigate(['repositories',repoInfo.repository])
+  getRepoDetail(repoName) {
+    this.repoService.getRepoDetail(repoName)
+      .then(res => {
+        if(res.code === 200){
+          this.repoDetail = res.data
+          this.chosedType = res.data.list[0].type
+          this.getTypeDetail(this.chosedType)
+          console.log(res.data)
+        }else{
+          console.log('get repo detail err',res)
+        }
+      },error => this.errorMsg = <any>error);
   }
+
+  getTypeDetail(chosedType){
+    this.repoDetail.list.map(function(item){
+      if(chosedType === item.type){
+        this.typeDetail = item
+        this.baseInfo = item.baseInfo
+        this.tags = item.tags
+        this.collaborators = item.collaborators
+        console.log(item,222)
+        return 
+      }
+    }.bind(this))
+  }
+
+  isShowTypes(){
+    this.isShowType = !this.isShowType;
+  }
+
+  changeType(typeInfo){
+    this.isShowType = false;
+    this.chosedType = typeInfo.type;
+    this.getTypeDetail(this.chosedType)
+  }
+
+  delCollaborator(item,index){
+    this.collaborators.splice(index,1)
+  }
+
+  addCollaborator(){
+    if(this.collaborator.username){
+      var collaborator = {
+        username: this.collaborator.username,
+        access: 'collaborator'
+      }
+      this.collaborators.push(collaborator)
+      this.collaborator.username = ''
+    }
+  }
+  // repoDetail(repoInfo){
+  //   this.router.navigate(['repositories',repoInfo.repository])
+  // }
 
 
   createStep = 1;
@@ -56,9 +127,5 @@ export class BrowseDetailComponent {
     }else{
       this.createStep++;
     }
-  }
-
-  changeType(val){
-    this.type = val
   }
 }
