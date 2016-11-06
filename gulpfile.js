@@ -64,7 +64,7 @@ gulp.task("systemjs",function(){
 });
 
 gulp.task("index",function(){
-	return gulp.src(["index.html","favicon.ico"])
+	return gulp.src(["index.html","coming.html","favicon.ico"])
 		.pipe(gulp.dest("dist"));
 });
 
